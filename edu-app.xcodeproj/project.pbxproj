@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4D68A64727BBA3B400997CFF /* edu_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A64627BBA3B400997CFF /* edu_appApp.swift */; };
-		4D68A64927BBA3B400997CFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A64827BBA3B400997CFF /* ContentView.swift */; };
 		4D68A64B27BBA3B500997CFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D68A64A27BBA3B500997CFF /* Assets.xcassets */; };
 		4D68A64E27BBA3B500997CFF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D68A64D27BBA3B500997CFF /* Preview Assets.xcassets */; };
 		4D68A65827BBA3B600997CFF /* edu_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A65727BBA3B600997CFF /* edu_appTests.swift */; };
 		4D68A66227BBA3B600997CFF /* edu_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A66127BBA3B600997CFF /* edu_appUITests.swift */; };
 		4D68A66427BBA3B600997CFF /* edu_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A66327BBA3B600997CFF /* edu_appUITestsLaunchTests.swift */; };
+		4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A67027BBBBD200997CFF /* AppCoordinator.swift */; };
+		4D68A67B27BBCCE000997CFF /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A67A27BBCCE000997CFF /* MainMenuView.swift */; };
+		4D68A67D27BBCCEF00997CFF /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A67C27BBCCEF00997CFF /* MainMenuViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		4D68A64327BBA3B400997CFF /* edu-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "edu-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D68A64627BBA3B400997CFF /* edu_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edu_appApp.swift; sourceTree = "<group>"; };
-		4D68A64827BBA3B400997CFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4D68A64A27BBA3B500997CFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D68A64D27BBA3B500997CFF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4D68A65327BBA3B600997CFF /* edu-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "edu-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +45,9 @@
 		4D68A65D27BBA3B600997CFF /* edu-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "edu-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D68A66127BBA3B600997CFF /* edu_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edu_appUITests.swift; sourceTree = "<group>"; };
 		4D68A66327BBA3B600997CFF /* edu_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edu_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4D68A67027BBBBD200997CFF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4D68A67A27BBCCE000997CFF /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		4D68A67C27BBCCEF00997CFF /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +98,12 @@
 		4D68A64527BBA3B400997CFF /* edu-app */ = {
 			isa = PBXGroup;
 			children = (
+				4D68A67627BBCCB100997CFF /* Shared */,
+				4D68A67427BBCC9C00997CFF /* Components */,
 				4D68A64627BBA3B400997CFF /* edu_appApp.swift */,
-				4D68A64827BBA3B400997CFF /* ContentView.swift */,
 				4D68A64A27BBA3B500997CFF /* Assets.xcassets */,
 				4D68A64C27BBA3B500997CFF /* Preview Content */,
+				4D68A67027BBBBD200997CFF /* AppCoordinator.swift */,
 			);
 			path = "edu-app";
 			sourceTree = "<group>";
@@ -125,6 +131,54 @@
 				4D68A66327BBA3B600997CFF /* edu_appUITestsLaunchTests.swift */,
 			);
 			path = "edu-appUITests";
+			sourceTree = "<group>";
+		};
+		4D68A67427BBCC9C00997CFF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4D68A67527BBCCA500997CFF /* MainMenu */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4D68A67527BBCCA500997CFF /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				4D68A67A27BBCCE000997CFF /* MainMenuView.swift */,
+				4D68A67C27BBCCEF00997CFF /* MainMenuViewModel.swift */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		4D68A67627BBCCB100997CFF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4D68A67927BBCCC500997CFF /* Extensions */,
+				4D68A67827BBCCC100997CFF /* Services */,
+				4D68A67727BBCCB900997CFF /* Models */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		4D68A67727BBCCB900997CFF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4D68A67827BBCCC100997CFF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4D68A67927BBCCC500997CFF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +311,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D68A64927BBA3B400997CFF /* ContentView.swift in Sources */,
+				4D68A67B27BBCCE000997CFF /* MainMenuView.swift in Sources */,
+				4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */,
+				4D68A67D27BBCCEF00997CFF /* MainMenuViewModel.swift in Sources */,
 				4D68A64727BBA3B400997CFF /* edu_appApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +481,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -454,6 +511,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

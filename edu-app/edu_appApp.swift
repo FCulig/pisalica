@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct edu_appApp: App {
+    var coordinator = AppCoordinator()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            coordinator.start()
         }
     }
 }
