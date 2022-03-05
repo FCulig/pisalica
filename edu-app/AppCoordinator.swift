@@ -12,7 +12,7 @@ class AppCoordinator {
     
     // MARK: - Start -
     
-    func start() -> some View {
+    @MainActor func start() -> some View {
         let mainMenuViewModel = MainMenuViewModel()
         return MainMenuView(model: mainMenuViewModel)
     }
