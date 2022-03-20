@@ -20,6 +20,10 @@
 		4D68A68227BCF41800997CFF /* LevelSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A68127BCF41800997CFF /* LevelSelectViewModel.swift */; };
 		4D68A68527BD416800997CFF /* MainMenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A68427BD416800997CFF /* MainMenuListView.swift */; };
 		4D68A68827BD423400997CFF /* MainMenuListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A68727BD423400997CFF /* MainMenuListItem.swift */; };
+		4D85A69427E7423B008FA08D /* WritingLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69327E7423B008FA08D /* WritingLevelViewModel.swift */; };
+		4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69527E7425E008FA08D /* WritingLevelView.swift */; };
+		4D85A69927E743DF008FA08D /* DrawingCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69827E743DF008FA08D /* DrawingCanvasViewController.swift */; };
+		4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */; };
 		4DA22D9227D35E6F00634AA8 /* Menus.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22D9127D35E6F00634AA8 /* Menus.xcassets */; };
 		4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9427D368F300634AA8 /* AppImage.swift */; };
 		4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9727D36F4E00634AA8 /* AppFont.swift */; };
@@ -60,6 +64,10 @@
 		4D68A68127BCF41800997CFF /* LevelSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewModel.swift; sourceTree = "<group>"; };
 		4D68A68427BD416800997CFF /* MainMenuListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuListView.swift; sourceTree = "<group>"; };
 		4D68A68727BD423400997CFF /* MainMenuListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuListItem.swift; sourceTree = "<group>"; };
+		4D85A69327E7423B008FA08D /* WritingLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLevelViewModel.swift; sourceTree = "<group>"; };
+		4D85A69527E7425E008FA08D /* WritingLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLevelView.swift; sourceTree = "<group>"; };
+		4D85A69827E743DF008FA08D /* DrawingCanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasViewController.swift; sourceTree = "<group>"; };
+		4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
 		4DA22D9127D35E6F00634AA8 /* Menus.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menus.xcassets; sourceTree = "<group>"; };
 		4DA22D9427D368F300634AA8 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 		4DA22D9727D36F4E00634AA8 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 		4D68A67427BBCC9C00997CFF /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4D85A69027E74220008FA08D /* WritingLevel */,
 				4D68A67E27BCF3F000997CFF /* LevelSelect */,
 				4D68A67527BBCCA500997CFF /* MainMenu */,
 			);
@@ -217,6 +226,25 @@
 				4D68A68727BD423400997CFF /* MainMenuListItem.swift */,
 			);
 			path = MainMenuList;
+			sourceTree = "<group>";
+		};
+		4D85A69027E74220008FA08D /* WritingLevel */ = {
+			isa = PBXGroup;
+			children = (
+				4D85A69727E743CD008FA08D /* DrawingCanvas */,
+				4D85A69327E7423B008FA08D /* WritingLevelViewModel.swift */,
+				4D85A69527E7425E008FA08D /* WritingLevelView.swift */,
+			);
+			path = WritingLevel;
+			sourceTree = "<group>";
+		};
+		4D85A69727E743CD008FA08D /* DrawingCanvas */ = {
+			isa = PBXGroup;
+			children = (
+				4D85A69827E743DF008FA08D /* DrawingCanvasViewController.swift */,
+				4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */,
+			);
+			path = DrawingCanvas;
 			sourceTree = "<group>";
 		};
 		4DA22D8F27D35A4900634AA8 /* Resources */ = {
@@ -380,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D68A68027BCF40F00997CFF /* LevelSelectView.swift in Sources */,
+				4D85A69927E743DF008FA08D /* DrawingCanvasViewController.swift in Sources */,
 				4D68A68227BCF41800997CFF /* LevelSelectViewModel.swift in Sources */,
 				4D68A68527BD416800997CFF /* MainMenuListView.swift in Sources */,
 				4D68A67B27BBCCE000997CFF /* MainMenuView.swift in Sources */,
@@ -387,8 +416,11 @@
 				4D68A67D27BBCCEF00997CFF /* MainMenuViewModel.swift in Sources */,
 				4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */,
 				4D68A68827BD423400997CFF /* MainMenuListItem.swift in Sources */,
+				4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */,
 				4D68A64727BBA3B400997CFF /* edu_appApp.swift in Sources */,
+				4D85A69427E7423B008FA08D /* WritingLevelViewModel.swift in Sources */,
 				4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */,
+				4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
