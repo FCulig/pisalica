@@ -19,7 +19,6 @@ struct MainMenuListView: View {
 struct MainMenuListView_Previews: PreviewProvider {
     static var previews: some View {
         MainMenuListView()
-.previewInterfaceOrientation(.landscapeLeft)
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
- 

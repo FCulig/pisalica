@@ -10,7 +10,7 @@ import SwiftUI
 
 enum AppFont {
     case bubblegum
-    
+
     var font: Font {
         switch self {
         case .bubblegum:

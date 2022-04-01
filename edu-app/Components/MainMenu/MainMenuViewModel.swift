@@ -7,6 +7,4 @@
 
 import Foundation
 
-@MainActor class MainMenuViewModel: ObservableObject {
-    
-}
+@MainActor class MainMenuViewModel: ObservableObject {}

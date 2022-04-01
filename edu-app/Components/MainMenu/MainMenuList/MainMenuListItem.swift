@@ -8,18 +8,17 @@
 import SwiftUI
 
 struct MainMenuListItem: View {
-    
     let displayName: String
-    
+
     var body: some View {
         Button(action: {
-          print("button pressed")
+            print("button pressed")
         }) {
             ZStack {
                 AppImage.textButtonBackground.image
-                        .resizable()
-                        .renderingMode(.original)
-                        .frame(height: 90, alignment: .center)
+                    .resizable()
+                    .renderingMode(.original)
+                    .frame(height: 90, alignment: .center)
                 Text(displayName)
                     .foregroundColor(.white)
                     .font(AppFont.bubblegum.font)

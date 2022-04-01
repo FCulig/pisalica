@@ -7,6 +7,4 @@
 
 import Foundation
 
-class LevelSelectViewModel: ObservableObject {
-    
-}
+class LevelSelectViewModel: ObservableObject {}

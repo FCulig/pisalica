@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct MainMenuView: View {
-    
     @ObservedObject var model: MainMenuViewModel
-    
+
     var body: some View {
         NavigationView {
             MainMenuListView()
@@ -22,6 +21,6 @@ struct MainMenuView: View {
 struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
         MainMenuView(model: .init())
-.previewInterfaceOrientation(.landscapeLeft)
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

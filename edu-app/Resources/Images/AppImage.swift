@@ -12,7 +12,7 @@ enum AppImage {
     case textButtonBackground
     case textButtonPressedBackground
     case titleSignBackground
-    
+
     var image: Image {
         switch self {
         case .textButtonBackground:

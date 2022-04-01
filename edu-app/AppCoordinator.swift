@@ -9,9 +9,8 @@ import Foundation
 import SwiftUI
 
 class AppCoordinator {
-    
     // MARK: - Start -
-    
+
     @MainActor func start() -> some View {
 //        let mainMenuViewModel = MainMenuViewModel()
 //        return MainMenuView(model: mainMenuViewModel)
