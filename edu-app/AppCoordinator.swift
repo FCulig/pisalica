@@ -14,6 +14,6 @@ class AppCoordinator {
     @MainActor func start() -> some View {
 //        let mainMenuViewModel = MainMenuViewModel()
 //        return MainMenuView(model: mainMenuViewModel)
-        return WritingLevelView()
+        return WritingLevelView(drawingCanvasViewModel: DrawingCanvasViewModel())
     }
 }

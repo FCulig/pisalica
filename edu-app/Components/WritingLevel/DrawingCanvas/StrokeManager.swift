@@ -11,13 +11,9 @@ import UIKit
 
 /// Protocol used by the `StrokeManager` to send requests back to the `ViewController` to update the
 /// display.
-protocol StrokeManagerDelegate: AnyObject {
+protocol StrokeManagerDelegate {
     /** Clears any temporary ink managed by the caller. */
     func clearInk()
-    /** Redraws the ink and recognition results. */
-    func redraw()
-    /** Display the given message to the user. */
-    func displayMessage(message: String)
 }
 
 /// The `StrokeManager` object is responsible for storing the ink and recognition results, and
@@ -51,7 +47,7 @@ class StrokeManager {
     private var recognizer: DigitalInkRecognizer!
 
     /** The view that handles UI stuff. */
-    private weak var delegate: StrokeManagerDelegate?
+    private let delegate: StrokeManagerDelegate
 
     /** Properties to track and manage the selected language and recognition model. */
     private var model: DigitalInkRecognitionModel?
@@ -76,7 +72,7 @@ class StrokeManager {
                 if notification.userInfo![ModelDownloadUserInfoKey.remoteModel.rawValue]
                     as? DigitalInkRecognitionModel == self.model
                 {
-                    self.delegate?.displayMessage(message: "Model download succeeded")
+//                    self.delegate?.displayMessage(message: "Model download succeeded")
                 }
             }
         )
@@ -89,7 +85,7 @@ class StrokeManager {
                 if notification.userInfo![ModelDownloadUserInfoKey.remoteModel.rawValue]
                     as? DigitalInkRecognitionModel == self.model
                 {
-                    self.delegate?.displayMessage(message: "Model download failed")
+//                    self.delegate?.displayMessage(message: "Model download failed")
                 }
             }
         )
@@ -113,7 +109,7 @@ class StrokeManager {
         let identifier = DigitalInkRecognitionModelIdentifier(forLanguageTag: languageTag)
         model = DigitalInkRecognitionModel(modelIdentifier: identifier!)
         recognizer = nil
-        delegate?.displayMessage(message: "Selected language with tag \(languageTag)")
+//        delegate?.displayMessage(message: "Selected language with tag \(languageTag)")
     }
 
     /**
@@ -122,10 +118,10 @@ class StrokeManager {
      */
     func downloadModel() {
         if modelManager.isModelDownloaded(model!) {
-            delegate?.displayMessage(message: "Model is already downloaded")
+//            delegate?.displayMessage(message: "Model is already downloaded")
             return
         }
-        delegate?.displayMessage(message: "Starting download")
+//        delegate?.displayMessage(message: "Starting download")
         // The Progress object returned by `downloadModel` currently only takes on the values 0% or 100%
         // so is not very useful. Instead we'll rely on the outcome listeners in the initializer to
         // inform the user if a download succeeds or fails.
@@ -143,18 +139,18 @@ class StrokeManager {
      */
     func recognizeInk() {
         if strokes.isEmpty {
-            delegate?.displayMessage(message: "No ink to recognize")
+//            delegate?.displayMessage(message: "No ink to recognize")
             return
         }
         if !modelManager.isModelDownloaded(model!) {
-            delegate?.displayMessage(message: "Recognizer model not downloaded")
+//            delegate?.displayMessage(message: "Recognizer model not downloaded")
             return
         }
         if recognizer == nil {
-            delegate?.displayMessage(message: "Initializing recognizer")
+//            delegate?.displayMessage(message: "Initializing recognizer")
             let options = DigitalInkRecognizerOptions(model: model!)
             recognizer = DigitalInkRecognizer.digitalInkRecognizer(options: options)
-            delegate?.displayMessage(message: "Initialized recognizer")
+//            delegate?.displayMessage(message: "Initialized recognizer")
         }
 
         // Turn the list of strokes into an `Ink`, and add this ink to the `recognizedInks` array.
@@ -163,8 +159,7 @@ class StrokeManager {
         recognizedInks.append(recognizedInk)
         // Clear the currently being drawn ink, and display the ink from `recognizedInks` (which results
         // in it changing color).
-        delegate?.redraw()
-        delegate?.clearInk()
+        delegate.clearInk()
         strokes = []
         // Start the recognizer. Callback function will store the recognized text and tell the
         // `ViewController` to redraw the screen to show it.
@@ -172,19 +167,18 @@ class StrokeManager {
             ink: ink,
             completion: {
                 [unowned self, recognizedInk]
-                (result: DigitalInkRecognitionResult?, error: Error?) in
+                (result: DigitalInkRecognitionResult?, _: Error?) in
                 if let result = result, let candidate = result.candidates.first {
                     recognizedInk.text = candidate.text
                     var message = "Recognized: \(candidate.text)"
                     if candidate.score != nil {
                         message += " score \(candidate.score!.floatValue)"
                     }
-                    self.delegate?.displayMessage(message: message)
+//                    self.delegate?.displayMessage(message: message)
                 } else {
                     recognizedInk.text = "error"
-                    self.delegate?.displayMessage(message: "Recognition error " + String(describing: error))
+//                    self.delegate?.displayMessage(message: "Recognition error " + String(describing: error))
                 }
-                self.delegate?.redraw()
             }
         )
     }

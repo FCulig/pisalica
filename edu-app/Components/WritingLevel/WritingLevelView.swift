@@ -8,14 +8,24 @@
 import SwiftUI
 
 // TODO: https://stackoverflow.com/questions/60700609/saving-pencilkit-image-swiftui
+
+// MARK: - WritingLevelView -
+
 struct WritingLevelView: View {
+    let drawingCanvasViewModel: DrawingCanvasViewModel
+
     var body: some View {
-        DrawingCanvasView(data: Data())
+        VStack {
+            DrawingCanvasView(viewModel: drawingCanvasViewModel)
+            Button("Clear") {
+                drawingCanvasViewModel.clearCanvasAction.send()
+            }
+        }
     }
 }
 
 struct WritingLevelView_Previews: PreviewProvider {
     static var previews: some View {
-        WritingLevelView()
+        WritingLevelView(drawingCanvasViewModel: DrawingCanvasViewModel())
     }
 }

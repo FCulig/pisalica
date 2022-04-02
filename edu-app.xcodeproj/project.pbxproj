@@ -11,6 +11,7 @@
 		4D053E9B27F5D1DD00B3E198 /* DrawingCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053E9A27F5D1DD00B3E198 /* DrawingCanvasViewController.swift */; };
 		4D053E9D27F5D30200B3E198 /* StrokeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053E9C27F5D30200B3E198 /* StrokeManager.swift */; };
 		4D053E9F27F5D32100B3E198 /* RecognizedInk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053E9E27F5D32100B3E198 /* RecognizedInk.swift */; };
+		4D053EA327F7844800B3E198 /* DrawingCanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EA227F7844800B3E198 /* DrawingCanvasViewModel.swift */; };
 		4D68A64727BBA3B400997CFF /* edu_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A64627BBA3B400997CFF /* edu_appApp.swift */; };
 		4D68A64B27BBA3B500997CFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D68A64A27BBA3B500997CFF /* Assets.xcassets */; };
 		4D68A64E27BBA3B500997CFF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D68A64D27BBA3B500997CFF /* Preview Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		4D053E9A27F5D1DD00B3E198 /* DrawingCanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasViewController.swift; sourceTree = "<group>"; };
 		4D053E9C27F5D30200B3E198 /* StrokeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeManager.swift; sourceTree = "<group>"; };
 		4D053E9E27F5D32100B3E198 /* RecognizedInk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedInk.swift; sourceTree = "<group>"; };
+		4D053EA227F7844800B3E198 /* DrawingCanvasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasViewModel.swift; sourceTree = "<group>"; };
 		4D68A64327BBA3B400997CFF /* edu-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "edu-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D68A64627BBA3B400997CFF /* edu_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edu_appApp.swift; sourceTree = "<group>"; };
 		4D68A64A27BBA3B500997CFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				4D053E9A27F5D1DD00B3E198 /* DrawingCanvasViewController.swift */,
 				4D053E9C27F5D30200B3E198 /* StrokeManager.swift */,
 				4D053E9E27F5D32100B3E198 /* RecognizedInk.swift */,
+				4D053EA227F7844800B3E198 /* DrawingCanvasViewModel.swift */,
 			);
 			path = DrawingCanvas;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				4D053E9F27F5D32100B3E198 /* RecognizedInk.swift in Sources */,
 				4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */,
 				4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */,
+				4D053EA327F7844800B3E198 /* DrawingCanvasViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,19 +13,12 @@ import SwiftUI
 struct DrawingCanvasView: UIViewControllerRepresentable {
     typealias UIViewControllerType = DrawingCanvasViewController
 
-    var data: Data
+    public let viewModel: DrawingCanvasViewModel
 
-    func updateUIViewController(_: DrawingCanvasViewController, context _: Context) {
-//        viewController.drawingData = data
-    }
+    func updateUIViewController(_: DrawingCanvasViewController, context _: Context) {}
 
     func makeUIViewController(context _: Context) -> DrawingCanvasViewController {
-        let viewController = DrawingCanvasViewController()
-//        viewController.drawingData = data
-//        viewController.drawingChanged = { data in
-//            print("Something changed")
-//        }
-
+        let viewController = DrawingCanvasViewController(viewModel: viewModel)
         return viewController
     }
 }
