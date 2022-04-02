@@ -12,16 +12,13 @@ import UIKit
 // MARK: - DrawingCanvasViewModel -
 
 class DrawingCanvasViewModel {
-    // MARK: - Private properties -
-
-    public lazy var strokeManager = StrokeManager(delegate: self)
-
-    private var clearCanvasSubject: PassthroughSubject<Void, Never> = .init()
-    private var cancellabels: Set<AnyCancellable> = []
-
     // MARK: - Public properties -
 
+    let level: Level
+    let levelValidator: LevelValidatorService
     var lastPoint: CGPoint!
+    var points: [CGPoint] = []
+    lazy var strokeManager = StrokeManager(delegate: self)
 
     var clearCanvas: AnyPublisher<Void, Never> {
         clearCanvasSubject.eraseToAnyPublisher()
@@ -29,11 +26,18 @@ class DrawingCanvasViewModel {
 
     let clearCanvasAction: PassthroughSubject<Void, Never> = .init()
 
+    // MARK: - Private properties -
+
+    private var clearCanvasSubject: PassthroughSubject<Void, Never> = .init()
+    private var cancellabels: Set<AnyCancellable> = []
+
     // MARK: - Initializer
 
-    public init() {
-        subscribeActions()
+    public init(level: Level, levelValidatorService: LevelValidatorService) {
+        self.level = level
+        levelValidator = levelValidatorService
 
+        subscribeActions()
         strokeManager.selectLanguage(languageTag: "hr")
     }
 
@@ -43,6 +47,7 @@ class DrawingCanvasViewModel {
                 guard let self = self else { return }
                 self.clearCanvasSubject.send()
                 self.strokeManager.clear()
+                self.points = []
             }
             .store(in: &cancellabels)
     }
@@ -53,7 +58,8 @@ class DrawingCanvasViewModel {
 extension DrawingCanvasViewModel {
     func touchesBegan(touchPoint: CGPoint, time: TimeInterval) {
         lastPoint = touchPoint
-        strokeManager.startStrokeAtPoint(point: touchPoint, t: time)
+        strokeManager.startStrokeAtPoint(point: lastPoint, t: time)
+        points.append(lastPoint)
     }
 
     func touchesMoved(time: TimeInterval) {
@@ -62,6 +68,16 @@ extension DrawingCanvasViewModel {
 
     func touchesEnded(time: TimeInterval) {
         strokeManager.endStrokeAtPoint(point: lastPoint, t: time)
+        points.append(lastPoint)
+
+        if points.count == level.numberOfLines * 2,
+           levelValidator.isValid(level: level, points: points)
+        {
+            print("Now we should validate")
+            strokeManager.recognizeInk()
+        } else {
+            print("Invalid")
+        }
     }
 }
 

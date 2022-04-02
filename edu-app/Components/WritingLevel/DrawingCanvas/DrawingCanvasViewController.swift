@@ -18,20 +18,6 @@ class DrawingCanvasViewController: UIViewController {
 
     private lazy var drawnImage = UIImageView()
 
-    private lazy var recognizeButton: UIButton = {
-        let button = UIButton()
-        button.addTarget(self, action: #selector(didPressRecognize), for: .touchUpInside)
-        button.setTitle("Recognize", for: .normal)
-        return button
-    }()
-
-    private lazy var contentStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [drawnImage, recognizeButton])
-        stackView.axis = .vertical
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-
     // MARK: - Private properties -
 
     private let viewModel: DrawingCanvasViewModel
@@ -82,7 +68,7 @@ class DrawingCanvasViewController: UIViewController {
 private extension DrawingCanvasViewController {
     func subscribeActions() {
         viewModel.clearCanvas
-            .sink { [weak self] in self?.didPressClear() }
+            .sink { [weak self] in self?.drawnImage.image = nil }
             .store(in: &cancellabels)
     }
 }
@@ -91,27 +77,16 @@ private extension DrawingCanvasViewController {
 
 private extension DrawingCanvasViewController {
     func addSubviews() {
-        view.addSubview(contentStackView)
+        view.addSubview(drawnImage)
+        drawnImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            contentStackView.topAnchor.constraint(equalTo: view.topAnchor),
-            contentStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            contentStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            contentStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            drawnImage.topAnchor.constraint(equalTo: view.topAnchor),
+            drawnImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            drawnImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            drawnImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
-            drawnImage.heightAnchor.constraint(equalToConstant: 700)
+            drawnImage.heightAnchor.constraint(equalToConstant: 700),
         ])
-    }
-}
-
-// MARK: - Button tap handling -
-
-private extension DrawingCanvasViewController {
-    func didPressClear() {
-        drawnImage.image = nil
-    }
-
-    @objc func didPressRecognize() {
-        viewModel.strokeManager.recognizeInk()
     }
 }
 

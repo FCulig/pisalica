@@ -26,6 +26,7 @@ struct WritingLevelView: View {
 
 struct WritingLevelView_Previews: PreviewProvider {
     static var previews: some View {
-        WritingLevelView(drawingCanvasViewModel: DrawingCanvasViewModel())
+        WritingLevelView(drawingCanvasViewModel: DrawingCanvasViewModel(level: Level.A,
+                                                                        levelValidatorService: LevelValidatorService()))
     }
 }
