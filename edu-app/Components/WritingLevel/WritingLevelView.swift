@@ -16,11 +16,17 @@ struct WritingLevelView: View {
 
     var body: some View {
         VStack {
+            Text(drawingCanvasViewModel.level.rawName)
+                .font(.system(size: 50))
             DrawingCanvasView(viewModel: drawingCanvasViewModel)
+                .cornerRadius(10)
+                .padding([.leading, .bottom, .trailing], 30.0)
             Button("Clear") {
                 drawingCanvasViewModel.clearCanvasAction.send()
             }
+            .foregroundColor(/*@START_MENU_TOKEN@*/ .white/*@END_MENU_TOKEN@*/)
         }
+        .background(Color.cyan)
     }
 }
 

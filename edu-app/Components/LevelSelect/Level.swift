@@ -38,4 +38,17 @@ enum Level {
             return 2
         }
     }
+
+    var rawName: String {
+        switch self {
+        case .A:
+            return "A"
+        case .B:
+            return "B"
+        case .C:
+            return "C"
+        case .D:
+            return "D"
+        }
+    }
 }

@@ -24,11 +24,21 @@ class DrawingCanvasViewModel {
         clearCanvasSubject.eraseToAnyPublisher()
     }
 
+    var errorNotification: AnyPublisher<Void, Never> {
+        errorNotificationSubject.eraseToAnyPublisher()
+    }
+
+    var successNotification: AnyPublisher<Void, Never> {
+        successNotificationSubject.eraseToAnyPublisher()
+    }
+
     let clearCanvasAction: PassthroughSubject<Void, Never> = .init()
 
     // MARK: - Private properties -
 
     private var clearCanvasSubject: PassthroughSubject<Void, Never> = .init()
+    private var errorNotificationSubject: PassthroughSubject<Void, Never> = .init()
+    private var successNotificationSubject: PassthroughSubject<Void, Never> = .init()
     private var cancellabels: Set<AnyCancellable> = []
 
     // MARK: - Initializer
@@ -70,13 +80,15 @@ extension DrawingCanvasViewModel {
         strokeManager.endStrokeAtPoint(point: lastPoint, t: time)
         points.append(lastPoint)
 
-        if points.count == level.numberOfLines * 2,
-           levelValidator.isValid(level: level, points: points)
-        {
-            print("Now we should validate")
+        if points.count == level.numberOfLines * 2 {
+            guard levelValidator.isValid(level: level, points: points) else {
+                errorNotificationSubject.send()
+                return
+            }
+
+            // TODO: Implement
             strokeManager.recognizeInk()
-        } else {
-            print("Invalid")
+            successNotificationSubject.send()
         }
     }
 }

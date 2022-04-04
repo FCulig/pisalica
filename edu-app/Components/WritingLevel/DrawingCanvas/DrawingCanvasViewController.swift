@@ -16,6 +16,7 @@ class DrawingCanvasViewController: UIViewController {
 
     // MARK: - View components -
 
+    private lazy var background = UIView()
     private lazy var drawnImage = UIImageView()
 
     // MARK: - Private properties -
@@ -70,6 +71,14 @@ private extension DrawingCanvasViewController {
         viewModel.clearCanvas
             .sink { [weak self] in self?.drawnImage.image = nil }
             .store(in: &cancellabels)
+
+        viewModel.errorNotification
+            .sink { [weak self] in self?.displayError() }
+            .store(in: &cancellabels)
+
+        viewModel.successNotification
+            .sink { [weak self] in self?.displaySuccess() }
+            .store(in: &cancellabels)
     }
 }
 
@@ -77,16 +86,24 @@ private extension DrawingCanvasViewController {
 
 private extension DrawingCanvasViewController {
     func addSubviews() {
-        view.addSubview(drawnImage)
+        view.addSubview(background)
+        background.translatesAutoresizingMaskIntoConstraints = false
+
+        background.addSubview(drawnImage)
         drawnImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            drawnImage.topAnchor.constraint(equalTo: view.topAnchor),
-            drawnImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            drawnImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            drawnImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            background.topAnchor.constraint(equalTo: view.topAnchor),
+            background.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            background.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            background.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
-            drawnImage.heightAnchor.constraint(equalToConstant: 700),
+            drawnImage.topAnchor.constraint(equalTo: background.topAnchor, constant: 10),
+            drawnImage.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -10),
+            drawnImage.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 10),
+            drawnImage.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -10),
         ])
+
+        view.backgroundColor = .white
     }
 }
 
@@ -112,5 +129,19 @@ private extension DrawingCanvasViewController {
         drawnImage.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         viewModel.lastPoint = currentPoint
+    }
+
+    func displayError() {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.background.backgroundColor = .red
+            self?.background.backgroundColor = .white
+        }
+    }
+
+    func displaySuccess() {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.background.backgroundColor = .green
+            self?.background.backgroundColor = .white
+        }
     }
 }
