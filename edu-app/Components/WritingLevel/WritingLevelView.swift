@@ -16,13 +16,20 @@ struct WritingLevelView: View {
 
     var body: some View {
         VStack {
-            Text(drawingCanvasViewModel.level.rawName)
-                .font(.system(size: 50))
+            drawingCanvasViewModel.level.unlockedImage
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 150, alignment: .center)
             DrawingCanvasView(viewModel: drawingCanvasViewModel)
                 .cornerRadius(10)
                 .padding([.leading, .bottom, .trailing], 30.0)
-            Button("Clear") {
+            Button(action: {
                 drawingCanvasViewModel.clearCanvasAction.send()
+            }) {
+                AppImage.trashCanButton.image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300, alignment: .center)
             }
             .foregroundColor(/*@START_MENU_TOKEN@*/ .white/*@END_MENU_TOKEN@*/)
         }

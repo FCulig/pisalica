@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Level {
     case A
@@ -50,5 +51,22 @@ enum Level {
         case .D:
             return "D"
         }
+    }
+
+    var unlockedImage: Image {
+        switch self {
+        case .A:
+            return Image("A-unlocked")
+        case .B:
+            return Image("A-unlocked")
+        case .C:
+            return Image("A-unlocked")
+        case .D:
+            return Image("A-unlocked")
+        }
+    }
+
+    var lockedImage: Image {
+        return Image("")
     }
 }

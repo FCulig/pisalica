@@ -83,12 +83,15 @@ extension DrawingCanvasViewModel {
         if points.count == level.numberOfLines * 2 {
             guard levelValidator.isValid(level: level, points: points) else {
                 errorNotificationSubject.send()
+                points = []
+                clearInk()
                 return
             }
 
             // TODO: Implement
             strokeManager.recognizeInk()
             successNotificationSubject.send()
+            points = []
         }
     }
 }
@@ -96,8 +99,9 @@ extension DrawingCanvasViewModel {
 // MARK: - StrokeManagerDelegate -
 
 extension DrawingCanvasViewModel: StrokeManagerDelegate {
-    // TODO: Mozda neki delay?
     func clearInk() {
-        clearCanvasSubject.send()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            self?.clearCanvasSubject.send()
+        }
     }
 }

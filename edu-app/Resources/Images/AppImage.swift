@@ -12,6 +12,8 @@ enum AppImage {
     case textButtonBackground
     case textButtonPressedBackground
     case titleSignBackground
+    case trashCanButton
+    case playButton
 
     var image: Image {
         switch self {
@@ -21,6 +23,10 @@ enum AppImage {
             return Image("text-button-pressed-background")
         case .titleSignBackground:
             return Image("title-sign-background")
+        case .trashCanButton:
+            return Image("trash-can-button")
+        case .playButton:
+            return Image("play-button")
         }
     }
 }

@@ -21,7 +21,6 @@ struct MainMenuListItem: View {
                     .frame(height: 90, alignment: .center)
                 Text(displayName)
                     .foregroundColor(.white)
-                    .font(AppFont.bubblegum.font)
                     .fontWeight(.bold)
             }
         }.listRowSeparator(.hidden)

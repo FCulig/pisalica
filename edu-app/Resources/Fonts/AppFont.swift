@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 enum AppFont {
-    case bubblegum
+    case title
 
     var font: Font {
         switch self {
-        case .bubblegum:
-            return Font.custom("Bubblegum", size: 26)
+        case .title:
+            return Font.custom("RobotoCondensed-Bold", size: 50)
         }
     }
 }

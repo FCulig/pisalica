@@ -34,7 +34,9 @@
 		4DA22D9227D35E6F00634AA8 /* Menus.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22D9127D35E6F00634AA8 /* Menus.xcassets */; };
 		4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9427D368F300634AA8 /* AppImage.swift */; };
 		4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9727D36F4E00634AA8 /* AppFont.swift */; };
-		4DA22D9A27D3710800634AA8 /* Bubblegum.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22D9927D3710800634AA8 /* Bubblegum.ttf */; };
+		4DBD9BBE2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
+		4DBD9BBF2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
+		4DBD9BC02802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
 		770280DB3ADD41D160D343D0 /* Pods_edu_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FE45D2D761336D1E20F680 /* Pods_edu_appTests.framework */; };
 		CE6057688EDAC47FFFE31411 /* Pods_edu_app_edu_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D995C41732B6E79E60A49DA /* Pods_edu_app_edu_appUITests.framework */; };
 /* End PBXBuildFile section */
@@ -87,8 +89,8 @@
 		4DA22D9127D35E6F00634AA8 /* Menus.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menus.xcassets; sourceTree = "<group>"; };
 		4DA22D9427D368F300634AA8 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 		4DA22D9727D36F4E00634AA8 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
-		4DA22D9927D3710800634AA8 /* Bubblegum.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bubblegum.ttf; sourceTree = "<group>"; };
 		4DA22D9B27D371AB00634AA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		508DF7511ABF05E1233748FE /* Pods-edu-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-appTests.debug.xcconfig"; path = "Target Support Files/Pods-edu-appTests/Pods-edu-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DDC9428A46152CF28E54AE3 /* Pods-edu-app-edu-appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-app-edu-appUITests.debug.xcconfig"; path = "Target Support Files/Pods-edu-app-edu-appUITests/Pods-edu-app-edu-appUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6D995C41732B6E79E60A49DA /* Pods_edu_app_edu_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_edu_app_edu_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,7 +327,7 @@
 		4DA22D9027D35A5300634AA8 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				4DA22D9927D3710800634AA8 /* Bubblegum.ttf */,
+				4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */,
 				4DA22D9727D36F4E00634AA8 /* AppFont.swift */,
 			);
 			path = Fonts;
@@ -455,7 +457,7 @@
 			files = (
 				4D68A64E27BBA3B500997CFF /* Preview Assets.xcassets in Resources */,
 				4D68A64B27BBA3B500997CFF /* Assets.xcassets in Resources */,
-				4DA22D9A27D3710800634AA8 /* Bubblegum.ttf in Resources */,
+				4DBD9BBE2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */,
 				4DA22D9227D35E6F00634AA8 /* Menus.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +466,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DBD9BBF2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +474,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DBD9BC02802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
