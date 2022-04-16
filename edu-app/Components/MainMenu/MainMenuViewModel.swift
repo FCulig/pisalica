@@ -5,6 +5,10 @@
 //  Created by Filip Culig on 15.02.2022..
 //
 
-import Foundation
+import Combine
 
-@MainActor class MainMenuViewModel: ObservableObject {}
+// MARK: - MainMenuViewModel -
+
+extension MainMenuView {
+    class ViewModel: ObservableObject {}
+}

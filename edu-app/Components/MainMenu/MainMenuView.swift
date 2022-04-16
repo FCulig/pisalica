@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainMenuView: View {
-    @ObservedObject var viewModel: MainMenuViewModel
+    @StateObject var viewModel: ViewModel
 
     var body: some View {
         NavigationView {
@@ -22,12 +22,14 @@ struct MainMenuView: View {
                     VStack {
                         Spacer()
                         List {
-                            Button(action: {
-                                print("button pressed")
-                            }) {
+                            ZStack {
                                 AppImage.playButton.image
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
+                                NavigationLink(destination: LevelSelectView()) {
+                                    EmptyView()
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)
@@ -41,6 +43,7 @@ struct MainMenuView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarHidden(true)
     }
 }
 

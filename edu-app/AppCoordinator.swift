@@ -5,16 +5,18 @@
 //  Created by Filip Culig on 15.02.2022..
 //
 
-import Foundation
+import Combine
 import SwiftUI
 
+// MARK: - AppCoordinator -
+
 class AppCoordinator {
+    private var cancellabels: Set<AnyCancellable> = []
+
     // MARK: - Start -
 
     @MainActor func start() -> some View {
-        let mainMenuViewModel = MainMenuViewModel()
-        return MainMenuView(model: mainMenuViewModel)
-//        return WritingLevelView(drawingCanvasViewModel: DrawingCanvasViewModel(level: Level.A,
-//                                                                               levelValidatorService: LevelValidatorService()))
+        let mainMenuViewModel = MainMenuView.ViewModel()
+        return MainMenuView(viewModel: mainMenuViewModel)
     }
 }

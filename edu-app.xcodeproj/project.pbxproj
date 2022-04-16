@@ -13,7 +13,7 @@
 		4D053E9F27F5D32100B3E198 /* RecognizedInk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053E9E27F5D32100B3E198 /* RecognizedInk.swift */; };
 		4D053EA327F7844800B3E198 /* DrawingCanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EA227F7844800B3E198 /* DrawingCanvasViewModel.swift */; };
 		4D053EA627F83DA600B3E198 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EA527F83DA600B3E198 /* AppColor.swift */; };
-		4D053EA827F841A500B3E198 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EA727F841A500B3E198 /* Level.swift */; };
+		4D053EA827F841A500B3E198 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EA727F841A500B3E198 /* Levels.swift */; };
 		4D053EAC27F844AB00B3E198 /* LevelValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */; };
 		4D68A64727BBA3B400997CFF /* edu_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A64627BBA3B400997CFF /* edu_appApp.swift */; };
 		4D68A64B27BBA3B500997CFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D68A64A27BBA3B500997CFF /* Assets.xcassets */; };
@@ -35,6 +35,9 @@
 		4DBD9BBE2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
 		4DBD9BBF2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
 		4DBD9BC02802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
+		4DC2D714280AD9FF003CFDD7 /* Levels.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC2D713280AD9FF003CFDD7 /* Levels.xcassets */; };
+		4DC2D716280ADED1003CFDD7 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC2D715280ADED1003CFDD7 /* Level.swift */; };
+		4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC2D717280AE24D003CFDD7 /* LevelButton.swift */; };
 		770280DB3ADD41D160D343D0 /* Pods_edu_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FE45D2D761336D1E20F680 /* Pods_edu_appTests.framework */; };
 		CE6057688EDAC47FFFE31411 /* Pods_edu_app_edu_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D995C41732B6E79E60A49DA /* Pods_edu_app_edu_appUITests.framework */; };
 /* End PBXBuildFile section */
@@ -63,7 +66,7 @@
 		4D053E9E27F5D32100B3E198 /* RecognizedInk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedInk.swift; sourceTree = "<group>"; };
 		4D053EA227F7844800B3E198 /* DrawingCanvasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasViewModel.swift; sourceTree = "<group>"; };
 		4D053EA527F83DA600B3E198 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
-		4D053EA727F841A500B3E198 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		4D053EA727F841A500B3E198 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelValidatorService.swift; sourceTree = "<group>"; };
 		4D68A64327BBA3B400997CFF /* edu-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "edu-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D68A64627BBA3B400997CFF /* edu_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edu_appApp.swift; sourceTree = "<group>"; };
@@ -87,6 +90,9 @@
 		4DA22D9727D36F4E00634AA8 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		4DA22D9B27D371AB00634AA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		4DC2D713280AD9FF003CFDD7 /* Levels.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Levels.xcassets; sourceTree = "<group>"; };
+		4DC2D715280ADED1003CFDD7 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		4DC2D717280AE24D003CFDD7 /* LevelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
 		508DF7511ABF05E1233748FE /* Pods-edu-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-appTests.debug.xcconfig"; path = "Target Support Files/Pods-edu-appTests/Pods-edu-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DDC9428A46152CF28E54AE3 /* Pods-edu-app-edu-appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-app-edu-appUITests.debug.xcconfig"; path = "Target Support Files/Pods-edu-app-edu-appUITests/Pods-edu-app-edu-appUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6D995C41732B6E79E60A49DA /* Pods_edu_app_edu_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_edu_app_edu_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,6 +256,7 @@
 		4D68A67727BBCCB900997CFF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4DC2D715280ADED1003CFDD7 /* Level.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,7 +281,8 @@
 			children = (
 				4D68A67F27BCF40F00997CFF /* LevelSelectView.swift */,
 				4D68A68127BCF41800997CFF /* LevelSelectViewModel.swift */,
-				4D053EA727F841A500B3E198 /* Level.swift */,
+				4D053EA727F841A500B3E198 /* Levels.swift */,
+				4DC2D717280AE24D003CFDD7 /* LevelButton.swift */,
 			);
 			path = LevelSelect;
 			sourceTree = "<group>";
@@ -324,6 +332,7 @@
 			children = (
 				4D68A64A27BBA3B500997CFF /* Assets.xcassets */,
 				4DA22D9127D35E6F00634AA8 /* Menus.xcassets */,
+				4DC2D713280AD9FF003CFDD7 /* Levels.xcassets */,
 				4DA22D9427D368F300634AA8 /* AppImage.swift */,
 			);
 			path = Images;
@@ -441,6 +450,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DC2D714280AD9FF003CFDD7 /* Levels.xcassets in Resources */,
 				4D68A64E27BBA3B500997CFF /* Preview Assets.xcassets in Resources */,
 				4D68A64B27BBA3B500997CFF /* Assets.xcassets in Resources */,
 				4DBD9BBE2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */,
@@ -642,8 +652,10 @@
 				4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */,
 				4D053EAC27F844AB00B3E198 /* LevelValidatorService.swift in Sources */,
 				4D053EA327F7844800B3E198 /* DrawingCanvasViewModel.swift in Sources */,
+				4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */,
 				4D053EA627F83DA600B3E198 /* AppColor.swift in Sources */,
-				4D053EA827F841A500B3E198 /* Level.swift in Sources */,
+				4DC2D716280ADED1003CFDD7 /* Level.swift in Sources */,
+				4D053EA827F841A500B3E198 /* Levels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,8 +14,8 @@ import UIKit
 class DrawingCanvasViewModel {
     // MARK: - Public properties -
 
-    let level: Level
-    let levelValidator: LevelValidatorService
+    let level: Levels
+    let levelValidator: LevelValidatorService = .init()
     var lastPoint: CGPoint!
     var points: [CGPoint] = []
     lazy var strokeManager = StrokeManager(delegate: self)
@@ -43,9 +43,8 @@ class DrawingCanvasViewModel {
 
     // MARK: - Initializer
 
-    public init(level: Level, levelValidatorService: LevelValidatorService) {
+    public init(level: Levels) {
         self.level = level
-        levelValidator = levelValidatorService
 
         subscribeActions()
         strokeManager.selectLanguage(languageTag: "hr")

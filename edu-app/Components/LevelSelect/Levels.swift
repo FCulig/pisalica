@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum Level {
+enum Levels: CaseIterable {
     case A
     case B
     case C
@@ -56,13 +56,13 @@ enum Level {
     var unlockedImage: Image {
         switch self {
         case .A:
-            return Image("A-unlocked")
+            return Image("A-unlocked").resizable()
         case .B:
-            return Image("A-unlocked")
+            return Image("A-unlocked").resizable()
         case .C:
-            return Image("A-unlocked")
+            return Image("A-unlocked").resizable()
         case .D:
-            return Image("A-unlocked")
+            return Image("A-unlocked").resizable()
         }
     }
 

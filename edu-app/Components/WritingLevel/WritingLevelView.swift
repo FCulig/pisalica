@@ -16,10 +16,7 @@ struct WritingLevelView: View {
 
     var body: some View {
         VStack {
-            drawingCanvasViewModel.level.unlockedImage
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 150, alignment: .center)
+            Text(drawingCanvasViewModel.level.rawName)
             DrawingCanvasView(viewModel: drawingCanvasViewModel)
                 .cornerRadius(10)
                 .padding([.leading, .bottom, .trailing], 30.0)
@@ -39,7 +36,6 @@ struct WritingLevelView: View {
 
 struct WritingLevelView_Previews: PreviewProvider {
     static var previews: some View {
-        WritingLevelView(drawingCanvasViewModel: DrawingCanvasViewModel(level: Level.A,
-                                                                        levelValidatorService: LevelValidatorService()))
+        WritingLevelView(drawingCanvasViewModel: DrawingCanvasViewModel(level: Levels.A))
     }
 }

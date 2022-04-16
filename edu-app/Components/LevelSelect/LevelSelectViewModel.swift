@@ -7,4 +7,20 @@
 
 import Foundation
 
-class LevelSelectViewModel: ObservableObject {}
+extension LevelSelectView {
+    class ViewModel: ObservableObject {
+        @Published var levels: [Level] = []
+
+        public init() {
+            initializeLevels()
+        }
+    }
+}
+
+private extension LevelSelectView.ViewModel {
+    func initializeLevels() {
+        Levels.allCases.forEach {
+            levels += [Level(isLocked: false, level: $0)]
+        }
+    }
+}

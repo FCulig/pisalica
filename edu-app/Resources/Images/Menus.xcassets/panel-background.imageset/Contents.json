@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Panel-drawing-background.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
