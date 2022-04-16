@@ -26,8 +26,6 @@
 		4D68A67D27BBCCEF00997CFF /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A67C27BBCCEF00997CFF /* MainMenuViewModel.swift */; };
 		4D68A68027BCF40F00997CFF /* LevelSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A67F27BCF40F00997CFF /* LevelSelectView.swift */; };
 		4D68A68227BCF41800997CFF /* LevelSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A68127BCF41800997CFF /* LevelSelectViewModel.swift */; };
-		4D68A68527BD416800997CFF /* MainMenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A68427BD416800997CFF /* MainMenuListView.swift */; };
-		4D68A68827BD423400997CFF /* MainMenuListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A68727BD423400997CFF /* MainMenuListItem.swift */; };
 		4D85A69427E7423B008FA08D /* WritingLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69327E7423B008FA08D /* WritingLevelViewModel.swift */; };
 		4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69527E7425E008FA08D /* WritingLevelView.swift */; };
 		4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */; };
@@ -81,8 +79,6 @@
 		4D68A67C27BBCCEF00997CFF /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		4D68A67F27BCF40F00997CFF /* LevelSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectView.swift; sourceTree = "<group>"; };
 		4D68A68127BCF41800997CFF /* LevelSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewModel.swift; sourceTree = "<group>"; };
-		4D68A68427BD416800997CFF /* MainMenuListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuListView.swift; sourceTree = "<group>"; };
-		4D68A68727BD423400997CFF /* MainMenuListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuListItem.swift; sourceTree = "<group>"; };
 		4D85A69327E7423B008FA08D /* WritingLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLevelViewModel.swift; sourceTree = "<group>"; };
 		4D85A69527E7425E008FA08D /* WritingLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLevelView.swift; sourceTree = "<group>"; };
 		4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
@@ -234,7 +230,6 @@
 		4D68A67527BBCCA500997CFF /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
-				4D68A68327BD415100997CFF /* MainMenuList */,
 				4D68A67A27BBCCE000997CFF /* MainMenuView.swift */,
 				4D68A67C27BBCCEF00997CFF /* MainMenuViewModel.swift */,
 			);
@@ -282,15 +277,6 @@
 				4D053EA727F841A500B3E198 /* Level.swift */,
 			);
 			path = LevelSelect;
-			sourceTree = "<group>";
-		};
-		4D68A68327BD415100997CFF /* MainMenuList */ = {
-			isa = PBXGroup;
-			children = (
-				4D68A68427BD416800997CFF /* MainMenuListView.swift */,
-				4D68A68727BD423400997CFF /* MainMenuListItem.swift */,
-			);
-			path = MainMenuList;
 			sourceTree = "<group>";
 		};
 		4D85A69027E74220008FA08D /* WritingLevel */ = {
@@ -643,13 +629,11 @@
 				4D68A68027BCF40F00997CFF /* LevelSelectView.swift in Sources */,
 				4D053E9D27F5D30200B3E198 /* StrokeManager.swift in Sources */,
 				4D68A68227BCF41800997CFF /* LevelSelectViewModel.swift in Sources */,
-				4D68A68527BD416800997CFF /* MainMenuListView.swift in Sources */,
 				4D68A67B27BBCCE000997CFF /* MainMenuView.swift in Sources */,
 				4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */,
 				4D68A67D27BBCCEF00997CFF /* MainMenuViewModel.swift in Sources */,
 				4D053E9B27F5D1DD00B3E198 /* DrawingCanvasViewController.swift in Sources */,
 				4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */,
-				4D68A68827BD423400997CFF /* MainMenuListItem.swift in Sources */,
 				4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */,
 				4D68A64727BBA3B400997CFF /* edu_appApp.swift in Sources */,
 				4D85A69427E7423B008FA08D /* WritingLevelViewModel.swift in Sources */,

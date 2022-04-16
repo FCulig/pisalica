@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 enum AppImage {
+    case houseBackgroundImage
     case textButtonBackground
     case textButtonPressedBackground
     case titleSignBackground
@@ -17,6 +18,8 @@ enum AppImage {
 
     var image: Image {
         switch self {
+        case .houseBackgroundImage:
+            return Image("house-background")
         case .textButtonBackground:
             return Image("text-button-background")
         case .textButtonPressedBackground:
