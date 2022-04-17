@@ -15,22 +15,19 @@ struct MainMenuView: View {
             ZStack {
                 AppImage.houseBackgroundImage.image
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+//                    .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                 HStack {
                     Spacer()
                     VStack {
                         Spacer()
                         List {
-                            ZStack {
+                            NavigationLink(destination: LevelSelectView()) {
                                 AppImage.playButton.image
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                NavigationLink(destination: LevelSelectView()) {
-                                    EmptyView()
-                                }
-                                .buttonStyle(PlainButtonStyle())
                             }
+                            .buttonStyle(PlainButtonStyle())
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)
                         }

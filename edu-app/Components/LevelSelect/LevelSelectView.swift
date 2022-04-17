@@ -18,6 +18,7 @@ struct LevelSelectView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
+                .blur(radius: 3)
             HStack {
                 Spacer()
                 VStack {
@@ -39,7 +40,8 @@ struct LevelSelectView: View {
                 Rectangle()
                     .background(.brown)
                     .cornerRadius(5)
-                    .opacity(0.4)
+                    .opacity(0.45)
+                    .blur(radius: 3)
                     .padding(.horizontal, 90)
                     .padding(.vertical, 65)
                 HStack {
@@ -52,7 +54,7 @@ struct LevelSelectView: View {
             }
         }
         .padding(.horizontal, 70)
-        .padding(.vertical, 20)
+        .padding(.vertical, 10)
     }
 }
 
