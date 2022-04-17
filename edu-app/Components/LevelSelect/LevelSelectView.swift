@@ -38,7 +38,7 @@ struct LevelSelectView: View {
             AppImage.panelBackgroundImage.image
             ZStack {
                 Rectangle()
-                    .background(.brown)
+                    .background(.white)
                     .cornerRadius(5)
                     .opacity(0.45)
                     .blur(radius: 3)
@@ -51,7 +51,12 @@ struct LevelSelectView: View {
                     GridItem(.flexible()),
                 ], spacing: 35) {
                     ForEach(viewModel.displayedLevels, id: \.self) { level in
-                        LevelButton(level)
+                        // TODO: Only if is enabled
+                        NavigationLink {
+                            WritingLevelView(drawingCanvasViewModel: .init(level: level.level))
+                        } label: {
+                            LevelButton(level)
+                        }
                     }
                 }
                 .padding(.horizontal, 95)
