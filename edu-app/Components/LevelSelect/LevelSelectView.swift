@@ -44,13 +44,18 @@ struct LevelSelectView: View {
                     .blur(radius: 3)
                     .padding(.horizontal, 90)
                     .padding(.vertical, 65)
-                HStack {
-                    ForEach(viewModel.levels, id: \.self) { level in
-                        NavigationLink(destination: DrawingCanvasView(viewModel: .init(level: Levels.A))) {
-                            LevelButton(level)
-                        }
+                LazyVGrid(columns: [
+                    GridItem(.flexible()),
+                    GridItem(.flexible()),
+                    GridItem(.flexible()),
+                    GridItem(.flexible()),
+                ], spacing: 35) {
+                    ForEach(viewModel.displayedLevels, id: \.self) { level in
+                        LevelButton(level)
                     }
                 }
+                .padding(.horizontal, 95)
+                .padding(.vertical, 70)
             }
         }
         .padding(.horizontal, 70)

@@ -78,8 +78,8 @@
             filePath = "edu-app/Shared/Services/LevelValidatorService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "validateA(points:)"
             landmarkType = "7">
          </BreakpointContent>

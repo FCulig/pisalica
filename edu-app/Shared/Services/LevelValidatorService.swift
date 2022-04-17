@@ -17,11 +17,7 @@ class LevelValidatorService {
         switch level {
         case .A:
             return validateA(points: points)
-        case .B:
-            return true
-        case .C:
-            return true
-        case .D:
+        default:
             return true
         }
     }
