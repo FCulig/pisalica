@@ -15,7 +15,6 @@ struct LevelSelectView: View {
     var body: some View {
         ZStack {
             AppImage.houseBackgroundImage.image
-                .resizable()
                 .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
                 .blur(radius: 3)
@@ -35,7 +34,6 @@ struct LevelSelectView: View {
     var levelSelectPanel: some View {
         ZStack {
             AppImage.panelBackgroundImage.image
-                .resizable()
             ZStack {
                 Rectangle()
                     .background(.brown)
@@ -57,9 +55,36 @@ struct LevelSelectView: View {
                 .padding(.horizontal, 95)
                 .padding(.vertical, 70)
             }
+            pageControlButtons
         }
         .padding(.horizontal, 70)
         .padding(.vertical, 10)
+    }
+
+    var pageControlButtons: some View {
+        VStack {
+            Spacer()
+            HStack {
+                if viewModel.showPreviousPageButton {
+                    Button {
+                        viewModel.previousPage()
+                    } label: {
+                        AppImage.previousButton.image
+                            .aspectRatio(contentMode: .fit)
+                    }
+                }
+                Spacer()
+                if viewModel.showNextPageButton {
+                    Button {
+                        viewModel.nextPage()
+                    } label: {
+                        AppImage.nextButton.image
+                            .aspectRatio(contentMode: .fit)
+                    }
+                }
+            }
+            .frame(height: 70, alignment: .center)
+        }
     }
 }
 

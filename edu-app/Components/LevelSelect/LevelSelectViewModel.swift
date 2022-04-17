@@ -16,6 +16,8 @@ extension LevelSelectView {
         var paginatedLevels: [[Level]] = []
 
         @Published var displayedLevels: [Level] = []
+        @Published var showPreviousPageButton: Bool = false
+        @Published var showNextPageButton: Bool = false
 
         public init() {
             initializeLevels()
@@ -42,16 +44,29 @@ private extension LevelSelectView.ViewModel {
             tmp += itemsPerPage
         }
 
+        updatePageContent()
+    }
+
+    func updatePageContent() {
         displayedLevels = paginatedLevels[currentPage]
+
+        showNextPageButton = false
+        showPreviousPageButton = false
+        if currentPage > 0 { showPreviousPageButton = true }
+        if currentPage < totalPages - 1 { showNextPageButton = true }
     }
 }
 
 extension LevelSelectView.ViewModel {
     func nextPage() {
-        guard currentPage < totalPages else { return }
+        guard currentPage < totalPages - 1 else { return }
+        currentPage += 1
+        updatePageContent()
     }
 
     func previousPage() {
-        guard currentPage > 1 else { return }
+        guard currentPage > 0 else { return }
+        currentPage -= 1
+        updatePageContent()
     }
 }
