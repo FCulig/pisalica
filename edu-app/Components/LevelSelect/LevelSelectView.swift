@@ -10,6 +10,7 @@ import SwiftUI
 // MARK: - LevelSelectView -
 
 struct LevelSelectView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: ViewModel = .init()
 
     var body: some View {
@@ -27,6 +28,7 @@ struct LevelSelectView: View {
                 }
                 Spacer()
             }
+            backButton
         }
         .navigationBarHidden(true)
     }
@@ -84,6 +86,24 @@ struct LevelSelectView: View {
                 }
             }
             .frame(height: 70, alignment: .center)
+        }
+    }
+
+    var backButton: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Button {
+                    dismiss()
+                } label: {
+                    AppImage.previousButton.image
+                        .aspectRatio(contentMode: .fit)
+                }
+                .frame(height: 70, alignment: .top)
+
+                Spacer()
+            }
+            .padding(.vertical, 45)
+            Spacer()
         }
     }
 }
