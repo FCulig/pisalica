@@ -160,7 +160,7 @@ enum Levels: CaseIterable {
         case .T:
             return 2
         case .U:
-            return 2
+            return 1
         case .V:
             return 2
         case .Z:

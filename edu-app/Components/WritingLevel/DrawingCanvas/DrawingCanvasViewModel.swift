@@ -91,6 +91,7 @@ extension DrawingCanvasViewModel {
             strokeManager.recognizeInk()
             successNotificationSubject.send()
             points = []
+            clearInk()
         }
     }
 }

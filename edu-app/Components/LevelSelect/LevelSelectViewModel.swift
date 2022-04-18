@@ -13,9 +13,9 @@ extension LevelSelectView {
     class ViewModel: ObservableObject {
         var totalPages: Int = 0
         var currentPage: Int = 0
-        var paginatedLevels: [[Level]] = []
+//        var paginatedLevels: [[Level]] = []
 
-        @Published var displayedLevels: [Level] = []
+//        @Published var displayedLevels: [Level] = []
         @Published var showPreviousPageButton: Bool = false
         @Published var showNextPageButton: Bool = false
 
@@ -36,10 +36,10 @@ private extension LevelSelectView.ViewModel {
             var currentPage: [Level] = []
             for j in tmp ..< tmp + itemsPerPage {
                 if levels.count > j {
-                    currentPage.append(Level(isLocked: false, level: levels[j]))
+//                    currentPage.append(Level(isLocked: false, level: levels[j]))
                 }
             }
-            paginatedLevels.append(currentPage)
+//            paginatedLevels.append(currentPage)
             currentPage = []
             tmp += itemsPerPage
         }
@@ -48,7 +48,7 @@ private extension LevelSelectView.ViewModel {
     }
 
     func updatePageContent() {
-        displayedLevels = paginatedLevels[currentPage]
+//        displayedLevels = paginatedLevels[currentPage]
 
         showNextPageButton = false
         showPreviousPageButton = false

@@ -12,6 +12,7 @@ import SwiftUI
 struct LevelSelectView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: ViewModel = .init()
+//    @FetchRequest(sortDescriptors: []) var students: FetchedResults<Level>
 
     var body: some View {
         ZStack {
@@ -50,14 +51,15 @@ struct LevelSelectView: View {
                     GridItem(.flexible()),
                     GridItem(.flexible()),
                 ], spacing: 35) {
-                    ForEach(viewModel.displayedLevels, id: \.self) { level in
-                        // TODO: Only if is enabled
-                        NavigationLink {
-                            WritingLevelView(drawingCanvasViewModel: .init(level: level.level))
-                        } label: {
-                            LevelButton(level)
-                        }
-                    }
+//                    ForEach(viewModel.displayedLevels, id: \.self) { level in
+//                        // TODO: Only if is enabled
+//                        NavigationLink {
+//                            WritingLevelView(drawingCanvasViewModel: .init(level: level.level))
+//                        } label: {
+//                            LevelButton(level)
+//                        }
+//                    }
+                    Text("TMP")
                 }
                 .padding(.horizontal, 95)
                 .padding(.vertical, 70)

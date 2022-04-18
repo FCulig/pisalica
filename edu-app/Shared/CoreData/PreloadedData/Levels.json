@@ -1,0 +1,230 @@
+[
+    {
+        "name": "A",
+        "results": ["A"],
+        "numberOfLines": 3,
+        "isLocked": false,
+        "lockedImage": "A-locked",
+        "unlockedImage": "A-unlocked"
+    },
+    {
+        "name": "B",
+        "results": ["B"],
+        "numberOfLines": 3,
+        "isLocked": true,
+        "lockedImage": "B-locked",
+        "unlockedImage": "B-unlocked"
+    },
+    {
+        "name": "C",
+        "results": ["C", "c"],
+        "numberOfLines": 1,
+        "isLocked": true,
+        "lockedImage": "C-locked",
+        "unlockedImage": "C-unlocked"
+    },{
+        "name": "Č",
+        "results": ["Č", "č"],
+        "numberOfLines": 2,
+        "isLocked": true,
+        "lockedImage": "Č-locked",
+        "unlockedImage": "Č-unlocked"
+    },{
+        "name": "Ć",
+        "results": ["Ć", "ć"],
+        "numberOfLines": 2,
+        "isLocked": true,
+        "lockedImage": "Ć-locked",
+        "unlockedImage": "Ć-unlocked"
+    },
+    {
+        "name": "D",
+        "results": ["D"],
+        "numberOfLines": 2,
+        "isLocked": true,
+        "lockedImage": "D-locked",
+        "unlockedImage": "D-unlocked"
+    },
+    {
+        "name": "DŽ",
+        "results": ["DŽ", "Dž"],
+        "numberOfLines": 6,
+        "isLocked": true,
+        "lockedImage": "DŽ-locked",
+        "unlockedImage": "DŽ-unlocked"
+    },
+    {
+        "name": "Đ",
+        "results": ["Đ"],
+        "numberOfLines": 3,
+        "isLocked": true,
+        "lockedImage": "Đ-locked",
+        "unlockedImage": "Đ-unlocked"
+    },{
+        "name": "E",
+        "results": ["E"],
+        "numberOfLines": 4,
+        "isLocked": true,
+        "lockedImage": "E-locked",
+        "unlockedImage": "E-unlocked"
+    },{
+        "name": "F",
+        "results": ["F", "f"],
+        "numberOfLines": 3,
+        "isLocked": true,
+        "lockedImage": "F-locked",
+        "unlockedImage": "F-unlocked"
+    },
+    {
+        "name": "G",
+        "results": ["G"],
+        "numberOfLines": 2,
+        "isLocked": true,
+        "lockedImage": "G-locked",
+        "unlockedImage": "G-unlocked"
+    },
+    {
+        "name": "H",
+        "results": ["H"],
+        "numberOfLines": 3,
+        "isLocked": true,
+        "lockedImage": "H-locked",
+        "unlockedImage": "H-unlocked"
+    },
+    {
+        "name": "I",
+        "results": ["I", "i"],
+        "numberOfLines": 1,
+        "isLocked": true,
+        "lockedImage": "I-locked",
+        "unlockedImage": "I-unlocked"
+    },{
+        "name": "J",
+        "results": ["J", "j"],
+        "numberOfLines": 1,
+        "isLocked": true,
+        "lockedImage": "J-locked",
+        "unlockedImage": "J-unlocked"
+    },{
+        "name": "K",
+        "results": ["K", "k"],
+        "numberOfLines": 3,
+        "isLocked": true,
+        "lockedImage": "K-locked",
+        "unlockedImage": "K-unlocked"
+    },
+    {
+        "name": "L",
+        "results": ["L"],
+        "numberOfLines": 2,
+        "isLocked": true,
+        "lockedImage": "L-locked",
+        "unlockedImage": "L-unlocked"
+    },
+    {
+        "name": "LJ",
+        "results": ["LJ"],
+        "numberOfLines": 3,
+        "isLocked": true,
+        "lockedImage": "LJ-locked",
+        "unlockedImage": "LJ-unlocked"
+    },
+    {
+        "name": "M",
+        "results": ["M"],
+        "numberOfLines": 3,
+        "isLocked": true,
+        "lockedImage": "M-locked",
+        "unlockedImage": "M-unlocked"
+    },{
+        "name": "N",
+        "results": ["N"],
+        "numberOfLines": 3,
+        "isLocked": true,
+        "lockedImage": "N-locked",
+        "unlockedImage": "N-unlocked"
+    },{
+        "name": "NJ",
+        "results": ["NJ"],
+        "numberOfLines": 4,
+        "isLocked": true,
+        "lockedImage": "NJ-locked",
+        "unlockedImage": "NJ-unlocked"
+    },
+    {
+        "name": "O",
+        "results": ["O", "o"],
+        "numberOfLines": 1,
+        "isLocked": true,
+        "lockedImage": "O-locked",
+        "unlockedImage": "O-unlocked"
+    },
+    {
+        "name": "P",
+        "results": ["P", "p"],
+        "numberOfLines": 2,
+        "isLocked": true,
+        "lockedImage": "P-locked",
+        "unlockedImage": "P-unlocked"
+    },
+    {
+        "name": "R",
+        "results": ["R"],
+        "numberOfLines": 3,
+        "isLocked": true,
+        "lockedImage": "R-locked",
+        "unlockedImage": "R-unlocked"
+    },{
+        "name": "S",
+        "results": ["S", "s"],
+        "numberOfLines": 1,
+        "isLocked": true,
+        "lockedImage": "S-locked",
+        "unlockedImage": "S-unlocked"
+    },{
+        "name": "Š",
+        "results": ["Š", "š"],
+        "numberOfLines": 2,
+        "isLocked": true,
+        "lockedImage": "Š-locked",
+        "unlockedImage": "Š-unlocked"
+    },
+    {
+        "name": "T",
+        "results": ["T"],
+        "numberOfLines": 2,
+        "isLocked": true,
+        "lockedImage": "T-locked",
+        "unlockedImage": "T-unlocked"
+    },
+    {
+        "name": "U",
+        "results": ["U", "u"],
+        "numberOfLines": 1,
+        "isLocked": true,
+        "lockedImage": "U-locked",
+        "unlockedImage": "U-unlocked"
+    },
+    {
+        "name": "V",
+        "results": ["V", "v"],
+        "numberOfLines": 2,
+        "isLocked": true,
+        "lockedImage": "V-locked",
+        "unlockedImage": "V-unlocked"
+    },{
+        "name": "Z",
+        "results": ["Z", "z"],
+        "numberOfLines": 3,
+        "isLocked": true,
+        "lockedImage": "Z-locked",
+        "unlockedImage": "Z-unlocked"
+    },{
+        "name": "Ž",
+        "results": ["Ž", "ž"],
+        "numberOfLines": 4,
+        "isLocked": true,
+        "lockedImage": "Ž-locked",
+        "unlockedImage": "Ž-unlocked"
+    }
+]
