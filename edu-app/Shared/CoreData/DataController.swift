@@ -18,4 +18,6 @@ class DataController: ObservableObject {
             }
         }
     }
+
+    func fetchData() {}
 }

@@ -5,6 +5,7 @@
 //  Created by Filip Culig on 16.02.2022..
 //
 
+import CoreData
 import Foundation
 
 // MARK: - LevelSelectView.ViewModel -
@@ -13,42 +14,19 @@ extension LevelSelectView {
     class ViewModel: ObservableObject {
         var totalPages: Int = 0
         var currentPage: Int = 0
-//        var paginatedLevels: [[Level]] = []
+        var paginatedLevels: [[Level]] = []
 
-//        @Published var displayedLevels: [Level] = []
+        @Published var displayedLevels: [Level] = []
         @Published var showPreviousPageButton: Bool = false
         @Published var showNextPageButton: Bool = false
 
-        public init() {
-            initializeLevels()
-        }
+        public init() {}
     }
 }
 
 private extension LevelSelectView.ViewModel {
-    func initializeLevels() {
-        let levels = Levels.allCases
-        let itemsPerPage = 12
-        var tmp = 0
-        totalPages = Int(ceil(Double(levels.count) / Double(itemsPerPage)))
-
-        for _ in 0 ..< totalPages {
-            var currentPage: [Level] = []
-            for j in tmp ..< tmp + itemsPerPage {
-                if levels.count > j {
-//                    currentPage.append(Level(isLocked: false, level: levels[j]))
-                }
-            }
-//            paginatedLevels.append(currentPage)
-            currentPage = []
-            tmp += itemsPerPage
-        }
-
-        updatePageContent()
-    }
-
     func updatePageContent() {
-//        displayedLevels = paginatedLevels[currentPage]
+        displayedLevels = paginatedLevels[currentPage]
 
         showNextPageButton = false
         showPreviousPageButton = false
@@ -68,5 +46,32 @@ extension LevelSelectView.ViewModel {
         guard currentPage > 0 else { return }
         currentPage -= 1
         updatePageContent()
+    }
+
+    func getPaginatedLevels(context: NSManagedObjectContext) {
+        let fetchRequest: NSFetchRequest<Level> = Level.fetchRequest()
+        var levels: [Level] = []
+
+        do {
+            levels = try context.fetch(fetchRequest)
+            paginatedLevels = []
+            let itemsPerPage = 12
+            var tmp = 0
+            totalPages = Int(ceil(Double(levels.count) / Double(itemsPerPage)))
+
+            for _ in 0 ..< totalPages {
+                var currentPage: [Level] = []
+                for j in tmp ..< tmp + itemsPerPage {
+                    if levels.count > j {
+                        currentPage.append(levels[j])
+                    }
+                }
+                paginatedLevels.append(currentPage)
+                currentPage = []
+                tmp += itemsPerPage
+            }
+
+            updatePageContent()
+        } catch { print(error) }
     }
 }

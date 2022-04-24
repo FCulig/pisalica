@@ -43,6 +43,7 @@
 		4DBD9BC02802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
 		4DC2D714280AD9FF003CFDD7 /* Levels.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC2D713280AD9FF003CFDD7 /* Levels.xcassets */; };
 		4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC2D717280AE24D003CFDD7 /* LevelButton.swift */; };
+		4DFE20CC28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFE20CB28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift */; };
 		770280DB3ADD41D160D343D0 /* Pods_edu_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FE45D2D761336D1E20F680 /* Pods_edu_appTests.framework */; };
 		CE6057688EDAC47FFFE31411 /* Pods_edu_app_edu_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D995C41732B6E79E60A49DA /* Pods_edu_app_edu_appUITests.framework */; };
 /* End PBXBuildFile section */
@@ -103,6 +104,7 @@
 		4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		4DC2D713280AD9FF003CFDD7 /* Levels.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Levels.xcassets; sourceTree = "<group>"; };
 		4DC2D717280AE24D003CFDD7 /* LevelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
+		4DFE20CB28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ViewDidLoadModifier.swift"; sourceTree = "<group>"; };
 		508DF7511ABF05E1233748FE /* Pods-edu-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-appTests.debug.xcconfig"; path = "Target Support Files/Pods-edu-appTests/Pods-edu-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DDC9428A46152CF28E54AE3 /* Pods-edu-app-edu-appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-app-edu-appUITests.debug.xcconfig"; path = "Target Support Files/Pods-edu-app-edu-appUITests/Pods-edu-app-edu-appUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6D995C41732B6E79E60A49DA /* Pods_edu_app_edu_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_edu_app_edu_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -303,6 +305,7 @@
 		4D68A67927BBCCC500997CFF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4DFE20CB28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */,
 				4D4E05EB280D7D3100569C16 /* Level+CoreDataClass.swift in Sources */,
 				4D4E05DC280D663E00569C16 /* DataController.swift in Sources */,
+				4DFE20CC28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift in Sources */,
 				4D68A67D27BBCCEF00997CFF /* MainMenuViewModel.swift in Sources */,
 				4D053E9B27F5D1DD00B3E198 /* DrawingCanvasViewController.swift in Sources */,
 				4D4E05ED280D855800569C16 /* DecodableLevel.swift in Sources */,

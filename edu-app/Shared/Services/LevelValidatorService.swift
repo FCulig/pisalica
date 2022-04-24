@@ -13,13 +13,15 @@ import UIKit
 class LevelValidatorService {
     public init() {}
 
-    func isValid(level: Levels, points: [CGPoint]) -> Bool {
-        switch level {
-        case .A:
-            return validateA(points: points)
-        default:
-            return true
-        }
+    func isValid(level _: Level, points _: [CGPoint]) -> Bool {
+        // TODO: Implement
+        return true
+//        switch level {
+//        case .A:
+//            return validateA(points: points)
+//        default:
+//            return true
+//        }
     }
 }
 

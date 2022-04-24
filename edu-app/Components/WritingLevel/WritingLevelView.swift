@@ -27,7 +27,7 @@ struct WritingLevelView: View {
 
     var drawingCanvasContainer: some View {
         VStack {
-            Text(drawingCanvasViewModel.level.rawName)
+            Text(drawingCanvasViewModel.level.name ?? "")
             DrawingCanvasView(viewModel: drawingCanvasViewModel)
                 .cornerRadius(10)
                 .padding(.horizontal, 100)
@@ -73,7 +73,7 @@ struct WritingLevelView: View {
 
 struct WritingLevelView_Previews: PreviewProvider {
     static var previews: some View {
-        WritingLevelView(drawingCanvasViewModel: DrawingCanvasViewModel(level: Levels.A))
+        WritingLevelView(drawingCanvasViewModel: DrawingCanvasViewModel(level: Level()))
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

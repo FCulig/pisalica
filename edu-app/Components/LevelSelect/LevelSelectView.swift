@@ -10,9 +10,10 @@ import SwiftUI
 // MARK: - LevelSelectView -
 
 struct LevelSelectView: View {
+    @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: ViewModel = .init()
-//    @FetchRequest(sortDescriptors: []) var students: FetchedResults<Level>
+    @FetchRequest(sortDescriptors: []) var levels: FetchedResults<Level>
 
     var body: some View {
         ZStack {
@@ -51,21 +52,25 @@ struct LevelSelectView: View {
                     GridItem(.flexible()),
                     GridItem(.flexible()),
                 ], spacing: 35) {
-//                    ForEach(viewModel.displayedLevels, id: \.self) { level in
-//                        // TODO: Only if is enabled
-//                        NavigationLink {
-//                            WritingLevelView(drawingCanvasViewModel: .init(level: level.level))
-//                        } label: {
+                    ForEach(viewModel.displayedLevels, id: \.self) { level in
+                        Text(level.name ?? "NEMA IMENAAAAAA")
+//                        if level.isLocked {
 //                            LevelButton(level)
+//                        } else {
+//                            NavigationLink {
+//                                WritingLevelView(drawingCanvasViewModel: .init(level: level))
+//                            } label: {
+//                                LevelButton(level)
+//                            }
 //                        }
-//                    }
-                    Text("TMP")
+                    }
                 }
                 .padding(.horizontal, 95)
                 .padding(.vertical, 70)
             }
             pageControlButtons
         }
+        .onLoad { viewModel.getPaginatedLevels(context: moc) }
         .padding(.horizontal, 70)
         .padding(.vertical, 10)
     }
@@ -115,9 +120,19 @@ struct LevelSelectView: View {
     }
 }
 
-struct LevelSelectView_Previews: PreviewProvider {
-    static var previews: some View {
-        LevelSelectView()
-            .previewInterfaceOrientation(.landscapeLeft)
+#if DEBUG
+    import CoreData
+    struct LevelSelectView_Previews: PreviewProvider {
+        static var previews: some View {
+            let container = NSPersistentContainer(name: "Game")
+
+            container.loadPersistentStores { _, error in
+                guard let error = error else { return }
+                fatalError("Core Data error: '\(error.localizedDescription)'.")
+            }
+            return LevelSelectView()
+                .previewInterfaceOrientation(.landscapeLeft)
+                .environment(\.managedObjectContext, container.viewContext)
+        }
     }
-}
+#endif

@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct edu_appApp: App {
     @StateObject private var dataController = DataController()
-
     var coordinator = AppCoordinator()
 
     var body: some Scene {

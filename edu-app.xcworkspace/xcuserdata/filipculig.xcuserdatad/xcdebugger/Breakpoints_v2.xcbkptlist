@@ -78,8 +78,8 @@
             filePath = "edu-app/Shared/Services/LevelValidatorService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "validateA(points:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -87,17 +87,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "53CD6619-514B-4BC0-8622-965F122FCB05"
-            shouldBeEnabled = "Yes"
+            uuid = "F285A06B-1EA4-4048-97CF-495B5D9B4FDE"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "edu-app/AppCoordinator.swift"
+            filePath = "edu-app/Components/LevelSelect/LevelSelectViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "configureCoreData()"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "getPaginatedLevels(context:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2FB4EB0-CE1A-435F-BD7C-DC1D1EE3D6D4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "edu-app/Components/LevelSelect/LevelSelectView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "levelSelectPanel"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

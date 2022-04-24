@@ -14,7 +14,7 @@ import UIKit
 class DrawingCanvasViewModel {
     // MARK: - Public properties -
 
-    let level: Levels
+    let level: Level
     let levelValidator: LevelValidatorService = .init()
     var lastPoint: CGPoint!
     var points: [CGPoint] = []
@@ -43,7 +43,7 @@ class DrawingCanvasViewModel {
 
     // MARK: - Initializer
 
-    public init(level: Levels) {
+    public init(level: Level) {
         self.level = level
 
         subscribeActions()

@@ -8,28 +8,30 @@
 import SwiftUI
 
 struct LevelButton: View {
-//    let level: Level
+    let level: Level
 
     var body: some View {
         HStack {
+            Image("A-unlocked")
+                .resizable()
 //            if level.isLocked {
-//                //                level.level.lockedImage
-//                Text("Locked image")
+//                Image(level.lockedImage ?? "A-locked")
+//                    .resizable()
 //            } else {
-//                level.level.unlockedImage
+//                Image(level.unlockedImage ?? "A-unlocked")
+//                    .resizable()
 //            }
         }
-        .frame(width: 70, height: 70, alignment: .center)
+        .frame(width: 110, height: 70, alignment: .center)
     }
 
-//    public init(_ level: Level) {
-//        self.level = level
-//    }
+    public init(_ level: Level) {
+        self.level = level
+    }
 }
 
 struct LevelButton_Previews: PreviewProvider {
     static var previews: some View {
-//        LevelButton(Level(isLocked: false, level: Levels.A))
-        LevelButton()
+        LevelButton(Level())
     }
 }

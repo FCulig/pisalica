@@ -2,7 +2,7 @@
 //  Level+CoreDataProperties.swift
 //
 //
-//  Created by Filip Culig on 18.04.2022..
+//  Created by Filip Culig on 23.04.2022..
 //
 //
 
@@ -15,10 +15,10 @@ public extension Level {
     }
 
     @NSManaged var id: UUID?
+    @NSManaged var isLocked: Bool
+    @NSManaged var lockedImage: String?
     @NSManaged var name: String?
     @NSManaged var numberOfLines: Int64
-    @NSManaged var unlockedImage: String?
-    @NSManaged var lockedImage: String?
-    @NSManaged var isLocked: Bool
     @NSManaged var results: [String]?
+    @NSManaged var unlockedImage: String?
 }
