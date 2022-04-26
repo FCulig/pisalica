@@ -32,28 +32,31 @@ struct LevelSelectView: View {
             }
             backButton
         }
+        .padding(.bottom, 50)
+        .padding(.horizontal, 40)
+        .ignoresSafeArea()
         .navigationBarHidden(true)
     }
 
     var levelSelectPanel: some View {
         ZStack {
-            AppImage.panelBackgroundImage.image
             ZStack {
                 Rectangle()
-                    .background(.white)
                     .cornerRadius(5)
-                    .opacity(0.45)
-                    .blur(radius: 3)
-                    .padding(.horizontal, 90)
-                    .padding(.vertical, 65)
+                    .opacity(0.43)
+                    .blur(radius: 2)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(AppColor.brown.color, lineWidth: 5)
+                    )
+
                 LazyVGrid(columns: [
                     GridItem(.flexible()),
                     GridItem(.flexible()),
                     GridItem(.flexible()),
                     GridItem(.flexible()),
-                ], spacing: 35) {
+                ], spacing: 15) {
                     ForEach(viewModel.displayedLevels, id: \.self) { level in
-//                        Text(level.name ?? "NEMA IMENAAAAAA")
                         if level.isLocked {
                             LevelButton(level)
                         } else {
@@ -65,14 +68,16 @@ struct LevelSelectView: View {
                         }
                     }
                 }
-                .padding(.horizontal, 95)
-                .padding(.vertical, 70)
             }
+            .padding(.vertical, 45)
+            .padding(.leading, 90)
+            .padding(.trailing, 35)
+
             pageControlButtons
+                .padding(.vertical, 10)
         }
+        .padding(.horizontal, 50)
         .onLoad { viewModel.getPaginatedLevels(context: moc) }
-        .padding(.horizontal, 70)
-        .padding(.vertical, 10)
     }
 
     var pageControlButtons: some View {
@@ -86,6 +91,7 @@ struct LevelSelectView: View {
                         AppImage.previousButton.image
                             .aspectRatio(contentMode: .fit)
                     }
+                    .padding(.leading, 50)
                 }
                 Spacer()
                 if viewModel.showNextPageButton {

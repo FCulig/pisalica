@@ -12,7 +12,6 @@
 		4D053E9D27F5D30200B3E198 /* StrokeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053E9C27F5D30200B3E198 /* StrokeManager.swift */; };
 		4D053E9F27F5D32100B3E198 /* RecognizedInk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053E9E27F5D32100B3E198 /* RecognizedInk.swift */; };
 		4D053EA327F7844800B3E198 /* DrawingCanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EA227F7844800B3E198 /* DrawingCanvasViewModel.swift */; };
-		4D053EA627F83DA600B3E198 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EA527F83DA600B3E198 /* AppColor.swift */; };
 		4D053EA827F841A500B3E198 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EA727F841A500B3E198 /* Levels.swift */; };
 		4D053EAC27F844AB00B3E198 /* LevelValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */; };
 		4D4E05D8280D640000569C16 /* Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E05D6280D640000569C16 /* Game.xcdatamodeld */; };
@@ -43,6 +42,8 @@
 		4DBD9BC02802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
 		4DC2D714280AD9FF003CFDD7 /* Levels.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC2D713280AD9FF003CFDD7 /* Levels.xcassets */; };
 		4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC2D717280AE24D003CFDD7 /* LevelButton.swift */; };
+		4DE3A5C1281865FD005DF33E /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE3A5C0281865FD005DF33E /* Color.xcassets */; };
+		4DE3A5C328186606005DF33E /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3A5C228186606005DF33E /* AppColor.swift */; };
 		4DFE20CC28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFE20CB28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift */; };
 		770280DB3ADD41D160D343D0 /* Pods_edu_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FE45D2D761336D1E20F680 /* Pods_edu_appTests.framework */; };
 		CE6057688EDAC47FFFE31411 /* Pods_edu_app_edu_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D995C41732B6E79E60A49DA /* Pods_edu_app_edu_appUITests.framework */; };
@@ -71,7 +72,6 @@
 		4D053E9C27F5D30200B3E198 /* StrokeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeManager.swift; sourceTree = "<group>"; };
 		4D053E9E27F5D32100B3E198 /* RecognizedInk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedInk.swift; sourceTree = "<group>"; };
 		4D053EA227F7844800B3E198 /* DrawingCanvasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasViewModel.swift; sourceTree = "<group>"; };
-		4D053EA527F83DA600B3E198 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		4D053EA727F841A500B3E198 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelValidatorService.swift; sourceTree = "<group>"; };
 		4D4E05D7280D640000569C16 /* Level.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Level.xcdatamodel; sourceTree = "<group>"; };
@@ -104,6 +104,8 @@
 		4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		4DC2D713280AD9FF003CFDD7 /* Levels.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Levels.xcassets; sourceTree = "<group>"; };
 		4DC2D717280AE24D003CFDD7 /* LevelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
+		4DE3A5C0281865FD005DF33E /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		4DE3A5C228186606005DF33E /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		4DFE20CB28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ViewDidLoadModifier.swift"; sourceTree = "<group>"; };
 		508DF7511ABF05E1233748FE /* Pods-edu-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-appTests.debug.xcconfig"; path = "Target Support Files/Pods-edu-appTests/Pods-edu-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DDC9428A46152CF28E54AE3 /* Pods-edu-app-edu-appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-app-edu-appUITests.debug.xcconfig"; path = "Target Support Files/Pods-edu-app-edu-appUITests/Pods-edu-app-edu-appUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,14 +166,6 @@
 				7AAE494FF08CF2ED8A82F24B /* Pods-edu-appTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		4D053EA427F83D7D00B3E198 /* Colors */ = {
-			isa = PBXGroup;
-			children = (
-				4D053EA527F83DA600B3E198 /* AppColor.swift */,
-			);
-			path = Colors;
 			sourceTree = "<group>";
 		};
 		4D4E05DA280D645600569C16 /* CoreData */ = {
@@ -276,7 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				4D4E05DA280D645600569C16 /* CoreData */,
-				4D053EA427F83D7D00B3E198 /* Colors */,
 				4D68A67927BBCCC500997CFF /* Extensions */,
 				4D68A67827BBCCC100997CFF /* Services */,
 				4D68A67727BBCCB900997CFF /* Models */,
@@ -346,6 +339,7 @@
 		4DA22D8F27D35A4900634AA8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4DE3A5BF281865EA005DF33E /* Colors */,
 				4DA22D9327D35EA400634AA8 /* Images */,
 				4DA22D9027D35A5300634AA8 /* Fonts */,
 			);
@@ -370,6 +364,15 @@
 				4DA22D9427D368F300634AA8 /* AppImage.swift */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		4DE3A5BF281865EA005DF33E /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				4DE3A5C0281865FD005DF33E /* Color.xcassets */,
+				4DE3A5C228186606005DF33E /* AppColor.swift */,
+			);
+			path = Colors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,6 +491,7 @@
 				4DC2D714280AD9FF003CFDD7 /* Levels.xcassets in Resources */,
 				4D68A64E27BBA3B500997CFF /* Preview Assets.xcassets in Resources */,
 				4D68A64B27BBA3B500997CFF /* Assets.xcassets in Resources */,
+				4DE3A5C1281865FD005DF33E /* Color.xcassets in Resources */,
 				4DBD9BBE2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */,
 				4DA22D9227D35E6F00634AA8 /* Menus.xcassets in Resources */,
 			);
@@ -676,6 +680,7 @@
 				4D68A68227BCF41800997CFF /* LevelSelectViewModel.swift in Sources */,
 				4D4E05EA280D7D3100569C16 /* Level+CoreDataProperties.swift in Sources */,
 				4D68A67B27BBCCE000997CFF /* MainMenuView.swift in Sources */,
+				4DE3A5C328186606005DF33E /* AppColor.swift in Sources */,
 				4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */,
 				4D4E05EB280D7D3100569C16 /* Level+CoreDataClass.swift in Sources */,
 				4D4E05DC280D663E00569C16 /* DataController.swift in Sources */,
@@ -693,7 +698,6 @@
 				4D053EAC27F844AB00B3E198 /* LevelValidatorService.swift in Sources */,
 				4D053EA327F7844800B3E198 /* DrawingCanvasViewModel.swift in Sources */,
 				4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */,
-				4D053EA627F83DA600B3E198 /* AppColor.swift in Sources */,
 				4D053EA827F841A500B3E198 /* Levels.swift in Sources */,
 				4D4E05D8280D640000569C16 /* Game.xcdatamodeld in Sources */,
 			);
