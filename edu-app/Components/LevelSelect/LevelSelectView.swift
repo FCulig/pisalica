@@ -53,16 +53,16 @@ struct LevelSelectView: View {
                     GridItem(.flexible()),
                 ], spacing: 35) {
                     ForEach(viewModel.displayedLevels, id: \.self) { level in
-                        Text(level.name ?? "NEMA IMENAAAAAA")
-//                        if level.isLocked {
-//                            LevelButton(level)
-//                        } else {
-//                            NavigationLink {
-//                                WritingLevelView(drawingCanvasViewModel: .init(level: level))
-//                            } label: {
-//                                LevelButton(level)
-//                            }
-//                        }
+//                        Text(level.name ?? "NEMA IMENAAAAAA")
+                        if level.isLocked {
+                            LevelButton(level)
+                        } else {
+                            NavigationLink {
+                                WritingLevelView(drawingCanvasViewModel: .init(level: level))
+                            } label: {
+                                LevelButton(level)
+                            }
+                        }
                     }
                 }
                 .padding(.horizontal, 95)

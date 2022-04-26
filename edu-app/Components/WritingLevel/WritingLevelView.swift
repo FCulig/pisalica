@@ -53,7 +53,7 @@ struct WritingLevelView: View {
                 Button {
                     print("Showing help")
                 } label: {
-                    AppImage.trashCanButton.image
+                    AppImage.helpButton.image
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 70, alignment: .top)
                 }
@@ -61,7 +61,7 @@ struct WritingLevelView: View {
                 Button {
                     drawingCanvasViewModel.clearCanvasAction.send()
                 } label: {
-                    AppImage.trashCanButton.image
+                    AppImage.videoButton.image
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 70, alignment: .top)
                 }
