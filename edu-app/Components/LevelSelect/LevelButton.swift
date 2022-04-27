@@ -12,7 +12,7 @@ struct LevelButton: View {
 
     var body: some View {
         HStack {
-            Image("B-locked")
+            Image("A-unlocked")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
 //            if level.isLocked {
@@ -23,7 +23,7 @@ struct LevelButton: View {
 //                    .resizable()
 //            }
         }
-        .frame(height: 85, alignment: .center)
+        .frame(height: 80, alignment: .center)
     }
 
     public init(_ level: Level) {

@@ -28,9 +28,14 @@ struct WritingLevelView: View {
     var drawingCanvasContainer: some View {
         VStack {
             Text(drawingCanvasViewModel.level.name ?? "")
-            DrawingCanvasView(viewModel: drawingCanvasViewModel)
-                .cornerRadius(10)
-                .padding(.horizontal, 100)
+                .foregroundColor(.green)
+            ZStack {
+                AppImage.drawingPanelBackgroundImage.image
+                DrawingCanvasView(viewModel: drawingCanvasViewModel)
+                    .padding(.horizontal, 50)
+                    .padding(.vertical, 40)
+            }
+            .padding(.horizontal, 100)
         }
         .padding(.vertical, 50)
     }

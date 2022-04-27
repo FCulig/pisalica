@@ -41,14 +41,7 @@ struct LevelSelectView: View {
     var levelSelectPanel: some View {
         ZStack {
             ZStack {
-                Rectangle()
-                    .cornerRadius(5)
-                    .opacity(0.43)
-                    .blur(radius: 2)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(AppColor.brown.color, lineWidth: 5)
-                    )
+                AppImage.panelBackgroundImage.image
 
                 LazyVGrid(columns: [
                     GridItem(.flexible()),
@@ -68,6 +61,7 @@ struct LevelSelectView: View {
                         }
                     }
                 }
+                .padding(.horizontal, 25)
             }
             .padding(.vertical, 45)
             .padding(.leading, 90)
