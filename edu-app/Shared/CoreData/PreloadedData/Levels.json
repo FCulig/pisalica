@@ -27,15 +27,15 @@
         "results": ["Č", "č"],
         "numberOfLines": 2,
         "isLocked": true,
-        "lockedImage": "Č-locked",
-        "unlockedImage": "Č-unlocked"
+        "lockedImage": "tvrdoC-locked",
+        "unlockedImage": "tvrdoC-unlocked"
     },{
         "name": "Ć",
         "results": ["Ć", "ć"],
         "numberOfLines": 2,
         "isLocked": true,
-        "lockedImage": "Ć-locked",
-        "unlockedImage": "Ć-unlocked"
+        "lockedImage": "mekoC-locked",
+        "unlockedImage": "mekoC-unlocked"
     },
     {
         "name": "D",
@@ -50,8 +50,8 @@
         "results": ["DŽ", "Dž"],
         "numberOfLines": 6,
         "isLocked": true,
-        "lockedImage": "DŽ-locked",
-        "unlockedImage": "DŽ-unlocked"
+        "lockedImage": "DZ-locked",
+        "unlockedImage": "DZ-unlocked"
     },
     {
         "name": "Đ",
@@ -186,8 +186,8 @@
         "results": ["Š", "š"],
         "numberOfLines": 2,
         "isLocked": true,
-        "lockedImage": "Š-locked",
-        "unlockedImage": "Š-unlocked"
+        "lockedImage": "Sh-locked",
+        "unlockedImage": "Sh-unlocked"
     },
     {
         "name": "T",
@@ -224,7 +224,7 @@
         "results": ["Ž", "ž"],
         "numberOfLines": 4,
         "isLocked": true,
-        "lockedImage": "Ž-locked",
-        "unlockedImage": "Ž-unlocked"
+        "lockedImage": "Zh-locked",
+        "unlockedImage": "Zh-unlocked"
     }
 ]

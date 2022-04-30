@@ -12,18 +12,20 @@ struct LevelButton: View {
 
     var body: some View {
         HStack {
-            Image("A-unlocked")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-//            if level.isLocked {
-//                Image(level.lockedImage ?? "A-locked")
-//                    .resizable()
-//            } else {
-//                Image(level.unlockedImage ?? "A-unlocked")
-//                    .resizable()
-//            }
+//            Image("A-unlocked")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+            if level.isLocked {
+                Image(level.lockedImage ?? "A-locked")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            } else {
+                Image(level.unlockedImage ?? "A-unlocked")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
         }
-        .frame(height: 80, alignment: .center)
+        .frame(height: 75, alignment: .center)
     }
 
     public init(_ level: Level) {
