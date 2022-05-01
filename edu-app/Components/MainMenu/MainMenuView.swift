@@ -11,6 +11,7 @@ struct MainMenuView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @StateObject var viewModel: ViewModel
     @State var isPlayActive = false
+    @State var isShopActive = false
 
     var body: some View {
         NavigationView {
@@ -24,12 +25,11 @@ struct MainMenuView: View {
                         List {
                             NavigationLink(destination: LevelSelectView(), isActive: $isPlayActive) {
                                 Button {
-                                    viewModel.configureCoreData(with: managedObjectContext)
+                                    viewModel.configureLevelData(with: managedObjectContext)
                                     isPlayActive = true
                                 } label: {
                                     AppImage.playButton.image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
+                                        .scaledToFit()
                                 }
                             }
                             .buttonStyle(PlainButtonStyle())
@@ -42,28 +42,40 @@ struct MainMenuView: View {
                     }
                     Spacer()
                 }
+                HStack {
+                    Spacer()
+                    VStack {
+                        shopAndAchievementsButtons
+                        Spacer()
+                    }
+                }
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarHidden(true)
     }
+
+    var shopAndAchievementsButtons: some View {
+        HStack {
+            NavigationLink(destination: ShopView(), isActive: $isShopActive) {
+                Button {
+                    viewModel.configureShopData(with: managedObjectContext)
+                    isShopActive = true
+                } label: {
+                    AppImage.shopButton.image
+                        .scaledToFit()
+                        .frame(width: 65)
+                }
+            }
+        }
+        .padding(.top, 20)
+        .ignoresSafeArea()
+    }
 }
 
-#if DEBUG
-    import CoreData
-
-    struct MainMenuView_Previews: PreviewProvider {
-        static var previews: some View {
-            let container = NSPersistentContainer(name: "Game")
-
-            container.loadPersistentStores { _, error in
-                guard let error = error else { return }
-                fatalError("Core Data error: '\(error.localizedDescription)'.")
-            }
-
-            return MainMenuView(viewModel: .init())
-                .previewInterfaceOrientation(.landscapeLeft)
-                .environment(\.managedObjectContext, container.viewContext)
-        }
+struct MainMenuView_Previews: PreviewProvider {
+    static var previews: some View {
+        return MainMenuView(viewModel: .init())
+            .previewInterfaceOrientation(.landscapeLeft)
     }
-#endif
+}

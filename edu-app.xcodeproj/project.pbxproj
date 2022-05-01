@@ -31,6 +31,14 @@
 		4D68A67D27BBCCEF00997CFF /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A67C27BBCCEF00997CFF /* MainMenuViewModel.swift */; };
 		4D68A68027BCF40F00997CFF /* LevelSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A67F27BCF40F00997CFF /* LevelSelectView.swift */; };
 		4D68A68227BCF41800997CFF /* LevelSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A68127BCF41800997CFF /* LevelSelectViewModel.swift */; };
+		4D6EC863281D8F6900C70061 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC862281D8F6900C70061 /* ShopViewModel.swift */; };
+		4D6EC865281D8FAF00C70061 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC864281D8FAF00C70061 /* ShopView.swift */; };
+		4D6EC867281DC32D00C70061 /* Shop.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D6EC866281DC32D00C70061 /* Shop.xcassets */; };
+		4D6EC869281DC5B900C70061 /* ShopItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D6EC868281DC5B900C70061 /* ShopItems.json */; };
+		4D6EC86B281DCBE800C70061 /* DecodableShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC86A281DCBE800C70061 /* DecodableShopItem.swift */; };
+		4D6EC86D281DD0B800C70061 /* ShopItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC86C281DD0B800C70061 /* ShopItemView.swift */; };
+		4D6EC870281EE2F700C70061 /* ShopItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC86F281EE2F700C70061 /* ShopItem+CoreDataProperties.swift */; };
+		4D6EC871281EE2F700C70061 /* ShopItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC86E281EE2F700C70061 /* ShopItem+CoreDataClass.swift */; };
 		4D85A69427E7423B008FA08D /* WritingLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69327E7423B008FA08D /* WritingLevelViewModel.swift */; };
 		4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69527E7425E008FA08D /* WritingLevelView.swift */; };
 		4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */; };
@@ -94,6 +102,14 @@
 		4D68A67C27BBCCEF00997CFF /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		4D68A67F27BCF40F00997CFF /* LevelSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectView.swift; sourceTree = "<group>"; };
 		4D68A68127BCF41800997CFF /* LevelSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSelectViewModel.swift; sourceTree = "<group>"; };
+		4D6EC862281D8F6900C70061 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
+		4D6EC864281D8FAF00C70061 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		4D6EC866281DC32D00C70061 /* Shop.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shop.xcassets; sourceTree = "<group>"; };
+		4D6EC868281DC5B900C70061 /* ShopItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ShopItems.json; sourceTree = "<group>"; };
+		4D6EC86A281DCBE800C70061 /* DecodableShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableShopItem.swift; sourceTree = "<group>"; };
+		4D6EC86C281DD0B800C70061 /* ShopItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemView.swift; sourceTree = "<group>"; };
+		4D6EC86E281EE2F700C70061 /* ShopItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShopItem+CoreDataClass.swift"; path = "/Users/filipculig/Developer/edu-app/edu-app/Shared/Models/ShopItem+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		4D6EC86F281EE2F700C70061 /* ShopItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShopItem+CoreDataProperties.swift"; path = "/Users/filipculig/Developer/edu-app/edu-app/Shared/Models/ShopItem+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4D85A69327E7423B008FA08D /* WritingLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLevelViewModel.swift; sourceTree = "<group>"; };
 		4D85A69527E7425E008FA08D /* WritingLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLevelView.swift; sourceTree = "<group>"; };
 		4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
@@ -182,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				4D4E05DD280D6B5200569C16 /* Levels.json */,
+				4D6EC868281DC5B900C70061 /* ShopItems.json */,
 			);
 			path = PreloadedData;
 			sourceTree = "<group>";
@@ -250,6 +267,7 @@
 		4D68A67427BBCC9C00997CFF /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4D6EC85F281D8F4400C70061 /* Shop */,
 				4D85A69027E74220008FA08D /* WritingLevel */,
 				4D68A67E27BCF3F000997CFF /* LevelSelect */,
 				4D68A67527BBCCA500997CFF /* MainMenu */,
@@ -280,9 +298,12 @@
 		4D68A67727BBCCB900997CFF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4D6EC86E281EE2F700C70061 /* ShopItem+CoreDataClass.swift */,
+				4D6EC86F281EE2F700C70061 /* ShopItem+CoreDataProperties.swift */,
 				4D4E05E9280D7D3100569C16 /* Level+CoreDataClass.swift */,
 				4D4E05E8280D7D3100569C16 /* Level+CoreDataProperties.swift */,
 				4D4E05EC280D855800569C16 /* DecodableLevel.swift */,
+				4D6EC86A281DCBE800C70061 /* DecodableShopItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -312,6 +333,16 @@
 				4DC2D717280AE24D003CFDD7 /* LevelButton.swift */,
 			);
 			path = LevelSelect;
+			sourceTree = "<group>";
+		};
+		4D6EC85F281D8F4400C70061 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				4D6EC862281D8F6900C70061 /* ShopViewModel.swift */,
+				4D6EC864281D8FAF00C70061 /* ShopView.swift */,
+				4D6EC86C281DD0B800C70061 /* ShopItemView.swift */,
+			);
+			path = Shop;
 			sourceTree = "<group>";
 		};
 		4D85A69027E74220008FA08D /* WritingLevel */ = {
@@ -362,6 +393,7 @@
 				4DA22D9127D35E6F00634AA8 /* Menus.xcassets */,
 				4DC2D713280AD9FF003CFDD7 /* Levels.xcassets */,
 				4DA22D9427D368F300634AA8 /* AppImage.swift */,
+				4D6EC866281DC32D00C70061 /* Shop.xcassets */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -490,10 +522,12 @@
 				4D4E05DE280D6B5200569C16 /* Levels.json in Resources */,
 				4DC2D714280AD9FF003CFDD7 /* Levels.xcassets in Resources */,
 				4D68A64E27BBA3B500997CFF /* Preview Assets.xcassets in Resources */,
+				4D6EC867281DC32D00C70061 /* Shop.xcassets in Resources */,
 				4D68A64B27BBA3B500997CFF /* Assets.xcassets in Resources */,
 				4DE3A5C1281865FD005DF33E /* Color.xcassets in Resources */,
 				4DBD9BBE2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */,
 				4DA22D9227D35E6F00634AA8 /* Menus.xcassets in Resources */,
+				4D6EC869281DC5B900C70061 /* ShopItems.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,14 +721,20 @@
 				4DFE20CC28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift in Sources */,
 				4D68A67D27BBCCEF00997CFF /* MainMenuViewModel.swift in Sources */,
 				4D053E9B27F5D1DD00B3E198 /* DrawingCanvasViewController.swift in Sources */,
+				4D6EC865281D8FAF00C70061 /* ShopView.swift in Sources */,
 				4D4E05ED280D855800569C16 /* DecodableLevel.swift in Sources */,
+				4D6EC86B281DCBE800C70061 /* DecodableShopItem.swift in Sources */,
+				4D6EC871281EE2F700C70061 /* ShopItem+CoreDataClass.swift in Sources */,
 				4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */,
+				4D6EC86D281DD0B800C70061 /* ShopItemView.swift in Sources */,
 				4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */,
 				4D68A64727BBA3B400997CFF /* edu_appApp.swift in Sources */,
 				4D85A69427E7423B008FA08D /* WritingLevelViewModel.swift in Sources */,
+				4D6EC863281D8F6900C70061 /* ShopViewModel.swift in Sources */,
 				4D053E9F27F5D32100B3E198 /* RecognizedInk.swift in Sources */,
 				4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */,
 				4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */,
+				4D6EC870281EE2F700C70061 /* ShopItem+CoreDataProperties.swift in Sources */,
 				4D053EAC27F844AB00B3E198 /* LevelValidatorService.swift in Sources */,
 				4D053EA327F7844800B3E198 /* DrawingCanvasViewModel.swift in Sources */,
 				4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */,

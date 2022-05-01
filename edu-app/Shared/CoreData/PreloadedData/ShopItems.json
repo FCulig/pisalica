@@ -1,0 +1,65 @@
+[
+ {
+    "type": "ink",
+    "name": "Crna",
+    "unboughtImage": "shop-item-black",
+    "boughtImage": "shop-item-bought-black",
+    "selectedImage": "shop-item-selected-black"
+ },
+  {
+    "type": "ink",
+    "name": "Plava",
+    "unboughtImage": "shop-item-blue",
+    "boughtImage": "shop-item-bought-blue",
+    "selectedImage": "shop-item-selected-blue"
+ },
+  {
+    "type": "ink",
+    "name": "Tamno zelena",
+    "unboughtImage": "shop-item-darkgreen",
+    "boughtImage": "shop-item-bought-darkgreen",
+    "selectedImage": "shop-item-selected-darkgreen"
+ },
+  {
+    "type": "ink",
+    "name": "Svijetlo zelena",
+    "unboughtImage": "shop-item-flourescentgreen",
+    "boughtImage": "shop-item-bought-flourescentgreen",
+    "selectedImage": "shop-item-selected-flourescentgreen"
+ },
+  {
+    "type": "ink",
+    "name": "Svijetlo plava",
+    "unboughtImage": "shop-item-lightblue",
+    "boughtImage": "shop-item-bought-lightblue",
+    "selectedImage": "shop-item-selected-lightblue"
+ },
+ {
+    "type": "ink",
+    "name": "Roza",
+    "unboughtImage": "shop-item-pink",
+    "boughtImage": "shop-item-bought-pink",
+    "selectedImage": "shop-item-selected-pink"
+ },
+  {
+    "type": "ink",
+    "name": "Crvena",
+    "unboughtImage": "shop-item-red",
+    "boughtImage": "shop-item-bought-red",
+    "selectedImage": "shop-item-selected-red"
+ },
+  {
+    "type": "ink",
+    "name": "Viola",
+    "unboughtImage": "shop-item-viola",
+    "boughtImage": "shop-item-bought-viola",
+    "selectedImage": "shop-item-selected-viola"
+ },
+  {
+    "type": "ink",
+    "name": "Žuta",
+    "unboughtImage": "shop-item-yellow",
+    "boughtImage": "shop-item-bought-yellow",
+    "selectedImage": "shop-item-selected-yellow"
+ }
+]

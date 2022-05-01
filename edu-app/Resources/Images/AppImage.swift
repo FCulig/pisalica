@@ -22,6 +22,7 @@ enum AppImage {
     case nextButton
     case helpButton
     case videoButton
+    case shopButton
 
     var image: Image {
         switch self {
@@ -51,6 +52,8 @@ enum AppImage {
             return Image("help-button").resizable()
         case .videoButton:
             return Image("video-button").resizable()
+        case .shopButton:
+            return Image("shop-button").resizable()
         }
     }
 }

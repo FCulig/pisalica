@@ -7,8 +7,9 @@
 
 import Foundation
 
+// MARK: - DecodableLevel -
+
 struct DecodableLevel: Decodable {
-//    let id: UUID
     let name: String
     let numberOfLines: Int64
     let unlockedImage: String
@@ -17,7 +18,6 @@ struct DecodableLevel: Decodable {
     let results: [String]
 
     enum CodingKeys: String, CodingKey {
-//        case id
         case name
         case numberOfLines
         case unlockedImage
