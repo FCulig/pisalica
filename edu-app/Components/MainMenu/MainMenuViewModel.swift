@@ -40,10 +40,11 @@ extension MainMenuView.ViewModel {
                     levelCoreData.results = level.results
                     levelCoreData.lockedImage = level.lockedImage
                     levelCoreData.unlockedImage = level.unlockedImage
+                    levelCoreData.isLocked = levelCoreData.name == "A" ? false : true
                     try! context.save()
                 }
 
-//                userDefaults.set(true, forKey: preloadedDataKey)
+                userDefaults.set(true, forKey: preloadedDataKey)
             } catch { print(error) }
         }
     }
