@@ -54,9 +54,10 @@ class DrawingCanvasViewModel {
         clearCanvasAction
             .sink { [weak self] in
                 guard let self = self else { return }
-                self.clearCanvasSubject.send()
-                self.strokeManager.clear()
-                self.points = []
+                self.clearInk()
+//                self.clearCanvasSubject.send()
+//                self.strokeManager.clear()
+//                self.points = []
             }
             .store(in: &cancellabels)
     }
@@ -82,7 +83,6 @@ extension DrawingCanvasViewModel {
         if points.count == level.numberOfLines * 2 {
             guard levelValidator.isValid(level: level, points: points) else {
                 errorNotificationSubject.send()
-                points = []
                 clearInk()
                 return
             }
@@ -90,7 +90,6 @@ extension DrawingCanvasViewModel {
             // TODO: Implement
             strokeManager.recognizeInk()
             successNotificationSubject.send()
-            points = []
             clearInk()
         }
     }
@@ -100,6 +99,7 @@ extension DrawingCanvasViewModel {
 
 extension DrawingCanvasViewModel: StrokeManagerDelegate {
     func clearInk() {
+        points = []
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
             self?.clearCanvasSubject.send()
         }

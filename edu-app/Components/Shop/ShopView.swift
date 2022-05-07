@@ -16,7 +16,7 @@ struct ShopView: View {
     @StateObject var viewModel: ViewModel = .init()
 
     // MARK: - View components -
-    
+
     var body: some View {
         ZStack {
             AppImage.houseBackgroundImage.image

@@ -15,7 +15,7 @@ extension ShopView {
         @Published var shopItems: [ShopItem] = []
 
         // MARK: - Initializer -
-        
+
         public init() {}
     }
 }

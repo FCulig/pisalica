@@ -5,13 +5,27 @@
 //  Created by Filip Culig on 20.03.2022..
 //
 
+import AVKit
 import SwiftUI
 
 // MARK: - WritingLevelView -
 
 struct WritingLevelView: View {
     @Environment(\.dismiss) var dismiss
+    @State var showVideoTutorialDialog: Bool = false
     let drawingCanvasViewModel: DrawingCanvasViewModel
+    var player: AVPlayer?
+
+    // MARK: - Initializer -
+
+    public init(level: Level) {
+        drawingCanvasViewModel = .init(level: level)
+
+        guard let videoUrl = Bundle.main.path(forResource: level.name, ofType: "mp4") else { return }
+        player = AVPlayer(url: URL(fileURLWithPath: videoUrl))
+    }
+
+    // MARK: - View components -
 
     var body: some View {
         ZStack {
@@ -22,6 +36,7 @@ struct WritingLevelView: View {
             drawingCanvasContainer
             buttons
         }
+        .overlay(videoTutorialDialog)
         .navigationBarHidden(true)
     }
 
@@ -32,8 +47,10 @@ struct WritingLevelView: View {
             ZStack {
                 AppImage.drawingPanelBackgroundImage.image
                 DrawingCanvasView(viewModel: drawingCanvasViewModel)
-                    .padding(.horizontal, 50)
-                    .padding(.vertical, 40)
+                    .padding(.leading, 49)
+                    .padding(.trailing, 45)
+                    .padding(.top, 29)
+                    .padding(.bottom, 36)
             }
             .padding(.horizontal, 100)
         }
@@ -56,17 +73,17 @@ struct WritingLevelView: View {
             Spacer()
             VStack(alignment: .trailing) {
                 Button {
-                    print("Showing help")
+                    showVideoTutorialDialog = true
                 } label: {
-                    AppImage.helpButton.image
+                    AppImage.videoButton.image
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 70, alignment: .top)
                 }
                 Spacer()
                 Button {
-                    drawingCanvasViewModel.clearCanvasAction.send()
+                    drawingCanvasViewModel.clearInk()
                 } label: {
-                    AppImage.videoButton.image
+                    AppImage.trashCanButton.image
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 70, alignment: .top)
                 }
@@ -74,11 +91,60 @@ struct WritingLevelView: View {
             .padding(.vertical, 45)
         }
     }
+
+    var videoTutorialDialog: some View {
+        ZStack {
+            if showVideoTutorialDialog {
+                Rectangle()
+                    .ignoresSafeArea()
+                    .scaledToFill()
+                    .foregroundColor(.black.opacity(0.85))
+                AppImage.videoPanelBackgroundImage.image
+                    .scaledToFit()
+                    .padding(.vertical, 60)
+                    .onTapGesture {
+                        showVideoTutorialDialog = false
+                    }
+                // TODO: Close dialog button also
+
+                if let player = player {
+                    PlayerView(player: player)
+                        .frame(width: 250, height: 250)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                player.play()
+                            }
+                        }
+                } else {
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Text("No video yet.")
+                                .foregroundColor(.black)
+                                .font(.system(size: 30))
+                            Spacer()
+                        }
+                        Spacer()
+                    }
+                }
+            }
+        }
+    }
 }
 
 struct WritingLevelView_Previews: PreviewProvider {
     static var previews: some View {
-        WritingLevelView(drawingCanvasViewModel: DrawingCanvasViewModel(level: Level()))
+        let level = Level()
+
+        level.name = "A"
+        level.isLocked = false
+        level.results = ["A"]
+        level.numberOfLines = 3
+        level.lockedImage = "A-locked"
+        level.unlockedImage = "A-unlocked"
+
+        return WritingLevelView(level: level)
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

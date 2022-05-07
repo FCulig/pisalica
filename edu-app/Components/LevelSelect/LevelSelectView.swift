@@ -54,7 +54,7 @@ struct LevelSelectView: View {
                             LevelButton(level)
                         } else {
                             NavigationLink {
-                                WritingLevelView(drawingCanvasViewModel: .init(level: level))
+                                WritingLevelView(level: level)
                             } label: {
                                 LevelButton(level)
                             }
