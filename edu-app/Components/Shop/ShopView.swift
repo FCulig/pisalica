@@ -72,7 +72,23 @@ struct ShopView: View {
                         GridItem(.flexible()),
                     ], spacing: 25) {
                         ForEach(viewModel.shopItems, id: \.self) { item in
-                            ShopItemView(item: item)
+                            Group {
+                                if item.isSelected {
+                                    Image(item.selectedImage ?? "")
+                                        .resizable()
+                                } else if item.isBought {
+                                    Image(item.boughtImage ?? "")
+                                        .resizable()
+                                } else {
+                                    Image(item.unboughtImage ?? "")
+                                        .resizable()
+                                }
+                            }
+                            .scaledToFit()
+                            .frame(width: 120)
+                            .onTapGesture {
+                                viewModel.didTapItem(item, context: moc)
+                            }
                         }
                     }
                 }

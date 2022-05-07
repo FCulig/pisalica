@@ -2,7 +2,7 @@
 //  ShopItem+CoreDataProperties.swift
 //
 //
-//  Created by Filip Culig on 01.05.2022..
+//  Created by Filip Culig on 07.05.2022..
 //
 //
 
@@ -20,4 +20,7 @@ public extension ShopItem {
     @NSManaged var selectedImage: String?
     @NSManaged var type: String?
     @NSManaged var unboughtImage: String?
+    @NSManaged var isSelected: Bool
+    @NSManaged var isBought: Bool
+    @NSManaged var hexColor: String?
 }

@@ -36,7 +36,6 @@
 		4D6EC867281DC32D00C70061 /* Shop.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D6EC866281DC32D00C70061 /* Shop.xcassets */; };
 		4D6EC869281DC5B900C70061 /* ShopItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D6EC868281DC5B900C70061 /* ShopItems.json */; };
 		4D6EC86B281DCBE800C70061 /* DecodableShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC86A281DCBE800C70061 /* DecodableShopItem.swift */; };
-		4D6EC86D281DD0B800C70061 /* ShopItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC86C281DD0B800C70061 /* ShopItemView.swift */; };
 		4D6EC870281EE2F700C70061 /* ShopItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC86F281EE2F700C70061 /* ShopItem+CoreDataProperties.swift */; };
 		4D6EC871281EE2F700C70061 /* ShopItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC86E281EE2F700C70061 /* ShopItem+CoreDataClass.swift */; };
 		4D75995C282316600093849C /* VideoTutorials.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D75995B282316600093849C /* VideoTutorials.xcassets */; };
@@ -50,6 +49,7 @@
 		4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9427D368F300634AA8 /* AppImage.swift */; };
 		4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9727D36F4E00634AA8 /* AppFont.swift */; };
 		4DB939022826A12D00883CD5 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB939012826A12D00883CD5 /* NavigationLazyView.swift */; };
+		4DB939062826B69E00883CD5 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB939052826B69E00883CD5 /* UIColor+Hex.swift */; };
 		4DBD9BBE2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
 		4DBD9BBF2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
 		4DBD9BC02802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
@@ -112,7 +112,6 @@
 		4D6EC866281DC32D00C70061 /* Shop.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shop.xcassets; sourceTree = "<group>"; };
 		4D6EC868281DC5B900C70061 /* ShopItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ShopItems.json; sourceTree = "<group>"; };
 		4D6EC86A281DCBE800C70061 /* DecodableShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableShopItem.swift; sourceTree = "<group>"; };
-		4D6EC86C281DD0B800C70061 /* ShopItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemView.swift; sourceTree = "<group>"; };
 		4D6EC86E281EE2F700C70061 /* ShopItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShopItem+CoreDataClass.swift"; path = "/Users/filipculig/Developer/edu-app/edu-app/Shared/Models/ShopItem+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		4D6EC86F281EE2F700C70061 /* ShopItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShopItem+CoreDataProperties.swift"; path = "/Users/filipculig/Developer/edu-app/edu-app/Shared/Models/ShopItem+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4D75995B282316600093849C /* VideoTutorials.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoTutorials.xcassets; sourceTree = "<group>"; };
@@ -127,6 +126,7 @@
 		4DA22D9727D36F4E00634AA8 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		4DA22D9B27D371AB00634AA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4DB939012826A12D00883CD5 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
+		4DB939052826B69E00883CD5 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		4DC2D713280AD9FF003CFDD7 /* Levels.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Levels.xcassets; sourceTree = "<group>"; };
 		4DC2D717280AE24D003CFDD7 /* LevelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
@@ -332,6 +332,7 @@
 			children = (
 				4DFE20CB28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift */,
 				4DB939012826A12D00883CD5 /* NavigationLazyView.swift */,
+				4DB939052826B69E00883CD5 /* UIColor+Hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -352,7 +353,6 @@
 			children = (
 				4D6EC862281D8F6900C70061 /* ShopViewModel.swift */,
 				4D6EC864281D8FAF00C70061 /* ShopView.swift */,
-				4D6EC86C281DD0B800C70061 /* ShopItemView.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -760,10 +760,10 @@
 				4D6EC86B281DCBE800C70061 /* DecodableShopItem.swift in Sources */,
 				4D6EC871281EE2F700C70061 /* ShopItem+CoreDataClass.swift in Sources */,
 				4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */,
-				4D6EC86D281DD0B800C70061 /* ShopItemView.swift in Sources */,
 				4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */,
 				4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */,
 				4D87C9FF28267750002EFB8D /* PlayerUIView.swift in Sources */,
+				4DB939062826B69E00883CD5 /* UIColor+Hex.swift in Sources */,
 				4D68A64727BBA3B400997CFF /* edu_appApp.swift in Sources */,
 				4D85A69427E7423B008FA08D /* WritingLevelViewModel.swift in Sources */,
 				4D6EC863281D8F6900C70061 /* ShopViewModel.swift in Sources */,

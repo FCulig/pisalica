@@ -15,6 +15,7 @@ struct DecodableShopItem: Decodable {
     let unboughtImage: String
     let boughtImage: String
     let selectedImage: String
+    let hexColor: String
 
     enum CodingKeys: String, CodingKey {
         case name
@@ -22,5 +23,6 @@ struct DecodableShopItem: Decodable {
         case unboughtImage
         case boughtImage
         case selectedImage
+        case hexColor
     }
 }

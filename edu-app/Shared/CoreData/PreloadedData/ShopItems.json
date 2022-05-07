@@ -4,62 +4,71 @@
     "name": "Crna",
     "unboughtImage": "shop-item-black",
     "boughtImage": "shop-item-bought-black",
-    "selectedImage": "shop-item-selected-black"
+    "selectedImage": "shop-item-selected-black",
+    "hexColor": "#000000"
  },
   {
     "type": "ink",
     "name": "Plava",
     "unboughtImage": "shop-item-blue",
     "boughtImage": "shop-item-bought-blue",
-    "selectedImage": "shop-item-selected-blue"
+    "selectedImage": "shop-item-selected-blue",
+    "hexColor": "#0000FF"
  },
   {
     "type": "ink",
     "name": "Tamno zelena",
     "unboughtImage": "shop-item-darkgreen",
     "boughtImage": "shop-item-bought-darkgreen",
-    "selectedImage": "shop-item-selected-darkgreen"
+    "selectedImage": "shop-item-selected-darkgreen",
+    "hexColor": "#006837"
  },
   {
     "type": "ink",
     "name": "Svijetlo zelena",
     "unboughtImage": "shop-item-flourescentgreen",
     "boughtImage": "shop-item-bought-flourescentgreen",
-    "selectedImage": "shop-item-selected-flourescentgreen"
+    "selectedImage": "shop-item-selected-flourescentgreen",
+    "hexColor": "#4AFF68"
  },
   {
     "type": "ink",
     "name": "Svijetlo plava",
     "unboughtImage": "shop-item-lightblue",
     "boughtImage": "shop-item-bought-lightblue",
-    "selectedImage": "shop-item-selected-lightblue"
+    "selectedImage": "shop-item-selected-lightblue",
+    "hexColor": "#00FFFF"
  },
  {
     "type": "ink",
     "name": "Roza",
     "unboughtImage": "shop-item-pink",
     "boughtImage": "shop-item-bought-pink",
-    "selectedImage": "shop-item-selected-pink"
+    "selectedImage": "shop-item-selected-pink",
+    "hexColor": "#FF00FF"
  },
   {
     "type": "ink",
     "name": "Crvena",
     "unboughtImage": "shop-item-red",
     "boughtImage": "shop-item-bought-red",
-    "selectedImage": "shop-item-selected-red"
+    "selectedImage": "shop-item-selected-red",
+    "hexColor": "#FF0000"
  },
   {
     "type": "ink",
     "name": "Viola",
     "unboughtImage": "shop-item-viola",
     "boughtImage": "shop-item-bought-viola",
-    "selectedImage": "shop-item-selected-viola"
+    "selectedImage": "shop-item-selected-viola",
+    "hexColor": "#A774FF"
  },
   {
     "type": "ink",
     "name": "Žuta",
     "unboughtImage": "shop-item-yellow",
     "boughtImage": "shop-item-bought-yellow",
-    "selectedImage": "shop-item-selected-yellow"
+    "selectedImage": "shop-item-selected-yellow",
+    "hexColor": "#FCEE21"
  }
 ]

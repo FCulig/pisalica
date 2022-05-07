@@ -19,6 +19,8 @@ extension MainMenuView {
 
 extension MainMenuView.ViewModel {
     func configureLevelData(with context: NSManagedObjectContext) {
+        configureShopData(with: context)
+
         let preloadedDataKey = "didPreloadLevelData"
         let userDefaults = UserDefaults.standard
 
@@ -41,6 +43,7 @@ extension MainMenuView.ViewModel {
                     levelCoreData.lockedImage = level.lockedImage
                     levelCoreData.unlockedImage = level.unlockedImage
                     levelCoreData.isLocked = levelCoreData.name == "A" ? false : true
+
                     try! context.save()
                 }
 
@@ -67,9 +70,12 @@ extension MainMenuView.ViewModel {
                     let shopItemCoreData = ShopItem(context: context)
                     shopItemCoreData.id = UUID()
                     shopItemCoreData.name = shopItem.name
+                    shopItemCoreData.hexColor = shopItem.hexColor
                     shopItemCoreData.unboughtImage = shopItem.unboughtImage
                     shopItemCoreData.boughtImage = shopItem.boughtImage
                     shopItemCoreData.selectedImage = shopItem.selectedImage
+                    shopItemCoreData.isBought = shopItemCoreData.name == "Crna" ? true : false
+                    shopItemCoreData.isSelected = shopItemCoreData.name == "Crna" ? true : false
 
                     try! context.save()
                 }

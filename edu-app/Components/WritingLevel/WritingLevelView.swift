@@ -12,6 +12,7 @@ import SwiftUI
 
 struct WritingLevelView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.managedObjectContext) var moc
     @State var showVideoTutorialDialog: Bool = false
     private let drawingCanvasViewModel: DrawingCanvasViewModel
     private var player: AVPlayer?
@@ -37,6 +38,7 @@ struct WritingLevelView: View {
             buttons
         }
         .overlay(videoTutorialDialog)
+        .onLoad { drawingCanvasViewModel.configureLineColor(context: moc) }
         .navigationBarHidden(true)
     }
 

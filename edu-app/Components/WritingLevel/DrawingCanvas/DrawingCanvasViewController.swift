@@ -13,7 +13,7 @@ import UIKit
 
 class DrawingCanvasViewController: UIViewController {
     // MARK: - Constants -
-    
+
     private enum Constants {
         static let brushWidth: CGFloat = 10
     }
@@ -127,8 +127,10 @@ private extension DrawingCanvasViewController {
         ctx.addLine(to: currentPoint)
         ctx.setLineCap(CGLineCap.round)
         ctx.setLineWidth(Constants.brushWidth)
-        // Unrecognized strokes are drawn in blue.
-        ctx.setStrokeColor(red: 0, green: 0, blue: 1, alpha: 1)
+        ctx.setStrokeColor(red: viewModel.strokeColor.rgba.red,
+                           green: viewModel.strokeColor.rgba.green,
+                           blue: viewModel.strokeColor.rgba.blue,
+                           alpha: viewModel.strokeColor.rgba.alpha)
         ctx.setBlendMode(CGBlendMode.normal)
         ctx.strokePath()
         ctx.flush()

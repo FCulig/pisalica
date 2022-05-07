@@ -6,6 +6,7 @@
 //
 
 import Combine
+import CoreData
 import Foundation
 import UIKit
 
@@ -16,9 +17,10 @@ class DrawingCanvasViewModel {
 
     let level: Level
     var lastPoint: CGPoint!
+    var strokeColor: UIColor = .black
 
     // MARK: - Private properties -
-    
+
     private let levelValidator: LevelValidatorService = .init()
     private var points: [CGPoint] = []
     private lazy var strokeManager = StrokeManager(delegate: self)
@@ -80,6 +82,23 @@ extension DrawingCanvasViewModel {
             successNotificationSubject.send()
             clearInk()
         }
+    }
+}
+
+// MARK: - Private methods -
+
+extension DrawingCanvasViewModel {
+    func configureLineColor(context: NSManagedObjectContext) {
+        let fetchRequest: NSFetchRequest<ShopItem> = ShopItem.fetchRequest()
+        do {
+            let shopItems = try context.fetch(fetchRequest)
+            shopItems.forEach { item in
+                guard item.isSelected else { return }
+                print(item.name)
+                strokeColor = UIColor(hex: item.hexColor ?? "#121212") ?? .black
+            }
+
+        } catch { print(error) }
     }
 }
 

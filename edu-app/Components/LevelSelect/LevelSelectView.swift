@@ -16,7 +16,7 @@ struct LevelSelectView: View {
     @FetchRequest(sortDescriptors: []) var levels: FetchedResults<Level>
 
     // MARK: - View components -
-    
+
     var body: some View {
         ZStack {
             AppImage.houseBackgroundImage.image

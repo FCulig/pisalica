@@ -11,7 +11,10 @@
     </entity>
     <entity name="ShopItem" representedClassName="ShopItem" syncable="YES">
         <attribute name="boughtImage" optional="YES" attributeType="String"/>
+        <attribute name="hexColor" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isBought" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="selectedImage" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
@@ -19,6 +22,6 @@
     </entity>
     <elements>
         <element name="Level" positionX="-63" positionY="-18" width="128" height="134"/>
-        <element name="ShopItem" positionX="-63" positionY="36" width="128" height="119"/>
+        <element name="ShopItem" positionX="-63" positionY="36" width="128" height="164"/>
     </elements>
 </model>
