@@ -9,7 +9,11 @@ import Combine
 import MLKit
 import UIKit
 
+// MARK: - DrawingCanvasViewController -
+
 class DrawingCanvasViewController: UIViewController {
+    // MARK: - Constants -
+    
     private enum Constants {
         static let brushWidth: CGFloat = 10
     }
@@ -106,6 +110,8 @@ private extension DrawingCanvasViewController {
         view.backgroundColor = .white
     }
 }
+
+// MARK: - Utils -
 
 private extension DrawingCanvasViewController {
     func drawLineSegment(touch: UITouch!) {

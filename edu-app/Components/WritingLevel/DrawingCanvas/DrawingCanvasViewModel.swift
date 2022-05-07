@@ -15,10 +15,13 @@ class DrawingCanvasViewModel {
     // MARK: - Public properties -
 
     let level: Level
-    let levelValidator: LevelValidatorService = .init()
     var lastPoint: CGPoint!
-    var points: [CGPoint] = []
-    lazy var strokeManager = StrokeManager(delegate: self)
+
+    // MARK: - Private properties -
+    
+    private let levelValidator: LevelValidatorService = .init()
+    private var points: [CGPoint] = []
+    private lazy var strokeManager = StrokeManager(delegate: self)
 
     var clearCanvas: AnyPublisher<Void, Never> {
         clearCanvasSubject.eraseToAnyPublisher()
@@ -32,8 +35,6 @@ class DrawingCanvasViewModel {
         successNotificationSubject.eraseToAnyPublisher()
     }
 
-    let clearCanvasAction: PassthroughSubject<Void, Never> = .init()
-
     // MARK: - Private properties -
 
     private var clearCanvasSubject: PassthroughSubject<Void, Never> = .init()
@@ -46,20 +47,7 @@ class DrawingCanvasViewModel {
     public init(level: Level) {
         self.level = level
 
-        subscribeActions()
         strokeManager.selectLanguage(languageTag: "hr")
-    }
-
-    private func subscribeActions() {
-        clearCanvasAction
-            .sink { [weak self] in
-                guard let self = self else { return }
-                self.clearInk()
-//                self.clearCanvasSubject.send()
-//                self.strokeManager.clear()
-//                self.points = []
-            }
-            .store(in: &cancellabels)
     }
 }
 

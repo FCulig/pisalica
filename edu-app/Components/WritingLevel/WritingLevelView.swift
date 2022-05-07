@@ -13,8 +13,8 @@ import SwiftUI
 struct WritingLevelView: View {
     @Environment(\.dismiss) var dismiss
     @State var showVideoTutorialDialog: Bool = false
-    let drawingCanvasViewModel: DrawingCanvasViewModel
-    var player: AVPlayer?
+    private let drawingCanvasViewModel: DrawingCanvasViewModel
+    private var player: AVPlayer?
 
     // MARK: - Initializer -
 

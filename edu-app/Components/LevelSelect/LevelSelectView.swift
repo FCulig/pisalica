@@ -15,6 +15,8 @@ struct LevelSelectView: View {
     @StateObject var viewModel: ViewModel = .init()
     @FetchRequest(sortDescriptors: []) var levels: FetchedResults<Level>
 
+    // MARK: - View components -
+    
     var body: some View {
         ZStack {
             AppImage.houseBackgroundImage.image
@@ -54,7 +56,7 @@ struct LevelSelectView: View {
                             LevelButton(level)
                         } else {
                             NavigationLink {
-                                WritingLevelView(level: level)
+                                NavigationLazyView(WritingLevelView(level: level))
                             } label: {
                                 LevelButton(level)
                             }
