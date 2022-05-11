@@ -12,6 +12,7 @@ struct MainMenuView: View {
     @StateObject var viewModel: ViewModel
     @State var isPlayActive = false
     @State var isShopActive = false
+    @State var isAchievementsActive = false
 
     var body: some View {
         NavigationView {
@@ -63,6 +64,20 @@ struct MainMenuView: View {
                     isShopActive = true
                 } label: {
                     AppImage.shopButton.image
+                        .scaledToFit()
+                        .frame(width: 65)
+                }
+            }
+
+            Spacer()
+                .frame(width: 25)
+
+            NavigationLink(destination: AchievementsView(), isActive: $isAchievementsActive) {
+                Button {
+                    viewModel.configureAchievementData(with: managedObjectContext)
+                    isAchievementsActive = true
+                } label: {
+                    AppImage.achievementsButton.image
                         .scaledToFit()
                         .frame(width: 65)
                 }

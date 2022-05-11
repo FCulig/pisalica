@@ -1,0 +1,32 @@
+[
+    {
+        "key": "10_correct_letters",
+        "name": "10 Točno napisanih slova",
+        "target": 10,
+        "medalImage": "silver-medal"
+    },
+    {
+        "key": "10_passed_levels",
+        "name": "10 Prijeđenih razina",
+        "target": 10,
+        "medalImage": "silver-medal"
+    },
+    {
+        "key": "1_bought_item",
+        "name": "Prva kupnja",
+        "target": 1,
+        "medalImage": "silver-medal"
+    },
+    {
+        "key": "100_correct_letters",
+        "name": "100 Točno napisanih slova",
+        "target": 100,
+        "medalImage": "gold-medal"
+    },
+    {
+        "key": "30_passed_levels",
+        "name": "30 Prijeđenih razina",
+        "target": 30,
+        "medalImage": "gold-medal"
+    }
+]

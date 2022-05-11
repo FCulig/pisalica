@@ -20,6 +20,7 @@ extension MainMenuView {
 extension MainMenuView.ViewModel {
     func configureLevelData(with context: NSManagedObjectContext) {
         configureShopData(with: context)
+        configureAchievementData(with: context)
 
         let preloadedDataKey = "didPreloadLevelData"
         let userDefaults = UserDefaults.standard
@@ -53,6 +54,8 @@ extension MainMenuView.ViewModel {
     }
 
     func configureShopData(with context: NSManagedObjectContext) {
+        configureAchievementData(with: context)
+
         let preloadedDataKey = "didPreloadShopData"
         let userDefaults = UserDefaults.standard
 
@@ -76,6 +79,37 @@ extension MainMenuView.ViewModel {
                     shopItemCoreData.selectedImage = shopItem.selectedImage
                     shopItemCoreData.isBought = shopItemCoreData.name == "Crna" ? true : false
                     shopItemCoreData.isSelected = shopItemCoreData.name == "Crna" ? true : false
+
+                    try! context.save()
+                }
+
+                userDefaults.set(true, forKey: preloadedDataKey)
+            } catch { print(error) }
+        }
+    }
+
+    func configureAchievementData(with context: NSManagedObjectContext) {
+        let preloadedDataKey = "didPreloadAchievementData"
+        let userDefaults = UserDefaults.standard
+
+        if userDefaults.bool(forKey: preloadedDataKey) != true {
+            do {
+                guard let achievementsUrlPath = Bundle.main.url(forResource: "Achievements", withExtension: "json") else { return }
+
+                let decoder = JSONDecoder()
+                let data = try Data(contentsOf: achievementsUrlPath)
+                let jsonData = try decoder.decode([DecodableAchievementItem].self, from: data)
+
+                guard jsonData.count > 0 else { return }
+
+                for achievement in jsonData {
+                    let achievementCoreData = Achievement(context: context)
+                    achievementCoreData.id = UUID()
+                    achievementCoreData.name = achievement.name
+                    achievementCoreData.medalImage = achievement.medalImage
+                    achievementCoreData.key = achievement.key
+                    achievementCoreData.target = Int64(achievement.target)
+                    achievementCoreData.currentValue = 0
 
                     try! context.save()
                 }

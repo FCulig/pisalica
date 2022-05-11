@@ -23,6 +23,12 @@ enum AppImage {
     case helpButton
     case videoButton
     case shopButton
+    case achievementsButton
+    case achievementItemBackground
+    case progressBarBackground
+    case progressBarIndicator
+    case goldMedal
+    case silverMedal
 
     var image: Image {
         switch self {
@@ -54,6 +60,18 @@ enum AppImage {
             return Image("video-button").resizable()
         case .shopButton:
             return Image("shop-button").resizable()
+        case .achievementsButton:
+            return Image("achievments-button").resizable()
+        case .achievementItemBackground:
+            return Image("achievement-background").resizable()
+        case .progressBarBackground:
+            return Image("progress-bar-background").resizable()
+        case .progressBarIndicator:
+            return Image("progress-bar").resizable()
+        case .goldMedal:
+            return Image("gold-medal").resizable()
+        case .silverMedal:
+            return Image("silver-medal").resizable()
         }
     }
 }

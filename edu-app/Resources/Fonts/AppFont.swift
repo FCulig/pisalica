@@ -9,11 +9,14 @@ import SwiftUI
 
 enum AppFont {
     case title
+    case achievementTitle
 
     var font: Font {
         switch self {
         case .title:
             return Font.custom("RobotoCondensed-Bold", size: 50)
+        case .achievementTitle:
+            return Font.custom("RobotoCondensed-Bold", size: 30).weight(.black)
         }
     }
 }
