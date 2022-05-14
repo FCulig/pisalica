@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "J-guide.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

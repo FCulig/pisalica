@@ -107,7 +107,7 @@ private extension DrawingCanvasViewController {
             drawnImage.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -10),
         ])
 
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
     }
 }
 
@@ -142,14 +142,14 @@ private extension DrawingCanvasViewController {
     func displayError() {
         UIView.animate(withDuration: 0.5) { [weak self] in
             self?.background.backgroundColor = .red
-            self?.background.backgroundColor = .white
+            self?.background.backgroundColor = .clear
         }
     }
 
     func displaySuccess() {
         UIView.animate(withDuration: 0.5) { [weak self] in
             self?.background.backgroundColor = .green
-            self?.background.backgroundColor = .white
+            self?.background.backgroundColor = .clear
         }
     }
 }

@@ -5,7 +5,9 @@
         "numberOfLines": 3,
         "isLocked": false,
         "lockedImage": "A-locked",
-        "unlockedImage": "A-unlocked"
+        "unlockedImage": "A-unlocked",
+        "guideImage": "A-guide",
+        "outlineImage": "A-outline"
     },
     {
         "name": "B",
@@ -13,7 +15,9 @@
         "numberOfLines": 3,
         "isLocked": true,
         "lockedImage": "B-locked",
-        "unlockedImage": "B-unlocked"
+        "unlockedImage": "B-unlocked",
+        "guideImage": "B-guide",
+        "outlineImage": "B-outline"
     },
     {
         "name": "C",
@@ -21,21 +25,27 @@
         "numberOfLines": 1,
         "isLocked": true,
         "lockedImage": "C-locked",
-        "unlockedImage": "C-unlocked"
+        "unlockedImage": "C-unlocked",
+        "guideImage": "C-guide",
+        "outlineImage": "C-outline"
     },{
         "name": "Č",
         "results": ["Č", "č"],
         "numberOfLines": 2,
         "isLocked": true,
         "lockedImage": "tvrdoC-locked",
-        "unlockedImage": "tvrdoC-unlocked"
+        "unlockedImage": "tvrdoC-unlocked",
+        "guideImage": "tvrdoC-guide",
+        "outlineImage": "tvrdoC-outline"
     },{
         "name": "Ć",
         "results": ["Ć", "ć"],
         "numberOfLines": 2,
         "isLocked": true,
         "lockedImage": "mekoC-locked",
-        "unlockedImage": "mekoC-unlocked"
+        "unlockedImage": "mekoC-unlocked",
+        "guideImage": "mekoC-guide",
+        "outlineImage": "mekoC-outline"
     },
     {
         "name": "D",
@@ -43,7 +53,9 @@
         "numberOfLines": 2,
         "isLocked": true,
         "lockedImage": "D-locked",
-        "unlockedImage": "D-unlocked"
+        "unlockedImage": "D-unlocked",
+        "guideImage": "D-guide",
+        "outlineImage": "D-outline"
     },
     {
         "name": "DŽ",
@@ -51,7 +63,9 @@
         "numberOfLines": 6,
         "isLocked": true,
         "lockedImage": "DZ-locked",
-        "unlockedImage": "DZ-unlocked"
+        "unlockedImage": "DZ-unlocked",
+        "guideImage": "DZ-guide",
+        "outlineImage": "DZ-outline"
     },
     {
         "name": "Đ",
@@ -59,21 +73,27 @@
         "numberOfLines": 3,
         "isLocked": true,
         "lockedImage": "Đ-locked",
-        "unlockedImage": "Đ-unlocked"
+        "unlockedImage": "Đ-unlocked",
+        "guideImage": "Đ-guide",
+        "outlineImage": "Đ-outline"
     },{
         "name": "E",
         "results": ["E"],
         "numberOfLines": 4,
         "isLocked": true,
         "lockedImage": "E-locked",
-        "unlockedImage": "E-unlocked"
+        "unlockedImage": "E-unlocked",
+        "guideImage": "E-guide",
+        "outlineImage": "E-outline"
     },{
         "name": "F",
         "results": ["F", "f"],
         "numberOfLines": 3,
         "isLocked": true,
         "lockedImage": "F-locked",
-        "unlockedImage": "F-unlocked"
+        "unlockedImage": "F-unlocked",
+        "guideImage": "F-guide",
+        "outlineImage": "F-outline"
     },
     {
         "name": "G",
@@ -81,7 +101,9 @@
         "numberOfLines": 2,
         "isLocked": true,
         "lockedImage": "G-locked",
-        "unlockedImage": "G-unlocked"
+        "unlockedImage": "G-unlocked",
+        "guideImage": "G-guide",
+        "outlineImage": "G-outline"
     },
     {
         "name": "H",
@@ -89,7 +111,9 @@
         "numberOfLines": 3,
         "isLocked": true,
         "lockedImage": "H-locked",
-        "unlockedImage": "H-unlocked"
+        "unlockedImage": "H-unlocked",
+        "guideImage": "H-guide",
+        "outlineImage": "H-outline"
     },
     {
         "name": "I",
@@ -97,21 +121,27 @@
         "numberOfLines": 1,
         "isLocked": true,
         "lockedImage": "I-locked",
-        "unlockedImage": "I-unlocked"
+        "unlockedImage": "I-unlocked",
+        "guideImage": "I-guide",
+        "outlineImage": "I-outline"
     },{
         "name": "J",
         "results": ["J", "j"],
         "numberOfLines": 1,
         "isLocked": true,
         "lockedImage": "J-locked",
-        "unlockedImage": "J-unlocked"
+        "unlockedImage": "J-unlocked",
+        "guideImage": "J-guide",
+        "outlineImage": "J-outline"
     },{
         "name": "K",
         "results": ["K", "k"],
         "numberOfLines": 3,
         "isLocked": true,
         "lockedImage": "K-locked",
-        "unlockedImage": "K-unlocked"
+        "unlockedImage": "K-unlocked",
+        "guideImage": "K-guide",
+        "outlineImage": "K-outline"
     },
     {
         "name": "L",
@@ -119,7 +149,9 @@
         "numberOfLines": 2,
         "isLocked": true,
         "lockedImage": "L-locked",
-        "unlockedImage": "L-unlocked"
+        "unlockedImage": "L-unlocked",
+        "guideImage": "L-guide",
+        "outlineImage": "L-outline"
     },
     {
         "name": "LJ",
@@ -127,7 +159,9 @@
         "numberOfLines": 3,
         "isLocked": true,
         "lockedImage": "LJ-locked",
-        "unlockedImage": "LJ-unlocked"
+        "unlockedImage": "LJ-unlocked",
+        "guideImage": "LJ-guide",
+        "outlineImage": "LJ-outline"
     },
     {
         "name": "M",
@@ -135,21 +169,27 @@
         "numberOfLines": 3,
         "isLocked": true,
         "lockedImage": "M-locked",
-        "unlockedImage": "M-unlocked"
+        "unlockedImage": "M-unlocked",
+        "guideImage": "M-guide",
+        "outlineImage": "M-outline"
     },{
         "name": "N",
         "results": ["N"],
         "numberOfLines": 3,
         "isLocked": true,
         "lockedImage": "N-locked",
-        "unlockedImage": "N-unlocked"
+        "unlockedImage": "N-unlocked",
+        "guideImage": "N-guide",
+        "outlineImage": "N-outline"
     },{
         "name": "NJ",
         "results": ["NJ"],
         "numberOfLines": 4,
         "isLocked": true,
         "lockedImage": "NJ-locked",
-        "unlockedImage": "NJ-unlocked"
+        "unlockedImage": "NJ-unlocked",
+        "guideImage": "NJ-guide",
+        "outlineImage": "NJ-outline"
     },
     {
         "name": "O",
@@ -157,7 +197,9 @@
         "numberOfLines": 1,
         "isLocked": true,
         "lockedImage": "O-locked",
-        "unlockedImage": "O-unlocked"
+        "unlockedImage": "O-unlocked",
+        "guideImage": "O-guide",
+        "outlineImage": "O-outline"
     },
     {
         "name": "P",
@@ -165,7 +207,9 @@
         "numberOfLines": 2,
         "isLocked": true,
         "lockedImage": "P-locked",
-        "unlockedImage": "P-unlocked"
+        "unlockedImage": "P-unlocked",
+        "guideImage": "P-guide",
+        "outlineImage": "P-outline"
     },
     {
         "name": "R",
@@ -173,21 +217,27 @@
         "numberOfLines": 3,
         "isLocked": true,
         "lockedImage": "R-locked",
-        "unlockedImage": "R-unlocked"
+        "unlockedImage": "R-unlocked",
+        "guideImage": "R-guide",
+        "outlineImage": "R-outline"
     },{
         "name": "S",
         "results": ["S", "s"],
         "numberOfLines": 1,
         "isLocked": true,
         "lockedImage": "S-locked",
-        "unlockedImage": "S-unlocked"
+        "unlockedImage": "S-unlocked",
+        "guideImage": "S-guide",
+        "outlineImage": "S-outline"
     },{
         "name": "Š",
         "results": ["Š", "š"],
         "numberOfLines": 2,
         "isLocked": true,
         "lockedImage": "Sh-locked",
-        "unlockedImage": "Sh-unlocked"
+        "unlockedImage": "Sh-unlocked",
+        "guideImage": "Sh-guide",
+        "outlineImage": "Sh-outline"
     },
     {
         "name": "T",
@@ -195,7 +245,9 @@
         "numberOfLines": 2,
         "isLocked": true,
         "lockedImage": "T-locked",
-        "unlockedImage": "T-unlocked"
+        "unlockedImage": "T-unlocked",
+        "guideImage": "T-guide",
+        "outlineImage": "T-outline"
     },
     {
         "name": "U",
@@ -203,7 +255,9 @@
         "numberOfLines": 1,
         "isLocked": true,
         "lockedImage": "U-locked",
-        "unlockedImage": "U-unlocked"
+        "unlockedImage": "U-unlocked",
+        "guideImage": "U-guide",
+        "outlineImage": "U-outline"
     },
     {
         "name": "V",
@@ -211,20 +265,26 @@
         "numberOfLines": 2,
         "isLocked": true,
         "lockedImage": "V-locked",
-        "unlockedImage": "V-unlocked"
+        "unlockedImage": "V-unlocked",
+        "guideImage": "V-guide",
+        "outlineImage": "V-outline"
     },{
         "name": "Z",
         "results": ["Z", "z"],
         "numberOfLines": 3,
         "isLocked": true,
         "lockedImage": "Z-locked",
-        "unlockedImage": "Z-unlocked"
+        "unlockedImage": "Z-unlocked",
+        "guideImage": "Z-guide",
+        "outlineImage": "Z-outline"
     },{
         "name": "Ž",
         "results": ["Ž", "ž"],
         "numberOfLines": 4,
         "isLocked": true,
         "lockedImage": "Zh-locked",
-        "unlockedImage": "Zh-unlocked"
+        "unlockedImage": "Zh-unlocked",
+        "guideImage": "Zh-guide",
+        "outlineImage": "Zh-outline"
     }
 ]

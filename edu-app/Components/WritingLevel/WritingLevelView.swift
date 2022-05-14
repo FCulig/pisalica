@@ -6,21 +6,31 @@
 //
 
 import AVKit
+import Combine
 import SwiftUI
 
 // MARK: - WritingLevelView -
 
 struct WritingLevelView: View {
-    @Environment(\.dismiss) var dismiss
-    @Environment(\.managedObjectContext) var moc
-    @State var showVideoTutorialDialog: Bool = false
-    private let drawingCanvasViewModel: DrawingCanvasViewModel
+    // MARK: - Private properties -
+
+    private var drawingCanvasViewModel: DrawingCanvasViewModel
     private var player: AVPlayer?
+
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.managedObjectContext) private var moc
+    @StateObject private var viewModel: ViewModel
+    @State private var showVideoTutorialDialog: Bool = false
 
     // MARK: - Initializer -
 
-    public init(level: Level) {
+    public init(level: Level, levelService: LevelService) {
         drawingCanvasViewModel = .init(level: level)
+
+        let wrappedViewModel = ViewModel(level: level,
+                                         drawingCanvasViewModel: drawingCanvasViewModel,
+                                         levelService: levelService)
+        _viewModel = StateObject(wrappedValue: wrappedViewModel)
 
         guard let videoUrl = Bundle.main.path(forResource: level.name, ofType: "mp4") else { return }
         player = AVPlayer(url: URL(fileURLWithPath: videoUrl))
@@ -38,6 +48,7 @@ struct WritingLevelView: View {
             buttons
         }
         .overlay(videoTutorialDialog)
+        .overlay(gameOverDialog)
         .onLoad { drawingCanvasViewModel.configureLineColor(context: moc) }
         .navigationBarHidden(true)
     }
@@ -47,7 +58,15 @@ struct WritingLevelView: View {
             Text(drawingCanvasViewModel.level.name ?? "")
                 .foregroundColor(.green)
             ZStack {
-                AppImage.drawingPanelBackgroundImage.image
+                viewModel.levelState.backgroundImage
+                if viewModel.level.isDiacritical {
+                    viewModel.levelState.foregroundImage
+                        .scaledToFit()
+                        .padding(.top, 25)
+                } else {
+                    viewModel.levelState.foregroundImage
+                        .scaledToFit()
+                }
                 DrawingCanvasView(viewModel: drawingCanvasViewModel)
                     .padding(.leading, 49)
                     .padding(.trailing, 45)
@@ -133,6 +152,24 @@ struct WritingLevelView: View {
             }
         }
     }
+
+    var gameOverDialog: some View {
+        ZStack {
+            if viewModel.isGameOver {
+                Rectangle()
+                    .ignoresSafeArea()
+                    .scaledToFill()
+                    .foregroundColor(.black.opacity(0.85))
+                AppImage.videoPanelBackgroundImage.image
+                    .scaledToFit()
+                    .padding(.vertical, 60)
+                    .onTapGesture {
+                        dismiss()
+                        viewModel.endLevel(context: moc)
+                    }
+            }
+        }
+    }
 }
 
 struct WritingLevelView_Previews: PreviewProvider {
@@ -146,7 +183,8 @@ struct WritingLevelView_Previews: PreviewProvider {
         level.lockedImage = "A-locked"
         level.unlockedImage = "A-unlocked"
 
-        return WritingLevelView(level: level)
+        return WritingLevelView(level: level,
+                                levelService: .init())
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

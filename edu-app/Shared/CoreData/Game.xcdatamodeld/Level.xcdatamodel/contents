@@ -9,11 +9,13 @@
         <attribute name="target" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="Level" representedClassName="Level" syncable="YES">
+        <attribute name="guideImage" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isLocked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="lockedImage" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="numberOfLines" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="outlineImage" optional="YES" attributeType="String"/>
         <attribute name="results" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
         <attribute name="unlockedImage" optional="YES" attributeType="String"/>
     </entity>
@@ -30,7 +32,7 @@
     </entity>
     <elements>
         <element name="Achievement" positionX="-63" positionY="81" width="128" height="119"/>
-        <element name="Level" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="Level" positionX="-63" positionY="-18" width="128" height="164"/>
         <element name="ShopItem" positionX="-63" positionY="36" width="128" height="164"/>
     </elements>
 </model>

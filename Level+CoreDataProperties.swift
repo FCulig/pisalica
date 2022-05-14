@@ -1,8 +1,8 @@
 //
 //  Level+CoreDataProperties.swift
+//  edu-app
 //
-//
-//  Created by Filip Culig on 23.04.2022..
+//  Created by Filip Culig on 11.05.2022..
 //
 //
 
@@ -21,4 +21,8 @@ public extension Level {
     @NSManaged var numberOfLines: Int64
     @NSManaged var results: [String]?
     @NSManaged var unlockedImage: String?
+    @NSManaged var guideImage: String?
+    @NSManaged var outlineImage: String?
 }
+
+extension Level: Identifiable {}

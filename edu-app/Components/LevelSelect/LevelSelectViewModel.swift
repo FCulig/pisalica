@@ -12,6 +12,7 @@ import Foundation
 
 extension LevelSelectView {
     class ViewModel: ObservableObject {
+        let levelService: LevelService
         var totalPages: Int = 0
         var currentPage: Int = 0
         var paginatedLevels: [[Level]] = []
@@ -20,7 +21,9 @@ extension LevelSelectView {
         @Published var showPreviousPageButton: Bool = false
         @Published var showNextPageButton: Bool = false
 
-        public init() {}
+        public init() {
+            levelService = LevelService()
+        }
     }
 }
 
@@ -72,6 +75,7 @@ extension LevelSelectView.ViewModel {
             }
 
             updatePageContent()
+            levelService.levels = levels
         } catch { print(error) }
     }
 }

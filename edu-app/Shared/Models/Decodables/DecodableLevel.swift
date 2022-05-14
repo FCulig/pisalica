@@ -14,6 +14,8 @@ struct DecodableLevel: Decodable {
     let numberOfLines: Int64
     let unlockedImage: String
     let lockedImage: String
+    let guideImage: String
+    let outlineImage: String
     let isLocked: Bool
     let results: [String]
 
@@ -22,6 +24,8 @@ struct DecodableLevel: Decodable {
         case numberOfLines
         case unlockedImage
         case lockedImage
+        case guideImage
+        case outlineImage
         case isLocked
         case results
     }

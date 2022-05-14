@@ -37,11 +37,16 @@ class DrawingCanvasViewModel {
         successNotificationSubject.eraseToAnyPublisher()
     }
 
+    var isAnswerCorrect: AnyPublisher<Bool, Never> {
+        isAnswerCorrectSubject.eraseToAnyPublisher()
+    }
+
     // MARK: - Private properties -
 
     private var clearCanvasSubject: PassthroughSubject<Void, Never> = .init()
     private var errorNotificationSubject: PassthroughSubject<Void, Never> = .init()
     private var successNotificationSubject: PassthroughSubject<Void, Never> = .init()
+    private var isAnswerCorrectSubject: PassthroughSubject<Bool, Never> = .init()
     private var cancellabels: Set<AnyCancellable> = []
 
     // MARK: - Initializer
@@ -73,6 +78,7 @@ extension DrawingCanvasViewModel {
         if points.count == level.numberOfLines * 2 {
             guard levelValidator.isValid(level: level, points: points) else {
                 errorNotificationSubject.send()
+                isAnswerCorrectSubject.send(false)
                 clearInk()
                 return
             }
@@ -80,6 +86,7 @@ extension DrawingCanvasViewModel {
             // TODO: Implement
             strokeManager.recognizeInk()
             successNotificationSubject.send()
+            isAnswerCorrectSubject.send(true)
             clearInk()
         }
     }
@@ -94,7 +101,6 @@ extension DrawingCanvasViewModel {
             let shopItems = try context.fetch(fetchRequest)
             shopItems.forEach { item in
                 guard item.isSelected else { return }
-                print(item.name)
                 strokeColor = UIColor(hex: item.hexColor ?? "#121212") ?? .black
             }
 

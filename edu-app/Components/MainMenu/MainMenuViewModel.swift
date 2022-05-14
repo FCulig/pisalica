@@ -43,6 +43,8 @@ extension MainMenuView.ViewModel {
                     levelCoreData.results = level.results
                     levelCoreData.lockedImage = level.lockedImage
                     levelCoreData.unlockedImage = level.unlockedImage
+                    levelCoreData.guideImage = level.guideImage
+                    levelCoreData.outlineImage = level.outlineImage
                     levelCoreData.isLocked = levelCoreData.name == "A" ? false : true
 
                     try! context.save()

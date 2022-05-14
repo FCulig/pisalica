@@ -7,12 +7,16 @@
 
 import SwiftUI
 
+// MARK: - MainMenuView -
+
 struct MainMenuView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @StateObject var viewModel: ViewModel
     @State var isPlayActive = false
     @State var isShopActive = false
     @State var isAchievementsActive = false
+
+    // MARK: - View components -
 
     var body: some View {
         NavigationView {

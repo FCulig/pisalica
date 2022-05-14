@@ -8,12 +8,6 @@
       location = "group:/Users/filipculig/Developer/edu-app/edu-app/Shared/Models/ShopItem+CoreDataProperties.swift">
    </FileRef>
    <FileRef
-      location = "container:/Users/filipculig/Developer/edu-app/edu-app/Shared/Models/Level+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "container:/Users/filipculig/Developer/edu-app/edu-app/Shared/Models/Level+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:edu-app.xcodeproj">
    </FileRef>
    <FileRef
