@@ -13,6 +13,7 @@ import SwiftUI
 
 extension WritingLevelView {
     class ViewModel: ObservableObject {
+        private let achievementService: AchievementService
         private let levelService: LevelService
         private var correctAnswers: Int = 0
         private var totalAttempts: Int = 0
@@ -27,11 +28,13 @@ extension WritingLevelView {
 
         public init(level: Level,
                     drawingCanvasViewModel: DrawingCanvasViewModel,
-                    levelService: LevelService)
+                    levelService: LevelService,
+                    achievementService: AchievementService)
         {
             self.level = level
             self.drawingCanvasViewModel = drawingCanvasViewModel
             self.levelService = levelService
+            self.achievementService = achievementService
 
             levelState = .guides(image: level.guideImage ?? "")
 
@@ -45,6 +48,11 @@ extension WritingLevelView {
 extension WritingLevelView.ViewModel {
     func endLevel(context: NSManagedObjectContext) {
         levelService.unlockLevelAfter(level, context: context)
+
+        achievementService.updateAchievementProgress(achievementKey: "10_correct_letters", valueToBeAdded: correctAnswers, context: context)
+        achievementService.updateAchievementProgress(achievementKey: "100_correct_letters", valueToBeAdded: correctAnswers, context: context)
+        achievementService.updateAchievementProgress(achievementKey: "10_passed_levels", valueToBeAdded: 1, context: context)
+        achievementService.updateAchievementProgress(achievementKey: "30_passed_levels", valueToBeAdded: 1, context: context)
     }
 }
 

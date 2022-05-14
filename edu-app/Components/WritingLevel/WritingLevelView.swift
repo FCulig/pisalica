@@ -24,12 +24,13 @@ struct WritingLevelView: View {
 
     // MARK: - Initializer -
 
-    public init(level: Level, levelService: LevelService) {
+    public init(level: Level, levelService: LevelService, achievementService: AchievementService) {
         drawingCanvasViewModel = .init(level: level)
 
         let wrappedViewModel = ViewModel(level: level,
                                          drawingCanvasViewModel: drawingCanvasViewModel,
-                                         levelService: levelService)
+                                         levelService: levelService,
+                                         achievementService: achievementService)
         _viewModel = StateObject(wrappedValue: wrappedViewModel)
 
         guard let videoUrl = Bundle.main.path(forResource: level.name, ofType: "mp4") else { return }
@@ -184,7 +185,8 @@ struct WritingLevelView_Previews: PreviewProvider {
         level.unlockedImage = "A-unlocked"
 
         return WritingLevelView(level: level,
-                                levelService: .init())
+                                levelService: .init(),
+                                achievementService: .init())
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

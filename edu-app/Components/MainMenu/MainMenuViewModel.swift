@@ -12,7 +12,11 @@ import Foundation
 // MARK: - MainMenuViewModel -
 
 extension MainMenuView {
-    class ViewModel: ObservableObject {}
+    class ViewModel: ObservableObject {
+        let achievementService = AchievementService()
+
+        public init() {}
+    }
 }
 
 // MARK: - Public methods -

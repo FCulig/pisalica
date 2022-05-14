@@ -12,7 +12,16 @@ import SwiftUI
 struct AchievementsView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel: ViewModel = .init()
+    @StateObject private var viewModel: ViewModel
+
+    // MARK: - Initializer -
+
+    public init(achievementService: AchievementService) {
+        let wrappedViewModel = ViewModel(achievementService: achievementService)
+        _viewModel = StateObject(wrappedValue: wrappedViewModel)
+    }
+
+    // MARK: - View components -
 
     var body: some View {
         ZStack {
@@ -84,6 +93,6 @@ struct AchievementsView: View {
 
 struct AchievementsView_Previews: PreviewProvider {
     static var previews: some View {
-        AchievementsView()
+        AchievementsView(achievementService: .init())
     }
 }

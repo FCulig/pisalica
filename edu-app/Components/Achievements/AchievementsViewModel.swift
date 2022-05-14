@@ -12,16 +12,17 @@ import Foundation
 
 extension AchievementsView {
     class ViewModel: ObservableObject {
+        private let achievementService: AchievementService
         @Published var achievements: [Achievement] = []
+
+        public init(achievementService: AchievementService) {
+            self.achievementService = achievementService
+        }
     }
 }
 
 extension AchievementsView.ViewModel {
     func getAchievements(context: NSManagedObjectContext) {
-        let fetchRequest: NSFetchRequest<Achievement> = Achievement.fetchRequest()
-
-        do {
-            achievements = try context.fetch(fetchRequest)
-        } catch { print(error) }
+        achievements = achievementService.getAchievements(context: context)
     }
 }

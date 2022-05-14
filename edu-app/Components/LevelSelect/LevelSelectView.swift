@@ -12,8 +12,15 @@ import SwiftUI
 struct LevelSelectView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel: ViewModel = .init()
+    @StateObject var viewModel: ViewModel
     @FetchRequest(sortDescriptors: []) var levels: FetchedResults<Level>
+
+    // MARK: - Initializer -
+
+    public init(achievementService: AchievementService) {
+        let wrappedViewModel = ViewModel(achievementService: achievementService)
+        _viewModel = StateObject(wrappedValue: wrappedViewModel)
+    }
 
     // MARK: - View components -
 
@@ -57,7 +64,8 @@ struct LevelSelectView: View {
                         } else {
                             NavigationLink {
                                 NavigationLazyView(WritingLevelView(level: level,
-                                                                    levelService: viewModel.levelService))
+                                                                    levelService: viewModel.levelService,
+                                                                    achievementService: viewModel.achievementService))
                             } label: {
                                 LevelButton(level)
                             }
@@ -123,19 +131,9 @@ struct LevelSelectView: View {
     }
 }
 
-#if DEBUG
-    import CoreData
-    struct LevelSelectView_Previews: PreviewProvider {
-        static var previews: some View {
-            let container = NSPersistentContainer(name: "Game")
-
-            container.loadPersistentStores { _, error in
-                guard let error = error else { return }
-                fatalError("Core Data error: '\(error.localizedDescription)'.")
-            }
-            return LevelSelectView()
-                .previewInterfaceOrientation(.landscapeLeft)
-                .environment(\.managedObjectContext, container.viewContext)
-        }
+struct LevelSelectView_Previews: PreviewProvider {
+    static var previews: some View {
+        return LevelSelectView(achievementService: .init())
+            .previewInterfaceOrientation(.landscapeLeft)
     }
-#endif
+}

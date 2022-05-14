@@ -28,7 +28,7 @@ struct MainMenuView: View {
                     VStack {
                         Spacer()
                         List {
-                            NavigationLink(destination: LevelSelectView(), isActive: $isPlayActive) {
+                            NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService), isActive: $isPlayActive) {
                                 Button {
                                     viewModel.configureLevelData(with: managedObjectContext)
                                     isPlayActive = true
@@ -76,7 +76,7 @@ struct MainMenuView: View {
             Spacer()
                 .frame(width: 25)
 
-            NavigationLink(destination: AchievementsView(), isActive: $isAchievementsActive) {
+            NavigationLink(destination: AchievementsView(achievementService: viewModel.achievementService), isActive: $isAchievementsActive) {
                 Button {
                     viewModel.configureAchievementData(with: managedObjectContext)
                     isAchievementsActive = true

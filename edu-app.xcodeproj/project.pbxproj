@@ -14,6 +14,7 @@
 		4D053EA327F7844800B3E198 /* DrawingCanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EA227F7844800B3E198 /* DrawingCanvasViewModel.swift */; };
 		4D053EA827F841A500B3E198 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EA727F841A500B3E198 /* Levels.swift */; };
 		4D053EAC27F844AB00B3E198 /* LevelValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */; };
+		4D0FF533282FAC5E0083E06B /* AchievementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FF532282FAC5E0083E06B /* AchievementService.swift */; };
 		4D48B3B8282E55AE0066EAC8 /* LevelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48B3B7282E55AE0066EAC8 /* LevelService.swift */; };
 		4D4E05D8280D640000569C16 /* Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E05D6280D640000569C16 /* Game.xcdatamodeld */; };
 		4D4E05DC280D663E00569C16 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E05DB280D663E00569C16 /* DataController.swift */; };
@@ -97,6 +98,7 @@
 		4D053EA227F7844800B3E198 /* DrawingCanvasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasViewModel.swift; sourceTree = "<group>"; };
 		4D053EA727F841A500B3E198 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelValidatorService.swift; sourceTree = "<group>"; };
+		4D0FF532282FAC5E0083E06B /* AchievementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementService.swift; sourceTree = "<group>"; };
 		4D48B3B7282E55AE0066EAC8 /* LevelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelService.swift; sourceTree = "<group>"; };
 		4D4E05D7280D640000569C16 /* Level.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Level.xcdatamodel; sourceTree = "<group>"; };
 		4D4E05DB280D663E00569C16 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 			children = (
 				4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */,
 				4D48B3B7282E55AE0066EAC8 /* LevelService.swift */,
+				4D0FF532282FAC5E0083E06B /* AchievementService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -827,6 +830,7 @@
 				4D6EC871281EE2F700C70061 /* ShopItem+CoreDataClass.swift in Sources */,
 				4D526BCC282A629300B8FEA3 /* DecodableAchievementItem.swift in Sources */,
 				4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */,
+				4D0FF533282FAC5E0083E06B /* AchievementService.swift in Sources */,
 				4D526BC82827D1AE00B8FEA3 /* ProgressBar.swift in Sources */,
 				4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */,
 				4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */,
