@@ -114,7 +114,6 @@ class StrokeManager {
         let identifier = DigitalInkRecognitionModelIdentifier(forLanguageTag: languageTag)
         model = DigitalInkRecognitionModel(modelIdentifier: identifier!)
         recognizer = nil
-//        delegate?.displayMessage(message: "Selected language with tag \(languageTag)")
     }
 
     /**
@@ -124,12 +123,10 @@ class StrokeManager {
     func downloadModel() {
         if modelManager.isModelDownloaded(model!) {
             print("Model is already downloaded")
-//            delegate?.displayMessage(message: "Model is already downloaded")
             return
         }
-//        delegate?.displayMessage(message: "Starting download")
 
-        print("Downloading - start")
+        print("Starting model download")
 
         // The Progress object returned by `downloadModel` currently only takes on the values 0% or 100%
         // so is not very useful. Instead we'll rely on the outcome listeners in the initializer to
@@ -172,9 +169,7 @@ class StrokeManager {
         // `ViewController` to redraw the screen to show it.
         recognizer.recognize(
             ink: ink,
-            completion: {
-                [unowned self, recognizedInk]
-                (result: DigitalInkRecognitionResult?, _: Error?) in
+            completion: { [recognizedInk] (result: DigitalInkRecognitionResult?, _: Error?) in
                 var recognitionResult: String?
                 if let result = result, let candidate = result.candidates.first {
                     recognizedInk.text = candidate.text

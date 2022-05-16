@@ -17,10 +17,10 @@ extension WritingLevelView {
         private let levelService: LevelService
         private var correctAnswers: Int = 0
         private var totalAttempts: Int = 0
-        private var drawingCanvasViewModel: DrawingCanvasViewModel
         private var cancellabels: Set<AnyCancellable> = []
 
         let level: Level
+        var drawingCanvasViewModel: DrawingCanvasViewModel
         @Published var levelState: LevelState = .none
         @Published var isGameOver: Bool = false
 

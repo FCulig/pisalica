@@ -14,7 +14,6 @@ import SwiftUI
 struct WritingLevelView: View {
     // MARK: - Private properties -
 
-    private var drawingCanvasViewModel: DrawingCanvasViewModel
     private var player: AVPlayer?
 
     @Environment(\.dismiss) private var dismiss
@@ -25,7 +24,7 @@ struct WritingLevelView: View {
     // MARK: - Initializer -
 
     public init(level: Level, levelService: LevelService, achievementService: AchievementService) {
-        drawingCanvasViewModel = .init(level: level)
+        let drawingCanvasViewModel = DrawingCanvasViewModel(level: level)
 
         let wrappedViewModel = ViewModel(level: level,
                                          drawingCanvasViewModel: drawingCanvasViewModel,
@@ -50,13 +49,13 @@ struct WritingLevelView: View {
         }
         .overlay(videoTutorialDialog)
         .overlay(gameOverDialog)
-        .onLoad { drawingCanvasViewModel.configureLineColor(context: moc) }
+        .onLoad { viewModel.drawingCanvasViewModel.configureLineColor(context: moc) }
         .navigationBarHidden(true)
     }
 
     var drawingCanvasContainer: some View {
         VStack {
-            Text(drawingCanvasViewModel.level.name ?? "")
+            Text(viewModel.drawingCanvasViewModel.level.name ?? "")
                 .foregroundColor(.green)
             ZStack {
                 viewModel.levelState.backgroundImage
@@ -68,7 +67,7 @@ struct WritingLevelView: View {
                     viewModel.levelState.foregroundImage
                         .scaledToFit()
                 }
-                DrawingCanvasView(viewModel: drawingCanvasViewModel)
+                DrawingCanvasView(viewModel: viewModel.drawingCanvasViewModel)
                     .padding(.leading, 49)
                     .padding(.trailing, 45)
                     .padding(.top, 29)
@@ -103,7 +102,7 @@ struct WritingLevelView: View {
                 }
                 Spacer()
                 Button {
-                    drawingCanvasViewModel.clearInk()
+                    viewModel.drawingCanvasViewModel.clearInk()
                 } label: {
                     AppImage.trashCanButton.image
                         .aspectRatio(contentMode: .fit)
