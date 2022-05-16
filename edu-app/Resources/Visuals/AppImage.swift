@@ -30,6 +30,7 @@ enum AppImage {
     case progressBarIndicator
     case goldMedal
     case silverMedal
+    case ribbon
 
     var image: Image {
         switch self {
@@ -75,6 +76,8 @@ enum AppImage {
             return Image("gold-medal").resizable()
         case .silverMedal:
             return Image("silver-medal").resizable()
+        case .ribbon:
+            return Image("ribbon").resizable()
         }
     }
 }
