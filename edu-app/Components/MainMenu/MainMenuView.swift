@@ -12,7 +12,8 @@ import SwiftUI
 struct MainMenuView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @StateObject var viewModel: ViewModel
-    @State var isPlayActive = false
+    @State var isPlayWordsActive = false
+    @State var isPlayLettersActive = false
     @State var isShopActive = false
     @State var isAchievementsActive = false
 
@@ -26,25 +27,31 @@ struct MainMenuView: View {
                 HStack {
                     Spacer()
                     VStack {
-                        Spacer()
-                        List {
-                            NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService), isActive: $isPlayActive) {
-                                Button {
-                                    viewModel.configureLevelData(with: managedObjectContext)
-                                    isPlayActive = true
-                                } label: {
-                                    AppImage.playButton.image
-                                        .scaledToFit()
-                                }
+                        // Letters
+                        NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService), isActive: $isPlayLettersActive) {
+                            Button {
+                                viewModel.configureLevelData(with: managedObjectContext)
+                                isPlayLettersActive = true
+                            } label: {
+                                AppImage.lettersButton.image
+                                    .scaledToFit()
                             }
-                            .buttonStyle(PlainButtonStyle())
-                            .listRowBackground(Color.clear)
-                            .listRowSeparator(.hidden)
+                            .frame(height: 100)
                         }
-                        .listStyle(.plain)
-                        .frame(width: 200, height: 200, alignment: .center)
-                        Spacer()
+
+                        // Words
+                        NavigationLink(destination: EmptyView(), isActive: $isPlayWordsActive) {
+                            Button {
+                                viewModel.configureLevelData(with: managedObjectContext)
+                                isPlayWordsActive = true
+                            } label: {
+                                AppImage.wordsButton.image
+                                    .scaledToFit()
+                            }
+                            .frame(height: 100)
+                        }
                     }
+                    .padding(.bottom, 50)
                     Spacer()
                 }
                 HStack {
@@ -91,6 +98,8 @@ struct MainMenuView: View {
         .ignoresSafeArea()
     }
 }
+
+// MARK: - Preview -
 
 struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
