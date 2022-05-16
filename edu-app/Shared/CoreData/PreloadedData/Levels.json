@@ -98,7 +98,7 @@
     {
         "name": "G",
         "results": ["G"],
-        "numberOfLines": 2,
+        "numberOfLines": 1,
         "isLocked": true,
         "lockedImage": "G-locked",
         "unlockedImage": "G-unlocked",
@@ -117,7 +117,7 @@
     },
     {
         "name": "I",
-        "results": ["I", "i"],
+        "results": ["I", "i", "l", "1"],
         "numberOfLines": 1,
         "isLocked": true,
         "lockedImage": "I-locked",

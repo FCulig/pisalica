@@ -53,8 +53,6 @@ class DrawingCanvasViewModel {
 
     public init(level: Level) {
         self.level = level
-
-        strokeManager.selectLanguage(languageTag: "hr")
     }
 }
 
@@ -83,11 +81,19 @@ extension DrawingCanvasViewModel {
                 return
             }
 
-            // TODO: Implement
-            strokeManager.recognizeInk()
+            strokeManager.recognizeInk(onCompletion: onRecognitionCompleted)
+        }
+    }
+
+    func onRecognitionCompleted(result: String?) {
+        guard let result = result, let results = level.results else { return }
+
+        if results.contains(result) {
             successNotificationSubject.send()
             isAnswerCorrectSubject.send(true)
-            clearInk()
+        } else {
+            errorNotificationSubject.send()
+            isAnswerCorrectSubject.send(false)
         }
     }
 }
@@ -113,6 +119,7 @@ extension DrawingCanvasViewModel {
 extension DrawingCanvasViewModel: StrokeManagerDelegate {
     func clearInk() {
         points = []
+        strokeManager.clear()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
             self?.clearCanvasSubject.send()
         }

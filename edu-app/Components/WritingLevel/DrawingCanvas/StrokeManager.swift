@@ -62,33 +62,38 @@ class StrokeManager {
         modelManager = ModelManager.modelManager()
         recognizedInks = []
 
+        print("Init")
+
+        selectLanguage(languageTag: "hr")
+        downloadModel()
+
         // Add observers for download notifications, and reflect the status back to the user.
-//        NotificationCenter.default.addObserver(
-//            forName: NSNotification.Name.mlkitModelDownloadDidSucceed, object: nil,
-//            queue: OperationQueue.main,
-//            using: {
-//                [unowned self]
-//                notification in
-//                if notification.userInfo![ModelDownloadUserInfoKey.remoteModel.rawValue]
-//                    as? DigitalInkRecognitionModel == self.model
-//                {
-//                    self.delegate?.displayMessage(message: "Model download succeeded")
-//                }
-//            }
-//        )
-//        NotificationCenter.default.addObserver(
-//            forName: NSNotification.Name.mlkitModelDownloadDidFail, object: nil,
-//            queue: OperationQueue.main,
-//            using: {
-//                [unowned self]
-//                notification in
-//                if notification.userInfo![ModelDownloadUserInfoKey.remoteModel.rawValue]
-//                    as? DigitalInkRecognitionModel == self.model
-//                {
-//                    self.delegate?.displayMessage(message: "Model download failed")
-//                }
-//            }
-//        )
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name.mlkitModelDownloadDidSucceed, object: nil,
+            queue: OperationQueue.main,
+            using: {
+                [unowned self]
+                notification in
+                if notification.userInfo![ModelDownloadUserInfoKey.remoteModel.rawValue]
+                    as? DigitalInkRecognitionModel == self.model
+                {
+                    print("Model download succeeded")
+                }
+            }
+        )
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name.mlkitModelDownloadDidFail, object: nil,
+            queue: OperationQueue.main,
+            using: {
+                [unowned self]
+                notification in
+                if notification.userInfo![ModelDownloadUserInfoKey.remoteModel.rawValue]
+                    as? DigitalInkRecognitionModel == self.model
+                {
+                    print("Model download failed")
+                }
+            }
+        )
     }
 
     /**
@@ -118,10 +123,14 @@ class StrokeManager {
      */
     func downloadModel() {
         if modelManager.isModelDownloaded(model!) {
+            print("Model is already downloaded")
 //            delegate?.displayMessage(message: "Model is already downloaded")
             return
         }
 //        delegate?.displayMessage(message: "Starting download")
+
+        print("Downloading - start")
+
         // The Progress object returned by `downloadModel` currently only takes on the values 0% or 100%
         // so is not very useful. Instead we'll rely on the outcome listeners in the initializer to
         // inform the user if a download succeeds or fails.
@@ -137,9 +146,15 @@ class StrokeManager {
      * Actually carries out the recognition. The recognition may happen asynchronously so there's a
      * callback that handles the results when they are ready.
      */
-    func recognizeInk() {
-        if strokes.isEmpty { return }
-        if !modelManager.isModelDownloaded(model!) { return }
+    func recognizeInk(onCompletion: @escaping (String?) -> Void) {
+        if strokes.isEmpty {
+            print("Strokes are empty")
+            return
+        }
+        if !modelManager.isModelDownloaded(model!) {
+            print("Model is not downloaded")
+            return
+        }
         if recognizer == nil {
             let options = DigitalInkRecognizerOptions(model: model!)
             recognizer = DigitalInkRecognizer.digitalInkRecognizer(options: options)
@@ -160,17 +175,22 @@ class StrokeManager {
             completion: {
                 [unowned self, recognizedInk]
                 (result: DigitalInkRecognitionResult?, _: Error?) in
+                var recognitionResult: String?
                 if let result = result, let candidate = result.candidates.first {
                     recognizedInk.text = candidate.text
                     var message = "Recognized: \(candidate.text)"
                     if candidate.score != nil {
                         message += " score \(candidate.score!.floatValue)"
                     }
+
+                    recognitionResult = candidate.text
 //                    self.delegate?.displayMessage(message: message)
                 } else {
                     recognizedInk.text = "error"
 //                    self.delegate?.displayMessage(message: "Recognition error " + String(describing: error))
                 }
+
+                onCompletion(recognitionResult)
             }
         )
     }
