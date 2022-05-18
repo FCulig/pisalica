@@ -60,6 +60,8 @@ struct WritingLevelView: View {
 
     var drawingCanvasContainer: some View {
         VStack {
+            Text(viewModel.drawingCanvasViewModel.level.name ?? "")
+                .foregroundColor(.clear)
             ZStack {
                 viewModel.levelState.backgroundImage
                 if viewModel.level.isDiacritical {
