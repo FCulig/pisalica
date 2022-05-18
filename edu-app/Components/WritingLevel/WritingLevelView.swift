@@ -179,6 +179,8 @@ struct WritingLevelView: View {
                     AppImage.ribbon.image
                         .scaledToFit()
                         .frame(width: 420)
+
+                    // TODO: Ovisno o krajnjem postotoku prikazi odgovarajucu sliku
                     AppImage.threeStar.image
                         .scaledToFit()
                         .frame(width: 260)

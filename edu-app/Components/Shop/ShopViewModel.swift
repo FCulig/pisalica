@@ -12,11 +12,14 @@ import SwiftUI
 
 extension ShopView {
     class ViewModel: ObservableObject {
+        @Published var coinsService: CoinsService
         @Published var shopItems: [ShopItem] = []
 
         // MARK: - Initializer -
 
-        public init() {}
+        public init(coinsService: CoinsService) {
+            self.coinsService = coinsService
+        }
     }
 }
 

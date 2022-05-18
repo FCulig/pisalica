@@ -13,7 +13,13 @@ import SwiftUI
 struct ShopView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel: ViewModel = .init()
+    @ObservedObject var viewModel: ViewModel
+
+    // MARK: - Initializer -
+
+    public init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+    }
 
     // MARK: - View components -
 
@@ -33,6 +39,7 @@ struct ShopView: View {
                     }
                     Spacer()
                 }
+                coinsBalance
                 backButton
             }
             .padding(.bottom, 50)
@@ -58,6 +65,27 @@ struct ShopView: View {
             .padding(.vertical, 45)
             Spacer()
         }
+    }
+
+    var coinsBalance: some View {
+        HStack {
+            Spacer()
+            VStack {
+                ZStack {
+                    AppImage.coinsBalanceBackground.image
+                        .scaledToFit()
+                        .frame(height: 65)
+                    Text("\(viewModel.coinsService.balance)")
+                        .foregroundColor(.white)
+                        .padding(.leading, 45)
+                        .padding(.bottom, 5)
+                        .font(.system(size: 25).weight(.bold))
+                }
+                .padding(.top, 45)
+                Spacer()
+            }
+        }
+        .ignoresSafeArea()
     }
 
     var shopItemsPanel: some View {
@@ -100,7 +128,9 @@ struct ShopView: View {
             .padding(.leading, 70)
             .padding(.trailing, 25)
         }
-        .padding(.horizontal, 50)
+        .padding(.top, 20)
+        .padding(.leading, 20)
+        .padding(.trailing, 70)
         .onLoad { viewModel.getShopItems(context: moc) }
     }
 }
@@ -109,7 +139,7 @@ struct ShopView: View {
 
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopView()
+        ShopView(viewModel: .init(coinsService: .init(context: .init(.privateQueue))))
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

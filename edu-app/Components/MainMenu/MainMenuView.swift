@@ -76,7 +76,7 @@ struct MainMenuView: View {
 
     var shopAndAchievementsButtons: some View {
         HStack {
-            NavigationLink(destination: ShopView(), isActive: $isShopActive) {
+            NavigationLink(destination: ShopView(viewModel: .init(coinsService: viewModel.coinsService)), isActive: $isShopActive) {
                 Button {
                     viewModel.configureShopData(with: managedObjectContext)
                     isShopActive = true

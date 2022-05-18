@@ -39,6 +39,7 @@ struct LevelSelectView: View {
                 }
                 Spacer()
             }
+            coinsBalance
             backButton
         }
         .padding(.bottom, 50)
@@ -82,7 +83,9 @@ struct LevelSelectView: View {
             pageControlButtons
                 .padding(.vertical, 10)
         }
-        .padding(.horizontal, 50)
+        .padding(.top, 20)
+        .padding(.leading, 20)
+        .padding(.trailing, 70)
         .onLoad { viewModel.getPaginatedLevels(context: moc) }
     }
 
@@ -129,6 +132,27 @@ struct LevelSelectView: View {
             .padding(.vertical, 45)
             Spacer()
         }
+    }
+
+    var coinsBalance: some View {
+        HStack {
+            Spacer()
+            VStack {
+                ZStack {
+                    AppImage.coinsBalanceBackground.image
+                        .scaledToFit()
+                        .frame(height: 65)
+                    Text("\(viewModel.coinsService.balance)")
+                        .foregroundColor(.white)
+                        .padding(.leading, 45)
+                        .padding(.bottom, 5)
+                        .font(.system(size: 25).weight(.bold))
+                }
+                .padding(.top, 45)
+                Spacer()
+            }
+        }
+        .ignoresSafeArea()
     }
 }
 

@@ -38,6 +38,7 @@ enum AppImage {
     case threeStar
     case levelOverBackground
     case nextButtonV2
+    case coinsBalanceBackground
 
     var image: Image {
         switch self {
@@ -99,6 +100,8 @@ enum AppImage {
             return Image("level-over-background").resizable()
         case .nextButtonV2:
             return Image("next-button-v2").resizable()
+        case .coinsBalanceBackground:
+            return Image("coins-balance-background").resizable()
         }
     }
 }
