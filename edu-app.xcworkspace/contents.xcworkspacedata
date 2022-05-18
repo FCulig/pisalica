@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/filipculig/Developer/edu-app/edu-app/Shared/Models/ShopItem+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/filipculig/Developer/edu-app/edu-app/Shared/Models/ShopItem+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:edu-app.xcodeproj">
    </FileRef>
    <FileRef

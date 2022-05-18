@@ -39,8 +39,6 @@
 		4D6EC867281DC32D00C70061 /* Shop.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D6EC866281DC32D00C70061 /* Shop.xcassets */; };
 		4D6EC869281DC5B900C70061 /* ShopItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D6EC868281DC5B900C70061 /* ShopItems.json */; };
 		4D6EC86B281DCBE800C70061 /* DecodableShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC86A281DCBE800C70061 /* DecodableShopItem.swift */; };
-		4D6EC870281EE2F700C70061 /* ShopItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC86F281EE2F700C70061 /* ShopItem+CoreDataProperties.swift */; };
-		4D6EC871281EE2F700C70061 /* ShopItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC86E281EE2F700C70061 /* ShopItem+CoreDataClass.swift */; };
 		4D75995C282316600093849C /* VideoTutorials.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D75995B282316600093849C /* VideoTutorials.xcassets */; };
 		4D75995F282317FB0093849C /* A.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4D75995E282317FB0093849C /* A.mp4 */; };
 		4D75A7C0282BA88F0077DE75 /* Achievement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7BE282BA88F0077DE75 /* Achievement+CoreDataClass.swift */; };
@@ -63,6 +61,8 @@
 		4DBD9BC02802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
 		4DC2D714280AD9FF003CFDD7 /* Levels.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DC2D713280AD9FF003CFDD7 /* Levels.xcassets */; };
 		4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC2D717280AE24D003CFDD7 /* LevelButton.swift */; };
+		4DC73FC92835127C004FD1A0 /* ShopItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC73FC72835127C004FD1A0 /* ShopItem+CoreDataClass.swift */; };
+		4DC73FCA2835127C004FD1A0 /* ShopItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC73FC82835127C004FD1A0 /* ShopItem+CoreDataProperties.swift */; };
 		4DDC5F602826FE0200BDC385 /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5F5F2826FE0200BDC385 /* AchievementsView.swift */; };
 		4DDC5F622826FE3400BDC385 /* AchievementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5F612826FE3400BDC385 /* AchievementsViewModel.swift */; };
 		4DDC5F642827024500BDC385 /* AchievementItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5F632827024500BDC385 /* AchievementItemView.swift */; };
@@ -127,8 +127,6 @@
 		4D6EC866281DC32D00C70061 /* Shop.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shop.xcassets; sourceTree = "<group>"; };
 		4D6EC868281DC5B900C70061 /* ShopItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ShopItems.json; sourceTree = "<group>"; };
 		4D6EC86A281DCBE800C70061 /* DecodableShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableShopItem.swift; sourceTree = "<group>"; };
-		4D6EC86E281EE2F700C70061 /* ShopItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShopItem+CoreDataClass.swift"; path = "/Users/filipculig/Developer/edu-app/edu-app/Shared/Models/ShopItem+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		4D6EC86F281EE2F700C70061 /* ShopItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ShopItem+CoreDataProperties.swift"; path = "/Users/filipculig/Developer/edu-app/edu-app/Shared/Models/ShopItem+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		4D75995B282316600093849C /* VideoTutorials.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoTutorials.xcassets; sourceTree = "<group>"; };
 		4D75995E282317FB0093849C /* A.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = A.mp4; sourceTree = "<group>"; };
 		4D75A7BE282BA88F0077DE75 /* Achievement+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Achievement+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -150,6 +148,8 @@
 		4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		4DC2D713280AD9FF003CFDD7 /* Levels.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Levels.xcassets; sourceTree = "<group>"; };
 		4DC2D717280AE24D003CFDD7 /* LevelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
+		4DC73FC72835127C004FD1A0 /* ShopItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShopItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4DC73FC82835127C004FD1A0 /* ShopItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShopItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4DDC5F5F2826FE0200BDC385 /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
 		4DDC5F612826FE3400BDC385 /* AchievementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewModel.swift; sourceTree = "<group>"; };
 		4DDC5F632827024500BDC385 /* AchievementItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementItemView.swift; sourceTree = "<group>"; };
@@ -402,12 +402,12 @@
 		4D75A7B8282AA0310077DE75 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4DC73FC72835127C004FD1A0 /* ShopItem+CoreDataClass.swift */,
+				4DC73FC82835127C004FD1A0 /* ShopItem+CoreDataProperties.swift */,
 				4D75A7C2282BFF050077DE75 /* Level+CoreDataClass.swift */,
 				4D75A7C3282BFF050077DE75 /* Level+CoreDataProperties.swift */,
 				4D75A7BE282BA88F0077DE75 /* Achievement+CoreDataClass.swift */,
 				4D75A7BF282BA88F0077DE75 /* Achievement+CoreDataProperties.swift */,
-				4D6EC86E281EE2F700C70061 /* ShopItem+CoreDataClass.swift */,
-				4D6EC86F281EE2F700C70061 /* ShopItem+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -814,12 +814,14 @@
 			files = (
 				4D68A68027BCF40F00997CFF /* LevelSelectView.swift in Sources */,
 				4D053E9D27F5D30200B3E198 /* StrokeManager.swift in Sources */,
+				4DC73FCA2835127C004FD1A0 /* ShopItem+CoreDataProperties.swift in Sources */,
 				4DDC5F602826FE0200BDC385 /* AchievementsView.swift in Sources */,
 				4DB939022826A12D00883CD5 /* NavigationLazyView.swift in Sources */,
 				4D75A7C9282C42F10077DE75 /* WritingLevelViewModel.swift in Sources */,
 				4D68A68227BCF41800997CFF /* LevelSelectViewModel.swift in Sources */,
 				4D68A67B27BBCCE000997CFF /* MainMenuView.swift in Sources */,
 				4DE3A5C328186606005DF33E /* AppColor.swift in Sources */,
+				4DC73FC92835127C004FD1A0 /* ShopItem+CoreDataClass.swift in Sources */,
 				4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */,
 				4D4E05DC280D663E00569C16 /* DataController.swift in Sources */,
 				4D929C802834E32600504405 /* CoinsService.swift in Sources */,
@@ -831,7 +833,6 @@
 				4D6EC865281D8FAF00C70061 /* ShopView.swift in Sources */,
 				4D4E05ED280D855800569C16 /* DecodableLevel.swift in Sources */,
 				4D6EC86B281DCBE800C70061 /* DecodableShopItem.swift in Sources */,
-				4D6EC871281EE2F700C70061 /* ShopItem+CoreDataClass.swift in Sources */,
 				4D526BCC282A629300B8FEA3 /* DecodableAchievementItem.swift in Sources */,
 				4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */,
 				4D0FF533282FAC5E0083E06B /* AchievementService.swift in Sources */,
@@ -846,7 +847,6 @@
 				4D053E9F27F5D32100B3E198 /* RecognizedInk.swift in Sources */,
 				4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */,
 				4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */,
-				4D6EC870281EE2F700C70061 /* ShopItem+CoreDataProperties.swift in Sources */,
 				4D75A7C4282BFF050077DE75 /* Level+CoreDataClass.swift in Sources */,
 				4D053EAC27F844AB00B3E198 /* LevelValidatorService.swift in Sources */,
 				4D75A7C5282BFF050077DE75 /* Level+CoreDataProperties.swift in Sources */,

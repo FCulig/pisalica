@@ -5,6 +5,7 @@
     "unboughtImage": "shop-item-black",
     "boughtImage": "shop-item-bought-black",
     "selectedImage": "shop-item-selected-black",
+    "price": 15,
     "hexColor": "#000000"
  },
   {
@@ -13,6 +14,7 @@
     "unboughtImage": "shop-item-blue",
     "boughtImage": "shop-item-bought-blue",
     "selectedImage": "shop-item-selected-blue",
+    "price": 15,
     "hexColor": "#0000FF"
  },
   {
@@ -21,6 +23,7 @@
     "unboughtImage": "shop-item-darkgreen",
     "boughtImage": "shop-item-bought-darkgreen",
     "selectedImage": "shop-item-selected-darkgreen",
+    "price": 15,
     "hexColor": "#006837"
  },
   {
@@ -29,6 +32,7 @@
     "unboughtImage": "shop-item-flourescentgreen",
     "boughtImage": "shop-item-bought-flourescentgreen",
     "selectedImage": "shop-item-selected-flourescentgreen",
+    "price": 15,
     "hexColor": "#4AFF68"
  },
   {
@@ -37,6 +41,7 @@
     "unboughtImage": "shop-item-lightblue",
     "boughtImage": "shop-item-bought-lightblue",
     "selectedImage": "shop-item-selected-lightblue",
+    "price": 15,
     "hexColor": "#00FFFF"
  },
  {
@@ -45,6 +50,7 @@
     "unboughtImage": "shop-item-pink",
     "boughtImage": "shop-item-bought-pink",
     "selectedImage": "shop-item-selected-pink",
+    "price": 15,
     "hexColor": "#FF00FF"
  },
   {
@@ -53,6 +59,7 @@
     "unboughtImage": "shop-item-red",
     "boughtImage": "shop-item-bought-red",
     "selectedImage": "shop-item-selected-red",
+    "price": 15,
     "hexColor": "#FF0000"
  },
   {
@@ -61,6 +68,7 @@
     "unboughtImage": "shop-item-viola",
     "boughtImage": "shop-item-bought-viola",
     "selectedImage": "shop-item-selected-viola",
+    "price": 15,
     "hexColor": "#A774FF"
  },
   {
@@ -69,6 +77,7 @@
     "unboughtImage": "shop-item-yellow",
     "boughtImage": "shop-item-bought-yellow",
     "selectedImage": "shop-item-selected-yellow",
+    "price": 15,
     "hexColor": "#FCEE21"
  }
 ]

@@ -61,9 +61,7 @@ class StrokeManager {
         self.delegate = delegate
         modelManager = ModelManager.modelManager()
         recognizedInks = []
-
-        print("Init")
-
+        
         selectLanguage(languageTag: "hr")
         downloadModel()
 

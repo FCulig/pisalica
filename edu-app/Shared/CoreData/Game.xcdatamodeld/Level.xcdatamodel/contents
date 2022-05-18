@@ -26,6 +26,7 @@
         <attribute name="isBought" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isSelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="price" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="selectedImage" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="unboughtImage" optional="YES" attributeType="String"/>
@@ -33,6 +34,6 @@
     <elements>
         <element name="Achievement" positionX="-63" positionY="81" width="128" height="119"/>
         <element name="Level" positionX="-63" positionY="-18" width="128" height="164"/>
-        <element name="ShopItem" positionX="-63" positionY="36" width="128" height="164"/>
+        <element name="ShopItem" positionX="-63" positionY="36" width="128" height="179"/>
     </elements>
 </model>

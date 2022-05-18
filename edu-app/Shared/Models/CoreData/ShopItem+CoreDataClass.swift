@@ -1,8 +1,8 @@
 //
 //  ShopItem+CoreDataClass.swift
+//  edu-app
 //
-//
-//  Created by Filip Culig on 01.05.2022..
+//  Created by Filip Culig on 18.05.2022..
 //
 //
 

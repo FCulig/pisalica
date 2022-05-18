@@ -1,8 +1,8 @@
 //
 //  ShopItem+CoreDataProperties.swift
+//  edu-app
 //
-//
-//  Created by Filip Culig on 07.05.2022..
+//  Created by Filip Culig on 18.05.2022..
 //
 //
 
@@ -15,12 +15,15 @@ public extension ShopItem {
     }
 
     @NSManaged var boughtImage: String?
+    @NSManaged var hexColor: String?
     @NSManaged var id: UUID?
+    @NSManaged var isBought: Bool
+    @NSManaged var isSelected: Bool
     @NSManaged var name: String?
     @NSManaged var selectedImage: String?
     @NSManaged var type: String?
     @NSManaged var unboughtImage: String?
-    @NSManaged var isSelected: Bool
-    @NSManaged var isBought: Bool
-    @NSManaged var hexColor: String?
+    @NSManaged var price: Int64
 }
+
+extension ShopItem: Identifiable {}

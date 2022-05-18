@@ -93,6 +93,7 @@ extension MainMenuView.ViewModel {
                     shopItemCoreData.selectedImage = shopItem.selectedImage
                     shopItemCoreData.isBought = shopItemCoreData.name == "Crna" ? true : false
                     shopItemCoreData.isSelected = shopItemCoreData.name == "Crna" ? true : false
+                    shopItemCoreData.price = Int64(shopItem.price)
 
                     try! context.save()
                 }
