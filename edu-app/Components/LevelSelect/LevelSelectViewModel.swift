@@ -14,6 +14,7 @@ extension LevelSelectView {
     class ViewModel: ObservableObject {
         let levelService: LevelService
         let achievementService: AchievementService
+        let coinsService: CoinsService
         var totalPages: Int = 0
         var currentPage: Int = 0
         var paginatedLevels: [[Level]] = []
@@ -22,8 +23,9 @@ extension LevelSelectView {
         @Published var showPreviousPageButton: Bool = false
         @Published var showNextPageButton: Bool = false
 
-        public init(achievementService: AchievementService) {
+        public init(achievementService: AchievementService, coinsService: CoinsService) {
             self.achievementService = achievementService
+            self.coinsService = coinsService
 
             levelService = LevelService()
         }

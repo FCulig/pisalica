@@ -14,6 +14,7 @@ import SwiftUI
 extension WritingLevelView {
     class ViewModel: ObservableObject {
         private let achievementService: AchievementService
+        private let coinsService: CoinsService
         private let levelService: LevelService
         private var correctAnswers: Int = 0
         private var totalAttempts: Int = 0
@@ -23,18 +24,22 @@ extension WritingLevelView {
         var drawingCanvasViewModel: DrawingCanvasViewModel
         @Published var levelState: LevelState = .none
         @Published var isGameOver: Bool = false
+        @Published var endGameRecap: [String: Int] = [:]
+        @Published var totalCoinsReward = 0
 
         // MARK: - Initializer -
 
         public init(level: Level,
                     drawingCanvasViewModel: DrawingCanvasViewModel,
                     levelService: LevelService,
-                    achievementService: AchievementService)
+                    achievementService: AchievementService,
+                    coinsService: CoinsService)
         {
             self.level = level
             self.drawingCanvasViewModel = drawingCanvasViewModel
             self.levelService = levelService
             self.achievementService = achievementService
+            self.coinsService = coinsService
 
             levelState = .guides(image: level.guideImage ?? "")
 
@@ -75,6 +80,7 @@ private extension WritingLevelView.ViewModel {
             levelState = .none
         } else if correctAnswers == 3 {
             isGameOver = true
+            updateEndGameRecapData()
         }
 
         // DO NOT DELETE THIS COMMENT!!!
@@ -88,6 +94,26 @@ private extension WritingLevelView.ViewModel {
 //        } else if correctAnswers == 9 {
 //            print("Gotov level")
 //        }
+    }
+
+    func updateEndGameRecapData() {
+        let correctPercentage = Float(correctAnswers) / Float(totalAttempts) * 100
+
+        totalCoinsReward += 5
+        endGameRecap["Prijeđena razina"] = 5
+
+        if correctPercentage > 85 {
+            totalCoinsReward += 5
+            endGameRecap["3 Zvijezdice"] = 5
+        } else if correctPercentage <= 85, correctPercentage > 60 {
+            totalCoinsReward += 2
+            endGameRecap["2 Zvijezdice"] = 2
+        } else {
+            totalCoinsReward += 1
+            endGameRecap["1 Zvijezdica"] = 1
+        }
+
+        coinsService.updateCoins(amountToBeAdded: totalCoinsReward)
     }
 }
 

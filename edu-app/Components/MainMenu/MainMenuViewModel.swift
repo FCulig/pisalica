@@ -13,9 +13,15 @@ import Foundation
 
 extension MainMenuView {
     class ViewModel: ObservableObject {
-        let achievementService = AchievementService()
+        let achievementService: AchievementService
+        let coinsService: CoinsService
 
-        public init() {}
+        // MARK: - Initializer -
+
+        public init(achievementService: AchievementService, coinsService: CoinsService) {
+            self.achievementService = achievementService
+            self.coinsService = coinsService
+        }
     }
 }
 
@@ -23,6 +29,7 @@ extension MainMenuView {
 
 extension MainMenuView.ViewModel {
     func configureLevelData(with context: NSManagedObjectContext) {
+        configureCoinsBalance()
         configureShopData(with: context)
         configureAchievementData(with: context)
 
@@ -61,6 +68,7 @@ extension MainMenuView.ViewModel {
 
     func configureShopData(with context: NSManagedObjectContext) {
         configureAchievementData(with: context)
+        configureCoinsBalance()
 
         let preloadedDataKey = "didPreloadShopData"
         let userDefaults = UserDefaults.standard
@@ -122,6 +130,16 @@ extension MainMenuView.ViewModel {
 
                 userDefaults.set(true, forKey: preloadedDataKey)
             } catch { print(error) }
+        }
+    }
+
+    func configureCoinsBalance() {
+        let preloadedDataKey = "didPreloadCoinsBalance"
+        let userDefaults = UserDefaults.standard
+
+        if userDefaults.bool(forKey: preloadedDataKey) != true {
+            userDefaults.set(0, forKey: "coinsBalance")
+            userDefaults.set(true, forKey: preloadedDataKey)
         }
     }
 }

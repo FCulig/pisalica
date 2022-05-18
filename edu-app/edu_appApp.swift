@@ -14,7 +14,7 @@ struct edu_appApp: App {
 
     var body: some Scene {
         WindowGroup {
-            coordinator.start()
+            coordinator.start(context: dataController.container.viewContext)
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }

@@ -32,6 +32,12 @@ enum AppImage {
     case goldMedal
     case silverMedal
     case ribbon
+    case coins
+    case oneStar
+    case twoStar
+    case threeStar
+    case levelOverBackground
+    case nextButtonV2
 
     var image: Image {
         switch self {
@@ -81,6 +87,18 @@ enum AppImage {
             return Image("silver-medal").resizable()
         case .ribbon:
             return Image("ribbon").resizable()
+        case .coins:
+            return Image("coins-logo").resizable()
+        case .oneStar:
+            return Image("1-star").resizable()
+        case .twoStar:
+            return Image("2-star").resizable()
+        case .threeStar:
+            return Image("3-star").resizable()
+        case .levelOverBackground:
+            return Image("level-over-background").resizable()
+        case .nextButtonV2:
+            return Image("next-button-v2").resizable()
         }
     }
 }

@@ -17,8 +17,8 @@ struct LevelSelectView: View {
 
     // MARK: - Initializer -
 
-    public init(achievementService: AchievementService) {
-        let wrappedViewModel = ViewModel(achievementService: achievementService)
+    public init(achievementService: AchievementService, coinsService: CoinsService) {
+        let wrappedViewModel = ViewModel(achievementService: achievementService, coinsService: coinsService)
         _viewModel = StateObject(wrappedValue: wrappedViewModel)
     }
 
@@ -65,7 +65,8 @@ struct LevelSelectView: View {
                             NavigationLink {
                                 NavigationLazyView(WritingLevelView(level: level,
                                                                     levelService: viewModel.levelService,
-                                                                    achievementService: viewModel.achievementService))
+                                                                    achievementService: viewModel.achievementService,
+                                                                    coinsService: viewModel.coinsService))
                             } label: {
                                 LevelButton(level)
                             }
@@ -133,7 +134,7 @@ struct LevelSelectView: View {
 
 struct LevelSelectView_Previews: PreviewProvider {
     static var previews: some View {
-        return LevelSelectView(achievementService: .init())
+        return LevelSelectView(achievementService: .init(), coinsService: .init(context: .init(.privateQueue)))
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

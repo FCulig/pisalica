@@ -23,13 +23,18 @@ struct WritingLevelView: View {
 
     // MARK: - Initializer -
 
-    public init(level: Level, levelService: LevelService, achievementService: AchievementService) {
+    public init(level: Level,
+                levelService: LevelService,
+                achievementService: AchievementService,
+                coinsService: CoinsService)
+    {
         let drawingCanvasViewModel = DrawingCanvasViewModel(level: level)
 
         let wrappedViewModel = ViewModel(level: level,
                                          drawingCanvasViewModel: drawingCanvasViewModel,
                                          levelService: levelService,
-                                         achievementService: achievementService)
+                                         achievementService: achievementService,
+                                         coinsService: coinsService)
         _viewModel = StateObject(wrappedValue: wrappedViewModel)
 
         guard let videoUrl = Bundle.main.path(forResource: level.name, ofType: "mp4") else { return }
@@ -158,15 +163,105 @@ struct WritingLevelView: View {
                     .ignoresSafeArea()
                     .scaledToFill()
                     .foregroundColor(.black.opacity(0.85))
-                AppImage.videoPanelBackgroundImage.image
-                    .scaledToFit()
-                    .padding(.vertical, 60)
-                    .onTapGesture {
-                        dismiss()
-                        viewModel.endLevel(context: moc)
-                    }
+                gameOverDialogContent
             }
         }
+    }
+
+    var gameOverDialogContent: some View {
+        ZStack {
+            AppImage.levelOverBackground.image
+                .padding(.top, 280)
+                .padding(.bottom, 260)
+
+            VStack {
+                ZStack {
+                    AppImage.ribbon.image
+                        .scaledToFit()
+                        .frame(width: 420)
+                    AppImage.threeStar.image
+                        .scaledToFit()
+                        .frame(width: 260)
+                        .padding(.bottom, 75)
+                }
+                .padding(.top, 190)
+
+                Spacer()
+            }
+
+            gameOverRewards
+
+            VStack {
+                Spacer()
+
+                HStack {
+                    Spacer()
+
+                    Button {
+                        dismiss()
+                        viewModel.endLevel(context: moc)
+                    } label: {
+                        AppImage.nextButtonV2.image
+                            .scaledToFit()
+                            .frame(width: 65)
+                    }
+                }
+                .padding(.bottom, 220)
+            }
+            .frame(width: 400)
+        }
+    }
+
+    var gameOverRewards: some View {
+        VStack {
+            ForEach(Array(viewModel.endGameRecap.keys), id: \.self) { key in
+                HStack {
+                    Text(key)
+                        .foregroundColor(.white)
+                        .shadow(color: .black, radius: 0, x: 3, y: 2)
+                        .font(.system(size: 25).weight(.bold))
+
+                    Spacer()
+
+                    HStack {
+                        AppImage.coins.image
+                            .scaledToFit()
+                            .frame(height: 30)
+                        Text("\(viewModel.endGameRecap[key] ?? 0)")
+                            .foregroundColor(.white)
+                            .shadow(color: .black, radius: 0, x: 3, y: 2)
+                            .font(.system(size: 25).weight(.bold))
+                            .padding(.leading, -12)
+                    }
+                }
+            }
+
+            Rectangle()
+                .frame(height: 2)
+                .foregroundColor(Color(uiColor: UIColor(hex: "#964B00") ?? .brown))
+
+            HStack {
+                Text("Ukupno")
+                    .foregroundColor(.white)
+                    .shadow(color: .black, radius: 0, x: 3, y: 2)
+                    .font(.system(size: 25).weight(.bold))
+
+                Spacer()
+
+                HStack {
+                    AppImage.coins.image
+                        .scaledToFit()
+                        .frame(height: 30)
+                    Text("\(viewModel.totalCoinsReward)")
+                        .foregroundColor(.white)
+                        .shadow(color: .black, radius: 0, x: 3, y: 2)
+                        .font(.system(size: 25).weight(.bold))
+                        .padding(.leading, -12)
+                }
+            }
+        }
+        .frame(width: 300)
+        .padding(.top, 70)
     }
 }
 
@@ -183,7 +278,8 @@ struct WritingLevelView_Previews: PreviewProvider {
 
         return WritingLevelView(level: level,
                                 levelService: .init(),
-                                achievementService: .init())
+                                achievementService: .init(),
+                                coinsService: .init(context: .init(.privateQueue)))
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

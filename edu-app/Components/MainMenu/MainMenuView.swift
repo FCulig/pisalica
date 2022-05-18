@@ -11,11 +11,17 @@ import SwiftUI
 
 struct MainMenuView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    @StateObject var viewModel: ViewModel
+    @ObservedObject var viewModel: ViewModel
     @State var isPlayWordsActive = false
     @State var isPlayLettersActive = false
     @State var isShopActive = false
     @State var isAchievementsActive = false
+
+    // MARK: - Initializer -
+
+    public init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+    }
 
     // MARK: - View components -
 
@@ -28,7 +34,8 @@ struct MainMenuView: View {
                     Spacer()
                     VStack {
                         // Letters
-                        NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService), isActive: $isPlayLettersActive) {
+                        NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService, coinsService: viewModel.coinsService),
+                                       isActive: $isPlayLettersActive) {
                             Button {
                                 viewModel.configureLevelData(with: managedObjectContext)
                                 isPlayLettersActive = true
@@ -40,16 +47,16 @@ struct MainMenuView: View {
                         }
 
                         // Words
-                        NavigationLink(destination: EmptyView(), isActive: $isPlayWordsActive) {
-                            Button {
-                                viewModel.configureLevelData(with: managedObjectContext)
-                                isPlayWordsActive = true
-                            } label: {
-                                AppImage.wordsButton.image
-                                    .scaledToFit()
-                            }
-                            .frame(height: 100)
-                        }
+//                        NavigationLink(destination: EmptyView(), isActive: $isPlayWordsActive) {
+//                            Button {
+//                                viewModel.configureLevelData(with: managedObjectContext)
+//                                isPlayWordsActive = true
+//                            } label: {
+//                                AppImage.wordsButton.image
+//                                    .scaledToFit()
+//                            }
+//                            .frame(height: 100)
+//                        }
                     }
                     .padding(.bottom, 50)
                     Spacer()
@@ -103,7 +110,7 @@ struct MainMenuView: View {
 
 struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        return MainMenuView(viewModel: .init())
+        return MainMenuView(viewModel: .init(achievementService: .init(), coinsService: .init(context: .init(.privateQueue))))
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

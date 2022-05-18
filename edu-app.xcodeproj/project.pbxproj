@@ -52,6 +52,7 @@
 		4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */; };
 		4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C9FC282676D9002EFB8D /* PlayerView.swift */; };
 		4D87C9FF28267750002EFB8D /* PlayerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C9FE28267750002EFB8D /* PlayerUIView.swift */; };
+		4D929C802834E32600504405 /* CoinsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D929C7F2834E32600504405 /* CoinsService.swift */; };
 		4DA22D9227D35E6F00634AA8 /* Menus.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22D9127D35E6F00634AA8 /* Menus.xcassets */; };
 		4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9427D368F300634AA8 /* AppImage.swift */; };
 		4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9727D36F4E00634AA8 /* AppFont.swift */; };
@@ -139,6 +140,7 @@
 		4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
 		4D87C9FC282676D9002EFB8D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		4D87C9FE28267750002EFB8D /* PlayerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUIView.swift; sourceTree = "<group>"; };
+		4D929C7F2834E32600504405 /* CoinsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsService.swift; sourceTree = "<group>"; };
 		4DA22D9127D35E6F00634AA8 /* Menus.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menus.xcassets; sourceTree = "<group>"; };
 		4DA22D9427D368F300634AA8 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 		4DA22D9727D36F4E00634AA8 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */,
 				4D48B3B7282E55AE0066EAC8 /* LevelService.swift */,
 				4D0FF532282FAC5E0083E06B /* AchievementService.swift */,
+				4D929C7F2834E32600504405 /* CoinsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -819,6 +822,7 @@
 				4DE3A5C328186606005DF33E /* AppColor.swift in Sources */,
 				4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */,
 				4D4E05DC280D663E00569C16 /* DataController.swift in Sources */,
+				4D929C802834E32600504405 /* CoinsService.swift in Sources */,
 				4D48B3B8282E55AE0066EAC8 /* LevelService.swift in Sources */,
 				4DFE20CC28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift in Sources */,
 				4D68A67D27BBCCEF00997CFF /* MainMenuViewModel.swift in Sources */,
