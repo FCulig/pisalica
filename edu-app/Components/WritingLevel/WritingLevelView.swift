@@ -182,8 +182,7 @@ struct WritingLevelView: View {
                         .scaledToFit()
                         .frame(width: 420)
 
-                    // TODO: Ovisno o krajnjem postotoku prikazi odgovarajucu sliku
-                    AppImage.threeStar.image
+                    viewModel.endGameStars
                         .scaledToFit()
                         .frame(width: 260)
                         .padding(.bottom, 75)

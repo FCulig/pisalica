@@ -108,7 +108,7 @@
 		4D526BC72827D1AE00B8FEA3 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		4D526BC9282A589F00B8FEA3 /* Achievements.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Achievements.json; sourceTree = "<group>"; };
 		4D526BCB282A629300B8FEA3 /* DecodableAchievementItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableAchievementItem.swift; sourceTree = "<group>"; };
-		4D68A64327BBA3B400997CFF /* edu-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "edu-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D68A64327BBA3B400997CFF /* Pisanka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pisanka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D68A64627BBA3B400997CFF /* edu_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edu_appApp.swift; sourceTree = "<group>"; };
 		4D68A64A27BBA3B500997CFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D68A64D27BBA3B500997CFF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -261,7 +261,7 @@
 		4D68A64427BBA3B400997CFF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4D68A64327BBA3B400997CFF /* edu-app.app */,
+				4D68A64327BBA3B400997CFF /* Pisanka.app */,
 				4D68A65327BBA3B600997CFF /* edu-appTests.xctest */,
 				4D68A65D27BBA3B600997CFF /* edu-appUITests.xctest */,
 			);
@@ -527,7 +527,7 @@
 			);
 			name = "edu-app";
 			productName = "edu-app";
-			productReference = 4D68A64327BBA3B400997CFF /* edu-app.app */;
+			productReference = 4D68A64327BBA3B400997CFF /* Pisanka.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4D68A65227BBA3B600997CFF /* edu-appTests */ = {
@@ -1034,7 +1034,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.filip.culig.edu-app";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pisanka;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1067,7 +1067,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.filip.culig.edu-app";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pisanka;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

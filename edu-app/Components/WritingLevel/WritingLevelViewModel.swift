@@ -26,6 +26,7 @@ extension WritingLevelView {
         @Published var isGameOver: Bool = false
         @Published var endGameRecap: [String: Int] = [:]
         @Published var totalCoinsReward = 0
+        @Published var endGameStars: Image = AppImage.oneStar.image
 
         // MARK: - Initializer -
 
@@ -105,12 +106,15 @@ private extension WritingLevelView.ViewModel {
         if correctPercentage > 85 {
             totalCoinsReward += 5
             endGameRecap["3 Zvijezdice"] = 5
+            endGameStars = AppImage.threeStar.image
         } else if correctPercentage <= 85, correctPercentage > 60 {
             totalCoinsReward += 2
             endGameRecap["2 Zvijezdice"] = 2
+            endGameStars = AppImage.twoStar.image
         } else {
             totalCoinsReward += 1
             endGameRecap["1 Zvijezdica"] = 1
+            endGameStars = AppImage.oneStar.image
         }
 
         coinsService.updateCoins(amountToBeAdded: totalCoinsReward)
