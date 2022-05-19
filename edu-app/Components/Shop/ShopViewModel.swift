@@ -49,11 +49,10 @@ extension ShopView.ViewModel {
                 }
             } else if coinsService.balance >= shopItems[index].price {
                 items[index].isBought = true
+                coinsService.updateCoins(amountToBeAdded: -Int(shopItems[index].price))
             }
 
             try context.save()
-
-            coinsService.updateCoins(amountToBeAdded: -Int(shopItems[index].price))
         } catch { print(error) }
 
         getShopItems(context: context)
