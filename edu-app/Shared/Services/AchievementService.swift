@@ -7,12 +7,31 @@
 
 import CoreData
 
+// MARK: - AchievementServiceful -
+
+protocol AchievementServiceful {
+    var achievements: [Achievement] { get }
+
+    func getAchievements(context: NSManagedObjectContext) -> [Achievement]
+    func updateAchievementProgress(achievementKey: String, valueToBeAdded: Int, context: NSManagedObjectContext)
+}
+
 // MARK: - AchievementService -
 
-class AchievementService {
+class AchievementService: AchievementServiceful {
+    // MARK: - Private properties -
+
+    private let context: NSManagedObjectContext
+
+    // MARK: - Public properties -
+
     var achievements: [Achievement] = []
 
-    public init() {}
+    // MARK: - Initializer
+
+    public init(context: NSManagedObjectContext) {
+        self.context = context
+    }
 }
 
 // MARK: - Public methods -

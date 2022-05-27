@@ -34,7 +34,7 @@ struct MainMenuView: View {
                     Spacer()
                     VStack {
                         // Letters
-                        NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService, coinsService: viewModel.coinsService),
+                        NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService, shopService: viewModel.shopService),
                                        isActive: $isPlayLettersActive) {
                             Button {
                                 viewModel.configureLevelData(with: managedObjectContext)
@@ -76,7 +76,8 @@ struct MainMenuView: View {
 
     var shopAndAchievementsButtons: some View {
         HStack {
-            NavigationLink(destination: ShopView(viewModel: .init(coinsService: viewModel.coinsService)), isActive: $isShopActive) {
+            NavigationLink(destination: ShopView(viewModel: .init(achievementService: viewModel.achievementService, shopService: viewModel.shopService)),
+                           isActive: $isShopActive) {
                 Button {
                     viewModel.configureShopData(with: managedObjectContext)
                     isShopActive = true
@@ -108,9 +109,12 @@ struct MainMenuView: View {
 
 // MARK: - Preview -
 
+import CoreData
+
 struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        return MainMenuView(viewModel: .init(achievementService: .init(), coinsService: .init(context: .init(.privateQueue))))
+        return MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
+                                             shopService: ShopServicePreviewMock()))
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

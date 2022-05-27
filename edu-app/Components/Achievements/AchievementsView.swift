@@ -16,7 +16,7 @@ struct AchievementsView: View {
 
     // MARK: - Initializer -
 
-    public init(achievementService: AchievementService) {
+    public init(achievementService: AchievementServiceful) {
         let wrappedViewModel = ViewModel(achievementService: achievementService)
         _viewModel = StateObject(wrappedValue: wrappedViewModel)
     }
@@ -93,6 +93,6 @@ struct AchievementsView: View {
 
 struct AchievementsView_Previews: PreviewProvider {
     static var previews: some View {
-        AchievementsView(achievementService: .init())
+        AchievementsView(achievementService: AchievementServicePreviewMock())
     }
 }

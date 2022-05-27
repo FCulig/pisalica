@@ -12,13 +12,15 @@ import SwiftUI
 
 extension ShopView {
     class ViewModel: ObservableObject {
-        @Published var coinsService: CoinsService
+        private let achievementService: AchievementServiceful
+        @Published var shopService: ShopServiceful
         @Published var shopItems: [ShopItem] = []
 
         // MARK: - Initializer -
 
-        public init(coinsService: CoinsService) {
-            self.coinsService = coinsService
+        public init(achievementService: AchievementServiceful, shopService: ShopServiceful) {
+            self.achievementService = achievementService
+            self.shopService = shopService
         }
     }
 }
@@ -26,35 +28,15 @@ extension ShopView {
 // MARK: - Public methods -
 
 extension ShopView.ViewModel {
-    func getShopItems(context: NSManagedObjectContext) {
-        let fetchRequest: NSFetchRequest<ShopItem> = ShopItem.fetchRequest()
-
-        do {
-            shopItems = try context.fetch(fetchRequest)
-        } catch { print(error) }
+    func getShopItems() {
+        shopItems = shopService.getShopItems()
     }
 
-    func didTapItem(_ item: ShopItem, context: NSManagedObjectContext) {
+    func didTapItem(_ item: ShopItem) {
         guard let index = shopItems.firstIndex(of: item), !shopItems[index].isSelected else { return }
-        let fetchRequest: NSFetchRequest<ShopItem> = ShopItem.fetchRequest()
 
-        do {
-            let items = try context.fetch(fetchRequest)
-            if items[index].isBought {
-                items[index].isSelected = true
+        shopService.selectOrBuyShopItem(with: index)
 
-                items.enumerated().forEach { itemIndex, item in
-                    guard index != itemIndex else { return }
-                    item.isSelected = false
-                }
-            } else if coinsService.balance >= shopItems[index].price {
-                items[index].isBought = true
-                coinsService.updateCoins(amountToBeAdded: -Int(shopItems[index].price))
-            }
-
-            try context.save()
-        } catch { print(error) }
-
-        getShopItems(context: context)
+        getShopItems()
     }
 }

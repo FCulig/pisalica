@@ -13,9 +13,9 @@ import SwiftUI
 
 extension WritingLevelView {
     class ViewModel: ObservableObject {
-        private let achievementService: AchievementService
-        private let coinsService: CoinsService
-        private let levelService: LevelService
+        private let achievementService: AchievementServiceful
+        private let shopService: ShopServiceful
+        private let levelService: LevelServiceful
         private var correctAnswers: Int = 0
         private var totalAttempts: Int = 0
         private var cancellabels: Set<AnyCancellable> = []
@@ -32,15 +32,15 @@ extension WritingLevelView {
 
         public init(level: Level,
                     drawingCanvasViewModel: DrawingCanvasViewModel,
-                    levelService: LevelService,
-                    achievementService: AchievementService,
-                    coinsService: CoinsService)
+                    levelService: LevelServiceful,
+                    achievementService: AchievementServiceful,
+                    shopService: ShopServiceful)
         {
             self.level = level
             self.drawingCanvasViewModel = drawingCanvasViewModel
             self.levelService = levelService
             self.achievementService = achievementService
-            self.coinsService = coinsService
+            self.shopService = shopService
 
             levelState = .guides(image: level.guideImage ?? "")
 
@@ -117,7 +117,7 @@ private extension WritingLevelView.ViewModel {
             endGameStars = AppImage.oneStar.image
         }
 
-        coinsService.updateCoins(amountToBeAdded: totalCoinsReward)
+        shopService.updateCoins(amountToBeAdded: totalCoinsReward)
     }
 }
 

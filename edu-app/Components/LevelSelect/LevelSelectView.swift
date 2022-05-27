@@ -17,8 +17,8 @@ struct LevelSelectView: View {
 
     // MARK: - Initializer -
 
-    public init(achievementService: AchievementService, coinsService: CoinsService) {
-        let wrappedViewModel = ViewModel(achievementService: achievementService, coinsService: coinsService)
+    public init(achievementService: AchievementServiceful, shopService: ShopServiceful) {
+        let wrappedViewModel = ViewModel(achievementService: achievementService, shopService: shopService)
         _viewModel = StateObject(wrappedValue: wrappedViewModel)
     }
 
@@ -67,7 +67,7 @@ struct LevelSelectView: View {
                                 NavigationLazyView(WritingLevelView(level: level,
                                                                     levelService: viewModel.levelService,
                                                                     achievementService: viewModel.achievementService,
-                                                                    coinsService: viewModel.coinsService))
+                                                                    shopService: viewModel.shopService))
                             } label: {
                                 LevelButton(level)
                             }
@@ -142,7 +142,7 @@ struct LevelSelectView: View {
                     AppImage.coinsBalanceBackground.image
                         .scaledToFit()
                         .frame(height: 65)
-                    Text("\(viewModel.coinsService.balance)")
+                    Text("\(viewModel.shopService.balance)")
                         .foregroundColor(.white)
                         .padding(.leading, 45)
                         .padding(.bottom, 5)
@@ -158,7 +158,8 @@ struct LevelSelectView: View {
 
 struct LevelSelectView_Previews: PreviewProvider {
     static var previews: some View {
-        return LevelSelectView(achievementService: .init(), coinsService: .init(context: .init(.privateQueue)))
+        return LevelSelectView(achievementService: AchievementServicePreviewMock(),
+                               shopService: ShopServicePreviewMock())
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

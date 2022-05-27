@@ -13,14 +13,14 @@ import Foundation
 
 extension MainMenuView {
     class ViewModel: ObservableObject {
-        let achievementService: AchievementService
-        let coinsService: CoinsService
+        let achievementService: AchievementServiceful
+        let shopService: ShopServiceful
 
         // MARK: - Initializer -
 
-        public init(achievementService: AchievementService, coinsService: CoinsService) {
+        public init(achievementService: AchievementServiceful, shopService: ShopServiceful) {
             self.achievementService = achievementService
-            self.coinsService = coinsService
+            self.shopService = shopService
         }
     }
 }

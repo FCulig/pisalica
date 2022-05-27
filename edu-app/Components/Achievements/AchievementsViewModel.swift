@@ -12,10 +12,10 @@ import Foundation
 
 extension AchievementsView {
     class ViewModel: ObservableObject {
-        private let achievementService: AchievementService
+        private let achievementService: AchievementServiceful
         @Published var achievements: [Achievement] = []
 
-        public init(achievementService: AchievementService) {
+        public init(achievementService: AchievementServiceful) {
             self.achievementService = achievementService
         }
     }

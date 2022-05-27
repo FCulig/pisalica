@@ -50,10 +50,13 @@
 		4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */; };
 		4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C9FC282676D9002EFB8D /* PlayerView.swift */; };
 		4D87C9FF28267750002EFB8D /* PlayerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C9FE28267750002EFB8D /* PlayerUIView.swift */; };
-		4D929C802834E32600504405 /* CoinsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D929C7F2834E32600504405 /* CoinsService.swift */; };
+		4D929C802834E32600504405 /* ShopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D929C7F2834E32600504405 /* ShopService.swift */; };
 		4DA22D9227D35E6F00634AA8 /* Menus.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22D9127D35E6F00634AA8 /* Menus.xcassets */; };
 		4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9427D368F300634AA8 /* AppImage.swift */; };
 		4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9727D36F4E00634AA8 /* AppFont.swift */; };
+		4DA6372A2841668500A6F785 /* CoinsServicePreviewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA637292841668500A6F785 /* CoinsServicePreviewMock.swift */; };
+		4DA6372C2841691200A6F785 /* AchievementServicePreviewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6372B2841691200A6F785 /* AchievementServicePreviewMock.swift */; };
+		4DA6372E28416DA000A6F785 /* LevelServicePreviewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6372D28416DA000A6F785 /* LevelServicePreviewMock.swift */; };
 		4DB939022826A12D00883CD5 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB939012826A12D00883CD5 /* NavigationLazyView.swift */; };
 		4DB939062826B69E00883CD5 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB939052826B69E00883CD5 /* UIColor+Hex.swift */; };
 		4DBD9BBE2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */; };
@@ -138,11 +141,14 @@
 		4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
 		4D87C9FC282676D9002EFB8D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		4D87C9FE28267750002EFB8D /* PlayerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUIView.swift; sourceTree = "<group>"; };
-		4D929C7F2834E32600504405 /* CoinsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsService.swift; sourceTree = "<group>"; };
+		4D929C7F2834E32600504405 /* ShopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopService.swift; sourceTree = "<group>"; };
 		4DA22D9127D35E6F00634AA8 /* Menus.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menus.xcassets; sourceTree = "<group>"; };
 		4DA22D9427D368F300634AA8 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 		4DA22D9727D36F4E00634AA8 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		4DA22D9B27D371AB00634AA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4DA637292841668500A6F785 /* CoinsServicePreviewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsServicePreviewMock.swift; sourceTree = "<group>"; };
+		4DA6372B2841691200A6F785 /* AchievementServicePreviewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementServicePreviewMock.swift; sourceTree = "<group>"; };
+		4DA6372D28416DA000A6F785 /* LevelServicePreviewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelServicePreviewMock.swift; sourceTree = "<group>"; };
 		4DB939012826A12D00883CD5 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		4DB939052826B69E00883CD5 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		4DBD9BBD2802BF8A006455BD /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
@@ -333,6 +339,7 @@
 		4D68A67627BBCCB100997CFF /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				4DA637282841666900A6F785 /* SwiftUIPreviewMocks */,
 				4D4E05DA280D645600569C16 /* CoreData */,
 				4D68A67927BBCCC500997CFF /* Extensions */,
 				4D68A67827BBCCC100997CFF /* Services */,
@@ -356,7 +363,7 @@
 				4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */,
 				4D48B3B7282E55AE0066EAC8 /* LevelService.swift */,
 				4D0FF532282FAC5E0083E06B /* AchievementService.swift */,
-				4D929C7F2834E32600504405 /* CoinsService.swift */,
+				4D929C7F2834E32600504405 /* ShopService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -485,6 +492,16 @@
 				4DDC5F65282702A000BDC385 /* Achievements.xcassets */,
 			);
 			path = Visuals;
+			sourceTree = "<group>";
+		};
+		4DA637282841666900A6F785 /* SwiftUIPreviewMocks */ = {
+			isa = PBXGroup;
+			children = (
+				4DA637292841668500A6F785 /* CoinsServicePreviewMock.swift */,
+				4DA6372B2841691200A6F785 /* AchievementServicePreviewMock.swift */,
+				4DA6372D28416DA000A6F785 /* LevelServicePreviewMock.swift */,
+			);
+			path = SwiftUIPreviewMocks;
 			sourceTree = "<group>";
 		};
 		4DB939072826FDB900883CD5 /* Achievements */ = {
@@ -824,7 +841,7 @@
 				4DC73FC92835127C004FD1A0 /* ShopItem+CoreDataClass.swift in Sources */,
 				4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */,
 				4D4E05DC280D663E00569C16 /* DataController.swift in Sources */,
-				4D929C802834E32600504405 /* CoinsService.swift in Sources */,
+				4D929C802834E32600504405 /* ShopService.swift in Sources */,
 				4D48B3B8282E55AE0066EAC8 /* LevelService.swift in Sources */,
 				4DFE20CC28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift in Sources */,
 				4D68A67D27BBCCEF00997CFF /* MainMenuViewModel.swift in Sources */,
@@ -841,7 +858,9 @@
 				4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */,
 				4D87C9FF28267750002EFB8D /* PlayerUIView.swift in Sources */,
 				4DDC5F642827024500BDC385 /* AchievementItemView.swift in Sources */,
+				4DA6372A2841668500A6F785 /* CoinsServicePreviewMock.swift in Sources */,
 				4DB939062826B69E00883CD5 /* UIColor+Hex.swift in Sources */,
+				4DA6372E28416DA000A6F785 /* LevelServicePreviewMock.swift in Sources */,
 				4D68A64727BBA3B400997CFF /* edu_appApp.swift in Sources */,
 				4D6EC863281D8F6900C70061 /* ShopViewModel.swift in Sources */,
 				4D053E9F27F5D32100B3E198 /* RecognizedInk.swift in Sources */,
@@ -851,6 +870,7 @@
 				4D053EAC27F844AB00B3E198 /* LevelValidatorService.swift in Sources */,
 				4D75A7C5282BFF050077DE75 /* Level+CoreDataProperties.swift in Sources */,
 				4D053EA327F7844800B3E198 /* DrawingCanvasViewModel.swift in Sources */,
+				4DA6372C2841691200A6F785 /* AchievementServicePreviewMock.swift in Sources */,
 				4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */,
 				4D053EA827F841A500B3E198 /* Levels.swift in Sources */,
 				4D75A7C1282BA88F0077DE75 /* Achievement+CoreDataProperties.swift in Sources */,

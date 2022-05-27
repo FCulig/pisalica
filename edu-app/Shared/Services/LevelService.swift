@@ -7,9 +7,17 @@
 
 import CoreData
 
+// MARK: - LevelServiceful -
+
+protocol LevelServiceful {
+    var levels: [Level] { get set }
+
+    func unlockLevelAfter(_ level: Level, context: NSManagedObjectContext)
+}
+
 // MARK: - LevelService -
 
-class LevelService {
+class LevelService: LevelServiceful {
     public var levels: [Level] = []
 
     init() {}

@@ -12,9 +12,9 @@ import Foundation
 
 extension LevelSelectView {
     class ViewModel: ObservableObject {
-        let levelService: LevelService
-        let achievementService: AchievementService
-        let coinsService: CoinsService
+        let achievementService: AchievementServiceful
+        let shopService: ShopServiceful
+        var levelService: LevelServiceful
         var totalPages: Int = 0
         var currentPage: Int = 0
         var paginatedLevels: [[Level]] = []
@@ -23,9 +23,9 @@ extension LevelSelectView {
         @Published var showPreviousPageButton: Bool = false
         @Published var showNextPageButton: Bool = false
 
-        public init(achievementService: AchievementService, coinsService: CoinsService) {
+        public init(achievementService: AchievementServiceful, shopService: ShopServiceful) {
             self.achievementService = achievementService
-            self.coinsService = coinsService
+            self.shopService = shopService
 
             levelService = LevelService()
         }

@@ -5,13 +5,11 @@
 //  Created by Filip Culig on 30.04.2022..
 //
 
-import CoreData
 import SwiftUI
 
 // MARK: - ShopView -
 
 struct ShopView: View {
-    @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: ViewModel
 
@@ -75,7 +73,7 @@ struct ShopView: View {
                     AppImage.coinsBalanceBackground.image
                         .scaledToFit()
                         .frame(height: 65)
-                    Text("\(viewModel.coinsService.balance)")
+                    Text("\(viewModel.shopService.balance)")
                         .foregroundColor(.white)
                         .padding(.leading, 45)
                         .padding(.bottom, 5)
@@ -115,7 +113,7 @@ struct ShopView: View {
                             .scaledToFit()
                             .frame(width: 120)
                             .onTapGesture {
-                                viewModel.didTapItem(item, context: moc)
+                                viewModel.didTapItem(item)
                             }
                         }
                     }
@@ -131,7 +129,7 @@ struct ShopView: View {
         .padding(.top, 20)
         .padding(.leading, 20)
         .padding(.trailing, 70)
-        .onLoad { viewModel.getShopItems(context: moc) }
+        .onLoad { viewModel.getShopItems() }
     }
 }
 
@@ -139,7 +137,14 @@ struct ShopView: View {
 
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopView(viewModel: .init(coinsService: .init(context: .init(.privateQueue))))
+        ShopView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
+                                  shopService: ShopServicePreviewMock()))
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPhone 13 Pro Max")
+
+        ShopView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
+                                  shopService: ShopServicePreviewMock()))
+            .previewDevice("iPad Air (5th generation)")
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
