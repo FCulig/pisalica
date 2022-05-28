@@ -17,6 +17,17 @@ class ShopServicePreviewMock: ShopServiceful {
     }
 
     func getShopItems() -> [ShopItem] {
+//        let shopItem = ShopItem()
+//
+//        shopItem.name = "Roza"
+//        shopItem.hexColor = "#FF00FF"
+//        shopItem.unboughtImage = "shop-item-pink"
+//        shopItem.boughtImage = "shop-item-bought-pink"
+//        shopItem.selectedImage = "shop-item-selected-pink"
+//        shopItem.isBought = true
+//        shopItem.isSelected = false
+//        shopItem.price = Int64(15)
+
         return []
     }
 

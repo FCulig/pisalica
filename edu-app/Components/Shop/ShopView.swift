@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import UIKit
 
 // MARK: - ShopView -
 
 struct ShopView: View {
+    private let isTablet = UIDevice.current.localizedModel == "iPad"
+
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: ViewModel
 
@@ -22,29 +25,42 @@ struct ShopView: View {
     // MARK: - View components -
 
     var body: some View {
+        if isTablet {
+            foregroundContent
+                .background(
+                    AppImage.houseBackgroundImage.image
+                        .aspectRatio(contentMode: .fill)
+                        .ignoresSafeArea()
+                        .blur(radius: 3)
+                )
+                .navigationBarHidden(true)
+        } else {
+            foregroundContent
+                .background(
+                    AppImage.houseBackgroundImage.image
+                        .aspectRatio(contentMode: .fill)
+                        .ignoresSafeArea()
+                        .blur(radius: 3)
+                )
+                .navigationBarHidden(true)
+                .edgesIgnoringSafeArea(.bottom)
+        }
+    }
+
+    var foregroundContent: some View {
         ZStack {
-            AppImage.houseBackgroundImage.image
-                .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea()
-                .blur(radius: 3)
-            ZStack {
-                HStack {
+            HStack {
+                Spacer()
+                VStack {
                     Spacer()
-                    VStack {
-                        Spacer()
-                        shopItemsPanel
-                        Spacer()
-                    }
+                    shopItemsPanel
                     Spacer()
                 }
-                coinsBalance
-                backButton
+                Spacer()
             }
-            .padding(.bottom, 50)
-            .padding(.horizontal, 40)
+            coinsBalance
+            backButton
         }
-        .ignoresSafeArea()
-        .navigationBarHidden(true)
     }
 
     var backButton: some View {
@@ -57,10 +73,11 @@ struct ShopView: View {
                         .aspectRatio(contentMode: .fit)
                 }
                 .frame(height: 70, alignment: .top)
+                .padding(.top, isTablet ? 0 : 15)
+                .padding(.leading, isTablet ? 15 : 0)
 
                 Spacer()
             }
-            .padding(.vertical, 45)
             Spacer()
         }
     }
@@ -79,11 +96,11 @@ struct ShopView: View {
                         .padding(.bottom, 5)
                         .font(.system(size: 25).weight(.bold))
                 }
-                .padding(.top, 45)
+                .padding(.top, isTablet ? 0 : 15)
+                .padding(.trailing, isTablet ? 15 : 0)
                 Spacer()
             }
         }
-        .ignoresSafeArea()
     }
 
     var shopItemsPanel: some View {
