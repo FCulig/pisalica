@@ -74,7 +74,7 @@ struct ShopView: View {
                         .aspectRatio(contentMode: .fit)
                 }
                 .frame(height: 70, alignment: .top)
-                .padding(.top, isTablet ? 0 : 15)
+                .padding(.top, 15)
                 .padding(.leading, isTablet ? 15 : 0)
 
                 Spacer()
@@ -97,7 +97,7 @@ struct ShopView: View {
                         .padding(.bottom, 5)
                         .font(.system(size: 25).weight(.bold))
                 }
-                .padding(.top, isTablet ? 0 : 15)
+                .padding(.top, 15)
                 .padding(.trailing, isTablet ? 15 : 0)
                 Spacer()
             }

@@ -49,6 +49,7 @@ struct MainMenuView: View {
                 }
             }
         }
+        .statusBar(hidden: true)
         .navigationViewStyle(StackNavigationViewStyle())
     }
 
@@ -124,7 +125,7 @@ struct MainMenuView: View {
                 }
             }
         }
-        .padding(.top, isTablet ? 0 : 15)
+        .padding(.top, 15)
         .padding(.trailing, isTablet ? 15 : 0)
     }
 }
