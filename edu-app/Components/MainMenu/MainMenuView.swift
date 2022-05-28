@@ -10,6 +10,8 @@ import SwiftUI
 // MARK: - MainMenuView -
 
 struct MainMenuView: View {
+    private let isTablet = UIDevice.current.localizedModel == "iPad"
+
     @ObservedObject var viewModel: ViewModel
     @State var isPlayWordsActive = false
     @State var isPlayLettersActive = false
@@ -27,52 +29,71 @@ struct MainMenuView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                AppImage.houseBackgroundImage.image
-                    .ignoresSafeArea()
-                HStack {
-                    Spacer()
-                    VStack {
-                        // Letters
-                        NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService,
-                                                                    levelService: viewModel.levelService,
-                                                                    shopService: viewModel.shopService),
-                                       isActive: $isPlayLettersActive) {
-                            Button {
-                                viewModel.configureLevelData()
-                                isPlayLettersActive = true
-                            } label: {
-                                AppImage.lettersButton.image
-                                    .scaledToFit()
-                            }
-                            .frame(height: 100)
-                        }
-
-                        // Words
-//                        NavigationLink(destination: EmptyView(), isActive: $isPlayWordsActive) {
-//                            Button {
-//                                viewModel.configureLevelData(with: managedObjectContext)
-//                                isPlayWordsActive = true
-//                            } label: {
-//                                AppImage.wordsButton.image
-//                                    .scaledToFit()
-//                            }
-//                            .frame(height: 100)
-//                        }
-                    }
-                    .padding(.bottom, 50)
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    VStack {
-                        shopAndAchievementsButtons
-                        Spacer()
-                    }
+                if isTablet {
+                    foregroundContent
+                        .background(
+                            AppImage.houseBackgroundTabletImage.image
+                                .scaledToFill()
+                                .ignoresSafeArea()
+                                .offset(x: 80, y: 0)
+                        )
+                        .navigationBarHidden(true)
+                } else {
+                    foregroundContent
+                        .background(
+                            AppImage.houseBackgroundImage.image
+                                .scaledToFill()
+                                .ignoresSafeArea()
+                        )
+                        .navigationBarHidden(true)
                 }
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarHidden(true)
+    }
+
+    var foregroundContent: some View {
+        ZStack {
+            HStack {
+                Spacer()
+                VStack {
+                    // Letters
+                    NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService,
+                                                                levelService: viewModel.levelService,
+                                                                shopService: viewModel.shopService),
+                                   isActive: $isPlayLettersActive) {
+                        Button {
+                            viewModel.configureLevelData()
+                            isPlayLettersActive = true
+                        } label: {
+                            AppImage.lettersButton.image
+                                .scaledToFit()
+                        }
+                        .frame(height: 100)
+                    }
+
+                    // Words
+                    //                        NavigationLink(destination: EmptyView(), isActive: $isPlayWordsActive) {
+                    //                            Button {
+                    //                                viewModel.configureLevelData(with: managedObjectContext)
+                    //                                isPlayWordsActive = true
+                    //                            } label: {
+                    //                                AppImage.wordsButton.image
+                    //                                    .scaledToFit()
+                    //                            }
+                    //                            .frame(height: 100)
+                    //                        }
+                }
+                Spacer()
+            }
+            HStack {
+                Spacer()
+                VStack {
+                    shopAndAchievementsButtons
+                    Spacer()
+                }
+            }
+        }
     }
 
     var shopAndAchievementsButtons: some View {
@@ -103,14 +124,12 @@ struct MainMenuView: View {
                 }
             }
         }
-        .padding(.top, 20)
-        .ignoresSafeArea()
+        .padding(.top, isTablet ? 0 : 15)
+        .padding(.trailing, isTablet ? 15 : 0)
     }
 }
 
 // MARK: - Preview -
-
-import CoreData
 
 struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {

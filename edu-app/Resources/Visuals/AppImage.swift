@@ -11,6 +11,7 @@ import SwiftUI
 enum AppImage {
     case panelBackgroundImage
     case houseBackgroundImage
+    case houseBackgroundTabletImage
     case drawingPanelBackgroundImage
     case drawingPanelTutorialBackgroundImage
     case videoPanelBackgroundImage
@@ -45,7 +46,9 @@ enum AppImage {
         case .panelBackgroundImage:
             return Image("panel-background").resizable()
         case .houseBackgroundImage:
-            return Image("house-background").resizable()
+            return Image("house-background-phone").resizable()
+        case .houseBackgroundTabletImage:
+            return Image("house-background-tablet").resizable()
         case .drawingPanelBackgroundImage:
             return Image("drawing-panel-background").resizable()
         case .drawingPanelTutorialBackgroundImage:

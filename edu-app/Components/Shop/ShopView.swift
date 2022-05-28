@@ -28,9 +28,10 @@ struct ShopView: View {
         if isTablet {
             foregroundContent
                 .background(
-                    AppImage.houseBackgroundImage.image
-                        .aspectRatio(contentMode: .fill)
+                    AppImage.houseBackgroundTabletImage.image
+                        .scaledToFill()
                         .ignoresSafeArea()
+                        .offset(x: 80, y: 0)
                         .blur(radius: 3)
                 )
                 .navigationBarHidden(true)
