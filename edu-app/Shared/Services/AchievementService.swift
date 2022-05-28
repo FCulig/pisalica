@@ -12,8 +12,9 @@ import CoreData
 protocol AchievementServiceful {
     var achievements: [Achievement] { get }
 
-    func getAchievements(context: NSManagedObjectContext) -> [Achievement]
-    func updateAchievementProgress(achievementKey: String, valueToBeAdded: Int, context: NSManagedObjectContext)
+    func getAchievements() -> [Achievement]
+    func updateAchievementProgress(achievementKey: String, valueToBeAdded: Int)
+    func configureAchievementData()
 }
 
 // MARK: - AchievementService -
@@ -37,7 +38,7 @@ class AchievementService: AchievementServiceful {
 // MARK: - Public methods -
 
 extension AchievementService {
-    func getAchievements(context: NSManagedObjectContext) -> [Achievement] {
+    func getAchievements() -> [Achievement] {
         let fetchRequest: NSFetchRequest<Achievement> = Achievement.fetchRequest()
 
         do {
@@ -47,7 +48,7 @@ extension AchievementService {
         return achievements
     }
 
-    func updateAchievementProgress(achievementKey: String, valueToBeAdded: Int, context: NSManagedObjectContext) {
+    func updateAchievementProgress(achievementKey: String, valueToBeAdded: Int) {
         guard let achievement = achievements.first(where: { $0.key == achievementKey }),
               achievement.currentValue < achievement.target else { return }
 
@@ -60,5 +61,36 @@ extension AchievementService {
 
             try context.save()
         } catch { print(error) }
+    }
+
+    func configureAchievementData() {
+        let preloadedDataKey = "didPreloadAchievementData"
+        let userDefaults = UserDefaults.standard
+
+        if userDefaults.bool(forKey: preloadedDataKey) != true {
+            do {
+                guard let achievementsUrlPath = Bundle.main.url(forResource: "Achievements", withExtension: "json") else { return }
+
+                let decoder = JSONDecoder()
+                let data = try Data(contentsOf: achievementsUrlPath)
+                let jsonData = try decoder.decode([DecodableAchievementItem].self, from: data)
+
+                guard jsonData.count > 0 else { return }
+
+                for achievement in jsonData {
+                    let achievementCoreData = Achievement(context: context)
+                    achievementCoreData.id = UUID()
+                    achievementCoreData.name = achievement.name
+                    achievementCoreData.medalImage = achievement.medalImage
+                    achievementCoreData.key = achievement.key
+                    achievementCoreData.target = Int64(achievement.target)
+                    achievementCoreData.currentValue = 0
+
+                    try! context.save()
+                }
+
+                userDefaults.set(true, forKey: preloadedDataKey)
+            } catch { print(error) }
+        }
     }
 }

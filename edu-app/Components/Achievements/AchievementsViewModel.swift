@@ -22,7 +22,7 @@ extension AchievementsView {
 }
 
 extension AchievementsView.ViewModel {
-    func getAchievements(context: NSManagedObjectContext) {
-        achievements = achievementService.getAchievements(context: context)
+    func getAchievements() {
+        achievements = achievementService.getAchievements()
     }
 }

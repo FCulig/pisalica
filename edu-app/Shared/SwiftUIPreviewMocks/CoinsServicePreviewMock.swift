@@ -34,4 +34,8 @@ class ShopServicePreviewMock: ShopServiceful {
     func selectOrBuyShopItem(with _: Int) {
         print("Selecting or buying an item")
     }
+
+    func configureShopData() {
+        print("Configuring shop data")
+    }
 }

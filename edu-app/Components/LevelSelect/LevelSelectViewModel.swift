@@ -23,11 +23,13 @@ extension LevelSelectView {
         @Published var showPreviousPageButton: Bool = false
         @Published var showNextPageButton: Bool = false
 
-        public init(achievementService: AchievementServiceful, shopService: ShopServiceful) {
+        public init(achievementService: AchievementServiceful,
+                    levelService: LevelServiceful,
+                    shopService: ShopServiceful)
+        {
             self.achievementService = achievementService
             self.shopService = shopService
-
-            levelService = LevelService()
+            self.levelService = levelService
         }
     }
 }

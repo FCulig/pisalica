@@ -5,8 +5,6 @@
 //  Created by Filip Culig on 27.05.2022..
 //
 
-import CoreData
-
 // MARK: - AchievementServicePreviewMock -
 
 class AchievementServicePreviewMock: AchievementServiceful {
@@ -14,12 +12,16 @@ class AchievementServicePreviewMock: AchievementServiceful {
         []
     }
 
-    func getAchievements(context _: NSManagedObjectContext) -> [Achievement] {
+    func getAchievements() -> [Achievement] {
         print("Dohvacanje achievementa")
         return []
     }
 
-    func updateAchievementProgress(achievementKey _: String, valueToBeAdded _: Int, context _: NSManagedObjectContext) {
+    func updateAchievementProgress(achievementKey _: String, valueToBeAdded _: Int) {
         print("Updateanje achievementa")
+    }
+
+    func configureAchievementData() {
+        print("Configuring achievement data")
     }
 }

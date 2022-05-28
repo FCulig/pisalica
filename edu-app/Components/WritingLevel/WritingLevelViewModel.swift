@@ -52,13 +52,13 @@ extension WritingLevelView {
 // MARK: - Public methods -
 
 extension WritingLevelView.ViewModel {
-    func endLevel(context: NSManagedObjectContext) {
-        levelService.unlockLevelAfter(level, context: context)
+    func endLevel(context _: NSManagedObjectContext) {
+        levelService.unlockLevelAfter(level)
 
-        achievementService.updateAchievementProgress(achievementKey: "10_correct_letters", valueToBeAdded: correctAnswers, context: context)
-        achievementService.updateAchievementProgress(achievementKey: "100_correct_letters", valueToBeAdded: correctAnswers, context: context)
-        achievementService.updateAchievementProgress(achievementKey: "10_passed_levels", valueToBeAdded: 1, context: context)
-        achievementService.updateAchievementProgress(achievementKey: "30_passed_levels", valueToBeAdded: 1, context: context)
+        achievementService.updateAchievementProgress(achievementKey: "10_correct_letters", valueToBeAdded: correctAnswers)
+        achievementService.updateAchievementProgress(achievementKey: "100_correct_letters", valueToBeAdded: correctAnswers)
+        achievementService.updateAchievementProgress(achievementKey: "10_passed_levels", valueToBeAdded: 1)
+        achievementService.updateAchievementProgress(achievementKey: "30_passed_levels", valueToBeAdded: 1)
     }
 }
 

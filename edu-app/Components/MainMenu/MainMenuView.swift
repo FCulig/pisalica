@@ -10,7 +10,6 @@ import SwiftUI
 // MARK: - MainMenuView -
 
 struct MainMenuView: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var viewModel: ViewModel
     @State var isPlayWordsActive = false
     @State var isPlayLettersActive = false
@@ -34,10 +33,12 @@ struct MainMenuView: View {
                     Spacer()
                     VStack {
                         // Letters
-                        NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService, shopService: viewModel.shopService),
+                        NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService,
+                                                                    levelService: viewModel.levelService,
+                                                                    shopService: viewModel.shopService),
                                        isActive: $isPlayLettersActive) {
                             Button {
-                                viewModel.configureLevelData(with: managedObjectContext)
+                                viewModel.configureLevelData()
                                 isPlayLettersActive = true
                             } label: {
                                 AppImage.lettersButton.image
@@ -79,7 +80,7 @@ struct MainMenuView: View {
             NavigationLink(destination: ShopView(viewModel: .init(achievementService: viewModel.achievementService, shopService: viewModel.shopService)),
                            isActive: $isShopActive) {
                 Button {
-                    viewModel.configureShopData(with: managedObjectContext)
+                    viewModel.configureShopData()
                     isShopActive = true
                 } label: {
                     AppImage.shopButton.image
@@ -93,7 +94,7 @@ struct MainMenuView: View {
 
             NavigationLink(destination: AchievementsView(achievementService: viewModel.achievementService), isActive: $isAchievementsActive) {
                 Button {
-                    viewModel.configureAchievementData(with: managedObjectContext)
+                    viewModel.configureAchievementData()
                     isAchievementsActive = true
                 } label: {
                     AppImage.achievementsButton.image
@@ -113,8 +114,16 @@ import CoreData
 
 struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        return MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
-                                             shopService: ShopServicePreviewMock()))
+        MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
+                                      levelService: LevelServicePreviewMock(),
+                                      shopService: ShopServicePreviewMock()))
             .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPhone 13 Pro Max")
+
+        MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
+                                      levelService: LevelServicePreviewMock(),
+                                      shopService: ShopServicePreviewMock()))
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPad Air (5th generation)")
     }
 }

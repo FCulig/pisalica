@@ -17,8 +17,13 @@ struct LevelSelectView: View {
 
     // MARK: - Initializer -
 
-    public init(achievementService: AchievementServiceful, shopService: ShopServiceful) {
-        let wrappedViewModel = ViewModel(achievementService: achievementService, shopService: shopService)
+    public init(achievementService: AchievementServiceful,
+                levelService: LevelServiceful,
+                shopService: ShopServiceful)
+    {
+        let wrappedViewModel = ViewModel(achievementService: achievementService,
+                                         levelService: levelService,
+                                         shopService: shopService)
         _viewModel = StateObject(wrappedValue: wrappedViewModel)
     }
 
@@ -159,6 +164,7 @@ struct LevelSelectView: View {
 struct LevelSelectView_Previews: PreviewProvider {
     static var previews: some View {
         return LevelSelectView(achievementService: AchievementServicePreviewMock(),
+                               levelService: LevelServicePreviewMock(),
                                shopService: ShopServicePreviewMock())
             .previewInterfaceOrientation(.landscapeLeft)
     }

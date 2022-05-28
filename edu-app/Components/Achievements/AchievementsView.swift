@@ -10,7 +10,6 @@ import SwiftUI
 // MARK: - AchievementsView -
 
 struct AchievementsView: View {
-    @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel: ViewModel
 
@@ -85,7 +84,7 @@ struct AchievementsView: View {
             .padding(.trailing, 25)
         }
         .padding(.horizontal, 50)
-        .onLoad { viewModel.getAchievements(context: moc) }
+        .onLoad { viewModel.getAchievements() }
     }
 }
 
