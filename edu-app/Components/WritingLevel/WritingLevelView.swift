@@ -87,11 +87,11 @@ struct WritingLevelView: View {
                     viewModel.levelState.foregroundImage
                         .scaledToFit()
                         .padding(.top, 25)
-                        .padding(.all, isTablet ? 90 : 0)
+                        .padding(.all, isTablet ? 220 : 0)
                 } else {
                     viewModel.levelState.foregroundImage
                         .scaledToFit()
-                        .padding(.all, isTablet ? 90 : 0)
+                        .padding(.all, isTablet ? 220 : 0)
                 }
                 DrawingCanvasView(viewModel: viewModel.drawingCanvasViewModel)
                     .padding(.leading, 49)
@@ -102,8 +102,7 @@ struct WritingLevelView: View {
         }
         .padding(.top, 55)
         .padding(.bottom, 10)
-        .padding(.horizontal, isTablet ? 180 : 80)
-        .padding(.vertical, isTablet ? 100 : 0)
+        .padding(.horizontal, 80)
     }
 
     var buttons: some View {
@@ -183,8 +182,7 @@ struct WritingLevelView: View {
 
     var gameOverDialog: some View {
         ZStack {
-            if true {
-//            if viewModel.isGameOver {
+            if viewModel.isGameOver {
                 Rectangle()
                     .ignoresSafeArea()
                     .scaledToFill()
