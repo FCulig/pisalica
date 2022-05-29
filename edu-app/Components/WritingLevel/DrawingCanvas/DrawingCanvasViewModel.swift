@@ -21,6 +21,7 @@ class DrawingCanvasViewModel {
 
     // MARK: - Private properties -
 
+    private let levelService: LevelServiceful
     private let levelValidator: LevelValidatorService = .init()
     private var points: [CGPoint] = []
     private lazy var strokeManager = StrokeManager(delegate: self)
@@ -51,7 +52,8 @@ class DrawingCanvasViewModel {
 
     // MARK: - Initializer
 
-    public init(level: Level) {
+    public init(level: Level, levelService: LevelServiceful) {
+        self.levelService = levelService
         self.level = level
     }
 }
@@ -101,16 +103,9 @@ extension DrawingCanvasViewModel {
 // MARK: - Private methods -
 
 extension DrawingCanvasViewModel {
-    func configureLineColor(context: NSManagedObjectContext) {
-        let fetchRequest: NSFetchRequest<ShopItem> = ShopItem.fetchRequest()
-        do {
-            let shopItems = try context.fetch(fetchRequest)
-            shopItems.forEach { item in
-                guard item.isSelected else { return }
-                strokeColor = UIColor(hex: item.hexColor ?? "#121212") ?? .black
-            }
-
-        } catch { print(error) }
+    func configureLineColor() {
+        let lineColor = levelService.getLineColorCode()
+        strokeColor = UIColor(hex: lineColor) ?? .black
     }
 }
 

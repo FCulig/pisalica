@@ -14,6 +14,7 @@ protocol LevelServiceful {
 
     func unlockLevelAfter(_ level: Level)
     func getLevels() -> [Level]
+    func getLineColorCode() -> String
     func configureLevelData()
 }
 
@@ -57,6 +58,22 @@ extension LevelService {
         } catch { print(error) }
 
         return levels
+    }
+
+    func getLineColorCode() -> String {
+        let fetchRequest: NSFetchRequest<ShopItem> = ShopItem.fetchRequest()
+        var strokeColor = ""
+
+        do {
+            let shopItems = try context.fetch(fetchRequest)
+            shopItems.forEach { item in
+                guard item.isSelected else { return }
+                strokeColor = item.hexColor ?? "#121212"
+            }
+
+        } catch { print(error) }
+
+        return strokeColor
     }
 
     func configureLevelData() {

@@ -52,7 +52,7 @@ extension WritingLevelView {
 // MARK: - Public methods -
 
 extension WritingLevelView.ViewModel {
-    func endLevel(context _: NSManagedObjectContext) {
+    func endLevel() {
         levelService.unlockLevelAfter(level)
 
         achievementService.updateAchievementProgress(achievementKey: "10_correct_letters", valueToBeAdded: correctAnswers)

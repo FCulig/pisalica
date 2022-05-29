@@ -15,9 +15,9 @@ struct WritingLevelView: View {
     // MARK: - Private properties -
 
     private var player: AVPlayer?
+    private let isTablet = UIDevice.current.localizedModel == "iPad"
 
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.managedObjectContext) private var moc
     @StateObject private var viewModel: ViewModel
     @State private var showVideoTutorialDialog: Bool = false
 
@@ -28,7 +28,7 @@ struct WritingLevelView: View {
                 achievementService: AchievementServiceful,
                 shopService: ShopServiceful)
     {
-        let drawingCanvasViewModel = DrawingCanvasViewModel(level: level)
+        let drawingCanvasViewModel = DrawingCanvasViewModel(level: level, levelService: levelService)
 
         let wrappedViewModel = ViewModel(level: level,
                                          drawingCanvasViewModel: drawingCanvasViewModel,
@@ -44,18 +44,37 @@ struct WritingLevelView: View {
     // MARK: - View components -
 
     var body: some View {
+        if isTablet {
+            foregroundContent
+                .background(
+                    AppImage.houseBackgroundTabletImage.image
+                        .scaledToFill()
+                        .ignoresSafeArea()
+                        .offset(x: 80, y: 0)
+                        .blur(radius: 3)
+                )
+                .navigationBarHidden(true)
+        } else {
+            foregroundContent
+                .background(
+                    AppImage.houseBackgroundImage.image
+                        .aspectRatio(contentMode: .fill)
+                        .ignoresSafeArea()
+                        .blur(radius: 3)
+                )
+                .navigationBarHidden(true)
+                .edgesIgnoringSafeArea(.bottom)
+        }
+    }
+
+    var foregroundContent: some View {
         ZStack {
-            AppImage.houseBackgroundImage.image
-                .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea()
-                .blur(radius: 3)
             drawingCanvasContainer
             buttons
         }
         .overlay(videoTutorialDialog)
         .overlay(gameOverDialog)
-        .onLoad { viewModel.drawingCanvasViewModel.configureLineColor(context: moc) }
-        .navigationBarHidden(true)
+        .onLoad { viewModel.drawingCanvasViewModel.configureLineColor() }
     }
 
     var drawingCanvasContainer: some View {
@@ -68,9 +87,11 @@ struct WritingLevelView: View {
                     viewModel.levelState.foregroundImage
                         .scaledToFit()
                         .padding(.top, 25)
+                        .padding(.all, isTablet ? 90 : 0)
                 } else {
                     viewModel.levelState.foregroundImage
                         .scaledToFit()
+                        .padding(.all, isTablet ? 90 : 0)
                 }
                 DrawingCanvasView(viewModel: viewModel.drawingCanvasViewModel)
                     .padding(.leading, 49)
@@ -78,9 +99,11 @@ struct WritingLevelView: View {
                     .padding(.top, 29)
                     .padding(.bottom, 36)
             }
-            .padding(.horizontal, 100)
         }
-        .padding(.vertical, 50)
+        .padding(.top, 55)
+        .padding(.bottom, 10)
+        .padding(.horizontal, isTablet ? 180 : 80)
+        .padding(.vertical, isTablet ? 100 : 0)
     }
 
     var buttons: some View {
@@ -95,7 +118,6 @@ struct WritingLevelView: View {
                 .frame(height: 70, alignment: .top)
                 Spacer()
             }
-            .padding(.vertical, 45)
             Spacer()
             VStack(alignment: .trailing) {
                 Button {
@@ -114,8 +136,10 @@ struct WritingLevelView: View {
                         .frame(height: 70, alignment: .top)
                 }
             }
-            .padding(.vertical, 45)
         }
+        .padding(.vertical, 15)
+        .padding(.leading, isTablet ? 15 : 0)
+        .padding(.trailing, isTablet ? 15 : 0)
     }
 
     var videoTutorialDialog: some View {
@@ -131,7 +155,6 @@ struct WritingLevelView: View {
                     .onTapGesture {
                         showVideoTutorialDialog = false
                     }
-                // TODO: Close dialog button also
 
                 if let player = player {
                     PlayerView(player: player)
@@ -160,7 +183,8 @@ struct WritingLevelView: View {
 
     var gameOverDialog: some View {
         ZStack {
-            if viewModel.isGameOver {
+            if true {
+//            if viewModel.isGameOver {
                 Rectangle()
                     .ignoresSafeArea()
                     .scaledToFill()
@@ -175,6 +199,7 @@ struct WritingLevelView: View {
             AppImage.levelOverBackground.image
                 .padding(.top, 280)
                 .padding(.bottom, 260)
+                .frame(width: 850)
 
             VStack {
                 ZStack {
@@ -202,7 +227,7 @@ struct WritingLevelView: View {
 
                     Button {
                         dismiss()
-                        viewModel.endLevel(context: moc)
+                        viewModel.endLevel()
                     } label: {
                         AppImage.nextButtonV2.image
                             .scaledToFit()
@@ -213,6 +238,8 @@ struct WritingLevelView: View {
             }
             .frame(width: 400)
         }
+        .padding(.top, isTablet ? 150 : 0)
+        .padding(.bottom, isTablet ? 150 : 0)
     }
 
     var gameOverRewards: some View {
@@ -222,7 +249,7 @@ struct WritingLevelView: View {
                     Text(key)
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 0, x: 3, y: 2)
-                        .font(.system(size: 25).weight(.bold))
+                        .font(.system(size: isTablet ? 30 : 25).weight(.bold))
 
                     Spacer()
 
@@ -233,7 +260,7 @@ struct WritingLevelView: View {
                         Text("\(viewModel.endGameRecap[key] ?? 0)")
                             .foregroundColor(.white)
                             .shadow(color: .black, radius: 0, x: 3, y: 2)
-                            .font(.system(size: 25).weight(.bold))
+                            .font(.system(size: isTablet ? 30 : 25).weight(.bold))
                             .padding(.leading, -12)
                     }
                 }
@@ -247,7 +274,7 @@ struct WritingLevelView: View {
                 Text("Ukupno")
                     .foregroundColor(.white)
                     .shadow(color: .black, radius: 0, x: 3, y: 2)
-                    .font(.system(size: 25).weight(.bold))
+                    .font(.system(size: isTablet ? 30 : 25).weight(.bold))
 
                 Spacer()
 
@@ -258,7 +285,7 @@ struct WritingLevelView: View {
                     Text("\(viewModel.totalCoinsReward)")
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 0, x: 3, y: 2)
-                        .font(.system(size: 25).weight(.bold))
+                        .font(.system(size: isTablet ? 30 : 25).weight(.bold))
                         .padding(.leading, -12)
                 }
             }
@@ -270,19 +297,18 @@ struct WritingLevelView: View {
 
 struct WritingLevelView_Previews: PreviewProvider {
     static var previews: some View {
-        let level = Level()
+        WritingLevelView(level: Level(),
+                         levelService: LevelServicePreviewMock(),
+                         achievementService: AchievementServicePreviewMock(),
+                         shopService: ShopServicePreviewMock())
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPhone 13 Pro Max")
 
-        level.name = "A"
-        level.isLocked = false
-        level.results = ["A"]
-        level.numberOfLines = 3
-        level.lockedImage = "A-locked"
-        level.unlockedImage = "A-unlocked"
-
-        return WritingLevelView(level: level,
-                                levelService: LevelServicePreviewMock(),
-                                achievementService: AchievementServicePreviewMock(),
-                                shopService: ShopServicePreviewMock())
+        WritingLevelView(level: Level(),
+                         levelService: LevelServicePreviewMock(),
+                         achievementService: AchievementServicePreviewMock(),
+                         shopService: ShopServicePreviewMock())
+            .previewDevice("iPad Air (5th generation)")
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

@@ -18,6 +18,10 @@ class LevelServicePreviewMock: LevelServiceful {
         print("Configuring level data")
     }
 
+    func getLineColorCode() -> String {
+        return "LineColor"
+    }
+
     func getLevels() -> [Level] {
         return []
     }
