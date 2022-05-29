@@ -28,25 +28,23 @@ struct MainMenuView: View {
 
     var body: some View {
         NavigationView {
-            ZStack {
-                if isTablet {
-                    foregroundContent
-                        .background(
-                            AppImage.houseBackgroundTabletImage.image
-                                .scaledToFill()
-                                .ignoresSafeArea()
-                                .offset(x: 80, y: 0)
-                        )
-                        .navigationBarHidden(true)
-                } else {
-                    foregroundContent
-                        .background(
-                            AppImage.houseBackgroundImage.image
-                                .scaledToFill()
-                                .ignoresSafeArea()
-                        )
-                        .navigationBarHidden(true)
-                }
+            if isTablet {
+                foregroundContent
+                    .background(
+                        AppImage.houseBackgroundTabletImage.image
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                            .offset(x: 80, y: 0)
+                    )
+                    .navigationBarHidden(true)
+            } else {
+                foregroundContent
+                    .background(
+                        AppImage.houseBackgroundImage.image
+                            .scaledToFill()
+                            .ignoresSafeArea()
+                    )
+                    .navigationBarHidden(true)
             }
         }
         .statusBar(hidden: true)

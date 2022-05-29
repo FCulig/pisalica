@@ -10,6 +10,8 @@ import SwiftUI
 // MARK: - ProgressBar -
 
 struct ProgressBar: View {
+    private let isTablet = UIDevice.current.localizedModel == "iPad"
+
     @State var progressBarFrame: CGSize = .zero
     @State var currentValue: Float
     @State var maxValue: Float
@@ -23,8 +25,10 @@ struct ProgressBar: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            Spacer()
             progressText
             progressIndicator
+            Spacer()
         }
     }
 
@@ -32,7 +36,7 @@ struct ProgressBar: View {
         Text("\(Int(currentValue)) / \(Int(maxValue))")
             .foregroundColor(.white)
             .shadow(color: .black, radius: 0, x: 3, y: 2)
-            .font(.system(size: 20).weight(.bold))
+            .font(.system(size: isTablet ? 30 : 20).weight(.bold))
     }
 
     var progressIndicator: some View {
@@ -65,5 +69,11 @@ private extension ProgressBar {
 struct ProgressBar_Previews: PreviewProvider {
     static var previews: some View {
         ProgressBar(currentValue: 3, maxValue: 10)
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPhone 13 Pro Max")
+
+        ProgressBar(currentValue: 3, maxValue: 10)
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPad Air (5th generation)")
     }
 }

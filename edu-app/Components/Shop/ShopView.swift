@@ -139,14 +139,11 @@ struct ShopView: View {
                 .padding(.vertical, isTablet ? 75 : 50)
                 .padding(.horizontal, 25)
             }
-            .padding(.top, 35)
-            .padding(.bottom, 15)
-            .padding(.leading, 70)
-            .padding(.trailing, 25)
         }
-        .padding(.top, 20)
-        .padding(.leading, 20)
-        .padding(.trailing, 70)
+        .padding(.top, 55)
+        .padding(.bottom, 10)
+        .padding(.leading, isTablet ? 80 : 60)
+        .padding(.trailing, isTablet ? 80 : 110)
         .onLoad { viewModel.getShopItems() }
     }
 }

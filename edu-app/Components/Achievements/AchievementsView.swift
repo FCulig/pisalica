@@ -10,6 +10,8 @@ import SwiftUI
 // MARK: - AchievementsView -
 
 struct AchievementsView: View {
+    private let isTablet = UIDevice.current.localizedModel == "iPad"
+
     @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel: ViewModel
 
@@ -23,28 +25,41 @@ struct AchievementsView: View {
     // MARK: - View components -
 
     var body: some View {
+        if isTablet {
+            foregroundContent
+                .background(
+                    AppImage.houseBackgroundTabletImage.image
+                        .scaledToFill()
+                        .ignoresSafeArea()
+                        .offset(x: 80, y: 0)
+                        .blur(radius: 3)
+                )
+                .navigationBarHidden(true)
+        } else {
+            foregroundContent
+                .background(
+                    AppImage.houseBackgroundImage.image
+                        .scaledToFill()
+                        .ignoresSafeArea()
+                        .blur(radius: 3)
+                )
+                .navigationBarHidden(true)
+        }
+    }
+
+    var foregroundContent: some View {
         ZStack {
-            AppImage.houseBackgroundImage.image
-                .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea()
-                .blur(radius: 3)
-            ZStack {
-                HStack {
+            HStack {
+                Spacer()
+                VStack {
                     Spacer()
-                    VStack {
-                        Spacer()
-                        achievementsPanel
-                        Spacer()
-                    }
+                    achievementsPanel
                     Spacer()
                 }
-                backButton
+                Spacer()
             }
-            .padding(.bottom, 50)
-            .padding(.horizontal, 40)
+            backButton
         }
-        .ignoresSafeArea()
-        .navigationBarHidden(true)
     }
 
     var backButton: some View {
@@ -57,33 +72,33 @@ struct AchievementsView: View {
                         .aspectRatio(contentMode: .fit)
                 }
                 .frame(height: 70, alignment: .top)
+                .padding(.top, 15)
+                .padding(.leading, isTablet ? 15 : 0)
 
                 Spacer()
             }
-            .padding(.vertical, 45)
             Spacer()
         }
     }
 
     var achievementsPanel: some View {
         ZStack {
-            ZStack {
-                AppImage.panelBackgroundImage.image
+            AppImage.panelBackgroundImage.image
 
-                ScrollView(showsIndicators: false) {
-                    ForEach(viewModel.achievements, id: \.self) { achievement in
-                        AchievementItemView(achievement: achievement)
-                    }
+            ScrollView(showsIndicators: false) {
+                ForEach(viewModel.achievements, id: \.self) { achievement in
+                    AchievementItemView(achievement: achievement)
                 }
-                .padding(.vertical, 40)
-                .padding(.horizontal, 60)
             }
-            .padding(.top, 35)
-            .padding(.bottom, 15)
-            .padding(.leading, 70)
-            .padding(.trailing, 25)
+            .padding(.vertical, isTablet ? 70 : 40)
+            .padding(.bottom, isTablet ? 10 : 0)
+            .padding(.horizontal, isTablet ? 85 : 60)
+            .padding(.leading, isTablet ? 5 : 0)
         }
-        .padding(.horizontal, 50)
+        .padding(.top, isTablet ? 55 : 30)
+        .padding(.bottom, 5)
+        .padding(.leading, isTablet ? 80 : 90)
+        .padding(.trailing, isTablet ? 80 : 70)
         .onLoad { viewModel.getAchievements() }
     }
 }
@@ -93,5 +108,11 @@ struct AchievementsView: View {
 struct AchievementsView_Previews: PreviewProvider {
     static var previews: some View {
         AchievementsView(achievementService: AchievementServicePreviewMock())
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPhone 13 Pro Max")
+
+        AchievementsView(achievementService: AchievementServicePreviewMock())
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPad Air (5th generation)")
     }
 }

@@ -10,6 +10,8 @@ import SwiftUI
 // MARK: - AchievementItemView -
 
 struct AchievementItemView: View {
+    private let isTablet = UIDevice.current.localizedModel == "iPad"
+
     @State var achievement: Achievement
 
     // MARK: - View components -
@@ -33,13 +35,13 @@ struct AchievementItemView: View {
             Text(achievement.name ?? "")
                 .foregroundColor(.white)
                 .shadow(color: .black, radius: 0, x: 3, y: 2)
-                .font(.system(size: 25).weight(.bold))
+                .font(.system(size: isTablet ? 35 : 25).weight(.bold))
             Spacer()
             ProgressBar(currentValue: Float(achievement.currentValue), maxValue: Float(achievement.target))
                 .padding(.top, 20)
                 .padding(.bottom, 10)
                 .padding(.trailing, 20)
-                .frame(width: 100)
+                .frame(width: isTablet ? 130 : 100)
         }
     }
 }
@@ -47,5 +49,11 @@ struct AchievementItemView: View {
 struct AchievementItemView_Previews: PreviewProvider {
     static var previews: some View {
         AchievementItemView(achievement: Achievement())
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPhone 13 Pro Max")
+
+        AchievementItemView(achievement: Achievement())
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPad Air (5th generation)")
     }
 }
