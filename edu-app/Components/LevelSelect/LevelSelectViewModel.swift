@@ -58,31 +58,27 @@ extension LevelSelectView.ViewModel {
         updatePageContent()
     }
 
-    func getPaginatedLevels(context: NSManagedObjectContext) {
-        let fetchRequest: NSFetchRequest<Level> = Level.fetchRequest()
-        var levels: [Level] = []
+    func getPaginatedLevels() {
+        let levels = levelService.getLevels()
 
-        do {
-            levels = try context.fetch(fetchRequest)
-            paginatedLevels = []
-            let itemsPerPage = 12
-            var tmp = 0
-            totalPages = Int(ceil(Double(levels.count) / Double(itemsPerPage)))
+        paginatedLevels = []
+        let itemsPerPage = 12
+        var tmp = 0
+        totalPages = Int(ceil(Double(levels.count) / Double(itemsPerPage)))
 
-            for _ in 0 ..< totalPages {
-                var currentPage: [Level] = []
-                for j in tmp ..< tmp + itemsPerPage {
-                    if levels.count > j {
-                        currentPage.append(levels[j])
-                    }
+        for _ in 0 ..< totalPages {
+            var currentPage: [Level] = []
+            for j in tmp ..< tmp + itemsPerPage {
+                if levels.count > j {
+                    currentPage.append(levels[j])
                 }
-                paginatedLevels.append(currentPage)
-                currentPage = []
-                tmp += itemsPerPage
             }
+            paginatedLevels.append(currentPage)
+            currentPage = []
+            tmp += itemsPerPage
+        }
 
-            updatePageContent()
-            levelService.levels = levels
-        } catch { print(error) }
+        updatePageContent()
+        levelService.levels = levels
     }
 }

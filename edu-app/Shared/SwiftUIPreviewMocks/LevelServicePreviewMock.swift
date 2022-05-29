@@ -17,4 +17,8 @@ class LevelServicePreviewMock: LevelServiceful {
     func configureLevelData() {
         print("Configuring level data")
     }
+
+    func getLevels() -> [Level] {
+        return []
+    }
 }

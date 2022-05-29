@@ -10,7 +10,6 @@ import SwiftUI
 // MARK: - LevelSelectView -
 
 struct LevelSelectView: View {
-    @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: ViewModel
     @FetchRequest(sortDescriptors: []) var levels: FetchedResults<Level>
@@ -91,7 +90,7 @@ struct LevelSelectView: View {
         .padding(.top, 20)
         .padding(.leading, 20)
         .padding(.trailing, 70)
-        .onLoad { viewModel.getPaginatedLevels(context: moc) }
+        .onLoad { viewModel.getPaginatedLevels() }
     }
 
     var pageControlButtons: some View {
@@ -163,9 +162,16 @@ struct LevelSelectView: View {
 
 struct LevelSelectView_Previews: PreviewProvider {
     static var previews: some View {
-        return LevelSelectView(achievementService: AchievementServicePreviewMock(),
-                               levelService: LevelServicePreviewMock(),
-                               shopService: ShopServicePreviewMock())
+        LevelSelectView(achievementService: AchievementServicePreviewMock(),
+                        levelService: LevelServicePreviewMock(),
+                        shopService: ShopServicePreviewMock())
+            .previewInterfaceOrientation(.landscapeLeft)
+            .previewDevice("iPhone 13 Pro Max")
+
+        LevelSelectView(achievementService: AchievementServicePreviewMock(),
+                        levelService: LevelServicePreviewMock(),
+                        shopService: ShopServicePreviewMock())
+            .previewDevice("iPad Air (5th generation)")
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

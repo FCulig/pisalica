@@ -13,6 +13,7 @@ protocol LevelServiceful {
     var levels: [Level] { get set }
 
     func unlockLevelAfter(_ level: Level)
+    func getLevels() -> [Level]
     func configureLevelData()
 }
 
@@ -45,6 +46,17 @@ extension LevelService {
 
             try context.save()
         } catch { print(error) }
+    }
+
+    func getLevels() -> [Level] {
+        let fetchRequest: NSFetchRequest<Level> = Level.fetchRequest()
+        var levels: [Level] = []
+
+        do {
+            levels = try context.fetch(fetchRequest)
+        } catch { print(error) }
+
+        return levels
     }
 
     func configureLevelData() {
