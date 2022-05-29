@@ -129,14 +129,14 @@ struct ShopView: View {
                                 }
                             }
                             .scaledToFit()
-                            .frame(width: 120)
+                            .frame(width: isTablet ? 200 : 120)
                             .onTapGesture {
                                 viewModel.didTapItem(item)
                             }
                         }
                     }
                 }
-                .padding(.vertical, 50)
+                .padding(.vertical, isTablet ? 75 : 50)
                 .padding(.horizontal, 25)
             }
             .padding(.top, 35)
