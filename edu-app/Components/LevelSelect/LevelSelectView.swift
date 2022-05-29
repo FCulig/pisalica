@@ -10,6 +10,8 @@ import SwiftUI
 // MARK: - LevelSelectView -
 
 struct LevelSelectView: View {
+    private let isTablet = UIDevice.current.localizedModel == "iPad"
+
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: ViewModel
     @FetchRequest(sortDescriptors: []) var levels: FetchedResults<Level>
@@ -29,11 +31,31 @@ struct LevelSelectView: View {
     // MARK: - View components -
 
     var body: some View {
+        if isTablet {
+            foregroundContent
+                .background(
+                    AppImage.houseBackgroundTabletImage.image
+                        .scaledToFill()
+                        .ignoresSafeArea()
+                        .offset(x: 80, y: 0)
+                        .blur(radius: 3)
+                )
+                .navigationBarHidden(true)
+        } else {
+            foregroundContent
+                .background(
+                    AppImage.houseBackgroundImage.image
+                        .aspectRatio(contentMode: .fill)
+                        .ignoresSafeArea()
+                        .blur(radius: 3)
+                )
+                .navigationBarHidden(true)
+                .edgesIgnoringSafeArea(.bottom)
+        }
+    }
+
+    var foregroundContent: some View {
         ZStack {
-            AppImage.houseBackgroundImage.image
-                .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea()
-                .blur(radius: 3)
             HStack {
                 Spacer()
                 VStack {
@@ -46,10 +68,6 @@ struct LevelSelectView: View {
             coinsBalance
             backButton
         }
-        .padding(.bottom, 50)
-        .padding(.horizontal, 40)
-        .ignoresSafeArea()
-        .navigationBarHidden(true)
     }
 
     var levelSelectPanel: some View {
@@ -62,7 +80,7 @@ struct LevelSelectView: View {
                     GridItem(.flexible()),
                     GridItem(.flexible()),
                     GridItem(.flexible()),
-                ], spacing: 15) {
+                ], spacing: isTablet ? 55 : 15) {
                     ForEach(viewModel.displayedLevels, id: \.self) { level in
                         if level.isLocked {
                             LevelButton(level)
@@ -80,16 +98,15 @@ struct LevelSelectView: View {
                 }
                 .padding(.horizontal, 25)
             }
-            .padding(.vertical, 45)
-            .padding(.leading, 90)
-            .padding(.trailing, 35)
+            .padding(.top, 55)
+            .padding(.bottom, 10)
+            .padding(.leading, isTablet ? 80 : 60)
+            .padding(.trailing, isTablet ? 80 : 110)
 
             pageControlButtons
                 .padding(.vertical, 10)
+                .padding(.top, isTablet ? 50 : 0)
         }
-        .padding(.top, 20)
-        .padding(.leading, 20)
-        .padding(.trailing, 70)
         .onLoad { viewModel.getPaginatedLevels() }
     }
 
@@ -104,7 +121,7 @@ struct LevelSelectView: View {
                         AppImage.previousButton.image
                             .aspectRatio(contentMode: .fit)
                     }
-                    .padding(.leading, 50)
+                    .padding(.leading, isTablet ? 35 : 30)
                 }
                 Spacer()
                 if viewModel.showNextPageButton {
@@ -114,9 +131,10 @@ struct LevelSelectView: View {
                         AppImage.nextButton.image
                             .aspectRatio(contentMode: .fit)
                     }
+                    .padding(.trailing, isTablet ? 35 : 70)
                 }
             }
-            .frame(height: 70, alignment: .center)
+            .frame(height: isTablet ? 100 : 70, alignment: .center)
         }
     }
 
@@ -130,10 +148,11 @@ struct LevelSelectView: View {
                         .aspectRatio(contentMode: .fit)
                 }
                 .frame(height: 70, alignment: .top)
+                .padding(.top, 15)
+                .padding(.leading, isTablet ? 15 : 0)
 
                 Spacer()
             }
-            .padding(.vertical, 45)
             Spacer()
         }
     }
@@ -152,11 +171,11 @@ struct LevelSelectView: View {
                         .padding(.bottom, 5)
                         .font(.system(size: 25).weight(.bold))
                 }
-                .padding(.top, 45)
+                .padding(.top, 15)
+                .padding(.trailing, isTablet ? 15 : 0)
                 Spacer()
             }
         }
-        .ignoresSafeArea()
     }
 }
 

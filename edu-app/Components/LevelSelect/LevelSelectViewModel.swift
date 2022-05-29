@@ -5,7 +5,6 @@
 //  Created by Filip Culig on 16.02.2022..
 //
 
-import CoreData
 import Foundation
 
 // MARK: - LevelSelectView.ViewModel -

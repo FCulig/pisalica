@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LevelButton: View {
+    private let isTablet = UIDevice.current.localizedModel == "iPad"
+
     let level: Level
 
     var body: some View {
@@ -22,7 +24,7 @@ struct LevelButton: View {
                     .aspectRatio(contentMode: .fit)
             }
         }
-        .frame(height: 75, alignment: .center)
+        .frame(height: isTablet ? 130 : 75, alignment: .center)
     }
 
     public init(_ level: Level) {
