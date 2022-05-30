@@ -56,32 +56,8 @@ struct MainMenuView: View {
             HStack {
                 Spacer()
                 VStack {
-                    // Letters
-                    NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService,
-                                                                levelService: viewModel.levelService,
-                                                                shopService: viewModel.shopService),
-                                   isActive: $isPlayLettersActive) {
-                        Button {
-                            viewModel.configureLevelData()
-                            isPlayLettersActive = true
-                        } label: {
-                            AppImage.lettersButton.image
-                                .scaledToFit()
-                        }
-                        .frame(height: 100)
-                    }
-
-                    // Words
-                    //                        NavigationLink(destination: EmptyView(), isActive: $isPlayWordsActive) {
-                    //                            Button {
-                    //                                viewModel.configureLevelData(with: managedObjectContext)
-                    //                                isPlayWordsActive = true
-                    //                            } label: {
-                    //                                AppImage.wordsButton.image
-                    //                                    .scaledToFit()
-                    //                            }
-                    //                            .frame(height: 100)
-                    //                        }
+//                    appLogo
+                    playButtons
                 }
                 Spacer()
             }
@@ -92,6 +68,43 @@ struct MainMenuView: View {
                     Spacer()
                 }
             }
+        }
+    }
+
+    var appLogo: some View {
+            AppImage.appLogo.image
+                .scaledToFit()
+                .frame(width: 150)
+    }
+
+    var playButtons: some View {
+        VStack {
+            // Letters
+            NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService,
+                                                        levelService: viewModel.levelService,
+                                                        shopService: viewModel.shopService),
+                           isActive: $isPlayLettersActive) {
+                Button {
+                    viewModel.configureLevelData()
+                    isPlayLettersActive = true
+                } label: {
+                    AppImage.lettersButton.image
+                        .scaledToFit()
+                }
+                .frame(height: 100)
+            }
+
+            // Words
+            //                        NavigationLink(destination: EmptyView(), isActive: $isPlayWordsActive) {
+            //                            Button {
+            //                                viewModel.configureLevelData(with: managedObjectContext)
+            //                                isPlayWordsActive = true
+            //                            } label: {
+            //                                AppImage.wordsButton.image
+            //                                    .scaledToFit()
+            //                            }
+            //                            .frame(height: 100)
+            //                        }
         }
     }
 

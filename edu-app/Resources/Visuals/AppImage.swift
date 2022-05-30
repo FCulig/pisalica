@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 enum AppImage {
+    case appLogo
     case panelBackgroundImage
     case houseBackgroundImage
     case houseBackgroundTabletImage
@@ -43,6 +44,8 @@ enum AppImage {
 
     var image: Image {
         switch self {
+        case .appLogo:
+            return Image("app-logo").resizable()
         case .panelBackgroundImage:
             return Image("panel-background").resizable()
         case .houseBackgroundImage:
