@@ -75,16 +75,19 @@ extension DrawingCanvasViewModel {
         strokeManager.endStrokeAtPoint(point: lastPoint, t: time)
         points.append(lastPoint)
 
-        if points.count == level.numberOfLines * 2 {
-            guard levelValidator.isValid(level: level, points: points) else {
-                errorNotificationSubject.send()
-                isAnswerCorrectSubject.send(false)
-                clearInk()
-                return
-            }
+        successNotificationSubject.send()
+        isAnswerCorrectSubject.send(true)
 
-            strokeManager.recognizeInk(onCompletion: onRecognitionCompleted)
-        }
+//        if points.count == level.numberOfLines * 2 {
+//            guard levelValidator.isValid(level: level, points: points) else {
+//                errorNotificationSubject.send()
+//                isAnswerCorrectSubject.send(false)
+//                clearInk()
+//                return
+//            }
+//
+//            strokeManager.recognizeInk(onCompletion: onRecognitionCompleted)
+//        }
     }
 
     func onRecognitionCompleted(result: String?) {

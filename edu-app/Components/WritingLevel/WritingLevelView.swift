@@ -79,8 +79,11 @@ struct WritingLevelView: View {
 
     var drawingCanvasContainer: some View {
         VStack {
-            Text(viewModel.drawingCanvasViewModel.level.name ?? "")
-                .foregroundColor(.clear)
+            LevelProgressBarView(viewModel: .init(progressGoal: 9, progress: viewModel.progress))
+                .frame(height: 125)
+                .padding(.top, -75)
+//            Text(viewModel.drawingCanvasViewModel.level.name ?? "")
+//                .foregroundColor(.clear)
             ZStack {
                 viewModel.levelState.backgroundImage
                 if viewModel.level.isDiacritical {
@@ -99,10 +102,11 @@ struct WritingLevelView: View {
                     .padding(.top, 29)
                     .padding(.bottom, 36)
             }
+            .padding(.top, -20)
         }
-        .padding(.top, 55)
+        .padding(.top, 70)
         .padding(.bottom, 10)
-        .padding(.horizontal, 80)
+        .padding(.horizontal, 130)
     }
 
     var buttons: some View {

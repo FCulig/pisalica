@@ -15,6 +15,7 @@
 		4D053EA827F841A500B3E198 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EA727F841A500B3E198 /* Levels.swift */; };
 		4D053EAC27F844AB00B3E198 /* LevelValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */; };
 		4D0FF533282FAC5E0083E06B /* AchievementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FF532282FAC5E0083E06B /* AchievementService.swift */; };
+		4D2A41572846985B004ED339 /* LevelProgressBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A41562846985B004ED339 /* LevelProgressBarViewModel.swift */; };
 		4D48B3B8282E55AE0066EAC8 /* LevelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48B3B7282E55AE0066EAC8 /* LevelService.swift */; };
 		4D4E05D8280D640000569C16 /* Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E05D6280D640000569C16 /* Game.xcdatamodeld */; };
 		4D4E05DC280D663E00569C16 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E05DB280D663E00569C16 /* DataController.swift */; };
@@ -46,6 +47,8 @@
 		4D75A7C4282BFF050077DE75 /* Level+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7C2282BFF050077DE75 /* Level+CoreDataClass.swift */; };
 		4D75A7C5282BFF050077DE75 /* Level+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7C3282BFF050077DE75 /* Level+CoreDataProperties.swift */; };
 		4D75A7C9282C42F10077DE75 /* WritingLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7C8282C42F10077DE75 /* WritingLevelViewModel.swift */; };
+		4D84C55128454FD100D5BC57 /* LevelProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */; };
+		4D84C5532845DAE700D5BC57 /* View+MeasureSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84C5522845DAE700D5BC57 /* View+MeasureSize.swift */; };
 		4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69527E7425E008FA08D /* WritingLevelView.swift */; };
 		4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */; };
 		4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C9FC282676D9002EFB8D /* PlayerView.swift */; };
@@ -103,6 +106,7 @@
 		4D053EA727F841A500B3E198 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelValidatorService.swift; sourceTree = "<group>"; };
 		4D0FF532282FAC5E0083E06B /* AchievementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementService.swift; sourceTree = "<group>"; };
+		4D2A41562846985B004ED339 /* LevelProgressBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressBarViewModel.swift; sourceTree = "<group>"; };
 		4D48B3B7282E55AE0066EAC8 /* LevelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelService.swift; sourceTree = "<group>"; };
 		4D4E05D7280D640000569C16 /* Level.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Level.xcdatamodel; sourceTree = "<group>"; };
 		4D4E05DB280D663E00569C16 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 		4D75A7C2282BFF050077DE75 /* Level+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		4D75A7C3282BFF050077DE75 /* Level+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		4D75A7C8282C42F10077DE75 /* WritingLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLevelViewModel.swift; sourceTree = "<group>"; };
+		4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressBarView.swift; sourceTree = "<group>"; };
+		4D84C5522845DAE700D5BC57 /* View+MeasureSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+MeasureSize.swift"; sourceTree = "<group>"; };
 		4D85A69527E7425E008FA08D /* WritingLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLevelView.swift; sourceTree = "<group>"; };
 		4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
 		4D87C9FC282676D9002EFB8D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
@@ -374,6 +380,7 @@
 				4DFE20CB28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift */,
 				4DB939012826A12D00883CD5 /* NavigationLazyView.swift */,
 				4DB939052826B69E00883CD5 /* UIColor+Hex.swift */,
+				4D84C5522845DAE700D5BC57 /* View+MeasureSize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -429,9 +436,19 @@
 			path = Decodables;
 			sourceTree = "<group>";
 		};
+		4D84C54D28454FB200D5BC57 /* LevelProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */,
+				4D2A41562846985B004ED339 /* LevelProgressBarViewModel.swift */,
+			);
+			path = LevelProgressBar;
+			sourceTree = "<group>";
+		};
 		4D85A69027E74220008FA08D /* WritingLevel */ = {
 			isa = PBXGroup;
 			children = (
+				4D84C54D28454FB200D5BC57 /* LevelProgressBar */,
 				4D85A69727E743CD008FA08D /* DrawingCanvas */,
 				4D85A69527E7425E008FA08D /* WritingLevelView.swift */,
 				4D75A7C8282C42F10077DE75 /* WritingLevelViewModel.swift */,
@@ -838,6 +855,7 @@
 				4D68A68227BCF41800997CFF /* LevelSelectViewModel.swift in Sources */,
 				4D68A67B27BBCCE000997CFF /* MainMenuView.swift in Sources */,
 				4DE3A5C328186606005DF33E /* AppColor.swift in Sources */,
+				4D84C5532845DAE700D5BC57 /* View+MeasureSize.swift in Sources */,
 				4DC73FC92835127C004FD1A0 /* ShopItem+CoreDataClass.swift in Sources */,
 				4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */,
 				4D4E05DC280D663E00569C16 /* DataController.swift in Sources */,
@@ -848,6 +866,7 @@
 				4D053E9B27F5D1DD00B3E198 /* DrawingCanvasViewController.swift in Sources */,
 				4DDC5F622826FE3400BDC385 /* AchievementsViewModel.swift in Sources */,
 				4D6EC865281D8FAF00C70061 /* ShopView.swift in Sources */,
+				4D84C55128454FD100D5BC57 /* LevelProgressBarView.swift in Sources */,
 				4D4E05ED280D855800569C16 /* DecodableLevel.swift in Sources */,
 				4D6EC86B281DCBE800C70061 /* DecodableShopItem.swift in Sources */,
 				4D526BCC282A629300B8FEA3 /* DecodableAchievementItem.swift in Sources */,
@@ -861,6 +880,7 @@
 				4DA6372A2841668500A6F785 /* CoinsServicePreviewMock.swift in Sources */,
 				4DB939062826B69E00883CD5 /* UIColor+Hex.swift in Sources */,
 				4DA6372E28416DA000A6F785 /* LevelServicePreviewMock.swift in Sources */,
+				4D2A41572846985B004ED339 /* LevelProgressBarViewModel.swift in Sources */,
 				4D68A64727BBA3B400997CFF /* edu_appApp.swift in Sources */,
 				4D6EC863281D8F6900C70061 /* ShopViewModel.swift in Sources */,
 				4D053E9F27F5D32100B3E198 /* RecognizedInk.swift in Sources */,

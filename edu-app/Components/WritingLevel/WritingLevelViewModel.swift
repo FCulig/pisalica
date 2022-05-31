@@ -13,6 +13,8 @@ import SwiftUI
 
 extension WritingLevelView {
     class ViewModel: ObservableObject {
+        // MARK: - Private properties -
+
         private let achievementService: AchievementServiceful
         private let shopService: ShopServiceful
         private let levelService: LevelServiceful
@@ -20,8 +22,11 @@ extension WritingLevelView {
         private var totalAttempts: Int = 0
         private var cancellabels: Set<AnyCancellable> = []
 
+        // MARK: - Public properties -
+
         let level: Level
         var drawingCanvasViewModel: DrawingCanvasViewModel
+        let progress: CurrentValueSubject<Float, Never> = .init(0)
         @Published var levelState: LevelState = .none
         @Published var isGameOver: Bool = false
         @Published var endGameRecap: [String: Int] = [:]
@@ -60,6 +65,18 @@ extension WritingLevelView.ViewModel {
         achievementService.updateAchievementProgress(achievementKey: "10_passed_levels", valueToBeAdded: 1)
         achievementService.updateAchievementProgress(achievementKey: "30_passed_levels", valueToBeAdded: 1)
     }
+
+    func configureGuidesLevel() {
+        levelState = .guides(image: level.guideImage ?? "")
+    }
+
+    func configureOutlinesLevel() {
+        levelState = .outline(image: level.outlineImage ?? "")
+    }
+
+    func configureBlankLevel() {
+        levelState = .none
+    }
 }
 
 // MARK: - Private methods -
@@ -75,26 +92,22 @@ private extension WritingLevelView.ViewModel {
         totalAttempts += 1
         correctAnswers += wasAnswerCorrect ? 1 : 0
 
-        if correctAnswers == 1 {
-            levelState = .outline(image: level.outlineImage ?? "")
-        } else if correctAnswers == 2 {
-            levelState = .none
-        } else if correctAnswers == 3 {
+        updateTotalScore()
+
+        if correctAnswers < 3 {
+            configureGuidesLevel()
+        } else if correctAnswers >= 3, correctAnswers < 6 {
+            configureOutlinesLevel()
+        } else if correctAnswers >= 6, correctAnswers < 9 {
+            configureBlankLevel()
+        } else if correctAnswers == 9 {
             isGameOver = true
             updateEndGameRecapData()
         }
+    }
 
-        // DO NOT DELETE THIS COMMENT!!!
-
-//        if correctAnswers < 3 {
-//            levelState = .guides(image: level.guideImage ?? "")
-//        } else if correctAnswers >= 3, correctAnswers < 6 {
-//            levelState = .outline(image: level.outlineImage ?? "")
-//        } else if correctAnswers >= 6, correctAnswers < 9 {
-//            levelState = .none
-//        } else if correctAnswers == 9 {
-//            print("Gotov level")
-//        }
+    func updateTotalScore() {
+        progress.send(progress.value + 1)
     }
 
     func updateEndGameRecapData() {

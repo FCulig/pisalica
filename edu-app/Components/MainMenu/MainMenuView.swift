@@ -72,9 +72,9 @@ struct MainMenuView: View {
     }
 
     var appLogo: some View {
-            AppImage.appLogo.image
-                .scaledToFit()
-                .frame(width: 150)
+        AppImage.appLogo.image
+            .scaledToFit()
+            .frame(width: 150)
     }
 
     var playButtons: some View {
