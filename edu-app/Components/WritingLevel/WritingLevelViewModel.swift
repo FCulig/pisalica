@@ -101,13 +101,31 @@ private extension WritingLevelView.ViewModel {
 
     func updateTotalScore(wasAnswerCorrect: Bool) {
         guard wasAnswerCorrect else {
-            print("Wrong answer")
-            if currentScore - 0.5 > 0 {
-                currentScore -= 0.5
-            } else {
-                currentScore = 0
+            var newScore = currentScore
+
+            if currentScore < 3 {
+                newScore -= 0.5
+
+                isOutlinesLevelEnabled.send(false)
+                isBlankLevelEnabled.send(false)
+            } else if currentScore >= 3, currentScore < 6 {
+                newScore -= 0.5
+
+                if currentScore - 0.5 < 3 {
+                    isOutlinesLevelEnabled.send(false)
+                    isBlankLevelEnabled.send(false)
+                    configureGuidesLevel()
+                }
+            } else if currentScore >= 6, currentScore < 9 {
+                newScore -= 0.5
+
+                if currentScore - 0.5 < 6 {
+                    isBlankLevelEnabled.send(false)
+                    configureOutlinesLevel()
+                }
             }
 
+            currentScore = newScore
             progress.send(currentScore)
             return
         }
