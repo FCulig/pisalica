@@ -15,21 +15,41 @@ extension LevelProgressBarView {
         // MARK: - Private properties -
 
         private var cancellables: Set<AnyCancellable> = []
+        private var isShowOutlineLevelButtonEnabledSubject: CurrentValueSubject<Bool, Never>
+        private var isShowBlankLevelButtonEnabledSubject: CurrentValueSubject<Bool, Never>
         private var progress: CurrentValueSubject<Float, Never>
 
         // MARK: - Public properties -
 
+        var showGuidesLevel: () -> Void
+        var showOutlineLevel: () -> Void
+        var showBlankLevel: () -> Void
+
         @Published var progressGoal: Float = 0
         @Published var currentProgress: Float = 0
         @Published var trailingPadding: CGFloat = 0
+        @Published var isShowOutlineLevelButtonEnabled: Bool = false
+        @Published var isShowBlankLevelButtonEnabled: Bool = false
 
         // MARK: - Initializer -
 
-        public init(progressGoal: Float, progress: CurrentValueSubject<Float, Never>) {
+        public init(progressGoal: Float,
+                    showGuidesLevel: @escaping () -> Void,
+                    showOutlineLevel: @escaping () -> Void,
+                    showBlankLevel: @escaping () -> Void,
+                    isShowOutlineLevelButtonEnabled: CurrentValueSubject<Bool, Never>,
+                    isShowBlankLevelButtonEnabled: CurrentValueSubject<Bool, Never>,
+                    progress: CurrentValueSubject<Float, Never>)
+        {
             self.progressGoal = progressGoal
+            self.showGuidesLevel = showGuidesLevel
+            self.showOutlineLevel = showOutlineLevel
+            self.showBlankLevel = showBlankLevel
+            isShowOutlineLevelButtonEnabledSubject = isShowOutlineLevelButtonEnabled
+            isShowBlankLevelButtonEnabledSubject = isShowBlankLevelButtonEnabled
             self.progress = progress
 
-            subscribeProgressChanges()
+            subscribeSubjectChanges()
         }
     }
 }
@@ -42,24 +62,29 @@ extension LevelProgressBarView.ViewModel {
         let progressPercentage = currentProgress / progressGoal
         let indicatorWidthToBe = maxIndicatorWidth * CGFloat(progressPercentage)
         trailingPadding = maxIndicatorWidth - indicatorWidthToBe
-
-        print("Max width: \(maxIndicatorWidth)")
-        print("Percentage: \(progressPercentage)")
-        print("Indicator padding: \(trailingPadding)")
-        print("Score: \(progress.value)")
-
-        print("Updating padding")
     }
 }
 
 // MARK: - Initial setup -
 
 private extension LevelProgressBarView.ViewModel {
-    func subscribeProgressChanges() {
+    func subscribeSubjectChanges() {
         progress
             .sink { [weak self] in
                 self?.currentProgress = $0
                 self?.updateTrailingPadding()
+            }
+            .store(in: &cancellables)
+
+        isShowOutlineLevelButtonEnabledSubject
+            .sink { [weak self] in
+                self?.isShowOutlineLevelButtonEnabled = $0
+            }
+            .store(in: &cancellables)
+
+        isShowBlankLevelButtonEnabledSubject
+            .sink { [weak self] in
+                self?.isShowBlankLevelButtonEnabled = $0
             }
             .store(in: &cancellables)
     }

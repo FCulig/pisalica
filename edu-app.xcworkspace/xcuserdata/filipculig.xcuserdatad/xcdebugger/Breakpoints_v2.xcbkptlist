@@ -94,8 +94,8 @@
             filePath = "edu-app/Shared/Extensions/UIColor+Hex.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
             landmarkName = "init?(hex:)"
             landmarkType = "7">
          </BreakpointContent>

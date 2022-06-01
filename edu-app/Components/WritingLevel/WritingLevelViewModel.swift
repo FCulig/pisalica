@@ -20,6 +20,7 @@ extension WritingLevelView {
         private let levelService: LevelServiceful
         private var correctAnswers: Int = 0
         private var totalAttempts: Int = 0
+        private var currentScore: Float = 0
         private var cancellabels: Set<AnyCancellable> = []
 
         // MARK: - Public properties -
@@ -27,6 +28,9 @@ extension WritingLevelView {
         let level: Level
         var drawingCanvasViewModel: DrawingCanvasViewModel
         let progress: CurrentValueSubject<Float, Never> = .init(0)
+        let isOutlinesLevelEnabled: CurrentValueSubject<Bool, Never> = .init(false)
+        let isBlankLevelEnabled: CurrentValueSubject<Bool, Never> = .init(false)
+
         @Published var levelState: LevelState = .none
         @Published var isGameOver: Bool = false
         @Published var endGameRecap: [String: Int] = [:]
@@ -92,22 +96,48 @@ private extension WritingLevelView.ViewModel {
         totalAttempts += 1
         correctAnswers += wasAnswerCorrect ? 1 : 0
 
-        updateTotalScore()
-
-        if correctAnswers < 3 {
-            configureGuidesLevel()
-        } else if correctAnswers >= 3, correctAnswers < 6 {
-            configureOutlinesLevel()
-        } else if correctAnswers >= 6, correctAnswers < 9 {
-            configureBlankLevel()
-        } else if correctAnswers == 9 {
-            isGameOver = true
-            updateEndGameRecapData()
-        }
+        updateTotalScore(wasAnswerCorrect: wasAnswerCorrect)
     }
 
-    func updateTotalScore() {
-        progress.send(progress.value + 1)
+    func updateTotalScore(wasAnswerCorrect: Bool) {
+        guard wasAnswerCorrect else {
+            print("Wrong answer")
+            if currentScore - 0.5 > 0 {
+                currentScore -= 0.5
+            } else {
+                currentScore = 0
+            }
+
+            progress.send(currentScore)
+            return
+        }
+
+        var newScore = currentScore
+
+        if currentScore < 3 {
+            newScore += 1
+
+            if newScore >= 3 {
+                isOutlinesLevelEnabled.send(true)
+            }
+        } else if currentScore >= 3, currentScore < 6 {
+            newScore += 1
+
+            if currentScore + 1 >= 6 {
+                isBlankLevelEnabled.send(true)
+            }
+        } else if currentScore >= 6, currentScore < 9 {
+            newScore += 1
+
+            if newScore >= 9 {
+                newScore = 9
+                isGameOver = true
+                updateEndGameRecapData()
+            }
+        }
+
+        progress.send(newScore)
+        currentScore = newScore
     }
 
     func updateEndGameRecapData() {
