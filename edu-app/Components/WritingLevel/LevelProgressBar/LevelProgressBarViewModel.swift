@@ -14,6 +14,7 @@ extension LevelProgressBarView {
     class ViewModel: ObservableObject {
         // MARK: - Private properties -
 
+        private let isTablet: Bool
         private var cancellables: Set<AnyCancellable> = []
         private var isShowOutlineLevelButtonEnabledSubject: CurrentValueSubject<Bool, Never>
         private var isShowBlankLevelButtonEnabledSubject: CurrentValueSubject<Bool, Never>
@@ -39,7 +40,8 @@ extension LevelProgressBarView {
                     showBlankLevel: @escaping () -> Void,
                     isShowOutlineLevelButtonEnabled: CurrentValueSubject<Bool, Never>,
                     isShowBlankLevelButtonEnabled: CurrentValueSubject<Bool, Never>,
-                    progress: CurrentValueSubject<Float, Never>)
+                    progress: CurrentValueSubject<Float, Never>,
+                    isTablet: Bool)
         {
             self.progressGoal = progressGoal
             self.showGuidesLevel = showGuidesLevel
@@ -48,6 +50,7 @@ extension LevelProgressBarView {
             isShowOutlineLevelButtonEnabledSubject = isShowOutlineLevelButtonEnabled
             isShowBlankLevelButtonEnabledSubject = isShowBlankLevelButtonEnabled
             self.progress = progress
+            self.isTablet = isTablet
 
             subscribeSubjectChanges()
         }
@@ -58,7 +61,7 @@ extension LevelProgressBarView {
 
 extension LevelProgressBarView.ViewModel {
     func updateTrailingPadding() {
-        let maxIndicatorWidth = CGFloat(546)
+        let maxIndicatorWidth = CGFloat(isTablet ? 865 : 546)
         let progressPercentage = currentProgress / progressGoal
         let indicatorWidthToBe = maxIndicatorWidth * CGFloat(progressPercentage)
         trailingPadding = maxIndicatorWidth - indicatorWidthToBe

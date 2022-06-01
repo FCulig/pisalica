@@ -85,9 +85,10 @@ struct WritingLevelView: View {
                                                   showBlankLevel: viewModel.configureBlankLevel,
                                                   isShowOutlineLevelButtonEnabled: viewModel.isOutlinesLevelEnabled,
                                                   isShowBlankLevelButtonEnabled: viewModel.isBlankLevelEnabled,
-                                                  progress: viewModel.progress))
+                                                  progress: viewModel.progress,
+                                                  isTablet: isTablet))
                 .frame(height: 125)
-                .padding(.top, -85)
+                .padding(.top, isTablet ? -70 : -85)
             ZStack {
                 viewModel.levelState.backgroundImage
                 if viewModel.level.isDiacritical {
@@ -106,7 +107,7 @@ struct WritingLevelView: View {
                     .padding(.top, 29)
                     .padding(.bottom, 36)
             }
-            .padding(.top, -20)
+            .padding(.top, isTablet ? 0 : -20)
         }
         .padding(.top, 70)
         .padding(.bottom, 10)
