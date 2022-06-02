@@ -37,13 +37,13 @@ struct RoundedButton: View {
                 buttonImage
                     .resizable()
                     .scaledToFit()
-                    .padding(.bottom, isTablet ? 0 : 7)
+                    .padding(.bottom, isTablet ? 13 : 7)
                     .padding(.all, 7)
             } else {
                 Rectangle()
                     .foregroundColor(.white)
-                    .frame(width: 22, height: 22)
-                    .padding(.bottom, isTablet ? 0 : 7)
+                    .frame(width: isTablet ? 30 : 22, height: isTablet ? 30 : 22)
+                    .padding(.bottom, isTablet ? 13 : 7)
                     .padding(.all, 7)
             }
 

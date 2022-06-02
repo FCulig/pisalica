@@ -85,6 +85,8 @@ struct WritingLevelView: View {
                                                   showBlankLevel: viewModel.configureBlankLevel,
                                                   isShowOutlineLevelButtonEnabled: viewModel.isOutlinesLevelEnabled,
                                                   isShowBlankLevelButtonEnabled: viewModel.isBlankLevelEnabled,
+                                                  shouldHighlightOutlineButton: viewModel.shouldHighlightOutlineButton,
+                                                  shouldHighlightCanvasButton: viewModel.shouldHighlightCanvasButton,
                                                   progress: viewModel.progress,
                                                   level: viewModel.level,
                                                   isTablet: isTablet))

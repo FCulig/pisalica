@@ -18,6 +18,8 @@ extension LevelProgressBarView {
         private var cancellables: Set<AnyCancellable> = []
         private var isShowOutlineLevelButtonEnabledSubject: CurrentValueSubject<Bool, Never>
         private var isShowBlankLevelButtonEnabledSubject: CurrentValueSubject<Bool, Never>
+        private var shouldHighlightOutlineButtonSubject: CurrentValueSubject<Bool, Never>
+        private var shouldHighlightCanvasButtonSubject: CurrentValueSubject<Bool, Never>
         private var progress: CurrentValueSubject<Float, Never>
 
         // MARK: - Public properties -
@@ -32,6 +34,8 @@ extension LevelProgressBarView {
         @Published var trailingPadding: CGFloat = 0
         @Published var isShowOutlineLevelButtonEnabled: Bool = false
         @Published var isShowBlankLevelButtonEnabled: Bool = false
+        @Published var shouldHighlightOutlineButton: Bool = false
+        @Published var shouldHighlightCanvasButton: Bool = false
 
         // MARK: - Initializer -
 
@@ -41,6 +45,8 @@ extension LevelProgressBarView {
                     showBlankLevel: @escaping () -> Void,
                     isShowOutlineLevelButtonEnabled: CurrentValueSubject<Bool, Never>,
                     isShowBlankLevelButtonEnabled: CurrentValueSubject<Bool, Never>,
+                    shouldHighlightOutlineButton: CurrentValueSubject<Bool, Never>,
+                    shouldHighlightCanvasButton: CurrentValueSubject<Bool, Never>,
                     progress: CurrentValueSubject<Float, Never>,
                     level: Level,
                     isTablet: Bool)
@@ -51,6 +57,8 @@ extension LevelProgressBarView {
             self.showBlankLevel = showBlankLevel
             isShowOutlineLevelButtonEnabledSubject = isShowOutlineLevelButtonEnabled
             isShowBlankLevelButtonEnabledSubject = isShowBlankLevelButtonEnabled
+            shouldHighlightOutlineButtonSubject = shouldHighlightOutlineButton
+            shouldHighlightCanvasButtonSubject = shouldHighlightCanvasButton
             self.progress = progress
             self.level = level
             self.isTablet = isTablet
@@ -91,6 +99,18 @@ private extension LevelProgressBarView.ViewModel {
         isShowBlankLevelButtonEnabledSubject
             .sink { [weak self] in
                 self?.isShowBlankLevelButtonEnabled = $0
+            }
+            .store(in: &cancellables)
+
+        shouldHighlightOutlineButtonSubject
+            .sink { [weak self] in
+                self?.shouldHighlightOutlineButton = $0
+            }
+            .store(in: &cancellables)
+
+        shouldHighlightCanvasButtonSubject
+            .sink { [weak self] in
+                self?.shouldHighlightCanvasButton = $0
             }
             .store(in: &cancellables)
     }

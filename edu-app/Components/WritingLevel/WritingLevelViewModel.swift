@@ -30,6 +30,8 @@ extension WritingLevelView {
         let progress: CurrentValueSubject<Float, Never> = .init(0)
         let isOutlinesLevelEnabled: CurrentValueSubject<Bool, Never> = .init(false)
         let isBlankLevelEnabled: CurrentValueSubject<Bool, Never> = .init(false)
+        let shouldHighlightOutlineButton: CurrentValueSubject<Bool, Never> = .init(false)
+        let shouldHighlightCanvasButton: CurrentValueSubject<Bool, Never> = .init(false)
 
         @Published var levelState: LevelState = .none
         @Published var isGameOver: Bool = false
@@ -100,6 +102,9 @@ private extension WritingLevelView.ViewModel {
     }
 
     func updateTotalScore(wasAnswerCorrect: Bool) {
+        shouldHighlightCanvasButton.send(false)
+        shouldHighlightOutlineButton.send(false)
+
         guard wasAnswerCorrect else {
 //            var newScore = currentScore
 //
@@ -141,7 +146,7 @@ private extension WritingLevelView.ViewModel {
         } else if currentScore >= 3, currentScore < 6 {
             if case .none = levelState { return }
             if case .guides = levelState {
-                print("Hightlight second")
+                shouldHighlightOutlineButton.send(true)
                 return
             }
 
@@ -151,11 +156,11 @@ private extension WritingLevelView.ViewModel {
             }
         } else if currentScore >= 6, currentScore < 9 {
             if case .guides = levelState {
-                print("Hightlight third")
+                shouldHighlightCanvasButton.send(true)
                 return
             }
             if case .outline = levelState {
-                print("Hightlight third")
+                shouldHighlightCanvasButton.send(true)
                 return
             }
 

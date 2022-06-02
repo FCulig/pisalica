@@ -47,7 +47,7 @@ struct LevelProgressBarView: View {
                 Rectangle()
                     .cornerRadius(50)
                     .foregroundColor(.init(red: 0.20, green: 0.7, blue: 0.10))
-                    .padding(.vertical, isTablet ? 33 : 21)
+                    .padding(.vertical, isTablet ? 34 : 21)
                     .padding(.leading, leadingPadding)
                     .padding(.bottom, isTablet ? 2 : 0.5)
                     .padding(.trailing, viewModel.trailingPadding < (isTablet ? 850 : 480) ?
@@ -62,19 +62,20 @@ struct LevelProgressBarView: View {
                                         buttonImage: Image(viewModel.level.guideImage ?? ""),
                                         isLocked: false)
             Spacer()
-                .frame(width: isTablet ? 80 : 120)
+                .frame(width: isTablet ? 230 : 120)
 
             createProgressBarCheckpoint(onTap: viewModel.showOutlineLevel,
                                         buttonImage: Image(viewModel.level.outlineImage ?? ""),
-                                        isLocked: !viewModel.isShowOutlineLevelButtonEnabled)
+                                        isLocked: !viewModel.isShowOutlineLevelButtonEnabled,
+                                        shouldHighlight: viewModel.shouldHighlightOutlineButton)
             Spacer()
-                .frame(width: isTablet ? 160 : 110)
+                .frame(width: isTablet ? 220 : 110)
 
             createProgressBarCheckpoint(onTap: viewModel.showBlankLevel,
-                                        isLocked: !viewModel.isShowBlankLevelButtonEnabled)
+                                        isLocked: !viewModel.isShowBlankLevelButtonEnabled,
+                                        shouldHighlight: viewModel.shouldHighlightCanvasButton)
 
             Spacer()
-                .frame(width: isTablet ? 230 : 165)
         }
     }
 }
@@ -84,19 +85,27 @@ struct LevelProgressBarView: View {
 private extension LevelProgressBarView {
     func createProgressBarCheckpoint(onTap: @escaping () -> Void,
                                      buttonImage: Image? = nil,
-                                     isLocked: Bool) -> some View
+                                     isLocked: Bool,
+                                     shouldHighlight: Bool = false) -> some View
     {
         return ZStack {
             if isLocked {
                 RoundedButton(buttonImage: buttonImage, isLocked: true)
-                    .frame(width: isTablet ? 55 : 55)
+                    .frame(width: isTablet ? 75 : 55)
             } else {
-                Button {
-                    onTap()
-                } label: {
-                    RoundedButton(buttonImage: buttonImage, isLocked: false)
-                        .frame(width: isTablet ? 55 : 55)
-                }
+                RoundedButton(buttonImage: buttonImage, isLocked: false)
+                    .frame(width: isTablet ? 75 : 55)
+            }
+
+            if shouldHighlight {
+                Rectangle()
+                    .foregroundColor(.red)
+                    .frame(width: 50, height: 50)
+            }
+        }
+        .onTapGesture {
+            if !isLocked {
+                onTap()
             }
         }
     }
@@ -110,6 +119,8 @@ struct LevelProgressBarView_Previews: PreviewProvider {
                                               showBlankLevel: {},
                                               isShowOutlineLevelButtonEnabled: .init(false),
                                               isShowBlankLevelButtonEnabled: .init(false),
+                                              shouldHighlightOutlineButton: .init(false),
+                                              shouldHighlightCanvasButton: .init(false),
                                               progress: .init(10),
                                               level: .init(),
                                               isTablet: false))
@@ -122,6 +133,8 @@ struct LevelProgressBarView_Previews: PreviewProvider {
                                               showBlankLevel: {},
                                               isShowOutlineLevelButtonEnabled: .init(false),
                                               isShowBlankLevelButtonEnabled: .init(false),
+                                              shouldHighlightOutlineButton: .init(false),
+                                              shouldHighlightCanvasButton: .init(false),
                                               progress: .init(10),
                                               level: .init(),
                                               isTablet: true))
