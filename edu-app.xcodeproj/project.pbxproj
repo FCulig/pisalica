@@ -73,6 +73,7 @@
 		4DDC5F622826FE3400BDC385 /* AchievementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5F612826FE3400BDC385 /* AchievementsViewModel.swift */; };
 		4DDC5F642827024500BDC385 /* AchievementItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5F632827024500BDC385 /* AchievementItemView.swift */; };
 		4DDC5F66282702A000BDC385 /* Achievements.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5F65282702A000BDC385 /* Achievements.xcassets */; };
+		4DDFBCB7284933C10079A4E6 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDFBCB6284933C10079A4E6 /* RoundedButton.swift */; };
 		4DE3A5C1281865FD005DF33E /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE3A5C0281865FD005DF33E /* Color.xcassets */; };
 		4DE3A5C328186606005DF33E /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3A5C228186606005DF33E /* AppColor.swift */; };
 		4DFE20CC28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFE20CB28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift */; };
@@ -166,6 +167,7 @@
 		4DDC5F612826FE3400BDC385 /* AchievementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewModel.swift; sourceTree = "<group>"; };
 		4DDC5F632827024500BDC385 /* AchievementItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementItemView.swift; sourceTree = "<group>"; };
 		4DDC5F65282702A000BDC385 /* Achievements.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Achievements.xcassets; sourceTree = "<group>"; };
+		4DDFBCB6284933C10079A4E6 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		4DE3A5C0281865FD005DF33E /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		4DE3A5C228186606005DF33E /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		4DFE20CB28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ViewDidLoadModifier.swift"; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		4D302E7E2847EBAD008C913C /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				4DDFBCB6284933C10079A4E6 /* RoundedButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -882,6 +885,7 @@
 				4D0FF533282FAC5E0083E06B /* AchievementService.swift in Sources */,
 				4D526BC82827D1AE00B8FEA3 /* ProgressBar.swift in Sources */,
 				4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */,
+				4DDFBCB7284933C10079A4E6 /* RoundedButton.swift in Sources */,
 				4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */,
 				4D87C9FF28267750002EFB8D /* PlayerUIView.swift in Sources */,
 				4DDC5F642827024500BDC385 /* AchievementItemView.swift in Sources */,

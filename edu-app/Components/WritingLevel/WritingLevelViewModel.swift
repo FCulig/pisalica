@@ -101,32 +101,32 @@ private extension WritingLevelView.ViewModel {
 
     func updateTotalScore(wasAnswerCorrect: Bool) {
         guard wasAnswerCorrect else {
-            var newScore = currentScore
-
-            if currentScore < 3 {
-                newScore -= 0.5
-
-                isOutlinesLevelEnabled.send(false)
-                isBlankLevelEnabled.send(false)
-            } else if currentScore >= 3, currentScore < 6 {
-                newScore -= 0.5
-
-                if currentScore - 0.5 < 3 {
-                    isOutlinesLevelEnabled.send(false)
-                    isBlankLevelEnabled.send(false)
-                    configureGuidesLevel()
-                }
-            } else if currentScore >= 6, currentScore < 9 {
-                newScore -= 0.5
-
-                if currentScore - 0.5 < 6 {
-                    isBlankLevelEnabled.send(false)
-                    configureOutlinesLevel()
-                }
-            }
-
-            currentScore = newScore
-            progress.send(currentScore)
+//            var newScore = currentScore
+//
+//            if currentScore < 3 {
+//                newScore -= 0.5
+//
+//                isOutlinesLevelEnabled.send(false)
+//                isBlankLevelEnabled.send(false)
+//            } else if currentScore >= 3, currentScore < 6 {
+//                newScore -= 0.5
+//
+//                if currentScore - 0.5 < 3 {
+//                    isOutlinesLevelEnabled.send(false)
+//                    isBlankLevelEnabled.send(false)
+//                    configureGuidesLevel()
+//                }
+//            } else if currentScore >= 6, currentScore < 9 {
+//                newScore -= 0.5
+//
+//                if currentScore - 0.5 < 6 {
+//                    isBlankLevelEnabled.send(false)
+//                    configureOutlinesLevel()
+//                }
+//            }
+//
+//            currentScore = newScore
+//            progress.send(currentScore)
             return
         }
 
@@ -139,14 +139,27 @@ private extension WritingLevelView.ViewModel {
                 isOutlinesLevelEnabled.send(true)
             }
         } else if currentScore >= 3, currentScore < 6 {
-            newScore += 1
+            if case .none = levelState { return }
+            if case .guides = levelState {
+                print("Hightlight second")
+                return
+            }
 
+            newScore += 1
             if currentScore + 1 >= 6 {
                 isBlankLevelEnabled.send(true)
             }
         } else if currentScore >= 6, currentScore < 9 {
-            newScore += 1
+            if case .guides = levelState {
+                print("Hightlight third")
+                return
+            }
+            if case .outline = levelState {
+                print("Hightlight third")
+                return
+            }
 
+            newScore += 1
             if newScore >= 9 {
                 newScore = 9
                 isGameOver = true

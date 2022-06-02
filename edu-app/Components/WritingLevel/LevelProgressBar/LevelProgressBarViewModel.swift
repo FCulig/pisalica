@@ -26,6 +26,7 @@ extension LevelProgressBarView {
         var showOutlineLevel: () -> Void
         var showBlankLevel: () -> Void
 
+        let level: Level
         @Published var progressGoal: Float = 0
         @Published var currentProgress: Float = 0
         @Published var trailingPadding: CGFloat = 0
@@ -41,6 +42,7 @@ extension LevelProgressBarView {
                     isShowOutlineLevelButtonEnabled: CurrentValueSubject<Bool, Never>,
                     isShowBlankLevelButtonEnabled: CurrentValueSubject<Bool, Never>,
                     progress: CurrentValueSubject<Float, Never>,
+                    level: Level,
                     isTablet: Bool)
         {
             self.progressGoal = progressGoal
@@ -50,6 +52,7 @@ extension LevelProgressBarView {
             isShowOutlineLevelButtonEnabledSubject = isShowOutlineLevelButtonEnabled
             isShowBlankLevelButtonEnabledSubject = isShowBlankLevelButtonEnabled
             self.progress = progress
+            self.level = level
             self.isTablet = isTablet
 
             subscribeSubjectChanges()

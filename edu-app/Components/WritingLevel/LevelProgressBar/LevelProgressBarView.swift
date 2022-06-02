@@ -59,14 +59,20 @@ struct LevelProgressBarView: View {
     var levelCheckpoints: some View {
         HStack(alignment: .firstTextBaseline, spacing: 0) {
             createProgressBarCheckpoint(onTap: viewModel.showGuidesLevel,
-                                        isEnabled: true,
-                                        hideLine: true)
+                                        buttonImage: Image(viewModel.level.guideImage ?? ""),
+                                        isLocked: false)
             Spacer()
-                .frame(width: isTablet ? 80 : 100)
-            createProgressBarCheckpoint(onTap: viewModel.showOutlineLevel, isEnabled: viewModel.isShowOutlineLevelButtonEnabled)
+                .frame(width: isTablet ? 80 : 120)
+
+            createProgressBarCheckpoint(onTap: viewModel.showOutlineLevel,
+                                        buttonImage: Image(viewModel.level.outlineImage ?? ""),
+                                        isLocked: !viewModel.isShowOutlineLevelButtonEnabled)
             Spacer()
                 .frame(width: isTablet ? 160 : 110)
-            createProgressBarCheckpoint(onTap: viewModel.showBlankLevel, isEnabled: viewModel.isShowBlankLevelButtonEnabled)
+
+            createProgressBarCheckpoint(onTap: viewModel.showBlankLevel,
+                                        isLocked: !viewModel.isShowBlankLevelButtonEnabled)
+
             Spacer()
                 .frame(width: isTablet ? 230 : 165)
         }
@@ -76,34 +82,20 @@ struct LevelProgressBarView: View {
 // MARK: - View related methods -
 
 private extension LevelProgressBarView {
-    func createProgressBarCheckpoint(onTap: @escaping () -> Void, isEnabled: Bool, hideLine: Bool = false) -> some View {
+    func createProgressBarCheckpoint(onTap: @escaping () -> Void,
+                                     buttonImage: Image? = nil,
+                                     isLocked: Bool) -> some View
+    {
         return ZStack {
-            HStack(spacing: 0) {
-                Spacer()
-                if !hideLine {
-                    Rectangle()
-                        .frame(width: 2, height: isTablet ? 50 : 38)
-                        .foregroundColor(.black)
-                    Spacer()
-                }
-            }
-
-            VStack(spacing: 0) {
-                Spacer()
-                    .frame(height: 70)
-
-                if isEnabled {
-                    Button {
-                        onTap()
-                    } label: {
-                        AppImage.nextButton.image
-                            .scaledToFit()
-                            .frame(width: isTablet ? 55 : 35)
-                    }
-                } else {
-                    AppImage.achievementsButton.image
-                        .scaledToFit()
-                        .frame(width: isTablet ? 55 : 35)
+            if isLocked {
+                RoundedButton(buttonImage: buttonImage, isLocked: true)
+                    .frame(width: isTablet ? 55 : 55)
+            } else {
+                Button {
+                    onTap()
+                } label: {
+                    RoundedButton(buttonImage: buttonImage, isLocked: false)
+                        .frame(width: isTablet ? 55 : 55)
                 }
             }
         }
@@ -119,6 +111,7 @@ struct LevelProgressBarView_Previews: PreviewProvider {
                                               isShowOutlineLevelButtonEnabled: .init(false),
                                               isShowBlankLevelButtonEnabled: .init(false),
                                               progress: .init(10),
+                                              level: .init(),
                                               isTablet: false))
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPhone 13 Pro Max")
@@ -130,6 +123,7 @@ struct LevelProgressBarView_Previews: PreviewProvider {
                                               isShowOutlineLevelButtonEnabled: .init(false),
                                               isShowBlankLevelButtonEnabled: .init(false),
                                               progress: .init(10),
+                                              level: .init(),
                                               isTablet: true))
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPad Air (5th generation)")

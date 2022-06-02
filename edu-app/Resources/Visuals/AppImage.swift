@@ -42,6 +42,9 @@ enum AppImage {
     case nextButtonV2
     case coinsBalanceBackground
     case levelProgressBar
+    case emptyButton
+    case emptyButtonLockedOverlay
+    case lock
 
     var image: Image {
         switch self {
@@ -111,6 +114,12 @@ enum AppImage {
             return Image("coins-balance-background").resizable()
         case .levelProgressBar:
             return Image("level-progress-bar").resizable()
+        case .emptyButton:
+            return Image("empty-button").resizable()
+        case .emptyButtonLockedOverlay:
+            return Image("empty-button-lock-overlay").resizable()
+        case .lock:
+            return Image("lock").resizable()
         }
     }
 }

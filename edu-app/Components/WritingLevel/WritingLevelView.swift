@@ -86,6 +86,7 @@ struct WritingLevelView: View {
                                                   isShowOutlineLevelButtonEnabled: viewModel.isOutlinesLevelEnabled,
                                                   isShowBlankLevelButtonEnabled: viewModel.isBlankLevelEnabled,
                                                   progress: viewModel.progress,
+                                                  level: viewModel.level,
                                                   isTablet: isTablet))
                 .frame(height: 125)
                 .padding(.top, isTablet ? -70 : -85)
