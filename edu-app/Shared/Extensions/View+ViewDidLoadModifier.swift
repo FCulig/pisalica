@@ -1,8 +1,8 @@
 //
-//  View+onLoad.swift
+//  View+ViewDidLoadModifier.swift
 //  edu-app
 //
-//  Created by Filip Culig on 24.04.2022..
+//  Created by Filip Culig on 03.06.2022..
 //
 
 import SwiftUI

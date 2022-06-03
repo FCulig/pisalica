@@ -48,7 +48,7 @@
 		4D75A7C5282BFF050077DE75 /* Level+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7C3282BFF050077DE75 /* Level+CoreDataProperties.swift */; };
 		4D75A7C9282C42F10077DE75 /* WritingLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7C8282C42F10077DE75 /* WritingLevelViewModel.swift */; };
 		4D84C55128454FD100D5BC57 /* LevelProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */; };
-		4D84C5532845DAE700D5BC57 /* View+MeasureSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84C5522845DAE700D5BC57 /* View+MeasureSize.swift */; };
+		4D84C5532845DAE700D5BC57 /* View+BlinkModigier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84C5522845DAE700D5BC57 /* View+BlinkModigier.swift */; };
 		4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69527E7425E008FA08D /* WritingLevelView.swift */; };
 		4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */; };
 		4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C9FC282676D9002EFB8D /* PlayerView.swift */; };
@@ -76,7 +76,7 @@
 		4DDFBCB7284933C10079A4E6 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDFBCB6284933C10079A4E6 /* RoundedButton.swift */; };
 		4DE3A5C1281865FD005DF33E /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE3A5C0281865FD005DF33E /* Color.xcassets */; };
 		4DE3A5C328186606005DF33E /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3A5C228186606005DF33E /* AppColor.swift */; };
-		4DFE20CC28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFE20CB28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift */; };
+		4DF72C88284A9F69000E6627 /* View+ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF72C87284A9F69000E6627 /* View+ViewDidLoadModifier.swift */; };
 		770280DB3ADD41D160D343D0 /* Pods_edu_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FE45D2D761336D1E20F680 /* Pods_edu_appTests.framework */; };
 		CE6057688EDAC47FFFE31411 /* Pods_edu_app_edu_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D995C41732B6E79E60A49DA /* Pods_edu_app_edu_appUITests.framework */; };
 /* End PBXBuildFile section */
@@ -143,7 +143,7 @@
 		4D75A7C3282BFF050077DE75 /* Level+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		4D75A7C8282C42F10077DE75 /* WritingLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLevelViewModel.swift; sourceTree = "<group>"; };
 		4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressBarView.swift; sourceTree = "<group>"; };
-		4D84C5522845DAE700D5BC57 /* View+MeasureSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+MeasureSize.swift"; sourceTree = "<group>"; };
+		4D84C5522845DAE700D5BC57 /* View+BlinkModigier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+BlinkModigier.swift"; sourceTree = "<group>"; };
 		4D85A69527E7425E008FA08D /* WritingLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLevelView.swift; sourceTree = "<group>"; };
 		4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
 		4D87C9FC282676D9002EFB8D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		4DDFBCB6284933C10079A4E6 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		4DE3A5C0281865FD005DF33E /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		4DE3A5C228186606005DF33E /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
-		4DFE20CB28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ViewDidLoadModifier.swift"; sourceTree = "<group>"; };
+		4DF72C87284A9F69000E6627 /* View+ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ViewDidLoadModifier.swift"; sourceTree = "<group>"; };
 		508DF7511ABF05E1233748FE /* Pods-edu-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-appTests.debug.xcconfig"; path = "Target Support Files/Pods-edu-appTests/Pods-edu-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DDC9428A46152CF28E54AE3 /* Pods-edu-app-edu-appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-app-edu-appUITests.debug.xcconfig"; path = "Target Support Files/Pods-edu-app-edu-appUITests/Pods-edu-app-edu-appUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6D995C41732B6E79E60A49DA /* Pods_edu_app_edu_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_edu_app_edu_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -388,10 +388,10 @@
 		4D68A67927BBCCC500997CFF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4DFE20CB28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift */,
 				4DB939012826A12D00883CD5 /* NavigationLazyView.swift */,
 				4DB939052826B69E00883CD5 /* UIColor+Hex.swift */,
-				4D84C5522845DAE700D5BC57 /* View+MeasureSize.swift */,
+				4D84C5522845DAE700D5BC57 /* View+BlinkModigier.swift */,
+				4DF72C87284A9F69000E6627 /* View+ViewDidLoadModifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -866,13 +866,12 @@
 				4D68A68227BCF41800997CFF /* LevelSelectViewModel.swift in Sources */,
 				4D68A67B27BBCCE000997CFF /* MainMenuView.swift in Sources */,
 				4DE3A5C328186606005DF33E /* AppColor.swift in Sources */,
-				4D84C5532845DAE700D5BC57 /* View+MeasureSize.swift in Sources */,
+				4D84C5532845DAE700D5BC57 /* View+BlinkModigier.swift in Sources */,
 				4DC73FC92835127C004FD1A0 /* ShopItem+CoreDataClass.swift in Sources */,
 				4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */,
 				4D4E05DC280D663E00569C16 /* DataController.swift in Sources */,
 				4D929C802834E32600504405 /* ShopService.swift in Sources */,
 				4D48B3B8282E55AE0066EAC8 /* LevelService.swift in Sources */,
-				4DFE20CC28156A0C00EEA3E5 /* View+ViewDidLoadModifier.swift in Sources */,
 				4D68A67D27BBCCEF00997CFF /* MainMenuViewModel.swift in Sources */,
 				4D053E9B27F5D1DD00B3E198 /* DrawingCanvasViewController.swift in Sources */,
 				4DDC5F622826FE3400BDC385 /* AchievementsViewModel.swift in Sources */,
@@ -886,6 +885,7 @@
 				4D526BC82827D1AE00B8FEA3 /* ProgressBar.swift in Sources */,
 				4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */,
 				4DDFBCB7284933C10079A4E6 /* RoundedButton.swift in Sources */,
+				4DF72C88284A9F69000E6627 /* View+ViewDidLoadModifier.swift in Sources */,
 				4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */,
 				4D87C9FF28267750002EFB8D /* PlayerUIView.swift in Sources */,
 				4DDC5F642827024500BDC385 /* AchievementItemView.swift in Sources */,

@@ -67,13 +67,13 @@ struct LevelProgressBarView: View {
             createProgressBarCheckpoint(onTap: viewModel.showOutlineLevel,
                                         buttonImage: Image(viewModel.level.outlineImage ?? ""),
                                         isLocked: !viewModel.isShowOutlineLevelButtonEnabled,
-                                        shouldHighlight: viewModel.shouldHighlightOutlineButton)
+                                        shouldHighlight: $viewModel.shouldHighlightOutlineButton)
             Spacer()
                 .frame(width: isTablet ? 220 : 110)
 
             createProgressBarCheckpoint(onTap: viewModel.showBlankLevel,
                                         isLocked: !viewModel.isShowBlankLevelButtonEnabled,
-                                        shouldHighlight: viewModel.shouldHighlightCanvasButton)
+                                        shouldHighlight: $viewModel.shouldHighlightCanvasButton)
 
             Spacer()
         }
@@ -86,21 +86,19 @@ private extension LevelProgressBarView {
     func createProgressBarCheckpoint(onTap: @escaping () -> Void,
                                      buttonImage: Image? = nil,
                                      isLocked: Bool,
-                                     shouldHighlight: Bool = false) -> some View
+                                     shouldHighlight: Binding<Bool>? = nil) -> some View
     {
         return ZStack {
             if isLocked {
                 RoundedButton(buttonImage: buttonImage, isLocked: true)
                     .frame(width: isTablet ? 75 : 55)
+            } else if let shouldHighlight = shouldHighlight {
+                RoundedButton(buttonImage: buttonImage, isLocked: false)
+                    .frame(width: isTablet ? 75 : 55)
+                    .blink(on: shouldHighlight, repeatCount: 8, duration: 0.5)
             } else {
                 RoundedButton(buttonImage: buttonImage, isLocked: false)
                     .frame(width: isTablet ? 75 : 55)
-            }
-
-            if shouldHighlight {
-                Rectangle()
-                    .foregroundColor(.red)
-                    .frame(width: 50, height: 50)
             }
         }
         .onTapGesture {
@@ -110,6 +108,8 @@ private extension LevelProgressBarView {
         }
     }
 }
+
+// MARK: - Previews -
 
 struct LevelProgressBarView_Previews: PreviewProvider {
     static var previews: some View {
