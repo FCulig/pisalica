@@ -10,11 +10,17 @@ import SwiftUI
 // MARK: - ProgressBar -
 
 struct ProgressBar: View {
+    // MARK: - Private properties -
+
     private let isTablet = UIDevice.current.localizedModel == "iPad"
+
+    // MARK: - Public properties -
 
     @State var progressBarFrame: CGSize = .zero
     @State var currentValue: Float
     @State var maxValue: Float
+
+    // MARK: - Initializer -
 
     public init(currentValue: Float, maxValue: Float) {
         self.currentValue = currentValue
@@ -36,7 +42,7 @@ struct ProgressBar: View {
         Text("\(Int(currentValue)) / \(Int(maxValue))")
             .foregroundColor(.white)
             .shadow(color: .black, radius: 0, x: 3, y: 2)
-            .font(.system(size: isTablet ? 30 : 20).weight(.bold))
+            .font(.system(size: isTablet ? 25 : 20).weight(.bold))
     }
 
     var progressIndicator: some View {
@@ -55,10 +61,18 @@ struct ProgressBar: View {
 private extension ProgressBar {
     func makeProgressBarIndicator(_ geometry: GeometryProxy) -> some View {
         DispatchQueue.main.async { self.progressBarFrame = geometry.size }
-        let indicatorWidth = geometry.size.width * CGFloat(currentValue / maxValue)
+        var indicatorWidth: CGFloat = isTablet ? 23 : 10
 
-        return AppImage.progressBarIndicator.image
-            .padding(.vertical, 14)
+        if geometry.size.width * CGFloat(currentValue / maxValue) > indicatorWidth {
+            indicatorWidth = geometry.size.width * CGFloat(currentValue / maxValue)
+        } else if currentValue == 0 {
+            indicatorWidth = 0
+        }
+
+        return Rectangle()
+            .cornerRadius(20)
+            .foregroundColor(.init(red: 0.20, green: 0.7, blue: 0.10))
+            .padding(.vertical, isTablet ? 25 : 5)
             .padding(.horizontal, 3)
             .frame(width: indicatorWidth)
     }
