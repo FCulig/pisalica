@@ -45,6 +45,9 @@ enum AppImage {
     case emptyButton
     case emptyButtonLockedOverlay
     case lock
+    case hintButton
+    case zoomInButton
+    case zoomOutButton
 
     var image: Image {
         switch self {
@@ -120,6 +123,12 @@ enum AppImage {
             return Image("empty-button-lock-overlay").resizable()
         case .lock:
             return Image("lock").resizable()
+        case .hintButton:
+            return Image("hint-button").resizable()
+        case .zoomInButton:
+            return Image("zoom-in-button").resizable()
+        case .zoomOutButton:
+            return Image("zoom-out-button").resizable()
         }
     }
 }

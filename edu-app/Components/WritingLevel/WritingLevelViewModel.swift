@@ -18,6 +18,7 @@ extension WritingLevelView {
         private let achievementService: AchievementServiceful
         private let shopService: ShopServiceful
         private let levelService: LevelServiceful
+        private let isTablet: Bool
         private var correctAnswers: Int = 0
         private var totalAttempts: Int = 0
         private var currentScore: Float = 0
@@ -38,6 +39,7 @@ extension WritingLevelView {
         @Published var endGameRecap: [String: Int] = [:]
         @Published var totalCoinsReward = 0
         @Published var endGameStars: Image = AppImage.oneStar.image
+        @Published var canvasImagePadding: CGFloat = 0
 
         // MARK: - Initializer -
 
@@ -45,17 +47,20 @@ extension WritingLevelView {
                     drawingCanvasViewModel: DrawingCanvasViewModel,
                     levelService: LevelServiceful,
                     achievementService: AchievementServiceful,
-                    shopService: ShopServiceful)
+                    shopService: ShopServiceful,
+                    isTablet: Bool)
         {
             self.level = level
             self.drawingCanvasViewModel = drawingCanvasViewModel
             self.levelService = levelService
             self.achievementService = achievementService
             self.shopService = shopService
+            self.isTablet = isTablet
 
             levelState = .guides(image: level.guideImage ?? "")
 
             subscribeToPublishers()
+            getCanvasImagePadding()
         }
     }
 }
@@ -83,6 +88,12 @@ extension WritingLevelView.ViewModel {
     func configureBlankLevel() {
         levelState = .none
     }
+
+    func setCanvasImagePadding(_ padding: CGFloat) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(padding, forKey: "canvasImagePadding")
+        canvasImagePadding = padding
+    }
 }
 
 // MARK: - Private methods -
@@ -92,6 +103,16 @@ private extension WritingLevelView.ViewModel {
         drawingCanvasViewModel.isAnswerCorrect
             .sink { [weak self] in self?.updateLevelStatistics(wasAnswerCorrect: $0) }
             .store(in: &cancellabels)
+    }
+
+    func getCanvasImagePadding() {
+        let userDefaults = UserDefaults.standard
+
+        if userDefaults.integer(forKey: "canvasImagePadding") > 0 {
+            canvasImagePadding = CGFloat(userDefaults.integer(forKey: "canvasImagePadding"))
+        } else {
+            canvasImagePadding = isTablet ? 220 : 0
+        }
     }
 
     func updateLevelStatistics(wasAnswerCorrect: Bool) {

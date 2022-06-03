@@ -34,7 +34,8 @@ struct WritingLevelView: View {
                                          drawingCanvasViewModel: drawingCanvasViewModel,
                                          levelService: levelService,
                                          achievementService: achievementService,
-                                         shopService: shopService)
+                                         shopService: shopService,
+                                         isTablet: isTablet)
         _viewModel = StateObject(wrappedValue: wrappedViewModel)
 
         guard let videoUrl = Bundle.main.path(forResource: level.name, ofType: "mp4") else { return }
@@ -98,11 +99,11 @@ struct WritingLevelView: View {
                     viewModel.levelState.foregroundImage
                         .scaledToFit()
                         .padding(.top, 25)
-                        .padding(.all, isTablet ? 220 : 0)
+                        .padding(.all, viewModel.canvasImagePadding)
                 } else {
                     viewModel.levelState.foregroundImage
                         .scaledToFit()
-                        .padding(.all, isTablet ? 220 : 0)
+                        .padding(.all, viewModel.canvasImagePadding)
                 }
                 DrawingCanvasView(viewModel: viewModel.drawingCanvasViewModel)
                     .padding(.leading, 49)
@@ -134,16 +135,35 @@ struct WritingLevelView: View {
                 Button {
                     showVideoTutorialDialog = true
                 } label: {
-                    AppImage.videoButton.image
-                        .aspectRatio(contentMode: .fit)
+                    AppImage.hintButton.image
+                        .scaledToFit()
                         .frame(height: 70, alignment: .top)
                 }
+                Spacer()
+
+                if isTablet {
+                    VStack {
+                        AppImage.zoomInButton.image
+                            .scaledToFit()
+                            .frame(height: 70, alignment: .top)
+                            .onTapGesture {
+                                viewModel.setCanvasImagePadding(50)
+                            }
+                        AppImage.zoomOutButton.image
+                            .scaledToFit()
+                            .frame(height: 70, alignment: .top)
+                            .onTapGesture {
+                                viewModel.setCanvasImagePadding(220)
+                            }
+                    }
+                }
+
                 Spacer()
                 Button {
                     viewModel.drawingCanvasViewModel.clearInk()
                 } label: {
                     AppImage.trashCanButton.image
-                        .aspectRatio(contentMode: .fit)
+                        .scaledToFit()
                         .frame(height: 70, alignment: .top)
                 }
             }
@@ -304,6 +324,8 @@ struct WritingLevelView: View {
         .padding(.top, 70)
     }
 }
+
+// MARK: - Previews -
 
 struct WritingLevelView_Previews: PreviewProvider {
     static var previews: some View {
