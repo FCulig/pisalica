@@ -24,7 +24,7 @@ struct LevelButton: View {
                     .aspectRatio(contentMode: .fit)
             }
         }
-        .frame(height: isTablet ? 130 : 75, alignment: .center)
+        .frame(height: isTablet ? 115 : 75, alignment: .center)
     }
 
     public init(_ level: Level) {

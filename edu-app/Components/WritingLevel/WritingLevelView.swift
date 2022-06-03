@@ -148,7 +148,7 @@ struct WritingLevelView: View {
                 }
             }
         }
-        .padding(.vertical, 15)
+        .padding(.vertical, isTablet ? 30 : 15)
         .padding(.leading, isTablet ? 15 : 0)
         .padding(.trailing, isTablet ? 15 : 0)
     }

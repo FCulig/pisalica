@@ -98,10 +98,9 @@ struct LevelSelectView: View {
                 }
                 .padding(.horizontal, 25)
             }
-            .padding(.top, 55)
+            .padding(.top, isTablet ? 120 : 55)
             .padding(.bottom, 10)
-            .padding(.leading, isTablet ? 80 : 60)
-            .padding(.trailing, isTablet ? 80 : 110)
+            .padding(.horizontal, isTablet ? 130 : 130)
 
             pageControlButtons
                 .padding(.vertical, 10)
@@ -121,7 +120,7 @@ struct LevelSelectView: View {
                         AppImage.previousButton.image
                             .aspectRatio(contentMode: .fit)
                     }
-                    .padding(.leading, isTablet ? 35 : 30)
+                    .padding(.leading, isTablet ? 100 : 105)
                 }
                 Spacer()
                 if viewModel.showNextPageButton {
@@ -131,7 +130,7 @@ struct LevelSelectView: View {
                         AppImage.nextButton.image
                             .aspectRatio(contentMode: .fit)
                     }
-                    .padding(.trailing, isTablet ? 35 : 70)
+                    .padding(.trailing, isTablet ? 95 : 100)
                 }
             }
             .frame(height: isTablet ? 100 : 70, alignment: .center)
@@ -155,7 +154,10 @@ struct LevelSelectView: View {
             }
             Spacer()
         }
+        .padding(.vertical, isTablet ? 30 : 15)
     }
+
+    // TODO: Make this open shop
 
     var coinsBalance: some View {
         HStack {
@@ -176,6 +178,7 @@ struct LevelSelectView: View {
                 Spacer()
             }
         }
+        .padding(.vertical, isTablet ? 30 : 15)
     }
 }
 

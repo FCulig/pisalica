@@ -92,13 +92,13 @@ struct AchievementsView: View {
             }
             .padding(.vertical, isTablet ? 70 : 40)
             .padding(.bottom, isTablet ? 10 : 0)
-            .padding(.horizontal, isTablet ? 85 : 60)
+            .padding(.horizontal, isTablet ? 85 : 50)
             .padding(.leading, isTablet ? 5 : 0)
         }
-        .padding(.top, isTablet ? 55 : 30)
-        .padding(.bottom, 5)
-        .padding(.leading, isTablet ? 80 : 90)
-        .padding(.trailing, isTablet ? 80 : 70)
+        .padding(.top, isTablet ? 120 : 55)
+        .padding(.bottom, isTablet ? 10 : 0)
+        .padding(.leading, 130)
+        .padding(.trailing, 90)
         .onLoad { viewModel.getAchievements() }
     }
 }

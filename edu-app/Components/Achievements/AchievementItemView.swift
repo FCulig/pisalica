@@ -35,7 +35,7 @@ struct AchievementItemView: View {
             Text(achievement.name ?? "")
                 .foregroundColor(.white)
                 .shadow(color: .black, radius: 0, x: 3, y: 2)
-                .font(.system(size: isTablet ? 35 : 25).weight(.bold))
+                .font(.system(size: isTablet ? 35 : 20).weight(.bold))
             Spacer()
             ProgressBar(currentValue: Float(achievement.currentValue), maxValue: Float(achievement.target))
                 .padding(.top, 20)
@@ -45,6 +45,8 @@ struct AchievementItemView: View {
         }
     }
 }
+
+// MARK: - Previews -
 
 struct AchievementItemView_Previews: PreviewProvider {
     static var previews: some View {
