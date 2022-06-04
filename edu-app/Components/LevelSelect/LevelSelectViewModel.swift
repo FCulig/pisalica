@@ -22,6 +22,8 @@ extension LevelSelectView {
         @Published var showPreviousPageButton: Bool = false
         @Published var showNextPageButton: Bool = false
 
+        // MARK: - Initializer -
+
         public init(achievementService: AchievementServiceful,
                     levelService: LevelServiceful,
                     shopService: ShopServiceful)
@@ -33,6 +35,8 @@ extension LevelSelectView {
     }
 }
 
+// MARK: - Private methods -
+
 private extension LevelSelectView.ViewModel {
     func updatePageContent() {
         displayedLevels = paginatedLevels[currentPage]
@@ -43,6 +47,8 @@ private extension LevelSelectView.ViewModel {
         if currentPage < totalPages - 1 { showNextPageButton = true }
     }
 }
+
+// MARK: - Public methods -
 
 extension LevelSelectView.ViewModel {
     func nextPage() {
@@ -68,7 +74,7 @@ extension LevelSelectView.ViewModel {
         for _ in 0 ..< totalPages {
             var currentPage: [Level] = []
             for j in tmp ..< tmp + itemsPerPage {
-                if levels.count > j {
+                if levels.count > j, !levels[j].isWord {
                     currentPage.append(levels[j])
                 }
             }

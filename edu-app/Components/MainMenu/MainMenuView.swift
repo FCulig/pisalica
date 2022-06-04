@@ -58,6 +58,7 @@ struct MainMenuView: View {
                 VStack {
 //                    appLogo
                     playButtons
+                        .padding(.top, isTablet ? 100 : 100)
                 }
                 Spacer()
             }
@@ -80,10 +81,10 @@ struct MainMenuView: View {
     var playButtons: some View {
         VStack {
             // Letters
-            NavigationLink(destination: LevelSelectView(achievementService: viewModel.achievementService,
-                                                        levelService: viewModel.levelService,
-                                                        shopService: viewModel.shopService),
-                           isActive: $isPlayLettersActive) {
+            NavigationLink(destination: NavigationLazyView(LevelSelectView(achievementService: viewModel.achievementService,
+                                                                           levelService: viewModel.levelService,
+                                                                           shopService: viewModel.shopService)),
+            isActive: $isPlayLettersActive) {
                 Button {
                     viewModel.configureLevelData()
                     isPlayLettersActive = true
@@ -95,16 +96,17 @@ struct MainMenuView: View {
             }
 
             // Words
-            //                        NavigationLink(destination: EmptyView(), isActive: $isPlayWordsActive) {
-            //                            Button {
-            //                                viewModel.configureLevelData(with: managedObjectContext)
-            //                                isPlayWordsActive = true
-            //                            } label: {
-            //                                AppImage.wordsButton.image
-            //                                    .scaledToFit()
-            //                            }
-            //                            .frame(height: 100)
-            //                        }
+            NavigationLink(destination: NavigationLazyView(WritingWordsView(levelService: viewModel.levelService)),
+                           isActive: $isPlayWordsActive) {
+                Button {
+                    viewModel.configureLevelData()
+                    isPlayWordsActive = true
+                } label: {
+                    AppImage.wordsButton.image
+                        .scaledToFit()
+                }
+                .frame(height: 100)
+            }
         }
     }
 

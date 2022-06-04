@@ -44,15 +44,19 @@
 		4D75995F282317FB0093849C /* A.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4D75995E282317FB0093849C /* A.mp4 */; };
 		4D75A7C0282BA88F0077DE75 /* Achievement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7BE282BA88F0077DE75 /* Achievement+CoreDataClass.swift */; };
 		4D75A7C1282BA88F0077DE75 /* Achievement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7BF282BA88F0077DE75 /* Achievement+CoreDataProperties.swift */; };
-		4D75A7C4282BFF050077DE75 /* Level+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7C2282BFF050077DE75 /* Level+CoreDataClass.swift */; };
-		4D75A7C5282BFF050077DE75 /* Level+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7C3282BFF050077DE75 /* Level+CoreDataProperties.swift */; };
-		4D75A7C9282C42F10077DE75 /* WritingLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7C8282C42F10077DE75 /* WritingLevelViewModel.swift */; };
+		4D75A7C9282C42F10077DE75 /* WritingLettersLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7C8282C42F10077DE75 /* WritingLettersLevelViewModel.swift */; };
 		4D84C55128454FD100D5BC57 /* LevelProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */; };
 		4D84C5532845DAE700D5BC57 /* View+BlinkModigier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84C5522845DAE700D5BC57 /* View+BlinkModigier.swift */; };
-		4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69527E7425E008FA08D /* WritingLevelView.swift */; };
+		4D85A69627E7425E008FA08D /* WritingLettersLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69527E7425E008FA08D /* WritingLettersLevelView.swift */; };
 		4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */; };
 		4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C9FC282676D9002EFB8D /* PlayerView.swift */; };
 		4D87C9FF28267750002EFB8D /* PlayerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C9FE28267750002EFB8D /* PlayerUIView.swift */; };
+		4D8F5210284B584E0092DCC3 /* WritingWordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F520F284B584E0092DCC3 /* WritingWordsView.swift */; };
+		4D8F5212284B585A0092DCC3 /* WritingWordsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F5211284B585A0092DCC3 /* WritingWordsViewModel.swift */; };
+		4D8F5214284B75CF0092DCC3 /* Words.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D8F5213284B75CF0092DCC3 /* Words.json */; };
+		4D8F5216284B76370092DCC3 /* Words.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D8F5215284B76370092DCC3 /* Words.xcassets */; };
+		4D8F5219284B76FC0092DCC3 /* Level+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F5217284B76FC0092DCC3 /* Level+CoreDataClass.swift */; };
+		4D8F521A284B76FC0092DCC3 /* Level+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F5218284B76FC0092DCC3 /* Level+CoreDataProperties.swift */; };
 		4D929C802834E32600504405 /* ShopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D929C7F2834E32600504405 /* ShopService.swift */; };
 		4DA22D9227D35E6F00634AA8 /* Menus.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22D9127D35E6F00634AA8 /* Menus.xcassets */; };
 		4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9427D368F300634AA8 /* AppImage.swift */; };
@@ -139,15 +143,19 @@
 		4D75995E282317FB0093849C /* A.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = A.mp4; sourceTree = "<group>"; };
 		4D75A7BE282BA88F0077DE75 /* Achievement+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Achievement+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4D75A7BF282BA88F0077DE75 /* Achievement+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Achievement+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		4D75A7C2282BFF050077DE75 /* Level+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		4D75A7C3282BFF050077DE75 /* Level+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		4D75A7C8282C42F10077DE75 /* WritingLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLevelViewModel.swift; sourceTree = "<group>"; };
+		4D75A7C8282C42F10077DE75 /* WritingLettersLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLettersLevelViewModel.swift; sourceTree = "<group>"; };
 		4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressBarView.swift; sourceTree = "<group>"; };
 		4D84C5522845DAE700D5BC57 /* View+BlinkModigier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+BlinkModigier.swift"; sourceTree = "<group>"; };
-		4D85A69527E7425E008FA08D /* WritingLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLevelView.swift; sourceTree = "<group>"; };
+		4D85A69527E7425E008FA08D /* WritingLettersLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLettersLevelView.swift; sourceTree = "<group>"; };
 		4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
 		4D87C9FC282676D9002EFB8D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		4D87C9FE28267750002EFB8D /* PlayerUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUIView.swift; sourceTree = "<group>"; };
+		4D8F520F284B584E0092DCC3 /* WritingWordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingWordsView.swift; sourceTree = "<group>"; };
+		4D8F5211284B585A0092DCC3 /* WritingWordsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingWordsViewModel.swift; sourceTree = "<group>"; };
+		4D8F5213284B75CF0092DCC3 /* Words.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Words.json; sourceTree = "<group>"; };
+		4D8F5215284B76370092DCC3 /* Words.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Words.xcassets; sourceTree = "<group>"; };
+		4D8F5217284B76FC0092DCC3 /* Level+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4D8F5218284B76FC0092DCC3 /* Level+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D929C7F2834E32600504405 /* ShopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopService.swift; sourceTree = "<group>"; };
 		4DA22D9127D35E6F00634AA8 /* Menus.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menus.xcassets; sourceTree = "<group>"; };
 		4DA22D9427D368F300634AA8 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
@@ -256,6 +264,7 @@
 				4D4E05DD280D6B5200569C16 /* Levels.json */,
 				4D6EC868281DC5B900C70061 /* ShopItems.json */,
 				4D526BC9282A589F00B8FEA3 /* Achievements.json */,
+				4D8F5213284B75CF0092DCC3 /* Words.json */,
 			);
 			path = PreloadedData;
 			sourceTree = "<group>";
@@ -427,10 +436,10 @@
 		4D75A7B8282AA0310077DE75 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4D8F5217284B76FC0092DCC3 /* Level+CoreDataClass.swift */,
+				4D8F5218284B76FC0092DCC3 /* Level+CoreDataProperties.swift */,
 				4DC73FC72835127C004FD1A0 /* ShopItem+CoreDataClass.swift */,
 				4DC73FC82835127C004FD1A0 /* ShopItem+CoreDataProperties.swift */,
-				4D75A7C2282BFF050077DE75 /* Level+CoreDataClass.swift */,
-				4D75A7C3282BFF050077DE75 /* Level+CoreDataProperties.swift */,
 				4D75A7BE282BA88F0077DE75 /* Achievement+CoreDataClass.swift */,
 				4D75A7BF282BA88F0077DE75 /* Achievement+CoreDataProperties.swift */,
 			);
@@ -459,10 +468,10 @@
 		4D85A69027E74220008FA08D /* WritingLevel */ = {
 			isa = PBXGroup;
 			children = (
+				4D8F520E284B57AA0092DCC3 /* Letters */,
+				4D8F520D284B57A30092DCC3 /* Words */,
 				4D84C54D28454FB200D5BC57 /* LevelProgressBar */,
 				4D85A69727E743CD008FA08D /* DrawingCanvas */,
-				4D85A69527E7425E008FA08D /* WritingLevelView.swift */,
-				4D75A7C8282C42F10077DE75 /* WritingLevelViewModel.swift */,
 			);
 			path = WritingLevel;
 			sourceTree = "<group>";
@@ -486,6 +495,24 @@
 				4D87C9FE28267750002EFB8D /* PlayerUIView.swift */,
 			);
 			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		4D8F520D284B57A30092DCC3 /* Words */ = {
+			isa = PBXGroup;
+			children = (
+				4D8F520F284B584E0092DCC3 /* WritingWordsView.swift */,
+				4D8F5211284B585A0092DCC3 /* WritingWordsViewModel.swift */,
+			);
+			path = Words;
+			sourceTree = "<group>";
+		};
+		4D8F520E284B57AA0092DCC3 /* Letters */ = {
+			isa = PBXGroup;
+			children = (
+				4D85A69527E7425E008FA08D /* WritingLettersLevelView.swift */,
+				4D75A7C8282C42F10077DE75 /* WritingLettersLevelViewModel.swift */,
+			);
+			path = Letters;
 			sourceTree = "<group>";
 		};
 		4DA22D8F27D35A4900634AA8 /* Resources */ = {
@@ -518,6 +545,7 @@
 				4D6EC866281DC32D00C70061 /* Shop.xcassets */,
 				4D75995B282316600093849C /* VideoTutorials.xcassets */,
 				4DDC5F65282702A000BDC385 /* Achievements.xcassets */,
+				4D8F5215284B76370092DCC3 /* Words.xcassets */,
 			);
 			path = Visuals;
 			sourceTree = "<group>";
@@ -665,9 +693,11 @@
 			files = (
 				4D75995F282317FB0093849C /* A.mp4 in Resources */,
 				4DDC5F66282702A000BDC385 /* Achievements.xcassets in Resources */,
+				4D8F5214284B75CF0092DCC3 /* Words.json in Resources */,
 				4D4E05DE280D6B5200569C16 /* Levels.json in Resources */,
 				4DC2D714280AD9FF003CFDD7 /* Levels.xcassets in Resources */,
 				4D68A64E27BBA3B500997CFF /* Preview Assets.xcassets in Resources */,
+				4D8F5216284B76370092DCC3 /* Words.xcassets in Resources */,
 				4D6EC867281DC32D00C70061 /* Shop.xcassets in Resources */,
 				4D68A64B27BBA3B500997CFF /* Assets.xcassets in Resources */,
 				4D526BCA282A589F00B8FEA3 /* Achievements.json in Resources */,
@@ -862,7 +892,7 @@
 				4DC73FCA2835127C004FD1A0 /* ShopItem+CoreDataProperties.swift in Sources */,
 				4DDC5F602826FE0200BDC385 /* AchievementsView.swift in Sources */,
 				4DB939022826A12D00883CD5 /* NavigationLazyView.swift in Sources */,
-				4D75A7C9282C42F10077DE75 /* WritingLevelViewModel.swift in Sources */,
+				4D75A7C9282C42F10077DE75 /* WritingLettersLevelViewModel.swift in Sources */,
 				4D68A68227BCF41800997CFF /* LevelSelectViewModel.swift in Sources */,
 				4D68A67B27BBCCE000997CFF /* MainMenuView.swift in Sources */,
 				4DE3A5C328186606005DF33E /* AppColor.swift in Sources */,
@@ -871,9 +901,11 @@
 				4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */,
 				4D4E05DC280D663E00569C16 /* DataController.swift in Sources */,
 				4D929C802834E32600504405 /* ShopService.swift in Sources */,
+				4D8F5212284B585A0092DCC3 /* WritingWordsViewModel.swift in Sources */,
 				4D48B3B8282E55AE0066EAC8 /* LevelService.swift in Sources */,
 				4D68A67D27BBCCEF00997CFF /* MainMenuViewModel.swift in Sources */,
 				4D053E9B27F5D1DD00B3E198 /* DrawingCanvasViewController.swift in Sources */,
+				4D8F521A284B76FC0092DCC3 /* Level+CoreDataProperties.swift in Sources */,
 				4DDC5F622826FE3400BDC385 /* AchievementsViewModel.swift in Sources */,
 				4D6EC865281D8FAF00C70061 /* ShopView.swift in Sources */,
 				4D84C55128454FD100D5BC57 /* LevelProgressBarView.swift in Sources */,
@@ -883,7 +915,7 @@
 				4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */,
 				4D0FF533282FAC5E0083E06B /* AchievementService.swift in Sources */,
 				4D526BC82827D1AE00B8FEA3 /* ProgressBar.swift in Sources */,
-				4D85A69627E7425E008FA08D /* WritingLevelView.swift in Sources */,
+				4D85A69627E7425E008FA08D /* WritingLettersLevelView.swift in Sources */,
 				4DDFBCB7284933C10079A4E6 /* RoundedButton.swift in Sources */,
 				4DF72C88284A9F69000E6627 /* View+ViewDidLoadModifier.swift in Sources */,
 				4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */,
@@ -896,11 +928,11 @@
 				4D68A64727BBA3B400997CFF /* edu_appApp.swift in Sources */,
 				4D6EC863281D8F6900C70061 /* ShopViewModel.swift in Sources */,
 				4D053E9F27F5D32100B3E198 /* RecognizedInk.swift in Sources */,
+				4D8F5219284B76FC0092DCC3 /* Level+CoreDataClass.swift in Sources */,
 				4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */,
 				4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */,
-				4D75A7C4282BFF050077DE75 /* Level+CoreDataClass.swift in Sources */,
 				4D053EAC27F844AB00B3E198 /* LevelValidatorService.swift in Sources */,
-				4D75A7C5282BFF050077DE75 /* Level+CoreDataProperties.swift in Sources */,
+				4D8F5210284B584E0092DCC3 /* WritingWordsView.swift in Sources */,
 				4D053EA327F7844800B3E198 /* DrawingCanvasViewModel.swift in Sources */,
 				4DA6372C2841691200A6F785 /* AchievementServicePreviewMock.swift in Sources */,
 				4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */,

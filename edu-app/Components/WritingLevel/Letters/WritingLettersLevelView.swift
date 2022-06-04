@@ -9,9 +9,9 @@ import AVKit
 import Combine
 import SwiftUI
 
-// MARK: - WritingLevelView -
+// MARK: - WritingLettersLevelView -
 
-struct WritingLevelView: View {
+struct WritingLettersLevelView: View {
     // MARK: - Private properties -
 
     private var player: AVPlayer?
@@ -327,19 +327,19 @@ struct WritingLevelView: View {
 
 // MARK: - Previews -
 
-struct WritingLevelView_Previews: PreviewProvider {
+struct WritingLettersLevelView_Previews: PreviewProvider {
     static var previews: some View {
-        WritingLevelView(level: Level(),
-                         levelService: LevelServicePreviewMock(),
-                         achievementService: AchievementServicePreviewMock(),
-                         shopService: ShopServicePreviewMock())
+        WritingLettersLevelView(level: Level(),
+                                levelService: LevelServicePreviewMock(),
+                                achievementService: AchievementServicePreviewMock(),
+                                shopService: ShopServicePreviewMock())
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPhone 13 Pro Max")
 
-        WritingLevelView(level: Level(),
-                         levelService: LevelServicePreviewMock(),
-                         achievementService: AchievementServicePreviewMock(),
-                         shopService: ShopServicePreviewMock())
+        WritingLettersLevelView(level: Level(),
+                                levelService: LevelServicePreviewMock(),
+                                achievementService: AchievementServicePreviewMock(),
+                                shopService: ShopServicePreviewMock())
             .previewDevice("iPad Air (5th generation)")
             .previewInterfaceOrientation(.landscapeLeft)
     }

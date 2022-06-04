@@ -100,7 +100,33 @@ extension LevelService {
                     levelCoreData.unlockedImage = level.unlockedImage
                     levelCoreData.guideImage = level.guideImage
                     levelCoreData.outlineImage = level.outlineImage
+                    levelCoreData.wordImage = ""
+                    levelCoreData.isWord = false
                     levelCoreData.isLocked = levelCoreData.name == "A" ? false : true
+
+                    try! context.save()
+                }
+
+                guard let wordsUrlPath = Bundle.main.url(forResource: "Words", withExtension: "json") else { return }
+
+                let wordData = try Data(contentsOf: wordsUrlPath)
+                let wordJsonData = try decoder.decode([DecodableLevel].self, from: wordData)
+
+                guard wordJsonData.count > 0 else { return }
+
+                for level in wordJsonData {
+                    let levelCoreData = Level(context: context)
+                    levelCoreData.id = UUID()
+                    levelCoreData.name = level.name
+                    levelCoreData.outlineImage = level.outlineImage
+                    levelCoreData.wordImage = ""
+                    levelCoreData.isWord = true
+
+                    // TODO: Ovo mora biti true i otkljucati se tek nakon Xtog levelaq
+
+                    levelCoreData.isLocked = false
+
+                    print(levelCoreData)
 
                     try! context.save()
                 }

@@ -1,0 +1,15 @@
+[
+    {
+        "name": "LAV",
+        "isLocked": false,
+        "isWord": true,
+        "wordImage": "lion",
+        "results": [],
+        "numberOfLines": 0,
+        "isLocked": false,
+        "lockedImage": "",
+        "unlockedImage": "",
+        "guideImage": "",
+        "outlineImage": ""
+    }
+]

@@ -86,10 +86,10 @@ struct LevelSelectView: View {
                             LevelButton(level)
                         } else {
                             NavigationLink {
-                                NavigationLazyView(WritingLevelView(level: level,
-                                                                    levelService: viewModel.levelService,
-                                                                    achievementService: viewModel.achievementService,
-                                                                    shopService: viewModel.shopService))
+                                NavigationLazyView(WritingLettersLevelView(level: level,
+                                                                           levelService: viewModel.levelService,
+                                                                           achievementService: viewModel.achievementService,
+                                                                           shopService: viewModel.shopService))
                             } label: {
                                 LevelButton(level)
                             }

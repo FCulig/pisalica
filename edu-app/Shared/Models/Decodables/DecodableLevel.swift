@@ -16,7 +16,9 @@ struct DecodableLevel: Decodable {
     let lockedImage: String
     let guideImage: String
     let outlineImage: String
+    let wordImage: String
     let isLocked: Bool
+    let isWord: Bool
     let results: [String]
 
     enum CodingKeys: String, CodingKey {
@@ -26,7 +28,9 @@ struct DecodableLevel: Decodable {
         case lockedImage
         case guideImage
         case outlineImage
+        case wordImage
         case isLocked
+        case isWord
         case results
     }
 }

@@ -9,9 +9,9 @@ import Combine
 import CoreData
 import SwiftUI
 
-// MARK: - WritingLevelView.ViewModel -
+// MARK: - WritingLettersLevelView.ViewModel -
 
-extension WritingLevelView {
+extension WritingLettersLevelView {
     class ViewModel: ObservableObject {
         // MARK: - Private properties -
 
@@ -27,7 +27,7 @@ extension WritingLevelView {
         // MARK: - Public properties -
 
         let level: Level
-        var drawingCanvasViewModel: DrawingCanvasViewModel
+        let drawingCanvasViewModel: DrawingCanvasViewModel
         let progress: CurrentValueSubject<Float, Never> = .init(0)
         let isOutlinesLevelEnabled: CurrentValueSubject<Bool, Never> = .init(false)
         let isBlankLevelEnabled: CurrentValueSubject<Bool, Never> = .init(false)
@@ -67,7 +67,7 @@ extension WritingLevelView {
 
 // MARK: - Public methods -
 
-extension WritingLevelView.ViewModel {
+extension WritingLettersLevelView.ViewModel {
     func endLevel() {
         levelService.unlockLevelAfter(level)
 
@@ -98,7 +98,7 @@ extension WritingLevelView.ViewModel {
 
 // MARK: - Private methods -
 
-private extension WritingLevelView.ViewModel {
+private extension WritingLettersLevelView.ViewModel {
     func subscribeToPublishers() {
         drawingCanvasViewModel.isAnswerCorrect
             .sink { [weak self] in self?.updateLevelStatistics(wasAnswerCorrect: $0) }
@@ -223,7 +223,7 @@ private extension WritingLevelView.ViewModel {
 
 // MARK: - LevelState -
 
-extension WritingLevelView.ViewModel {
+extension WritingLettersLevelView.ViewModel {
     enum LevelState {
         case none
         case outline(image: String)

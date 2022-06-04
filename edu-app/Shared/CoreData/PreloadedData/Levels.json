@@ -7,7 +7,9 @@
         "lockedImage": "A-locked",
         "unlockedImage": "A-unlocked",
         "guideImage": "A-guide",
-        "outlineImage": "A-outline"
+        "outlineImage": "A-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "B",
@@ -17,7 +19,9 @@
         "lockedImage": "B-locked",
         "unlockedImage": "B-unlocked",
         "guideImage": "B-guide",
-        "outlineImage": "B-outline"
+        "outlineImage": "B-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "C",
@@ -27,7 +31,9 @@
         "lockedImage": "C-locked",
         "unlockedImage": "C-unlocked",
         "guideImage": "C-guide",
-        "outlineImage": "C-outline"
+        "outlineImage": "C-outline",
+        "wordImage": "",
+        "isWord": false
     },{
         "name": "Č",
         "results": ["Č", "č"],
@@ -36,7 +42,9 @@
         "lockedImage": "tvrdoC-locked",
         "unlockedImage": "tvrdoC-unlocked",
         "guideImage": "tvrdoC-guide",
-        "outlineImage": "tvrdoC-outline"
+        "outlineImage": "tvrdoC-outline",
+        "wordImage": "",
+        "isWord": false
     },{
         "name": "Ć",
         "results": ["Ć", "ć"],
@@ -45,7 +53,9 @@
         "lockedImage": "mekoC-locked",
         "unlockedImage": "mekoC-unlocked",
         "guideImage": "mekoC-guide",
-        "outlineImage": "mekoC-outline"
+        "outlineImage": "mekoC-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "D",
@@ -55,7 +65,9 @@
         "lockedImage": "D-locked",
         "unlockedImage": "D-unlocked",
         "guideImage": "D-guide",
-        "outlineImage": "D-outline"
+        "outlineImage": "D-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "DŽ",
@@ -65,7 +77,9 @@
         "lockedImage": "DZ-locked",
         "unlockedImage": "DZ-unlocked",
         "guideImage": "DZ-guide",
-        "outlineImage": "DZ-outline"
+        "outlineImage": "DZ-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "Đ",
@@ -75,7 +89,9 @@
         "lockedImage": "Đ-locked",
         "unlockedImage": "Đ-unlocked",
         "guideImage": "Đ-guide",
-        "outlineImage": "Đ-outline"
+        "outlineImage": "Đ-outline",
+        "wordImage": "",
+        "isWord": false
     },{
         "name": "E",
         "results": ["E"],
@@ -84,7 +100,9 @@
         "lockedImage": "E-locked",
         "unlockedImage": "E-unlocked",
         "guideImage": "E-guide",
-        "outlineImage": "E-outline"
+        "outlineImage": "E-outline",
+        "wordImage": "",
+        "isWord": false
     },{
         "name": "F",
         "results": ["F", "f"],
@@ -93,7 +111,9 @@
         "lockedImage": "F-locked",
         "unlockedImage": "F-unlocked",
         "guideImage": "F-guide",
-        "outlineImage": "F-outline"
+        "outlineImage": "F-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "G",
@@ -103,7 +123,9 @@
         "lockedImage": "G-locked",
         "unlockedImage": "G-unlocked",
         "guideImage": "G-guide",
-        "outlineImage": "G-outline"
+        "outlineImage": "G-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "H",
@@ -113,7 +135,9 @@
         "lockedImage": "H-locked",
         "unlockedImage": "H-unlocked",
         "guideImage": "H-guide",
-        "outlineImage": "H-outline"
+        "outlineImage": "H-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "I",
@@ -123,7 +147,9 @@
         "lockedImage": "I-locked",
         "unlockedImage": "I-unlocked",
         "guideImage": "I-guide",
-        "outlineImage": "I-outline"
+        "outlineImage": "I-outline",
+        "wordImage": "",
+        "isWord": false
     },{
         "name": "J",
         "results": ["J", "j"],
@@ -132,7 +158,9 @@
         "lockedImage": "J-locked",
         "unlockedImage": "J-unlocked",
         "guideImage": "J-guide",
-        "outlineImage": "J-outline"
+        "outlineImage": "J-outline",
+        "wordImage": "",
+        "isWord": false
     },{
         "name": "K",
         "results": ["K", "k"],
@@ -141,7 +169,9 @@
         "lockedImage": "K-locked",
         "unlockedImage": "K-unlocked",
         "guideImage": "K-guide",
-        "outlineImage": "K-outline"
+        "outlineImage": "K-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "L",
@@ -151,7 +181,9 @@
         "lockedImage": "L-locked",
         "unlockedImage": "L-unlocked",
         "guideImage": "L-guide",
-        "outlineImage": "L-outline"
+        "outlineImage": "L-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "LJ",
@@ -161,7 +193,9 @@
         "lockedImage": "LJ-locked",
         "unlockedImage": "LJ-unlocked",
         "guideImage": "LJ-guide",
-        "outlineImage": "LJ-outline"
+        "outlineImage": "LJ-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "M",
@@ -171,7 +205,9 @@
         "lockedImage": "M-locked",
         "unlockedImage": "M-unlocked",
         "guideImage": "M-guide",
-        "outlineImage": "M-outline"
+        "outlineImage": "M-outline",
+        "wordImage": "",
+        "isWord": false
     },{
         "name": "N",
         "results": ["N"],
@@ -180,7 +216,9 @@
         "lockedImage": "N-locked",
         "unlockedImage": "N-unlocked",
         "guideImage": "N-guide",
-        "outlineImage": "N-outline"
+        "outlineImage": "N-outline",
+        "wordImage": "",
+        "isWord": false
     },{
         "name": "NJ",
         "results": ["NJ"],
@@ -189,7 +227,9 @@
         "lockedImage": "NJ-locked",
         "unlockedImage": "NJ-unlocked",
         "guideImage": "NJ-guide",
-        "outlineImage": "NJ-outline"
+        "outlineImage": "NJ-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "O",
@@ -199,7 +239,9 @@
         "lockedImage": "O-locked",
         "unlockedImage": "O-unlocked",
         "guideImage": "O-guide",
-        "outlineImage": "O-outline"
+        "outlineImage": "O-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "P",
@@ -209,7 +251,9 @@
         "lockedImage": "P-locked",
         "unlockedImage": "P-unlocked",
         "guideImage": "P-guide",
-        "outlineImage": "P-outline"
+        "outlineImage": "P-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "R",
@@ -219,7 +263,9 @@
         "lockedImage": "R-locked",
         "unlockedImage": "R-unlocked",
         "guideImage": "R-guide",
-        "outlineImage": "R-outline"
+        "outlineImage": "R-outline",
+        "wordImage": "",
+        "isWord": false
     },{
         "name": "S",
         "results": ["S", "s"],
@@ -228,7 +274,9 @@
         "lockedImage": "S-locked",
         "unlockedImage": "S-unlocked",
         "guideImage": "S-guide",
-        "outlineImage": "S-outline"
+        "outlineImage": "S-outline",
+        "wordImage": "",
+        "isWord": false
     },{
         "name": "Š",
         "results": ["Š", "š"],
@@ -237,7 +285,9 @@
         "lockedImage": "Sh-locked",
         "unlockedImage": "Sh-unlocked",
         "guideImage": "Sh-guide",
-        "outlineImage": "Sh-outline"
+        "outlineImage": "Sh-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "T",
@@ -247,7 +297,9 @@
         "lockedImage": "T-locked",
         "unlockedImage": "T-unlocked",
         "guideImage": "T-guide",
-        "outlineImage": "T-outline"
+        "outlineImage": "T-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "U",
@@ -257,7 +309,9 @@
         "lockedImage": "U-locked",
         "unlockedImage": "U-unlocked",
         "guideImage": "U-guide",
-        "outlineImage": "U-outline"
+        "outlineImage": "U-outline",
+        "wordImage": "",
+        "isWord": false
     },
     {
         "name": "V",
@@ -267,7 +321,9 @@
         "lockedImage": "V-locked",
         "unlockedImage": "V-unlocked",
         "guideImage": "V-guide",
-        "outlineImage": "V-outline"
+        "outlineImage": "V-outline",
+        "wordImage": "",
+        "isWord": false
     },{
         "name": "Z",
         "results": ["Z", "z"],
@@ -276,7 +332,9 @@
         "lockedImage": "Z-locked",
         "unlockedImage": "Z-unlocked",
         "guideImage": "Z-guide",
-        "outlineImage": "Z-outline"
+        "outlineImage": "Z-outline",
+        "wordImage": "",
+        "isWord": false
     },{
         "name": "Ž",
         "results": ["Ž", "ž"],
@@ -285,6 +343,8 @@
         "lockedImage": "Zh-locked",
         "unlockedImage": "Zh-unlocked",
         "guideImage": "Zh-guide",
-        "outlineImage": "Zh-outline"
+        "outlineImage": "Zh-outline",
+        "wordImage": "",
+        "isWord": false
     }
 ]
