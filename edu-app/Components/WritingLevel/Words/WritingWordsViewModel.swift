@@ -17,7 +17,7 @@ extension WritingWordsView {
 
         // MARK: - Public properties -
 
-        var drawingCanvasViewModel: DrawingCanvasViewModel
+        @Published var drawingCanvasViewModel: DrawingCanvasViewModel
 
         // MARK: - Initializer -
 
@@ -26,14 +26,18 @@ extension WritingWordsView {
             drawingCanvasViewModel = DrawingCanvasViewModel(level: Level(),
                                                             levelService: levelService)
 
-            configureFirstLevel()
+            newLevel()
         }
     }
 }
 
-private extension WritingWordsView.ViewModel {
-    func configureFirstLevel() {
-        drawingCanvasViewModel = DrawingCanvasViewModel(level: Level(),
+// MARK: - Public methods -
+
+extension WritingWordsView.ViewModel {
+    func newLevel() {
+        let level = levelService.getRandomWordLevel()
+        print(level)
+        drawingCanvasViewModel = DrawingCanvasViewModel(level: level,
                                                         levelService: levelService)
     }
 }

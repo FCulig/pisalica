@@ -14,6 +14,7 @@ protocol LevelServiceful {
 
     func unlockLevelAfter(_ level: Level)
     func getLevels() -> [Level]
+    func getRandomWordLevel() -> Level
     func getLineColorCode() -> String
     func configureLevelData()
 }
@@ -58,6 +59,15 @@ extension LevelService {
         } catch { print(error) }
 
         return levels
+    }
+
+    func getRandomWordLevel() -> Level {
+        let levels = getLevels()
+        let unlockedLevels = levels.filter { $0.isWord == true }
+
+        // TODO: Implement random logic
+
+        return unlockedLevels[0]
     }
 
     func getLineColorCode() -> String {
@@ -119,14 +129,12 @@ extension LevelService {
                     levelCoreData.id = UUID()
                     levelCoreData.name = level.name
                     levelCoreData.outlineImage = level.outlineImage
-                    levelCoreData.wordImage = ""
+                    levelCoreData.wordImage = level.wordImage
                     levelCoreData.isWord = true
 
                     // TODO: Ovo mora biti true i otkljucati se tek nakon Xtog levelaq
 
                     levelCoreData.isLocked = false
-
-                    print(levelCoreData)
 
                     try! context.save()
                 }

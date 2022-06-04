@@ -60,15 +60,38 @@ struct WritingWordsView: View {
     var drawingCanvasContainer: some View {
         ZStack {
             AppImage.drawingPanelBackgroundImage.image
+            Image(viewModel.drawingCanvasViewModel.level.wordImage ?? "")
+                .resizable()
+                .scaledToFit()
+                .frame(width: isTablet ? 200 : 100)
+                .padding(.bottom, 270)
+            drawingCanvas
+        }
+        .padding(.top, 70)
+        .padding(.bottom, 10)
+        .padding(.horizontal, 130)
+    }
+
+    var drawingCanvas: some View {
+        ZStack {
+            letterPlaceholders
+                .padding(.top, 450)
             DrawingCanvasView(viewModel: viewModel.drawingCanvasViewModel)
                 .padding(.leading, 49)
                 .padding(.trailing, 45)
                 .padding(.top, 29)
                 .padding(.bottom, 36)
         }
-        .padding(.top, 70)
-        .padding(.bottom, 10)
-        .padding(.horizontal, 130)
+    }
+
+    var letterPlaceholders: some View {
+        HStack {
+            ForEach(0 ..< (viewModel.drawingCanvasViewModel.level.name?.count ?? 0), id: \.self) { _ in
+                Rectangle()
+                    .frame(width: 65, height: 10)
+                    .foregroundColor(.black)
+            }
+        }
     }
 
     var buttons: some View {
