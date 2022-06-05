@@ -72,9 +72,7 @@ extension LevelService {
         let levels = getLevels()
         let unlockedLevels = levels.filter { $0.isWord == true }
 
-        // TODO: Implement random logic
-
-        return unlockedLevels[0]
+        return unlockedLevels[Int.random(in: 0 ..< unlockedLevels.count)]
     }
 
     func getLineColorCode() -> String {

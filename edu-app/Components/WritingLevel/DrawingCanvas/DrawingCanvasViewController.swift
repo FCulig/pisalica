@@ -82,6 +82,10 @@ private extension DrawingCanvasViewController {
         viewModel.successNotification
             .sink { [weak self] in self?.displaySuccess() }
             .store(in: &cancellabels)
+
+        viewModel.onWordCorrect
+            .sink { [weak self] in self?.removeAllDrawnImages() }
+            .store(in: &cancellabels)
     }
 }
 
@@ -113,6 +117,12 @@ private extension DrawingCanvasViewController {
             image.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 10),
             image.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -10),
         ])
+    }
+
+    func removeAllDrawnImages() {
+        background.subviews.forEach { $0.removeFromSuperview() }
+        view.subviews.forEach { $0.removeFromSuperview() }
+        addSubviews()
     }
 }
 

@@ -15,7 +15,7 @@ import UIKit
 class DrawingCanvasViewModel {
     // MARK: - Public properties -
 
-    let level: Level
+    var level: Level
     var lastPoint: CGPoint!
     var strokeColor: UIColor = .black
 
@@ -23,7 +23,6 @@ class DrawingCanvasViewModel {
 
     private let levelService: LevelServiceful
     private let levelValidator: LevelValidatorService = .init()
-    private let clearOnCorrect: Bool
     private var points: [CGPoint] = []
     private var currentLetterOfWordIndex = 0
     private lazy var strokeManager = StrokeManager(delegate: self)
@@ -48,6 +47,10 @@ class DrawingCanvasViewModel {
         isAnswerCorrectSubject.eraseToAnyPublisher()
     }
 
+    var onWordCorrect: AnyPublisher<Void, Never> {
+        onWordCorrectSubject.eraseToAnyPublisher()
+    }
+
     // MARK: - Private properties -
 
     private var clearCanvasSubject: PassthroughSubject<Void, Never> = .init()
@@ -55,17 +58,16 @@ class DrawingCanvasViewModel {
     private var errorNotificationSubject: PassthroughSubject<Void, Never> = .init()
     private var successNotificationSubject: PassthroughSubject<Void, Never> = .init()
     private var isAnswerCorrectSubject: PassthroughSubject<Bool, Never> = .init()
+    private var onWordCorrectSubject: PassthroughSubject<Void, Never> = .init()
     private var cancellabels: Set<AnyCancellable> = []
 
     // MARK: - Initializer -
 
     public init(level: Level,
-                levelService: LevelServiceful,
-                clearOnCorrect: Bool = true)
+                levelService: LevelServiceful)
     {
         self.levelService = levelService
         self.level = level
-        self.clearOnCorrect = clearOnCorrect
     }
 }
 
@@ -122,6 +124,13 @@ extension DrawingCanvasViewModel {
             currentLetterOfWordIndex += 1
             successNotificationSubject.send()
             isAnswerCorrectSubject.send(true)
+
+            if currentLetterOfWordIndex == (self.level.name?.count ?? 0) {
+                print("NOVI LEVEL - drawing canvas VM")
+                currentLetterOfWordIndex = 0
+                clearInk()
+                onWordCorrectSubject.send()
+            }
         } else {
             errorNotificationSubject.send()
             isAnswerCorrectSubject.send(false)

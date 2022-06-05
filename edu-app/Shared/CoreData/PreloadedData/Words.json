@@ -11,5 +11,31 @@
         "unlockedImage": "",
         "guideImage": "",
         "outlineImage": ""
+    },
+    {
+        "name": "PAS",
+        "isLocked": false,
+        "isWord": true,
+        "wordImage": "dog",
+        "results": [],
+        "numberOfLines": 0,
+        "isLocked": false,
+        "lockedImage": "",
+        "unlockedImage": "",
+        "guideImage": "",
+        "outlineImage": ""
+    },
+    {
+        "name": "AUTO",
+        "isLocked": false,
+        "isWord": true,
+        "wordImage": "car",
+        "results": [],
+        "numberOfLines": 0,
+        "isLocked": false,
+        "lockedImage": "",
+        "unlockedImage": "",
+        "guideImage": "",
+        "outlineImage": ""
     }
 ]
