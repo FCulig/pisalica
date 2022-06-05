@@ -92,21 +92,27 @@ private extension DrawingCanvasViewController {
         view.addSubview(background)
         background.translatesAutoresizingMaskIntoConstraints = false
 
-        background.addSubview(drawnImage)
-        drawnImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             background.topAnchor.constraint(equalTo: view.topAnchor),
             background.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             background.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             background.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
-            drawnImage.topAnchor.constraint(equalTo: background.topAnchor, constant: 10),
-            drawnImage.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -10),
-            drawnImage.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 10),
-            drawnImage.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -10),
         ])
 
+        addDrawnImageSubview(drawnImage)
         view.backgroundColor = .clear
+    }
+
+    func addDrawnImageSubview(_ image: UIImageView) {
+        background.addSubview(image)
+        image.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            image.topAnchor.constraint(equalTo: background.topAnchor, constant: 10),
+            image.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -10),
+            image.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 10),
+            image.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -10),
+        ])
     }
 }
 
@@ -139,16 +145,24 @@ private extension DrawingCanvasViewController {
     }
 
     func displayError() {
-        UIView.animate(withDuration: 0.5) { [weak self] in
+        UIView.animate(withDuration: 1) { [weak self] in
             self?.background.backgroundColor = .red
             self?.background.backgroundColor = .clear
         }
     }
 
     func displaySuccess() {
+        // TODO: Confetti animation
+
         UIView.animate(withDuration: 0.5) { [weak self] in
             self?.background.backgroundColor = .green
             self?.background.backgroundColor = .clear
         }
+
+        guard viewModel.level.isWord else { return }
+
+        let imageView = UIImageView()
+        imageView.image = drawnImage.image
+        addDrawnImageSubview(imageView)
     }
 }

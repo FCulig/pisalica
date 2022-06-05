@@ -23,11 +23,17 @@ class DrawingCanvasViewModel {
 
     private let levelService: LevelServiceful
     private let levelValidator: LevelValidatorService = .init()
+    private let clearOnCorrect: Bool
     private var points: [CGPoint] = []
+    private var currentLetterOfWordIndex = 0
     private lazy var strokeManager = StrokeManager(delegate: self)
 
     var clearCanvas: AnyPublisher<Void, Never> {
         clearCanvasSubject.eraseToAnyPublisher()
+    }
+
+    var clearLastWord: AnyPublisher<Void, Never> {
+        clearLastWordSubject.eraseToAnyPublisher()
     }
 
     var errorNotification: AnyPublisher<Void, Never> {
@@ -45,16 +51,21 @@ class DrawingCanvasViewModel {
     // MARK: - Private properties -
 
     private var clearCanvasSubject: PassthroughSubject<Void, Never> = .init()
+    private var clearLastWordSubject: PassthroughSubject<Void, Never> = .init()
     private var errorNotificationSubject: PassthroughSubject<Void, Never> = .init()
     private var successNotificationSubject: PassthroughSubject<Void, Never> = .init()
     private var isAnswerCorrectSubject: PassthroughSubject<Bool, Never> = .init()
     private var cancellabels: Set<AnyCancellable> = []
 
-    // MARK: - Initializer
+    // MARK: - Initializer -
 
-    public init(level: Level, levelService: LevelServiceful) {
+    public init(level: Level,
+                levelService: LevelServiceful,
+                clearOnCorrect: Bool = true)
+    {
         self.levelService = levelService
         self.level = level
+        self.clearOnCorrect = clearOnCorrect
     }
 }
 
@@ -75,31 +86,48 @@ extension DrawingCanvasViewModel {
         strokeManager.endStrokeAtPoint(point: lastPoint, t: time)
         points.append(lastPoint)
 
-        successNotificationSubject.send()
-        isAnswerCorrectSubject.send(true)
+//        successNotificationSubject.send()
+//        isAnswerCorrectSubject.send(true)
 
-//        if points.count == level.numberOfLines * 2 {
-//            guard levelValidator.isValid(level: level, points: points) else {
-//                errorNotificationSubject.send()
-//                isAnswerCorrectSubject.send(false)
-//                clearInk()
-//                return
-//            }
-//
-//            strokeManager.recognizeInk(onCompletion: onRecognitionCompleted)
-//        }
+        if level.isWord {
+            // Words
+            guard let level = levelService.getLevelForName(level.name?[currentLetterOfWordIndex] ?? ""),
+                  points.count == level.numberOfLines * 2 else { return }
+
+            guard levelValidator.isValid(level: level, points: points) else {
+                errorNotificationSubject.send()
+                isAnswerCorrectSubject.send(false)
+                clearInk()
+                return
+            }
+
+            strokeManager.recognizeInk(level: level, onCompletion: onRecognitionCompleted)
+        } else if points.count == level.numberOfLines * 2 {
+            // Letters
+            guard levelValidator.isValid(level: level, points: points) else {
+                errorNotificationSubject.send()
+                isAnswerCorrectSubject.send(false)
+                clearInk()
+                return
+            }
+
+            strokeManager.recognizeInk(level: level, onCompletion: onRecognitionCompleted)
+        }
     }
 
-    func onRecognitionCompleted(result: String?) {
+    func onRecognitionCompleted(level: Level, result: String?) {
         guard let result = result, let results = level.results else { return }
 
         if results.contains(result) {
+            currentLetterOfWordIndex += 1
             successNotificationSubject.send()
             isAnswerCorrectSubject.send(true)
         } else {
             errorNotificationSubject.send()
             isAnswerCorrectSubject.send(false)
         }
+
+        clearInk()
     }
 }
 

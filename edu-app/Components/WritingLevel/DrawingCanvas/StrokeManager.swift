@@ -141,7 +141,7 @@ class StrokeManager {
      * Actually carries out the recognition. The recognition may happen asynchronously so there's a
      * callback that handles the results when they are ready.
      */
-    func recognizeInk(onCompletion: @escaping (String?) -> Void) {
+    func recognizeInk(level: Level, onCompletion: @escaping (Level, String?) -> Void) {
         if strokes.isEmpty {
             print("Strokes are empty")
             return
@@ -159,10 +159,12 @@ class StrokeManager {
         let ink = Ink(strokes: strokes)
         let recognizedInk = RecognizedInk(ink: ink)
         recognizedInks.append(recognizedInk)
+
         // Clear the currently being drawn ink, and display the ink from `recognizedInks` (which results
         // in it changing color).
-        delegate.clearInk()
-        strokes = []
+//        delegate.clearInk()
+//        strokes = []
+
         // Start the recognizer. Callback function will store the recognized text and tell the
         // `ViewController` to redraw the screen to show it.
         recognizer.recognize(
@@ -183,7 +185,7 @@ class StrokeManager {
 //                    self.delegate?.displayMessage(message: "Recognition error " + String(describing: error))
                 }
 
-                onCompletion(recognitionResult)
+                onCompletion(level, recognitionResult)
             }
         )
     }

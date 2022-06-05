@@ -29,4 +29,8 @@ class LevelServicePreviewMock: LevelServiceful {
     func getRandomWordLevel() -> Level {
         return Level()
     }
+
+    func getLevelForName(_: String) -> Level? {
+        return nil
+    }
 }

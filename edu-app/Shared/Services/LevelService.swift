@@ -14,6 +14,7 @@ protocol LevelServiceful {
 
     func unlockLevelAfter(_ level: Level)
     func getLevels() -> [Level]
+    func getLevelForName(_ name: String) -> Level?
     func getRandomWordLevel() -> Level
     func getLineColorCode() -> String
     func configureLevelData()
@@ -59,6 +60,12 @@ extension LevelService {
         } catch { print(error) }
 
         return levels
+    }
+
+    func getLevelForName(_ name: String) -> Level? {
+        let levels = getLevels()
+
+        return levels.first { $0.name == name }
     }
 
     func getRandomWordLevel() -> Level {
