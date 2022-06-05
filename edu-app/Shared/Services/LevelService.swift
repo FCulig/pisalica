@@ -45,6 +45,35 @@ extension LevelService {
         guard let currentLevelIndex = levels.firstIndex(of: level),
               currentLevelIndex < levels.count - 1 else { return }
         do {
+            // Unlock words containing new letter
+//            let words = levels.filter{$0.isWord == true }
+            let unlockedLetters = levels.filter { $0.isWord == false }
+                .filter { $0.isLocked == false }
+
+            levels.forEach { level in
+                guard level.isWord, level.isLocked else { return }
+
+                // Tu su sve rijeci koje su zakljucane
+                var areAllLettersUnlocked = true
+
+                level.name?.forEach { character in
+                    let letter = unlockedLetters.first { $0.name == character.description }
+                    if letter == nil {
+                        areAllLettersUnlocked = false
+                    }
+                }
+
+                if areAllLettersUnlocked {
+                    level.isLocked = false
+                    print("Unlocking")
+                    print(levels[levels.firstIndex(of: level) ?? 0])
+
+                    let userDefaults = UserDefaults.standard
+                    userDefaults.set(false, forKey: "isWordsLevelLocked")
+                }
+            }
+
+            // Unlock next level
             levels[currentLevelIndex + 1].isLocked = false
 
             try context.save()
@@ -71,6 +100,7 @@ extension LevelService {
     func getRandomWordLevel() -> Level {
         let levels = getLevels()
         let unlockedLevels = levels.filter { $0.isWord == true }
+            .filter { $0.isLocked == false }
 
         return unlockedLevels[Int.random(in: 0 ..< unlockedLevels.count)]
     }
@@ -136,10 +166,7 @@ extension LevelService {
                     levelCoreData.outlineImage = level.outlineImage
                     levelCoreData.wordImage = level.wordImage
                     levelCoreData.isWord = true
-
-                    // TODO: Ovo mora biti true i otkljucati se tek nakon Xtog levelaq
-
-                    levelCoreData.isLocked = false
+                    levelCoreData.isLocked = true
 
                     try! context.save()
                 }

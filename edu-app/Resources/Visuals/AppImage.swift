@@ -20,6 +20,7 @@ enum AppImage {
     case textButtonPressedBackground
     case titleSignBackground
     case wordsButton
+    case wordsButtonLocked
     case lettersButton
     case trashCanButton
     case previousButton
@@ -76,6 +77,8 @@ enum AppImage {
             return Image("trash-can-button").resizable()
         case .wordsButton:
             return Image("words-button").resizable()
+        case .wordsButtonLocked:
+            return Image("words-button-locked").resizable()
         case .lettersButton:
             return Image("letters-button").resizable()
         case .previousButton:

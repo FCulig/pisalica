@@ -11,9 +11,12 @@ import CoreData
 
 extension MainMenuView {
     class ViewModel: ObservableObject {
+        // MARK: - Public properties -
+
         let achievementService: AchievementServiceful
         let levelService: LevelServiceful
         let shopService: ShopServiceful
+        @Published var isWordsLocked: Bool = true
 
         // MARK: - Initializer -
 
@@ -24,6 +27,8 @@ extension MainMenuView {
             self.achievementService = achievementService
             self.levelService = levelService
             self.shopService = shopService
+
+            configureWordsLevel()
         }
     }
 }
@@ -57,6 +62,18 @@ extension MainMenuView.ViewModel {
         if userDefaults.bool(forKey: preloadedDataKey) != true {
             userDefaults.set(0, forKey: "coinsBalance")
             userDefaults.set(true, forKey: preloadedDataKey)
+        }
+    }
+
+    func configureWordsLevel() {
+        let preloadedDataKey = "didInitializeWords"
+        let userDefaults = UserDefaults.standard
+
+        if userDefaults.bool(forKey: preloadedDataKey) != true {
+            userDefaults.set(true, forKey: "isWordsLevelLocked")
+            userDefaults.set(true, forKey: preloadedDataKey)
+        } else if userDefaults.bool(forKey: preloadedDataKey) == true {
+            isWordsLocked = userDefaults.bool(forKey: "isWordsLevelLocked")
         }
     }
 }

@@ -88,8 +88,10 @@ extension DrawingCanvasViewModel {
         strokeManager.endStrokeAtPoint(point: lastPoint, t: time)
         points.append(lastPoint)
 
-//        successNotificationSubject.send()
-//        isAnswerCorrectSubject.send(true)
+        successNotificationSubject.send()
+        isAnswerCorrectSubject.send(true)
+
+        return
 
         if level.isWord {
             // Words

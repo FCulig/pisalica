@@ -12,6 +12,8 @@ import SwiftUI
 struct MainMenuView: View {
     private let isTablet = UIDevice.current.localizedModel == "iPad"
 
+    @Environment(\.isPresented) var isPresented
+
     @ObservedObject var viewModel: ViewModel
     @State var isPlayWordsActive = false
     @State var isPlayLettersActive = false
@@ -36,6 +38,9 @@ struct MainMenuView: View {
                             .ignoresSafeArea()
                             .offset(x: 80, y: 0)
                     )
+                    .onAppear {
+                        viewModel.configureWordsLevel()
+                    }
                     .navigationBarHidden(true)
             } else {
                 foregroundContent
@@ -96,16 +101,22 @@ struct MainMenuView: View {
             }
 
             // Words
-            NavigationLink(destination: NavigationLazyView(WritingWordsView(levelService: viewModel.levelService)),
-                           isActive: $isPlayWordsActive) {
-                Button {
-                    viewModel.configureLevelData()
-                    isPlayWordsActive = true
-                } label: {
-                    AppImage.wordsButton.image
-                        .scaledToFit()
+            if viewModel.isWordsLocked {
+                AppImage.wordsButtonLocked.image
+                    .scaledToFit()
+                    .frame(height: 100)
+            } else {
+                NavigationLink(destination: NavigationLazyView(WritingWordsView(levelService: viewModel.levelService)),
+                               isActive: $isPlayWordsActive) {
+                    Button {
+                        viewModel.configureLevelData()
+                        isPlayWordsActive = true
+                    } label: {
+                        AppImage.wordsButton.image
+                            .scaledToFit()
+                    }
+                    .frame(height: 100)
                 }
-                .frame(height: 100)
             }
         }
     }
