@@ -18,8 +18,8 @@ struct WritingWordsView: View {
 
     // MARK: - Initializer -
 
-    public init(levelService: LevelServiceful) {
-        let wrappedViewModel = ViewModel(levelService: levelService)
+    public init(levelService: LevelServiceful, shopService: ShopServiceful) {
+        let wrappedViewModel = ViewModel(levelService: levelService, shopService: shopService)
         _viewModel = StateObject(wrappedValue: wrappedViewModel)
     }
 
@@ -88,9 +88,9 @@ struct WritingWordsView: View {
         HStack {
             ForEach(0 ..< (viewModel.drawingCanvasViewModel.level.name?.count ?? 0), id: \.self) { _ in
                 Rectangle()
-                    .frame(width: 85, height: 10)
+                    .frame(width: isTablet ? 85 : 55, height: 10)
                     .foregroundColor(.black)
-                    .padding(.trailing, 10)
+                    .padding(.trailing, isTablet ? 0 : 10)
             }
         }
     }
@@ -109,33 +109,18 @@ struct WritingWordsView: View {
             }
             Spacer()
             VStack(alignment: .trailing) {
+                coinsBalance
+                    .padding(.trailing, -10)
                 Button {
-//                    showVideoTutorialDialog = true
+                    //                    showVideoTutorialDialog = true
                 } label: {
                     AppImage.hintButton.image
                         .scaledToFit()
                         .frame(height: 70, alignment: .top)
                 }
-                Spacer()
-
-//                if isTablet {
-//                    VStack {
-//                        AppImage.zoomInButton.image
-//                            .scaledToFit()
-//                            .frame(height: 70, alignment: .top)
-//                            .onTapGesture {
-//                                viewModel.setCanvasImagePadding(50)
-//                            }
-//                        AppImage.zoomOutButton.image
-//                            .scaledToFit()
-//                            .frame(height: 70, alignment: .top)
-//                            .onTapGesture {
-//                                viewModel.setCanvasImagePadding(220)
-//                            }
-//                    }
-//                }
 
                 Spacer()
+
                 Button {
                     viewModel.drawingCanvasViewModel.clearInk()
                 } label: {
@@ -149,12 +134,25 @@ struct WritingWordsView: View {
         .padding(.leading, isTablet ? 15 : 0)
         .padding(.trailing, isTablet ? 15 : 0)
     }
+
+    var coinsBalance: some View {
+        ZStack {
+            AppImage.coinsBalanceBackground.image
+                .scaledToFit()
+                .frame(height: 65)
+            Text("\(viewModel.shopService.balance)")
+                .foregroundColor(.white)
+                .padding(.leading, 45)
+                .padding(.bottom, 5)
+                .font(.system(size: 25).weight(.bold))
+        }
+    }
 }
 
 // MARK: - Previews -
 
 struct WritingWordsView_Previews: PreviewProvider {
     static var previews: some View {
-        WritingWordsView(levelService: LevelServicePreviewMock())
+        WritingWordsView(levelService: LevelServicePreviewMock(), shopService: ShopServicePreviewMock())
     }
 }

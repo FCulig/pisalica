@@ -19,13 +19,16 @@ extension WritingWordsView {
 
         // MARK: - Public properties -
 
+        @Published var shopService: ShopServiceful
         @Published var drawingCanvasViewModel: DrawingCanvasViewModel
         @Published var level: Level
 
         // MARK: - Initializer -
 
-        public init(levelService: LevelServiceful) {
+        public init(levelService: LevelServiceful, shopService: ShopServiceful) {
             self.levelService = levelService
+            self.shopService = shopService
+
             level = Level()
             drawingCanvasViewModel = DrawingCanvasViewModel(level: Level(),
                                                             levelService: levelService)

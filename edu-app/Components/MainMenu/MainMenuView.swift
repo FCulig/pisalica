@@ -49,6 +49,9 @@ struct MainMenuView: View {
                             .scaledToFill()
                             .ignoresSafeArea()
                     )
+                    .onAppear {
+                        viewModel.configureWordsLevel()
+                    }
                     .navigationBarHidden(true)
             }
         }
@@ -106,7 +109,7 @@ struct MainMenuView: View {
                     .scaledToFit()
                     .frame(height: 100)
             } else {
-                NavigationLink(destination: NavigationLazyView(WritingWordsView(levelService: viewModel.levelService)),
+                NavigationLink(destination: NavigationLazyView(WritingWordsView(levelService: viewModel.levelService, shopService: viewModel.shopService)),
                                isActive: $isPlayWordsActive) {
                     Button {
                         viewModel.configureLevelData()
