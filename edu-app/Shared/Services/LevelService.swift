@@ -117,7 +117,7 @@ extension LevelService {
                     levelCoreData.outlineImage = level.outlineImage
                     levelCoreData.wordImage = ""
                     levelCoreData.isWord = false
-                    levelCoreData.isLocked = levelCoreData.name == "A" ? false : true
+                    levelCoreData.isLocked = levelCoreData.name == "I" ? false : true
 
                     try! context.save()
                 }
