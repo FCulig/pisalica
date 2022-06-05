@@ -77,10 +77,10 @@ struct WritingWordsView: View {
             letterPlaceholders
                 .padding(.top, isTablet ? 450 : 200)
             DrawingCanvasView(viewModel: viewModel.drawingCanvasViewModel)
-                .padding(.leading, 49)
-                .padding(.trailing, 45)
-                .padding(.top, 29)
-                .padding(.bottom, 36)
+                .padding(.leading, isTablet ? 69 : 44)
+                .padding(.trailing, isTablet ? 65 : 40)
+                .padding(.top, isTablet ? 59 : 27)
+                .padding(.bottom, isTablet ? 75 : 34)
         }
     }
 

@@ -125,8 +125,7 @@ extension DrawingCanvasViewModel {
             successNotificationSubject.send()
             isAnswerCorrectSubject.send(true)
 
-            if currentLetterOfWordIndex == (self.level.name?.count ?? 0) {
-                print("NOVI LEVEL - drawing canvas VM")
+            if self.level.isWord, currentLetterOfWordIndex == (self.level.name?.count ?? 0) {
                 currentLetterOfWordIndex = 0
                 clearInk()
                 onWordCorrectSubject.send()

@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Lottie
 import MLKit
 import UIKit
 
@@ -22,6 +23,8 @@ class DrawingCanvasViewController: UIViewController {
 
     private lazy var background = UIView()
     private lazy var drawnImage = UIImageView()
+
+    private lazy var animationView = AnimationView(name: "confetti")
 
     // MARK: - Private properties -
 
@@ -84,7 +87,10 @@ private extension DrawingCanvasViewController {
             .store(in: &cancellabels)
 
         viewModel.onWordCorrect
-            .sink { [weak self] in self?.removeAllDrawnImages() }
+            .sink { [weak self] in
+                self?.animationView.play()
+                self?.removeAllDrawnImages()
+            }
             .store(in: &cancellabels)
     }
 }
@@ -96,11 +102,19 @@ private extension DrawingCanvasViewController {
         view.addSubview(background)
         background.translatesAutoresizingMaskIntoConstraints = false
 
+        view.addSubview(animationView)
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
             background.topAnchor.constraint(equalTo: view.topAnchor),
             background.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             background.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             background.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            animationView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+            animationView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
         ])
 
         addDrawnImageSubview(drawnImage)
@@ -162,9 +176,7 @@ private extension DrawingCanvasViewController {
     }
 
     func displaySuccess() {
-        // TODO: Confetti animation
-
-        UIView.animate(withDuration: 0.5) { [weak self] in
+        UIView.animate(withDuration: 1) { [weak self] in
             self?.background.backgroundColor = .green
             self?.background.backgroundColor = .clear
         }

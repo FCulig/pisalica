@@ -41,11 +41,7 @@ extension WritingWordsView {
 extension WritingWordsView.ViewModel {
     func newLevel() {
         level = levelService.getRandomWordLevel()
-
-//        drawingCanvasViewModel = DrawingCanvasViewModel(level: level,
-//                                                        levelService: levelService)
         drawingCanvasViewModel.level = level
-        print("Novi level inicializiran")
     }
 }
 

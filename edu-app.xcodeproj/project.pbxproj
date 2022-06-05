@@ -77,6 +77,7 @@
 		4DDC5F622826FE3400BDC385 /* AchievementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5F612826FE3400BDC385 /* AchievementsViewModel.swift */; };
 		4DDC5F642827024500BDC385 /* AchievementItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDC5F632827024500BDC385 /* AchievementItemView.swift */; };
 		4DDC5F66282702A000BDC385 /* Achievements.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DDC5F65282702A000BDC385 /* Achievements.xcassets */; };
+		4DDF4ECD284CCDBB0040B0D4 /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DDF4ECC284CCDBB0040B0D4 /* confetti.json */; };
 		4DDFBCB7284933C10079A4E6 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDFBCB6284933C10079A4E6 /* RoundedButton.swift */; };
 		4DE3A5C1281865FD005DF33E /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE3A5C0281865FD005DF33E /* Color.xcassets */; };
 		4DE3A5C328186606005DF33E /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3A5C228186606005DF33E /* AppColor.swift */; };
@@ -176,6 +177,7 @@
 		4DDC5F612826FE3400BDC385 /* AchievementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewModel.swift; sourceTree = "<group>"; };
 		4DDC5F632827024500BDC385 /* AchievementItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementItemView.swift; sourceTree = "<group>"; };
 		4DDC5F65282702A000BDC385 /* Achievements.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Achievements.xcassets; sourceTree = "<group>"; };
+		4DDF4ECC284CCDBB0040B0D4 /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 		4DDFBCB6284933C10079A4E6 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		4DE3A5C0281865FD005DF33E /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		4DE3A5C228186606005DF33E /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 		4DA22D8F27D35A4900634AA8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4DFB6717284CC48600811BBC /* Animations */,
 				4DE3A5BF281865EA005DF33E /* Colors */,
 				4DA22D9327D35EA400634AA8 /* Visuals */,
 				4DA22D9027D35A5300634AA8 /* Fonts */,
@@ -580,6 +583,14 @@
 				4DE3A5C228186606005DF33E /* AppColor.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		4DFB6717284CC48600811BBC /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				4DDF4ECC284CCDBB0040B0D4 /* confetti.json */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -695,6 +706,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D75995F282317FB0093849C /* A.mp4 in Resources */,
+				4DDF4ECD284CCDBB0040B0D4 /* confetti.json in Resources */,
 				4DDC5F66282702A000BDC385 /* Achievements.xcassets in Resources */,
 				4D8F5214284B75CF0092DCC3 /* Words.json in Resources */,
 				4D4E05DE280D6B5200569C16 /* Levels.json in Resources */,

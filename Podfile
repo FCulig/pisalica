@@ -8,6 +8,7 @@ target 'edu-app' do
   # Pods for edu-app
 
   pod 'GoogleMLKit/DigitalInkRecognition', '2.6.0'
+  pod 'lottie-ios'
 
   target 'edu-appTests' do
     inherit! :search_paths

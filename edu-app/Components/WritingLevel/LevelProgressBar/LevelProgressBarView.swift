@@ -95,7 +95,7 @@ private extension LevelProgressBarView {
             } else if let shouldHighlight = shouldHighlight {
                 RoundedButton(buttonImage: buttonImage, isLocked: false)
                     .frame(width: isTablet ? 75 : 55)
-                    .blink(on: shouldHighlight, repeatCount: 8, duration: 0.5)
+                    .blink(on: shouldHighlight, repeatCount: 4, duration: 0.5)
             } else {
                 RoundedButton(buttonImage: buttonImage, isLocked: false)
                     .frame(width: isTablet ? 75 : 55)

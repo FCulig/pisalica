@@ -106,10 +106,10 @@ struct WritingLettersLevelView: View {
                         .padding(.all, viewModel.canvasImagePadding)
                 }
                 DrawingCanvasView(viewModel: viewModel.drawingCanvasViewModel)
-                    .padding(.leading, 49)
-                    .padding(.trailing, 45)
-                    .padding(.top, 29)
-                    .padding(.bottom, 36)
+                    .padding(.leading, isTablet ? 69 : 44)
+                    .padding(.trailing, isTablet ? 65 : 40)
+                    .padding(.top, isTablet ? 55 : 27)
+                    .padding(.bottom, isTablet ? 69 : 34)
             }
             .padding(.top, isTablet ? 0 : -20)
         }
