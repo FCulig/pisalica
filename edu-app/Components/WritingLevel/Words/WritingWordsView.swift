@@ -64,7 +64,7 @@ struct WritingWordsView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: isTablet ? 200 : 100)
-                .padding(.bottom, 270)
+                .padding(.bottom, isTablet ? 270 : 100)
             drawingCanvas
         }
         .padding(.top, 70)
@@ -75,7 +75,7 @@ struct WritingWordsView: View {
     var drawingCanvas: some View {
         ZStack {
             letterPlaceholders
-                .padding(.top, 450)
+                .padding(.top, isTablet ? 450 : 200)
             DrawingCanvasView(viewModel: viewModel.drawingCanvasViewModel)
                 .padding(.leading, 49)
                 .padding(.trailing, 45)
@@ -88,8 +88,9 @@ struct WritingWordsView: View {
         HStack {
             ForEach(0 ..< (viewModel.drawingCanvasViewModel.level.name?.count ?? 0), id: \.self) { _ in
                 Rectangle()
-                    .frame(width: 65, height: 10)
+                    .frame(width: 85, height: 10)
                     .foregroundColor(.black)
+                    .padding(.trailing, 10)
             }
         }
     }
