@@ -66,7 +66,6 @@ struct MainMenuView: View {
                 VStack {
 //                    appLogo
                     playButtons
-                        .padding(.top, isTablet ? 100 : 100)
                 }
                 Spacer()
             }
@@ -87,7 +86,7 @@ struct MainMenuView: View {
     }
 
     var playButtons: some View {
-        VStack {
+        HStack {
             // Letters
             NavigationLink(destination: NavigationLazyView(LevelSelectView(achievementService: viewModel.achievementService,
                                                                            levelService: viewModel.levelService,
@@ -101,6 +100,7 @@ struct MainMenuView: View {
                         .scaledToFit()
                 }
                 .frame(height: 100)
+                .padding(.trailing, isTablet ? 40 : 25)
             }
 
             // Words
