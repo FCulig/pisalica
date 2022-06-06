@@ -28,11 +28,5 @@ extension AchievementsView {
 extension AchievementsView.ViewModel {
     func getAchievements() {
         achievements = achievementService.getAchievements()
-
-        achievements.forEach { achievement in
-            print(achievement.name)
-            print(achievement.currentValue)
-            print("----------")
-        }
     }
 }
