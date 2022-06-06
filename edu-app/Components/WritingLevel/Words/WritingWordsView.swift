@@ -122,14 +122,27 @@ struct WritingWordsView: View {
             }
             Spacer()
             VStack(alignment: .trailing) {
-                coinsBalance
-                    .padding(.trailing, -10)
+                if isTablet {
+                    coinsBalance
+                        .padding(.trailing, -10)
+                        .blink(on: $viewModel.shouldHighlightCoinsBalance, repeatCount: 4, duration: 0.5)
+                } else {
+                    coinsBalance
+                        .padding(.trailing, -10)
+                }
+
                 Button {
                     viewModel.buyNewHint()
                 } label: {
-                    AppImage.hintButton.image
-                        .scaledToFit()
-                        .frame(height: 70, alignment: .top)
+                    if viewModel.canBuyHint {
+                        AppImage.hintButton.image
+                            .scaledToFit()
+                            .frame(height: 70, alignment: .top)
+                    } else {
+                        AppImage.hintButtonLocked.image
+                            .scaledToFit()
+                            .frame(height: 70, alignment: .top)
+                    }
                 }
 
                 Spacer()

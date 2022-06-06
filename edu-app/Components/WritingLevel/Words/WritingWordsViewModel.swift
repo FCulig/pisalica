@@ -14,8 +14,8 @@ extension WritingWordsView {
     class ViewModel: ObservableObject {
         // MARK: - Private properties -
 
-        private var isInitialLoad = true
         private let levelService: LevelServiceful
+        private var isInitialLoad = true
         private var cancellabels: Set<AnyCancellable> = []
         private var onWordCorrectWithHintsSubject: PassthroughSubject<Void, Never> = .init()
 
@@ -26,6 +26,8 @@ extension WritingWordsView {
         @Published var level: Level
         @Published var visibleHints: [Int: Bool] = [:]
         @Published var wordName: String = ""
+        @Published var canBuyHint: Bool = true
+        @Published var shouldHighlightCoinsBalance: Bool = false
 
         // MARK: - Initializer -
 
@@ -58,10 +60,16 @@ extension WritingWordsView.ViewModel {
             visibleHints[index] = false
         }
 
-        if !isInitialLoad { shopService.updateCoins(amountToBeAdded: 1) }
+        updateCoinsBalanceStatus()
+        if !isInitialLoad { shopService.updateCoins(amountToBeAdded: 5) }
     }
 
     func buyNewHint() {
+        guard canBuyHint else {
+            shouldHighlightCoinsBalance = true
+            return
+        }
+
         let hintsArray = Array(visibleHints.keys)
 
         // Provjeri da nisu svi hintovi kupljeni
@@ -87,8 +95,9 @@ extension WritingWordsView.ViewModel {
 
                 if !hasBeenRecognized {
                     visibleHints[randomLetter] = true
-                    shopService.updateCoins(amountToBeAdded: -1)
+                    shopService.updateCoins(amountToBeAdded: -3)
                     isHintBought = true
+                    updateCoinsBalanceStatus()
 
                     level.name?.enumerated().forEach { index, _ in
                         if index == randomLetter {
@@ -114,5 +123,9 @@ private extension WritingWordsView.ViewModel {
         drawingCanvasViewModel.onWordCorrect
             .sink { [weak self] in self?.newLevel() }
             .store(in: &cancellabels)
+    }
+
+    func updateCoinsBalanceStatus() {
+        canBuyHint = shopService.balance >= 3
     }
 }

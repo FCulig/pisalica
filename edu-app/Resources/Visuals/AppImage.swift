@@ -47,6 +47,7 @@ enum AppImage {
     case emptyButtonLockedOverlay
     case lock
     case hintButton
+    case hintButtonLocked
     case zoomInButton
     case zoomOutButton
     case pointer
@@ -129,6 +130,8 @@ enum AppImage {
             return Image("lock").resizable()
         case .hintButton:
             return Image("hint-button").resizable()
+        case .hintButtonLocked:
+            return Image("hint-button-locked").resizable()
         case .zoomInButton:
             return Image("zoom-in-button").resizable()
         case .zoomOutButton:
