@@ -49,6 +49,7 @@ extension AchievementService {
     }
 
     func updateAchievementProgress(achievementKey: String, valueToBeAdded: Int) {
+        let achievements = getAchievements()
         guard let achievement = achievements.first(where: { $0.key == achievementKey }),
               achievement.currentValue < achievement.target else { return }
 

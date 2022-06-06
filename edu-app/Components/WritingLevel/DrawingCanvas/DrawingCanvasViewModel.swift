@@ -92,10 +92,10 @@ extension DrawingCanvasViewModel {
         strokeManager.endStrokeAtPoint(point: lastPoint, t: time)
         points.append(lastPoint)
 
-//        successNotificationSubject.send()
-//        isAnswerCorrectSubject.send(true)
-//
-//        return
+        successNotificationSubject.send()
+        isAnswerCorrectSubject.send(true)
+
+        return
 
         if level.isWord {
             var currentLetterOfWordIndex: Int?
@@ -120,9 +120,6 @@ extension DrawingCanvasViewModel {
                 clearInk()
                 return
             }
-
-            print("Validating")
-            print(level)
 
             strokeManager.recognizeInk(level: level, letterIndex: currentLetterOfWordIndex, onCompletion: onRecognitionCompleted)
         } else if points.count == level.numberOfLines * 2 {

@@ -99,7 +99,7 @@ struct AchievementsView: View {
         .padding(.bottom, isTablet ? 10 : 0)
         .padding(.leading, 130)
         .padding(.trailing, 90)
-        .onLoad { viewModel.getAchievements() }
+        .onAppear { viewModel.getAchievements() }
     }
 }
 

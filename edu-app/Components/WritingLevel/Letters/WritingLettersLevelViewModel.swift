@@ -68,15 +68,6 @@ extension WritingLettersLevelView {
 // MARK: - Public methods -
 
 extension WritingLettersLevelView.ViewModel {
-    func endLevel() {
-        levelService.unlockLevelAfter(level)
-
-        achievementService.updateAchievementProgress(achievementKey: "10_correct_letters", valueToBeAdded: correctAnswers)
-        achievementService.updateAchievementProgress(achievementKey: "100_correct_letters", valueToBeAdded: correctAnswers)
-        achievementService.updateAchievementProgress(achievementKey: "10_passed_levels", valueToBeAdded: 1)
-        achievementService.updateAchievementProgress(achievementKey: "30_passed_levels", valueToBeAdded: 1)
-    }
-
     func configureGuidesLevel() {
         levelState = .guides(image: level.guideImage ?? "")
     }
@@ -120,6 +111,15 @@ private extension WritingLettersLevelView.ViewModel {
         correctAnswers += wasAnswerCorrect ? 1 : 0
 
         updateTotalScore(wasAnswerCorrect: wasAnswerCorrect)
+    }
+
+    func endLevel() {
+        achievementService.updateAchievementProgress(achievementKey: "10_correct_letters", valueToBeAdded: correctAnswers)
+        achievementService.updateAchievementProgress(achievementKey: "100_correct_letters", valueToBeAdded: correctAnswers)
+        achievementService.updateAchievementProgress(achievementKey: "10_passed_levels", valueToBeAdded: 1)
+        achievementService.updateAchievementProgress(achievementKey: "30_passed_levels", valueToBeAdded: 1)
+
+        levelService.unlockLevelAfter(level)
     }
 
     func updateTotalScore(wasAnswerCorrect: Bool) {
@@ -218,6 +218,7 @@ private extension WritingLettersLevelView.ViewModel {
         }
 
         shopService.updateCoins(amountToBeAdded: totalCoinsReward)
+        endLevel()
     }
 }
 

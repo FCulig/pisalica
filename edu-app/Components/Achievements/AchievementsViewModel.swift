@@ -15,14 +15,24 @@ extension AchievementsView {
         private let achievementService: AchievementServiceful
         @Published var achievements: [Achievement] = []
 
+        // MARK: - Initializer -
+
         public init(achievementService: AchievementServiceful) {
             self.achievementService = achievementService
         }
     }
 }
 
+// MARK: - Public methods -
+
 extension AchievementsView.ViewModel {
     func getAchievements() {
         achievements = achievementService.getAchievements()
+
+        achievements.forEach { achievement in
+            print(achievement.name)
+            print(achievement.currentValue)
+            print("----------")
+        }
     }
 }

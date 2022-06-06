@@ -257,7 +257,6 @@ struct WritingLettersLevelView: View {
 
                     Button {
                         dismiss()
-                        viewModel.endLevel()
                     } label: {
                         AppImage.nextButtonV2.image
                             .scaledToFit()
