@@ -65,8 +65,6 @@ extension LevelService {
 
                 if areAllLettersUnlocked {
                     level.isLocked = false
-                    print("Unlocking")
-                    print(levels[levels.firstIndex(of: level) ?? 0])
 
                     let userDefaults = UserDefaults.standard
                     userDefaults.set(false, forKey: "isWordsLevelLocked")

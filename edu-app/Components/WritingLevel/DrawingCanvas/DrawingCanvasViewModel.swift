@@ -18,14 +18,9 @@ class DrawingCanvasViewModel {
     var level: Level
     var lastPoint: CGPoint!
     var strokeColor: UIColor = .black
+    var recognizedLetterIndexes: [Int] = []
 
-    // MARK: - Private properties -
-
-    private let levelService: LevelServiceful
-    private let levelValidator: LevelValidatorService = .init()
-    private var points: [CGPoint] = []
-    private var currentLetterOfWordIndex = 0
-    private lazy var strokeManager = StrokeManager(delegate: self)
+    var onWordCorrectWithHints: PassthroughSubject<Void, Never>?
 
     var clearCanvas: AnyPublisher<Void, Never> {
         clearCanvasSubject.eraseToAnyPublisher()
@@ -53,6 +48,11 @@ class DrawingCanvasViewModel {
 
     // MARK: - Private properties -
 
+    private let levelService: LevelServiceful
+    private let levelValidator: LevelValidatorService = .init()
+    private var points: [CGPoint] = []
+    private lazy var strokeManager = StrokeManager(delegate: self)
+
     private var clearCanvasSubject: PassthroughSubject<Void, Never> = .init()
     private var clearLastWordSubject: PassthroughSubject<Void, Never> = .init()
     private var errorNotificationSubject: PassthroughSubject<Void, Never> = .init()
@@ -64,10 +64,14 @@ class DrawingCanvasViewModel {
     // MARK: - Initializer -
 
     public init(level: Level,
-                levelService: LevelServiceful)
+                levelService: LevelServiceful,
+                onWordCorrectWithHints: PassthroughSubject<Void, Never>? = nil)
     {
         self.levelService = levelService
         self.level = level
+        self.onWordCorrectWithHints = onWordCorrectWithHints
+
+        subscribeActions()
     }
 }
 
@@ -88,14 +92,26 @@ extension DrawingCanvasViewModel {
         strokeManager.endStrokeAtPoint(point: lastPoint, t: time)
         points.append(lastPoint)
 
-        successNotificationSubject.send()
-        isAnswerCorrectSubject.send(true)
-
-        return
+//        successNotificationSubject.send()
+//        isAnswerCorrectSubject.send(true)
+//
+//        return
 
         if level.isWord {
+            var currentLetterOfWordIndex: Int?
+            for i in 0 ..< (level.name?.count ?? 0) {
+                print(i)
+
+                if currentLetterOfWordIndex == nil,
+                   !recognizedLetterIndexes.contains(i)
+                {
+                    currentLetterOfWordIndex = i
+                }
+            }
+
             // Words
-            guard let level = levelService.getLevelForName(level.name?[currentLetterOfWordIndex] ?? ""),
+            guard let currentLetterOfWordIndex = currentLetterOfWordIndex,
+                  let level = levelService.getLevelForName(level.name?[currentLetterOfWordIndex] ?? ""),
                   points.count == level.numberOfLines * 2 else { return }
 
             guard levelValidator.isValid(level: level, points: points) else {
@@ -105,7 +121,10 @@ extension DrawingCanvasViewModel {
                 return
             }
 
-            strokeManager.recognizeInk(level: level, onCompletion: onRecognitionCompleted)
+            print("Validating")
+            print(level)
+
+            strokeManager.recognizeInk(level: level, letterIndex: currentLetterOfWordIndex, onCompletion: onRecognitionCompleted)
         } else if points.count == level.numberOfLines * 2 {
             // Letters
             guard levelValidator.isValid(level: level, points: points) else {
@@ -115,20 +134,20 @@ extension DrawingCanvasViewModel {
                 return
             }
 
-            strokeManager.recognizeInk(level: level, onCompletion: onRecognitionCompleted)
+            strokeManager.recognizeInk(level: level, letterIndex: 0, onCompletion: onRecognitionCompleted)
         }
     }
 
-    func onRecognitionCompleted(level: Level, result: String?) {
+    func onRecognitionCompleted(level: Level, letterIndex: Int, result: String?) {
         guard let result = result, let results = level.results else { return }
 
         if results.contains(result) {
-            currentLetterOfWordIndex += 1
             successNotificationSubject.send()
             isAnswerCorrectSubject.send(true)
+            recognizedLetterIndexes.append(letterIndex)
 
-            if self.level.isWord, currentLetterOfWordIndex == (self.level.name?.count ?? 0) {
-                currentLetterOfWordIndex = 0
+            if self.level.isWord, recognizedLetterIndexes.count == (self.level.name?.count ?? -1) {
+                recognizedLetterIndexes = []
                 clearInk()
                 onWordCorrectSubject.send()
             }
@@ -147,6 +166,18 @@ extension DrawingCanvasViewModel {
     func configureLineColor() {
         let lineColor = levelService.getLineColorCode()
         strokeColor = UIColor(hex: lineColor) ?? .black
+    }
+
+    func subscribeActions() {
+        onWordCorrectWithHints?
+            .sink { [weak self] in
+                guard let self = self else { return }
+                self.recognizedLetterIndexes = []
+                self.clearInk()
+                self.onWordCorrectSubject.send()
+                print("TU")
+            }
+            .store(in: &cancellabels)
     }
 }
 

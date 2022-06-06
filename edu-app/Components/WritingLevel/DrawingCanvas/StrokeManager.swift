@@ -141,7 +141,7 @@ class StrokeManager {
      * Actually carries out the recognition. The recognition may happen asynchronously so there's a
      * callback that handles the results when they are ready.
      */
-    func recognizeInk(level: Level, onCompletion: @escaping (Level, String?) -> Void) {
+    func recognizeInk(level: Level, letterIndex: Int, onCompletion: @escaping (Level, Int, String?) -> Void) {
         if strokes.isEmpty {
             print("Strokes are empty")
             return
@@ -185,7 +185,7 @@ class StrokeManager {
 //                    self.delegate?.displayMessage(message: "Recognition error " + String(describing: error))
                 }
 
-                onCompletion(level, recognitionResult)
+                onCompletion(level, letterIndex, recognitionResult)
             }
         )
     }

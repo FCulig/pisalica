@@ -75,7 +75,7 @@ struct WritingWordsView: View {
     var drawingCanvas: some View {
         ZStack {
             letterPlaceholders
-                .padding(.top, isTablet ? 450 : 200)
+                .padding(.top, isTablet ? 300 : 200)
             DrawingCanvasView(viewModel: viewModel.drawingCanvasViewModel)
                 .padding(.leading, isTablet ? 69 : 44)
                 .padding(.trailing, isTablet ? 65 : 40)
@@ -86,11 +86,24 @@ struct WritingWordsView: View {
 
     var letterPlaceholders: some View {
         HStack {
-            ForEach(0 ..< (viewModel.drawingCanvasViewModel.level.name?.count ?? 0), id: \.self) { _ in
-                Rectangle()
-                    .frame(width: isTablet ? 85 : 55, height: 10)
-                    .foregroundColor(.black)
-                    .padding(.trailing, isTablet ? 0 : 10)
+            ForEach(0 ..< viewModel.wordName.count, id: \.self) { i in
+                VStack {
+                    if viewModel.visibleHints[i] == true {
+                        Text(viewModel.wordName[i])
+                            .foregroundColor(.black)
+                            .font(.system(size: isTablet ? 100 : 50).weight(.bold))
+                            .padding(.bottom, isTablet ? -20 : -10)
+                    } else {
+                        Rectangle()
+                            .foregroundColor(.white)
+                            .frame(width: isTablet ? 85 : 55, height: isTablet ? 100 : 51)
+                    }
+
+                    Rectangle()
+                        .frame(width: isTablet ? 90 : 55, height: 10)
+                        .foregroundColor(.black)
+                }
+                .padding(.trailing, isTablet ? 0 : 10)
             }
         }
     }
@@ -112,7 +125,7 @@ struct WritingWordsView: View {
                 coinsBalance
                     .padding(.trailing, -10)
                 Button {
-                    //                    showVideoTutorialDialog = true
+                    viewModel.buyNewHint()
                 } label: {
                     AppImage.hintButton.image
                         .scaledToFit()
