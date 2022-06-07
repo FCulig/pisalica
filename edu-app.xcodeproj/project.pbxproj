@@ -84,6 +84,12 @@
 		4DDFBCB7284933C10079A4E6 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDFBCB6284933C10079A4E6 /* RoundedButton.swift */; };
 		4DE3A5C1281865FD005DF33E /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE3A5C0281865FD005DF33E /* Color.xcassets */; };
 		4DE3A5C328186606005DF33E /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3A5C228186606005DF33E /* AppColor.swift */; };
+		4DF4A330284F5717007A3369 /* J.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4DF4A32A284F5717007A3369 /* J.mp4 */; };
+		4DF4A331284F5717007A3369 /* M.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4DF4A32B284F5717007A3369 /* M.mp4 */; };
+		4DF4A332284F5717007A3369 /* V.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4DF4A32C284F5717007A3369 /* V.mp4 */; };
+		4DF4A333284F5717007A3369 /* U.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4DF4A32D284F5717007A3369 /* U.mp4 */; };
+		4DF4A334284F5717007A3369 /* N.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4DF4A32E284F5717007A3369 /* N.mp4 */; };
+		4DF4A335284F5717007A3369 /* O.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4DF4A32F284F5717007A3369 /* O.mp4 */; };
 		4DF72C88284A9F69000E6627 /* View+ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF72C87284A9F69000E6627 /* View+ViewDidLoadModifier.swift */; };
 		4DFB6716284C9F0B00811BBC /* String+BasicOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB6715284C9F0B00811BBC /* String+BasicOperations.swift */; };
 		770280DB3ADD41D160D343D0 /* Pods_edu_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FE45D2D761336D1E20F680 /* Pods_edu_appTests.framework */; };
@@ -187,6 +193,12 @@
 		4DDFBCB6284933C10079A4E6 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		4DE3A5C0281865FD005DF33E /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		4DE3A5C228186606005DF33E /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		4DF4A32A284F5717007A3369 /* J.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = J.mp4; sourceTree = "<group>"; };
+		4DF4A32B284F5717007A3369 /* M.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = M.mp4; sourceTree = "<group>"; };
+		4DF4A32C284F5717007A3369 /* V.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = V.mp4; sourceTree = "<group>"; };
+		4DF4A32D284F5717007A3369 /* U.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = U.mp4; sourceTree = "<group>"; };
+		4DF4A32E284F5717007A3369 /* N.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = N.mp4; sourceTree = "<group>"; };
+		4DF4A32F284F5717007A3369 /* O.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = O.mp4; sourceTree = "<group>"; };
 		4DF72C87284A9F69000E6627 /* View+ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ViewDidLoadModifier.swift"; sourceTree = "<group>"; };
 		4DFB6715284C9F0B00811BBC /* String+BasicOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+BasicOperations.swift"; sourceTree = "<group>"; };
 		508DF7511ABF05E1233748FE /* Pods-edu-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-appTests.debug.xcconfig"; path = "Target Support Files/Pods-edu-appTests/Pods-edu-appTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -441,6 +453,12 @@
 			children = (
 				4D492224284E61E000BA7B1B /* I.mp4 */,
 				4D492225284E61E000BA7B1B /* L.mp4 */,
+				4DF4A32A284F5717007A3369 /* J.mp4 */,
+				4DF4A32B284F5717007A3369 /* M.mp4 */,
+				4DF4A32E284F5717007A3369 /* N.mp4 */,
+				4DF4A32F284F5717007A3369 /* O.mp4 */,
+				4DF4A32D284F5717007A3369 /* U.mp4 */,
+				4DF4A32C284F5717007A3369 /* V.mp4 */,
 				4D492218284E414600BA7B1B /* B.mp4 */,
 				4D75995E282317FB0093849C /* A.mp4 */,
 			);
@@ -714,9 +732,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DF4A332284F5717007A3369 /* V.mp4 in Resources */,
+				4DF4A331284F5717007A3369 /* M.mp4 in Resources */,
 				4D75995F282317FB0093849C /* A.mp4 in Resources */,
 				4DDF4ECD284CCDBB0040B0D4 /* confetti.json in Resources */,
+				4DF4A330284F5717007A3369 /* J.mp4 in Resources */,
 				4DDC5F66282702A000BDC385 /* Achievements.xcassets in Resources */,
+				4DF4A333284F5717007A3369 /* U.mp4 in Resources */,
 				4D8F5214284B75CF0092DCC3 /* Words.json in Resources */,
 				4D4E05DE280D6B5200569C16 /* Levels.json in Resources */,
 				4DC2D714280AD9FF003CFDD7 /* Levels.xcassets in Resources */,
@@ -728,9 +750,11 @@
 				4D526BCA282A589F00B8FEA3 /* Achievements.json in Resources */,
 				4DE3A5C1281865FD005DF33E /* Color.xcassets in Resources */,
 				4DBD9BBE2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */,
+				4DF4A334284F5717007A3369 /* N.mp4 in Resources */,
 				4DA22D9227D35E6F00634AA8 /* Menus.xcassets in Resources */,
 				4D492226284E61E000BA7B1B /* I.mp4 in Resources */,
 				4D6EC869281DC5B900C70061 /* ShopItems.json in Resources */,
+				4DF4A335284F5717007A3369 /* O.mp4 in Resources */,
 				4D492227284E61E000BA7B1B /* L.mp4 in Resources */,
 				4D75995C282316600093849C /* VideoTutorials.xcassets in Resources */,
 			);

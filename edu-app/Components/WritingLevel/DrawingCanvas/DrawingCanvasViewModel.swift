@@ -92,16 +92,14 @@ extension DrawingCanvasViewModel {
         strokeManager.endStrokeAtPoint(point: lastPoint, t: time)
         points.append(lastPoint)
 
-        successNotificationSubject.send()
-        isAnswerCorrectSubject.send(true)
-
-        return
+//        successNotificationSubject.send()
+//        isAnswerCorrectSubject.send(true)
+//
+//        return
 
         if level.isWord {
             var currentLetterOfWordIndex: Int?
             for i in 0 ..< (level.name?.count ?? 0) {
-                print(i)
-
                 if currentLetterOfWordIndex == nil,
                    !recognizedLetterIndexes.contains(i)
                 {
