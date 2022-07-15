@@ -70,6 +70,7 @@ extension ShopService {
                 items[index].isBought = true
                 updateCoins(amountToBeAdded: -Int(items[index].price))
                 achievementService.updateAchievementProgress(achievementKey: "1_bought_item", valueToBeAdded: 1)
+                achievementService.updateAchievementProgress(achievementKey: "9_bought_item", valueToBeAdded: 1)
             }
 
             try context.save()

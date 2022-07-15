@@ -15,6 +15,7 @@ extension WritingWordsView {
         // MARK: - Private properties -
 
         private let levelService: LevelServiceful
+        private let achievementService: AchievementServiceful
         private var isInitialLoad = true
         private var cancellabels: Set<AnyCancellable> = []
         private var onWordCorrectWithHintsSubject: PassthroughSubject<Void, Never> = .init()
@@ -31,9 +32,10 @@ extension WritingWordsView {
 
         // MARK: - Initializer -
 
-        public init(levelService: LevelServiceful, shopService: ShopServiceful) {
+        public init(levelService: LevelServiceful, shopService: ShopServiceful, achievementService: AchievementServiceful) {
             self.levelService = levelService
             self.shopService = shopService
+            self.achievementService = achievementService
 
             level = Level()
             drawingCanvasViewModel = DrawingCanvasViewModel(level: Level(),
@@ -61,7 +63,20 @@ extension WritingWordsView.ViewModel {
         }
 
         updateCoinsBalanceStatus()
-        if !isInitialLoad { shopService.updateCoins(amountToBeAdded: 5) }
+        if !isInitialLoad {
+            shopService.updateCoins(amountToBeAdded: 5)
+
+            achievementService.updateAchievementProgress(achievementKey: "10_coins", valueToBeAdded: 5)
+            achievementService.updateAchievementProgress(achievementKey: "100_coins", valueToBeAdded: 5)
+
+            achievementService.updateAchievementProgress(achievementKey: "10_correct_words", valueToBeAdded: 1)
+            achievementService.updateAchievementProgress(achievementKey: "100_correct_words", valueToBeAdded: 1)
+
+            guard let name = level.name else { return }
+
+            achievementService.updateAchievementProgress(achievementKey: "10_correct_letters", valueToBeAdded: name.count)
+            achievementService.updateAchievementProgress(achievementKey: "100_correct_letters", valueToBeAdded: name.count)
+        }
     }
 
     func buyNewHint() {

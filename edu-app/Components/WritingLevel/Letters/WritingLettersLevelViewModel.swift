@@ -218,6 +218,10 @@ private extension WritingLettersLevelView.ViewModel {
         }
 
         shopService.updateCoins(amountToBeAdded: totalCoinsReward)
+
+        achievementService.updateAchievementProgress(achievementKey: "10_coins", valueToBeAdded: totalCoinsReward)
+        achievementService.updateAchievementProgress(achievementKey: "100_coins", valueToBeAdded: totalCoinsReward)
+
         endLevel()
     }
 }

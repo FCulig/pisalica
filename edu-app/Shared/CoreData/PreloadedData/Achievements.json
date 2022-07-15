@@ -12,10 +12,28 @@
         "medalImage": "silver-medal"
     },
     {
+        "key": "10_coins",
+        "name": "10 Novčića",
+        "target": 10,
+        "medalImage": "silver-medal"
+    },
+    {
+        "key": "10_correct_words",
+        "name": "10 Točnih riječi",
+        "target": 10,
+        "medalImage": "silver-medal"
+    },
+    {
         "key": "1_bought_item",
         "name": "Prva kupnja",
         "target": 1,
         "medalImage": "silver-medal"
+    },
+    {
+        "key": "100_coins",
+        "name": "100 Novčića",
+        "target": 100,
+        "medalImage": "gold-medal"
     },
     {
         "key": "100_correct_letters",
@@ -27,6 +45,18 @@
         "key": "30_passed_levels",
         "name": "30 Prijeđenih razina",
         "target": 30,
+        "medalImage": "gold-medal"
+    },
+    {
+        "key": "9_bought_item",
+        "name": "Kupi sve u trgovini",
+        "target": 9,
+        "medalImage": "gold-medal"
+    },
+    {
+        "key": "100_correct_words",
+        "name": "100 Točnih riječi",
+        "target": 100,
         "medalImage": "gold-medal"
     }
 ]

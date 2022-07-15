@@ -97,6 +97,24 @@ extension DrawingCanvasViewModel {
 //
 //        return
 
+        let isValid = levelValidator.isValid(level: level, points: points)
+
+        guard isValid else {
+            errorNotificationSubject.send()
+            isAnswerCorrectSubject.send(false)
+            clearInk()
+            return
+        }
+
+        // If all lines are drawn and correct, OCR the ink
+        if points.count == level.numberOfLines * 2 {
+            strokeManager.recognizeInk(level: level, letterIndex: 0, onCompletion: onRecognitionCompleted)
+        } else {
+            // If all lines are not drawn, line is valid, so show success
+            successNotificationSubject.send()
+        }
+
+        return
         if level.isWord {
             var currentLetterOfWordIndex: Int?
             for i in 0 ..< (level.name?.count ?? 0) {

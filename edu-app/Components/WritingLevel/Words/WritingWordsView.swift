@@ -18,8 +18,13 @@ struct WritingWordsView: View {
 
     // MARK: - Initializer -
 
-    public init(levelService: LevelServiceful, shopService: ShopServiceful) {
-        let wrappedViewModel = ViewModel(levelService: levelService, shopService: shopService)
+    public init(levelService: LevelServiceful,
+                shopService: ShopServiceful,
+                achievementService: AchievementServiceful)
+    {
+        let wrappedViewModel = ViewModel(levelService: levelService,
+                                         shopService: shopService,
+                                         achievementService: achievementService)
         _viewModel = StateObject(wrappedValue: wrappedViewModel)
     }
 
@@ -179,6 +184,8 @@ struct WritingWordsView: View {
 
 struct WritingWordsView_Previews: PreviewProvider {
     static var previews: some View {
-        WritingWordsView(levelService: LevelServicePreviewMock(), shopService: ShopServicePreviewMock())
+        WritingWordsView(levelService: LevelServicePreviewMock(),
+                         shopService: ShopServicePreviewMock(),
+                         achievementService: AchievementServicePreviewMock())
     }
 }

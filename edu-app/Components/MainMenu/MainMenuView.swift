@@ -109,8 +109,10 @@ struct MainMenuView: View {
                     .scaledToFit()
                     .frame(height: 100)
             } else {
-                NavigationLink(destination: NavigationLazyView(WritingWordsView(levelService: viewModel.levelService, shopService: viewModel.shopService)),
-                               isActive: $isPlayWordsActive) {
+                NavigationLink(destination: NavigationLazyView(WritingWordsView(levelService: viewModel.levelService,
+                                                                                shopService: viewModel.shopService,
+                                                                                achievementService: viewModel.achievementService)),
+                isActive: $isPlayWordsActive) {
                     Button {
                         viewModel.configureLevelData()
                         isPlayWordsActive = true
