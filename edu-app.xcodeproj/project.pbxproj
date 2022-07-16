@@ -24,6 +24,9 @@
 		4D4E05DC280D663E00569C16 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E05DB280D663E00569C16 /* DataController.swift */; };
 		4D4E05DE280D6B5200569C16 /* Levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4E05DD280D6B5200569C16 /* Levels.json */; };
 		4D4E05ED280D855800569C16 /* DecodableLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4E05EC280D855800569C16 /* DecodableLevel.swift */; };
+		4D51D5652881E98000E2ACDA /* button-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4D51D5642881E98000E2ACDA /* button-tap.mp3 */; };
+		4D51D5672881EA0800E2ACDA /* SoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51D5662881EA0800E2ACDA /* SoundService.swift */; };
+		4D51D5692881ED9E00E2ACDA /* SoundServicePreviewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D51D5682881ED9E00E2ACDA /* SoundServicePreviewMock.swift */; };
 		4D526BC82827D1AE00B8FEA3 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D526BC72827D1AE00B8FEA3 /* ProgressBar.swift */; };
 		4D526BCA282A589F00B8FEA3 /* Achievements.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D526BC9282A589F00B8FEA3 /* Achievements.json */; };
 		4D526BCC282A629300B8FEA3 /* DecodableAchievementItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D526BCB282A629300B8FEA3 /* DecodableAchievementItem.swift */; };
@@ -131,6 +134,9 @@
 		4D4E05DB280D663E00569C16 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		4D4E05DD280D6B5200569C16 /* Levels.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
 		4D4E05EC280D855800569C16 /* DecodableLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableLevel.swift; sourceTree = "<group>"; };
+		4D51D5642881E98000E2ACDA /* button-tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "button-tap.mp3"; sourceTree = "<group>"; };
+		4D51D5662881EA0800E2ACDA /* SoundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundService.swift; sourceTree = "<group>"; };
+		4D51D5682881ED9E00E2ACDA /* SoundServicePreviewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundServicePreviewMock.swift; sourceTree = "<group>"; };
 		4D526BC72827D1AE00B8FEA3 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		4D526BC9282A589F00B8FEA3 /* Achievements.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Achievements.json; sourceTree = "<group>"; };
 		4D526BCB282A629300B8FEA3 /* DecodableAchievementItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableAchievementItem.swift; sourceTree = "<group>"; };
@@ -291,6 +297,30 @@
 			path = PreloadedData;
 			sourceTree = "<group>";
 		};
+		4D51D5612881E8C800E2ACDA /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				4D51D5632881E8F500E2ACDA /* BackgroundMusic */,
+				4D51D5622881E8DC00E2ACDA /* UIInteractions */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		4D51D5622881E8DC00E2ACDA /* UIInteractions */ = {
+			isa = PBXGroup;
+			children = (
+				4D51D5642881E98000E2ACDA /* button-tap.mp3 */,
+			);
+			path = UIInteractions;
+			sourceTree = "<group>";
+		};
+		4D51D5632881E8F500E2ACDA /* BackgroundMusic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BackgroundMusic;
+			sourceTree = "<group>";
+		};
 		4D526BC62827D19D00B8FEA3 /* ProgressBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +442,7 @@
 				4D48B3B7282E55AE0066EAC8 /* LevelService.swift */,
 				4D0FF532282FAC5E0083E06B /* AchievementService.swift */,
 				4D929C7F2834E32600504405 /* ShopService.swift */,
+				4D51D5662881EA0800E2ACDA /* SoundService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -550,6 +581,7 @@
 		4DA22D8F27D35A4900634AA8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4D51D5612881E8C800E2ACDA /* Sound */,
 				4DFB6717284CC48600811BBC /* Animations */,
 				4DE3A5BF281865EA005DF33E /* Colors */,
 				4DA22D9327D35EA400634AA8 /* Visuals */,
@@ -589,6 +621,7 @@
 				4DA637292841668500A6F785 /* CoinsServicePreviewMock.swift */,
 				4DA6372B2841691200A6F785 /* AchievementServicePreviewMock.swift */,
 				4DA6372D28416DA000A6F785 /* LevelServicePreviewMock.swift */,
+				4D51D5682881ED9E00E2ACDA /* SoundServicePreviewMock.swift */,
 			);
 			path = SwiftUIPreviewMocks;
 			sourceTree = "<group>";
@@ -742,6 +775,7 @@
 				4D8F5214284B75CF0092DCC3 /* Words.json in Resources */,
 				4D4E05DE280D6B5200569C16 /* Levels.json in Resources */,
 				4DC2D714280AD9FF003CFDD7 /* Levels.xcassets in Resources */,
+				4D51D5652881E98000E2ACDA /* button-tap.mp3 in Resources */,
 				4D68A64E27BBA3B500997CFF /* Preview Assets.xcassets in Resources */,
 				4D8F5216284B76370092DCC3 /* Words.xcassets in Resources */,
 				4D6EC867281DC32D00C70061 /* Shop.xcassets in Resources */,
@@ -979,6 +1013,7 @@
 				4D2A41572846985B004ED339 /* LevelProgressBarViewModel.swift in Sources */,
 				4D68A64727BBA3B400997CFF /* edu_appApp.swift in Sources */,
 				4D6EC863281D8F6900C70061 /* ShopViewModel.swift in Sources */,
+				4D51D5672881EA0800E2ACDA /* SoundService.swift in Sources */,
 				4D053E9F27F5D32100B3E198 /* RecognizedInk.swift in Sources */,
 				4D8F5219284B76FC0092DCC3 /* Level+CoreDataClass.swift in Sources */,
 				4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */,
@@ -991,6 +1026,7 @@
 				4D053EA827F841A500B3E198 /* Levels.swift in Sources */,
 				4D75A7C1282BA88F0077DE75 /* Achievement+CoreDataProperties.swift in Sources */,
 				4D4E05D8280D640000569C16 /* Game.xcdatamodeld in Sources */,
+				4D51D5692881ED9E00E2ACDA /* SoundServicePreviewMock.swift in Sources */,
 				4D75A7C0282BA88F0077DE75 /* Achievement+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

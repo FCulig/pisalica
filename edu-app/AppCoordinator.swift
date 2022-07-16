@@ -16,12 +16,14 @@ class AppCoordinator {
 
     @MainActor func start(context: NSManagedObjectContext) -> some View {
         let achievementService = AchievementService(context: context)
-        let shopService = ShopService(context: context, achievementService: achievementService)
         let levelService = LevelService(context: context)
+        let shopService = ShopService(context: context, achievementService: achievementService)
+        let soundService = SoundService()
 
         let mainMenuViewModel = MainMenuView.ViewModel(achievementService: achievementService,
                                                        levelService: levelService,
-                                                       shopService: shopService)
+                                                       shopService: shopService,
+                                                       soundService: soundService)
         return MainMenuView(viewModel: mainMenuViewModel)
     }
 }

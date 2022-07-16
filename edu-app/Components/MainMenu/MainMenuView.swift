@@ -94,6 +94,7 @@ struct MainMenuView: View {
             isActive: $isPlayLettersActive) {
                 Button {
                     viewModel.configureLevelData()
+                    viewModel.soundService.playButtonTap()
                     isPlayLettersActive = true
                 } label: {
                     AppImage.lettersButton.image
@@ -165,13 +166,15 @@ struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
         MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
                                       levelService: LevelServicePreviewMock(),
-                                      shopService: ShopServicePreviewMock()))
+                                      shopService: ShopServicePreviewMock(),
+                                      soundService: SoundServicePreviewMock()))
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPhone 13 Pro Max")
 
         MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
                                       levelService: LevelServicePreviewMock(),
-                                      shopService: ShopServicePreviewMock()))
+                                      shopService: ShopServicePreviewMock(),
+                                      soundService: SoundServicePreviewMock()))
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPad Air (5th generation)")
     }
