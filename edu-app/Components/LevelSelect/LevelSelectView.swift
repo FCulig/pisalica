@@ -114,7 +114,7 @@ struct LevelSelectView: View {
             Spacer()
             HStack {
                 if viewModel.showPreviousPageButton {
-                    Button {
+                    SwiftUI.Button {
                         viewModel.previousPage()
                     } label: {
                         AppImage.previousButton.image
@@ -124,7 +124,7 @@ struct LevelSelectView: View {
                 }
                 Spacer()
                 if viewModel.showNextPageButton {
-                    Button {
+                    SwiftUI.Button {
                         viewModel.nextPage()
                     } label: {
                         AppImage.nextButton.image
@@ -140,7 +140,7 @@ struct LevelSelectView: View {
     var backButton: some View {
         HStack {
             VStack(alignment: .leading) {
-                Button {
+                SwiftUI.Button {
                     dismiss()
                 } label: {
                     AppImage.previousButton.image

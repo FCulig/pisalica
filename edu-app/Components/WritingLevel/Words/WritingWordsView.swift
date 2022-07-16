@@ -116,7 +116,7 @@ struct WritingWordsView: View {
     var buttons: some View {
         HStack {
             VStack(alignment: .leading) {
-                Button {
+                SwiftUI.Button {
                     dismiss()
                 } label: {
                     AppImage.previousButton.image
@@ -136,7 +136,7 @@ struct WritingWordsView: View {
                         .padding(.trailing, -10)
                 }
 
-                Button {
+                SwiftUI.Button {
                     viewModel.buyNewHint()
                 } label: {
                     if viewModel.canBuyHint {
@@ -152,7 +152,7 @@ struct WritingWordsView: View {
 
                 Spacer()
 
-                Button {
+                SwiftUI.Button {
                     viewModel.drawingCanvasViewModel.clearInk()
                 } label: {
                     AppImage.trashCanButton.image

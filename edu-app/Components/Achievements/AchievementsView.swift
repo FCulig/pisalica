@@ -65,7 +65,7 @@ struct AchievementsView: View {
     var backButton: some View {
         HStack {
             VStack(alignment: .leading) {
-                Button {
+                SwiftUI.Button {
                     dismiss()
                 } label: {
                     AppImage.previousButton.image

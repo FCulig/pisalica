@@ -121,7 +121,7 @@ struct WritingLettersLevelView: View {
     var buttons: some View {
         HStack {
             VStack(alignment: .leading) {
-                Button {
+                SwiftUI.Button {
                     dismiss()
                 } label: {
                     AppImage.previousButton.image
@@ -132,7 +132,7 @@ struct WritingLettersLevelView: View {
             }
             Spacer()
             VStack(alignment: .trailing) {
-                Button {
+                SwiftUI.Button {
                     showVideoTutorialDialog = true
                 } label: {
                     AppImage.hintButton.image
@@ -159,7 +159,7 @@ struct WritingLettersLevelView: View {
                 }
 
                 Spacer()
-                Button {
+                SwiftUI.Button {
                     viewModel.drawingCanvasViewModel.clearInk()
                 } label: {
                     AppImage.trashCanButton.image
@@ -255,7 +255,7 @@ struct WritingLettersLevelView: View {
                 HStack {
                     Spacer()
 
-                    Button {
+                    SwiftUI.Button {
                         dismiss()
                     } label: {
                         AppImage.nextButtonV2.image

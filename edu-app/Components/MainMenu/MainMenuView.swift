@@ -92,16 +92,14 @@ struct MainMenuView: View {
                                                                            levelService: viewModel.levelService,
                                                                            shopService: viewModel.shopService)),
             isActive: $isPlayLettersActive) {
-                Button {
-                    viewModel.configureLevelData()
-                    viewModel.soundService.playButtonTap()
-                    isPlayLettersActive = true
-                } label: {
-                    AppImage.lettersButton.image
-                        .scaledToFit()
-                }
-                .frame(height: 100)
-                .padding(.trailing, isTablet ? 40 : 25)
+                Button(action: {
+                           viewModel.configureLevelData()
+                           viewModel.soundService.playButtonTap()
+                           isPlayLettersActive = true
+                       },
+                       image: AppImage.lettersButton.image)
+                    .frame(height: 100)
+                    .padding(.trailing, isTablet ? 40 : 25)
             }
 
             // Words
@@ -114,7 +112,7 @@ struct MainMenuView: View {
                                                                                 shopService: viewModel.shopService,
                                                                                 achievementService: viewModel.achievementService)),
                 isActive: $isPlayWordsActive) {
-                    Button {
+                    SwiftUI.Button {
                         viewModel.configureLevelData()
                         isPlayWordsActive = true
                     } label: {
@@ -131,7 +129,7 @@ struct MainMenuView: View {
         HStack {
             NavigationLink(destination: ShopView(viewModel: .init(achievementService: viewModel.achievementService, shopService: viewModel.shopService)),
                            isActive: $isShopActive) {
-                Button {
+                SwiftUI.Button {
                     viewModel.configureShopData()
                     isShopActive = true
                 } label: {
@@ -145,7 +143,7 @@ struct MainMenuView: View {
                 .frame(width: 25)
 
             NavigationLink(destination: AchievementsView(achievementService: viewModel.achievementService), isActive: $isAchievementsActive) {
-                Button {
+                SwiftUI.Button {
                     viewModel.configureAchievementData()
                     isAchievementsActive = true
                 } label: {
