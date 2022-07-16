@@ -16,7 +16,6 @@ extension MainMenuView {
         let achievementService: AchievementServiceful
         let levelService: LevelServiceful
         let shopService: ShopServiceful
-        let soundService: SoundServiceful
 
         @Published var isWordsLocked: Bool = true
 
@@ -24,13 +23,11 @@ extension MainMenuView {
 
         public init(achievementService: AchievementServiceful,
                     levelService: LevelServiceful,
-                    shopService: ShopServiceful,
-                    soundService: SoundServiceful)
+                    shopService: ShopServiceful)
         {
             self.achievementService = achievementService
             self.levelService = levelService
             self.shopService = shopService
-            self.soundService = soundService
 
             configureWordsLevel()
         }

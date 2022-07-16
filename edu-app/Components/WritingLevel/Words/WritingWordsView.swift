@@ -116,13 +116,9 @@ struct WritingWordsView: View {
     var buttons: some View {
         HStack {
             VStack(alignment: .leading) {
-                SwiftUI.Button {
-                    dismiss()
-                } label: {
-                    AppImage.previousButton.image
-                        .aspectRatio(contentMode: .fit)
-                }
-                .frame(height: 70, alignment: .top)
+                Button(action: { dismiss() },
+                       image: AppImage.previousButton.image)
+                    .frame(height: 70, alignment: .top)
                 Spacer()
             }
             Spacer()
@@ -135,6 +131,8 @@ struct WritingWordsView: View {
                     coinsBalance
                         .padding(.trailing, -10)
                 }
+
+                // TODO: Make it better
 
                 SwiftUI.Button {
                     viewModel.buyNewHint()
@@ -152,13 +150,9 @@ struct WritingWordsView: View {
 
                 Spacer()
 
-                SwiftUI.Button {
-                    viewModel.drawingCanvasViewModel.clearInk()
-                } label: {
-                    AppImage.trashCanButton.image
-                        .scaledToFit()
-                        .frame(height: 70, alignment: .top)
-                }
+                Button(action: { viewModel.drawingCanvasViewModel.clearInk() },
+                       image: AppImage.trashCanButton.image)
+                    .frame(height: 70, alignment: .top)
             }
         }
         .padding(.vertical, isTablet ? 30 : 15)

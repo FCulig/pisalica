@@ -121,24 +121,16 @@ struct WritingLettersLevelView: View {
     var buttons: some View {
         HStack {
             VStack(alignment: .leading) {
-                SwiftUI.Button {
-                    dismiss()
-                } label: {
-                    AppImage.previousButton.image
-                        .aspectRatio(contentMode: .fit)
-                }
-                .frame(height: 70, alignment: .top)
+                Button(action: { dismiss() },
+                       image: AppImage.previousButton.image)
+                    .frame(height: 70, alignment: .top)
                 Spacer()
             }
             Spacer()
             VStack(alignment: .trailing) {
-                SwiftUI.Button {
-                    showVideoTutorialDialog = true
-                } label: {
-                    AppImage.hintButton.image
-                        .scaledToFit()
-                        .frame(height: 70, alignment: .top)
-                }
+                Button(action: { showVideoTutorialDialog = true },
+                       image: AppImage.hintButton.image)
+                    .frame(height: 70, alignment: .top)
                 Spacer()
 
                 if isTablet {
@@ -159,13 +151,9 @@ struct WritingLettersLevelView: View {
                 }
 
                 Spacer()
-                SwiftUI.Button {
-                    viewModel.drawingCanvasViewModel.clearInk()
-                } label: {
-                    AppImage.trashCanButton.image
-                        .scaledToFit()
-                        .frame(height: 70, alignment: .top)
-                }
+                Button(action: { viewModel.drawingCanvasViewModel.clearInk() },
+                       image: AppImage.trashCanButton.image)
+                    .frame(height: 70, alignment: .top)
             }
         }
         .padding(.vertical, isTablet ? 30 : 15)
@@ -255,13 +243,9 @@ struct WritingLettersLevelView: View {
                 HStack {
                     Spacer()
 
-                    SwiftUI.Button {
-                        dismiss()
-                    } label: {
-                        AppImage.nextButtonV2.image
-                            .scaledToFit()
-                            .frame(width: 65)
-                    }
+                    Button(action: { dismiss() },
+                           image: AppImage.nextButtonV2.image)
+                        .frame(width: 65)
                 }
                 .padding(.bottom, 220)
             }

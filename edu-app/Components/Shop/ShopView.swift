@@ -67,15 +67,13 @@ struct ShopView: View {
     var backButton: some View {
         HStack {
             VStack(alignment: .leading) {
-                SwiftUI.Button {
-                    dismiss()
-                } label: {
-                    AppImage.previousButton.image
-                        .aspectRatio(contentMode: .fit)
-                }
-                .frame(height: 70, alignment: .top)
-                .padding(.top, 15)
-                .padding(.leading, isTablet ? 15 : 0)
+                Button(action: {
+                           dismiss()
+                       },
+                       image: AppImage.previousButton.image)
+                    .frame(height: 70, alignment: .top)
+                    .padding(.top, 15)
+                    .padding(.leading, isTablet ? 15 : 0)
 
                 Spacer()
             }

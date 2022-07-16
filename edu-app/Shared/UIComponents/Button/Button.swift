@@ -11,6 +11,9 @@ import SwiftUI
 
 /// Custom UI component. Specific to the Pisanka app requirements.
 struct Button: View {
+    // MARK: - Private properties -
+
+//    private let soundService = SoundService()
     private let action: Action
     private let image: Image
 
@@ -26,6 +29,7 @@ struct Button: View {
     var body: some View {
         SwiftUI.Button {
             action()
+            SoundService.shared.playButtonTap()
         } label: {
             image.scaledToFit()
         }

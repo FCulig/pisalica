@@ -94,7 +94,6 @@ struct MainMenuView: View {
             isActive: $isPlayLettersActive) {
                 Button(action: {
                            viewModel.configureLevelData()
-                           viewModel.soundService.playButtonTap()
                            isPlayLettersActive = true
                        },
                        image: AppImage.lettersButton.image)
@@ -112,14 +111,11 @@ struct MainMenuView: View {
                                                                                 shopService: viewModel.shopService,
                                                                                 achievementService: viewModel.achievementService)),
                 isActive: $isPlayWordsActive) {
-                    SwiftUI.Button {
+                    Button(action: {
                         viewModel.configureLevelData()
                         isPlayWordsActive = true
-                    } label: {
-                        AppImage.wordsButton.image
-                            .scaledToFit()
-                    }
-                    .frame(height: 100)
+                    }, image: AppImage.wordsButton.image)
+                        .frame(height: 100)
                 }
             }
         }
@@ -129,28 +125,24 @@ struct MainMenuView: View {
         HStack {
             NavigationLink(destination: ShopView(viewModel: .init(achievementService: viewModel.achievementService, shopService: viewModel.shopService)),
                            isActive: $isShopActive) {
-                SwiftUI.Button {
-                    viewModel.configureShopData()
-                    isShopActive = true
-                } label: {
-                    AppImage.shopButton.image
-                        .scaledToFit()
-                        .frame(width: 65)
-                }
+                Button(action: {
+                           viewModel.configureShopData()
+                           isShopActive = true
+                       },
+                       image: AppImage.shopButton.image)
+                    .frame(width: 65)
             }
 
             Spacer()
                 .frame(width: 25)
 
             NavigationLink(destination: AchievementsView(achievementService: viewModel.achievementService), isActive: $isAchievementsActive) {
-                SwiftUI.Button {
-                    viewModel.configureAchievementData()
-                    isAchievementsActive = true
-                } label: {
-                    AppImage.achievementsButton.image
-                        .scaledToFit()
-                        .frame(width: 65)
-                }
+                Button(action: {
+                           viewModel.configureAchievementData()
+                           isAchievementsActive = true
+                       },
+                       image: AppImage.achievementsButton.image)
+                    .frame(width: 65)
             }
         }
         .padding(.top, 15)
@@ -164,15 +156,13 @@ struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
         MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
                                       levelService: LevelServicePreviewMock(),
-                                      shopService: ShopServicePreviewMock(),
-                                      soundService: SoundServicePreviewMock()))
+                                      shopService: ShopServicePreviewMock()))
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPhone 13 Pro Max")
 
         MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
                                       levelService: LevelServicePreviewMock(),
-                                      shopService: ShopServicePreviewMock(),
-                                      soundService: SoundServicePreviewMock()))
+                                      shopService: ShopServicePreviewMock()))
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPad Air (5th generation)")
     }

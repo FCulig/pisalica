@@ -114,23 +114,15 @@ struct LevelSelectView: View {
             Spacer()
             HStack {
                 if viewModel.showPreviousPageButton {
-                    SwiftUI.Button {
-                        viewModel.previousPage()
-                    } label: {
-                        AppImage.previousButton.image
-                            .aspectRatio(contentMode: .fit)
-                    }
-                    .padding(.leading, isTablet ? 100 : 105)
+                    Button(action: { viewModel.previousPage() },
+                           image: AppImage.previousButton.image)
+                        .padding(.leading, isTablet ? 100 : 105)
                 }
                 Spacer()
                 if viewModel.showNextPageButton {
-                    SwiftUI.Button {
-                        viewModel.nextPage()
-                    } label: {
-                        AppImage.nextButton.image
-                            .aspectRatio(contentMode: .fit)
-                    }
-                    .padding(.trailing, isTablet ? 95 : 100)
+                    Button(action: { viewModel.nextPage() },
+                           image: AppImage.nextButton.image)
+                        .padding(.trailing, isTablet ? 95 : 100)
                 }
             }
             .frame(height: isTablet ? 100 : 70, alignment: .center)
@@ -140,15 +132,11 @@ struct LevelSelectView: View {
     var backButton: some View {
         HStack {
             VStack(alignment: .leading) {
-                SwiftUI.Button {
-                    dismiss()
-                } label: {
-                    AppImage.previousButton.image
-                        .aspectRatio(contentMode: .fit)
-                }
-                .frame(height: 70, alignment: .top)
-                .padding(.top, 15)
-                .padding(.leading, isTablet ? 15 : 0)
+                Button(action: { dismiss() },
+                       image: AppImage.previousButton.image)
+                    .frame(height: 70, alignment: .top)
+                    .padding(.top, 15)
+                    .padding(.leading, isTablet ? 15 : 0)
 
                 Spacer()
             }
