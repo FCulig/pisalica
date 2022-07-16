@@ -20,7 +20,7 @@ protocol ShopServiceful {
 
 // MARK: - CoinsService -
 
-class ShopService: ShopServiceful {
+final class ShopService: ShopServiceful {
     private let context: NSManagedObjectContext
     private let achievementService: AchievementServiceful
 

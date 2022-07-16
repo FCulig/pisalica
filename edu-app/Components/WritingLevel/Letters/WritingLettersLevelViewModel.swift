@@ -12,7 +12,7 @@ import SwiftUI
 // MARK: - WritingLettersLevelView.ViewModel -
 
 extension WritingLettersLevelView {
-    class ViewModel: ObservableObject {
+    final class ViewModel: ObservableObject {
         // MARK: - Private properties -
 
         private let achievementService: AchievementServiceful

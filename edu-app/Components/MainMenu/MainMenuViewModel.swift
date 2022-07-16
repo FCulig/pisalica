@@ -10,7 +10,7 @@ import CoreData
 // MARK: - MainMenuViewModel -
 
 extension MainMenuView {
-    class ViewModel: ObservableObject {
+    final class ViewModel: ObservableObject {
         // MARK: - Public properties -
 
         let achievementService: AchievementServiceful

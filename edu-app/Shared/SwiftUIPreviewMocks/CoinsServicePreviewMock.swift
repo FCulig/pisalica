@@ -7,7 +7,7 @@
 
 // MARK: - ShopServicePreviewMock -
 
-class ShopServicePreviewMock: ShopServiceful {
+final class ShopServicePreviewMock: ShopServiceful {
     var balance: Int {
         return 10
     }

@@ -7,6 +7,6 @@
 
 // MARK: - SoundServicePreviewMock -
 
-class SoundServicePreviewMock: SoundServiceful {
+final class SoundServicePreviewMock: SoundServiceful {
     func playButtonTap() {}
 }

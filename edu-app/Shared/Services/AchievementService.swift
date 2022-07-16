@@ -19,7 +19,7 @@ protocol AchievementServiceful {
 
 // MARK: - AchievementService -
 
-class AchievementService: AchievementServiceful {
+final class AchievementService: AchievementServiceful {
     // MARK: - Private properties -
 
     private let context: NSManagedObjectContext

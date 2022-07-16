@@ -11,7 +11,7 @@ import SwiftUI
 // MARK: - ShopViewViewModel -
 
 extension ShopView {
-    class ViewModel: ObservableObject {
+    final class ViewModel: ObservableObject {
         private let achievementService: AchievementServiceful
         @Published var shopService: ShopServiceful
         @Published var shopItems: [ShopItem] = []

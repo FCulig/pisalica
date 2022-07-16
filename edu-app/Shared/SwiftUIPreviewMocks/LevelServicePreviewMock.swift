@@ -7,7 +7,7 @@
 
 // MARK: - LevelServicePreviewMock -
 
-class LevelServicePreviewMock: LevelServiceful {
+final class LevelServicePreviewMock: LevelServiceful {
     var levels: [Level] = []
 
     func unlockLevelAfter(_: Level) {

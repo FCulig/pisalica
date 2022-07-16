@@ -11,7 +11,7 @@ import Foundation
 // MARK: - AchievementsView.ViewModel -
 
 extension AchievementsView {
-    class ViewModel: ObservableObject {
+    final class ViewModel: ObservableObject {
         private let achievementService: AchievementServiceful
         @Published var achievements: [Achievement] = []
 

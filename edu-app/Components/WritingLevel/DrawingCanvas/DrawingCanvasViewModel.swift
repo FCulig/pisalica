@@ -12,7 +12,7 @@ import UIKit
 
 // MARK: - DrawingCanvasViewModel -
 
-class DrawingCanvasViewModel {
+final class DrawingCanvasViewModel {
     // MARK: - Public properties -
 
     var level: Level

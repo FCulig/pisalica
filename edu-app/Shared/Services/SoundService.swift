@@ -15,7 +15,7 @@ protocol SoundServiceful {
 
 // MARK: - SoundService -
 
-class SoundService: NSObject, AVAudioPlayerDelegate, SoundServiceful {
+final class SoundService: NSObject, AVAudioPlayerDelegate, SoundServiceful {
     var audioPlayer = AVAudioPlayer()
 
     // MARK: - Initializer -

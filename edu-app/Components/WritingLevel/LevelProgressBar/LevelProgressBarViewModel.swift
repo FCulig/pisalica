@@ -11,7 +11,7 @@ import SwiftUI
 // MARK: - LevelProgressBarView.ViewModel -
 
 extension LevelProgressBarView {
-    class ViewModel: ObservableObject {
+    final class ViewModel: ObservableObject {
         // MARK: - Private properties -
 
         private let isTablet: Bool

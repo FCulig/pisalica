@@ -11,7 +11,7 @@ import SwiftUI
 // MARK: - WritingWordsView.ViewModel -
 
 extension WritingWordsView {
-    class ViewModel: ObservableObject {
+    final class ViewModel: ObservableObject {
         // MARK: - Private properties -
 
         private let levelService: LevelServiceful

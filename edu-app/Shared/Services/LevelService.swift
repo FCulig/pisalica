@@ -22,7 +22,7 @@ protocol LevelServiceful {
 
 // MARK: - LevelService -
 
-class LevelService: LevelServiceful {
+final class LevelService: LevelServiceful {
     // MARK: - Private properties -
 
     private let context: NSManagedObjectContext

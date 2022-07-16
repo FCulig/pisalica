@@ -10,7 +10,7 @@ import Foundation
 // MARK: - LevelSelectView.ViewModel -
 
 extension LevelSelectView {
-    class ViewModel: ObservableObject {
+    final class ViewModel: ObservableObject {
         let achievementService: AchievementServiceful
         let shopService: ShopServiceful
         var levelService: LevelServiceful

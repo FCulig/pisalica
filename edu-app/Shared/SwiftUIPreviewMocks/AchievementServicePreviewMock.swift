@@ -7,7 +7,7 @@
 
 // MARK: - AchievementServicePreviewMock -
 
-class AchievementServicePreviewMock: AchievementServiceful {
+final class AchievementServicePreviewMock: AchievementServiceful {
     var achievements: [Achievement] {
         []
     }

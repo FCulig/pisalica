@@ -11,7 +11,7 @@ import SwiftUI
 
 // MARK: - AppCoordinator -
 
-class AppCoordinator {
+final class AppCoordinator {
     // MARK: - Start -
 
     @MainActor func start(context: NSManagedObjectContext) -> some View {

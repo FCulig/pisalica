@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - LevelValidatorService -
 
-class LevelValidatorService {
+final class LevelValidatorService {
     public init() {}
 
     func isValid(level: Level, points: [CGPoint]) -> Bool {
