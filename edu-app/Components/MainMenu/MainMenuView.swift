@@ -77,6 +77,7 @@ struct MainMenuView: View {
                 }
             }
         }
+        .onAppear { BackgroundMusicService.shared.start() }
     }
 
     var appLogo: some View {

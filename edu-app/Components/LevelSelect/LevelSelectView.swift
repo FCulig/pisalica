@@ -68,6 +68,7 @@ struct LevelSelectView: View {
             coinsBalance
             backButton
         }
+        .onAppear { BackgroundMusicService.shared.start() }
     }
 
     var levelSelectPanel: some View {

@@ -59,7 +59,10 @@ struct WritingWordsView: View {
             drawingCanvasContainer
             buttons
         }
-        .onLoad { viewModel.drawingCanvasViewModel.configureLineColor() }
+        .onAppear {
+            BackgroundMusicService.shared.pause()
+            viewModel.drawingCanvasViewModel.configureLineColor()
+        }
     }
 
     var drawingCanvasContainer: some View {

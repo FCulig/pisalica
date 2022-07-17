@@ -75,7 +75,10 @@ struct WritingLettersLevelView: View {
         }
         .overlay(videoTutorialDialog)
         .overlay(gameOverDialog)
-        .onLoad { viewModel.drawingCanvasViewModel.configureLineColor() }
+        .onAppear {
+            BackgroundMusicService.shared.pause()
+            viewModel.drawingCanvasViewModel.configureLineColor()
+        }
     }
 
     var drawingCanvasContainer: some View {
