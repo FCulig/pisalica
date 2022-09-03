@@ -97,33 +97,73 @@ private extension LevelValidatorService {
     }
 
     func validateB(points: [CGPoint]) -> Bool {
-        return points[0].y < points[1].y && areCloseXAxis(firstPoint: points[0], secondPoint: points[1]) && areClose(firstPoint: points[0], secondPoint: points[2])
-            && areClose(firstPoint: points[3], secondPoint: points[4]) && areClose(firstPoint: points[1], secondPoint: points[5])
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = points[0].y < points[1].y && areCloseXAxis(firstPoint: points[0], secondPoint: points[1])
+
+        guard points.count >= 4 else { return currentValidationResult }
+        currentValidationResult = areClose(firstPoint: points[0], secondPoint: points[2])
+
+        guard points.count >= 6 else { return currentValidationResult }
+        return areClose(firstPoint: points[3], secondPoint: points[4]) && areClose(firstPoint: points[1], secondPoint: points[5])
     }
 
     func validateC(points: [CGPoint]) -> Bool {
+        guard points.count >= 2 else { return false }
         return points[0].y < points[1].y && areCloseXAxis(firstPoint: points[0], secondPoint: points[1])
     }
 
     func validateMekoC(points: [CGPoint]) -> Bool {
-        return validateC(points: [points[0], points[1]]) && points[2].x < points[3].x && points[2].y > points[3].y
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = validateC(points: [points[0], points[1]])
+
+        guard points.count >= 4 else { return currentValidationResult }
+        return points[2].x < points[3].x && points[2].y > points[3].y
     }
 
     func validateTvrdoC(points: [CGPoint]) -> Bool {
-        return validateC(points: [points[0], points[1]]) && areCloseYAxis(firstPoint: points[2], secondPoint: points[3]) && points[2].x < points[3].x
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = validateC(points: [points[0], points[1]])
+
+        guard points.count >= 4 else { return currentValidationResult }
+        return areCloseYAxis(firstPoint: points[2], secondPoint: points[3]) && points[2].x < points[3].x
     }
 
     func validateD(points: [CGPoint]) -> Bool {
-        return areCloseXAxis(firstPoint: points[0], secondPoint: points[1]) && areCloseXAxis(firstPoint: points[2], secondPoint: points[3]) &&
-            areClose(firstPoint: points[0], secondPoint: points[2]) && areClose(firstPoint: points[1], secondPoint: points[3])
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = areCloseXAxis(firstPoint: points[0], secondPoint: points[1])
+
+        guard points.count >= 4 else { return currentValidationResult }
+        return areCloseXAxis(firstPoint: points[2], secondPoint: points[3]) &&
+            areClose(firstPoint: points[0], secondPoint: points[2]) &&
+            areClose(firstPoint: points[1], secondPoint: points[3])
     }
 
     func validateMekoD(points: [CGPoint]) -> Bool {
-        return validateD(points: points) && areCloseYAxis(firstPoint: points[4], secondPoint: points[5]) && points[4].x < points[5].x
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = validateD(points: points)
+
+        guard points.count >= 6 else { return currentValidationResult }
+        return areCloseYAxis(firstPoint: points[4], secondPoint: points[5]) && points[4].x < points[5].x
     }
 
     func validateDZ(points: [CGPoint]) -> Bool {
-        return validateD(points: points) && validateZh(points: Array(points[4 ..< points.count]))
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = validateD(points: points)
+
+        guard points.count >= 6 else { return currentValidationResult }
+        return validateZh(points: Array(points[4 ..< points.count]))
     }
 
     func validateE(points: [CGPoint]) -> Bool {
@@ -143,18 +183,34 @@ private extension LevelValidatorService {
     }
 
     func validateF(points: [CGPoint]) -> Bool {
-        return areCloseXAxis(firstPoint: points[0], secondPoint: points[1]) && points[0].y < points[1].y && areClose(firstPoint: points[0], secondPoint: points[2])
-            && points[2].x < points[3].x && areCloseYAxis(firstPoint: points[2], secondPoint: points[3]) && areCloseXAxis(firstPoint: points[2], secondPoint: points[4])
-            && points[4].x < points[5].x && areCloseYAxis(firstPoint: points[4], secondPoint: points[5])
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = areCloseXAxis(firstPoint: points[0], secondPoint: points[1]) && points[0].y < points[1].y
+
+        guard points.count >= 4 else { return currentValidationResult }
+        currentValidationResult = areClose(firstPoint: points[0], secondPoint: points[2]) && points[2].x < points[3].x && areCloseYAxis(firstPoint: points[2], secondPoint: points[3])
+
+        guard points.count >= 6 else { return currentValidationResult }
+        return areCloseXAxis(firstPoint: points[2], secondPoint: points[4]) && points[4].x < points[5].x && areCloseYAxis(firstPoint: points[4], secondPoint: points[5])
     }
 
     func validateG(points: [CGPoint]) -> Bool {
+        guard points.count >= 2 else { return false }
         return points[0].x > points[1].x && points[0].y < points[1].y
     }
 
     func validateH(points: [CGPoint]) -> Bool {
-        return areCloseXAxis(firstPoint: points[0], secondPoint: points[1]) && areCloseXAxis(firstPoint: points[2], secondPoint: points[3])
-            && areCloseYAxis(firstPoint: points[4], secondPoint: points[5]) && points[1].y > points[0].y && points[2].y < points[3].y && points[4].x < points[5].x
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = areCloseXAxis(firstPoint: points[0], secondPoint: points[1]) && points[1].y > points[0].y
+
+        guard points.count >= 4 else { return currentValidationResult }
+        currentValidationResult = areCloseXAxis(firstPoint: points[2], secondPoint: points[3]) && points[2].y < points[3].y
+
+        guard points.count >= 6 else { return currentValidationResult }
+        return areCloseYAxis(firstPoint: points[4], secondPoint: points[5]) && points[4].x < points[5].x
     }
 
     func validateI(points: [CGPoint]) -> Bool {
@@ -166,8 +222,16 @@ private extension LevelValidatorService {
     }
 
     func validateK(points: [CGPoint]) -> Bool {
-        return areCloseXAxis(firstPoint: points[0], secondPoint: points[1]) && points[1].y > points[0].y && points[2].x < points[3].x && points[2].y > points[3].y
-            && points[4].x < points[5].x && points[4].y < points[5].y
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = areCloseXAxis(firstPoint: points[0], secondPoint: points[1]) && points[1].y > points[0].y
+
+        guard points.count >= 4 else { return currentValidationResult }
+        currentValidationResult = points[2].x < points[3].x && points[2].y > points[3].y
+
+        guard points.count >= 6 else { return currentValidationResult }
+        return points[4].x < points[5].x && points[4].y < points[5].y
     }
 
     func validateL(points: [CGPoint]) -> Bool {
@@ -181,7 +245,13 @@ private extension LevelValidatorService {
     }
 
     func validateLJ(points: [CGPoint]) -> Bool {
-        return validateL(points: points) && validateJ(points: [points[4], points[5]])
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = validateL(points: points)
+
+        guard points.count >= 6 else { return currentValidationResult }
+        return validateJ(points: [points[4], points[5]])
     }
 
     func validateM(points: [CGPoint]) -> Bool {
@@ -211,7 +281,13 @@ private extension LevelValidatorService {
     }
 
     func validateNJ(points: [CGPoint]) -> Bool {
-        return validateN(points: points) && validateJ(points: [points[6], points[7]])
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = validateN(points: points)
+
+        guard points.count >= 8 else { return currentValidationResult }
+        return validateJ(points: [points[6], points[7]])
     }
 
     func validateO(points: [CGPoint]) -> Bool {
@@ -219,12 +295,26 @@ private extension LevelValidatorService {
     }
 
     func validateP(points: [CGPoint]) -> Bool {
-        return areCloseXAxis(firstPoint: points[0], secondPoint: points[1]) && points[1].y > points[0].y
-            && areClose(firstPoint: points[0], secondPoint: points[2])
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = areCloseXAxis(firstPoint: points[0], secondPoint: points[1]) && points[1].y > points[0].y
+
+        guard points.count >= 4 else { return currentValidationResult }
+        return areClose(firstPoint: points[0], secondPoint: points[2])
     }
 
     func validateR(points: [CGPoint]) -> Bool {
-        return validateP(points: points) && points[4].x < points[5].x && points[4].y < points[5].y
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = validateP(points: points)
+
+        guard points.count >= 4 else { return currentValidationResult }
+        currentValidationResult = validateP(points: points)
+
+        guard points.count >= 6 else { return currentValidationResult }
+        return points[4].x < points[5].x && points[4].y < points[5].y
     }
 
     func validateS(points: [CGPoint]) -> Bool {
@@ -242,8 +332,13 @@ private extension LevelValidatorService {
     }
 
     func validateT(points: [CGPoint]) -> Bool {
-        return areCloseXAxis(firstPoint: points[0], secondPoint: points[1]) && points[1].y > points[0].y
-            && points[2].x < points[3].x && areCloseYAxis(firstPoint: points[2], secondPoint: points[3])
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = areCloseXAxis(firstPoint: points[0], secondPoint: points[1]) && points[1].y > points[0].y
+
+        guard points.count >= 4 else { return currentValidationResult }
+        return points[2].x < points[3].x && areCloseYAxis(firstPoint: points[2], secondPoint: points[3])
     }
 
     func validateU(points: [CGPoint]) -> Bool {
@@ -261,12 +356,26 @@ private extension LevelValidatorService {
     }
 
     func validateZ(points: [CGPoint]) -> Bool {
-        return areCloseYAxis(firstPoint: points[0], secondPoint: points[1]) && areClose(firstPoint: points[1], secondPoint: points[2]) &&
-            areClose(firstPoint: points[3], secondPoint: points[4])
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = areCloseYAxis(firstPoint: points[0], secondPoint: points[1])
+
+        guard points.count >= 4 else { return currentValidationResult }
+        currentValidationResult = areClose(firstPoint: points[1], secondPoint: points[2])
+
+        guard points.count >= 6 else { return currentValidationResult }
+        return areClose(firstPoint: points[3], secondPoint: points[4])
     }
 
     func validateZh(points: [CGPoint]) -> Bool {
-        return validateZ(points: points) && areCloseYAxis(firstPoint: points[6], secondPoint: points[7]) && points[6].x < points[7].x
+        var currentValidationResult = false
+
+        guard points.count >= 2 else { return currentValidationResult }
+        currentValidationResult = validateZ(points: points)
+
+        guard points.count >= 8 else { return currentValidationResult }
+        return areCloseYAxis(firstPoint: points[6], secondPoint: points[7]) && points[6].x < points[7].x
     }
 }
 
