@@ -445,14 +445,8 @@
 		4D68A67427BBCC9C00997CFF /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				4D302E7E2847EBAD008C913C /* Button */,
-				4D526BC62827D19D00B8FEA3 /* ProgressBar */,
-				4DB939072826FDB900883CD5 /* Achievements */,
-				4D87C9FB28267187002EFB8D /* VideoPlayer */,
-				4D6EC85F281D8F4400C70061 /* Shop */,
-				4D85A69027E74220008FA08D /* WritingLevel */,
-				4D68A67E27BCF3F000997CFF /* LevelSelect */,
-				4D68A67527BBCCA500997CFF /* MainMenu */,
+				4D80D3F028C3566600F09F2B /* Screens */,
+				4D80D3EF28C3565700F09F2B /* UIComponents */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -571,6 +565,28 @@
 				4D526BCB282A629300B8FEA3 /* DecodableAchievementItem.swift */,
 			);
 			path = Decodables;
+			sourceTree = "<group>";
+		};
+		4D80D3EF28C3565700F09F2B /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				4D526BC62827D19D00B8FEA3 /* ProgressBar */,
+				4D302E7E2847EBAD008C913C /* Button */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		4D80D3F028C3566600F09F2B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4DB939072826FDB900883CD5 /* Achievements */,
+				4D87C9FB28267187002EFB8D /* VideoPlayer */,
+				4D6EC85F281D8F4400C70061 /* Shop */,
+				4D85A69027E74220008FA08D /* WritingLevel */,
+				4D68A67E27BCF3F000997CFF /* LevelSelect */,
+				4D68A67527BBCCA500997CFF /* MainMenu */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		4D84C54D28454FB200D5BC57 /* LevelProgressBar */ = {
