@@ -51,6 +51,9 @@ enum AppImage {
     case zoomInButton
     case zoomOutButton
     case pointer
+    case settingsButton
+    case soundOn
+    case soundOff
 
     var image: Image {
         switch self {
@@ -138,6 +141,12 @@ enum AppImage {
             return Image("zoom-out-button").resizable()
         case .pointer:
             return Image("pointer").resizable()
+        case .settingsButton:
+            return Image("settings-button").resizable()
+        case .soundOn:
+            return Image("sound-on-button").resizable()
+        case .soundOff:
+            return Image("sound-off-button").resizable()
         }
     }
 }

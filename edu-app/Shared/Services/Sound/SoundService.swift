@@ -19,8 +19,7 @@ final class SoundService: NSObject, AVAudioPlayerDelegate, SoundServiceful {
     static let shared = SoundService()
 
     var audioPlayer = AVAudioPlayer()
-
-    // MARK: - Initializer -
+    private let settingsService: SettingsService = .init()
 }
 
 // MARK: - Public methods -
@@ -35,7 +34,7 @@ extension SoundService {
 
 private extension SoundService {
     func play(sound: String, type: String = "mp3") {
-        if let path = Bundle.main.path(forResource: sound, ofType: type) {
+        if let path = Bundle.main.path(forResource: sound, ofType: type), !settingsService.isSoundEffectMuted {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
                 audioPlayer.play()

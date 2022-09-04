@@ -18,10 +18,12 @@ final class AppCoordinator {
         let achievementService = AchievementService(context: context)
         let levelService = LevelService(context: context)
         let shopService = ShopService(context: context, achievementService: achievementService)
+        let settingsService = SettingsService()
 
         let mainMenuViewModel = MainMenuView.ViewModel(achievementService: achievementService,
                                                        levelService: levelService,
-                                                       shopService: shopService)
+                                                       shopService: shopService,
+                                                       settingsService: settingsService)
         return MainMenuView(viewModel: mainMenuViewModel)
     }
 }

@@ -5,7 +5,6 @@
 //  Created by Filip Culig on 07.05.2022..
 //
 
-import CoreData
 import Foundation
 
 // MARK: - AchievementsView.ViewModel -

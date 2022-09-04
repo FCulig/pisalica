@@ -19,6 +19,7 @@ struct MainMenuView: View {
     @State var isPlayLettersActive = false
     @State var isShopActive = false
     @State var isAchievementsActive = false
+    @State var isShowingSettings: Bool = false
 
     // MARK: - Initializer -
 
@@ -64,12 +65,15 @@ struct MainMenuView: View {
             HStack {
                 Spacer()
                 VStack {
-//                    appLogo
                     playButtons
                 }
                 Spacer()
             }
             HStack {
+                VStack {
+                    settingsButton
+                    Spacer()
+                }
                 Spacer()
                 VStack {
                     shopAndAchievementsButtons
@@ -77,6 +81,7 @@ struct MainMenuView: View {
                 }
             }
         }
+        .overlay(settingsDialog)
         .onAppear { BackgroundMusicService.shared.start() }
     }
 
@@ -122,6 +127,14 @@ struct MainMenuView: View {
         }
     }
 
+    var settingsButton: some View {
+        Button(action: { isShowingSettings = true },
+               image: AppImage.settingsButton.image)
+            .frame(width: 65)
+            .padding(.top, 15)
+            .padding(.leading, isTablet ? 15 : 0)
+    }
+
     var shopAndAchievementsButtons: some View {
         HStack {
             NavigationLink(destination: ShopView(viewModel: .init(achievementService: viewModel.achievementService, shopService: viewModel.shopService)),
@@ -149,6 +162,21 @@ struct MainMenuView: View {
         .padding(.top, 15)
         .padding(.trailing, isTablet ? 15 : 0)
     }
+
+    var settingsDialog: some View {
+        ZStack {
+            if isShowingSettings {
+                Rectangle()
+                    .ignoresSafeArea()
+                    .scaledToFill()
+                    .foregroundColor(.black.opacity(0.85))
+                    .onTapGesture {
+                        isShowingSettings = false
+                    }
+                SettingsView(viewModel: .init(settingsService: viewModel.settingsService))
+            }
+        }
+    }
 }
 
 // MARK: - Preview -
@@ -157,13 +185,15 @@ struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
         MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
                                       levelService: LevelServicePreviewMock(),
-                                      shopService: ShopServicePreviewMock()))
+                                      shopService: ShopServicePreviewMock(),
+                                      settingsService: SettingsServicePreviewMock()))
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPhone 13 Pro Max")
 
         MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
                                       levelService: LevelServicePreviewMock(),
-                                      shopService: ShopServicePreviewMock()))
+                                      shopService: ShopServicePreviewMock(),
+                                      settingsService: SettingsServicePreviewMock()))
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPad Air (5th generation)")
     }

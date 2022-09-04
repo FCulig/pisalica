@@ -61,6 +61,8 @@
 		4D75A7C0282BA88F0077DE75 /* Achievement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7BE282BA88F0077DE75 /* Achievement+CoreDataClass.swift */; };
 		4D75A7C1282BA88F0077DE75 /* Achievement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7BF282BA88F0077DE75 /* Achievement+CoreDataProperties.swift */; };
 		4D75A7C9282C42F10077DE75 /* WritingLettersLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7C8282C42F10077DE75 /* WritingLettersLevelViewModel.swift */; };
+		4D80D3F328C3570E00F09F2B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80D3F228C3570E00F09F2B /* SettingsViewModel.swift */; };
+		4D80D3F528C3571B00F09F2B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80D3F428C3571B00F09F2B /* SettingsView.swift */; };
 		4D84C55128454FD100D5BC57 /* LevelProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */; };
 		4D84C5532845DAE700D5BC57 /* View+BlinkModigier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84C5522845DAE700D5BC57 /* View+BlinkModigier.swift */; };
 		4D85A69627E7425E008FA08D /* WritingLettersLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69527E7425E008FA08D /* WritingLettersLevelView.swift */; };
@@ -104,6 +106,8 @@
 		4DF4A334284F5717007A3369 /* N.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4DF4A32E284F5717007A3369 /* N.mp4 */; };
 		4DF4A335284F5717007A3369 /* O.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4DF4A32F284F5717007A3369 /* O.mp4 */; };
 		4DF72C88284A9F69000E6627 /* View+ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF72C87284A9F69000E6627 /* View+ViewDidLoadModifier.swift */; };
+		4DFA953428C3E193004505A7 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA953328C3E193004505A7 /* SettingsService.swift */; };
+		4DFA953628C3EA43004505A7 /* SettingsServicePreviewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA953528C3EA43004505A7 /* SettingsServicePreviewMock.swift */; };
 		4DFB6716284C9F0B00811BBC /* String+BasicOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB6715284C9F0B00811BBC /* String+BasicOperations.swift */; };
 		770280DB3ADD41D160D343D0 /* Pods_edu_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FE45D2D761336D1E20F680 /* Pods_edu_appTests.framework */; };
 		CE6057688EDAC47FFFE31411 /* Pods_edu_app_edu_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D995C41732B6E79E60A49DA /* Pods_edu_app_edu_appUITests.framework */; };
@@ -184,6 +188,8 @@
 		4D75A7BE282BA88F0077DE75 /* Achievement+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Achievement+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4D75A7BF282BA88F0077DE75 /* Achievement+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Achievement+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D75A7C8282C42F10077DE75 /* WritingLettersLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLettersLevelViewModel.swift; sourceTree = "<group>"; };
+		4D80D3F228C3570E00F09F2B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		4D80D3F428C3571B00F09F2B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressBarView.swift; sourceTree = "<group>"; };
 		4D84C5522845DAE700D5BC57 /* View+BlinkModigier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+BlinkModigier.swift"; sourceTree = "<group>"; };
 		4D85A69527E7425E008FA08D /* WritingLettersLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLettersLevelView.swift; sourceTree = "<group>"; };
@@ -226,6 +232,8 @@
 		4DF4A32E284F5717007A3369 /* N.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = N.mp4; sourceTree = "<group>"; };
 		4DF4A32F284F5717007A3369 /* O.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = O.mp4; sourceTree = "<group>"; };
 		4DF72C87284A9F69000E6627 /* View+ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ViewDidLoadModifier.swift"; sourceTree = "<group>"; };
+		4DFA953328C3E193004505A7 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		4DFA953528C3EA43004505A7 /* SettingsServicePreviewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServicePreviewMock.swift; sourceTree = "<group>"; };
 		4DFB6715284C9F0B00811BBC /* String+BasicOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+BasicOperations.swift"; sourceTree = "<group>"; };
 		508DF7511ABF05E1233748FE /* Pods-edu-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-appTests.debug.xcconfig"; path = "Target Support Files/Pods-edu-appTests/Pods-edu-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DDC9428A46152CF28E54AE3 /* Pods-edu-app-edu-appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-app-edu-appUITests.debug.xcconfig"; path = "Target Support Files/Pods-edu-app-edu-appUITests/Pods-edu-app-edu-appUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -490,6 +498,7 @@
 				4D48B3B7282E55AE0066EAC8 /* LevelService.swift */,
 				4D0FF532282FAC5E0083E06B /* AchievementService.swift */,
 				4D929C7F2834E32600504405 /* ShopService.swift */,
+				4DFA953328C3E193004505A7 /* SettingsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -579,6 +588,7 @@
 		4D80D3F028C3566600F09F2B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				4D80D3F128C356FC00F09F2B /* Settings */,
 				4DB939072826FDB900883CD5 /* Achievements */,
 				4D87C9FB28267187002EFB8D /* VideoPlayer */,
 				4D6EC85F281D8F4400C70061 /* Shop */,
@@ -587,6 +597,15 @@
 				4D68A67527BBCCA500997CFF /* MainMenu */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		4D80D3F128C356FC00F09F2B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4D80D3F228C3570E00F09F2B /* SettingsViewModel.swift */,
+				4D80D3F428C3571B00F09F2B /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		4D84C54D28454FB200D5BC57 /* LevelProgressBar */ = {
@@ -692,6 +711,7 @@
 				4DA6372B2841691200A6F785 /* AchievementServicePreviewMock.swift */,
 				4DA6372D28416DA000A6F785 /* LevelServicePreviewMock.swift */,
 				4D51D5682881ED9E00E2ACDA /* SoundServicePreviewMock.swift */,
+				4DFA953528C3EA43004505A7 /* SettingsServicePreviewMock.swift */,
 			);
 			path = SwiftUIPreviewMocks;
 			sourceTree = "<group>";
@@ -1053,6 +1073,7 @@
 				4D053E9D27F5D30200B3E198 /* StrokeManager.swift in Sources */,
 				4DC73FCA2835127C004FD1A0 /* ShopItem+CoreDataProperties.swift in Sources */,
 				4D572A6528848A9F002AEA9E /* BackgroundMusicService.swift in Sources */,
+				4DFA953428C3E193004505A7 /* SettingsService.swift in Sources */,
 				4DDC5F602826FE0200BDC385 /* AchievementsView.swift in Sources */,
 				4DB939022826A12D00883CD5 /* NavigationLazyView.swift in Sources */,
 				4D75A7C9282C42F10077DE75 /* WritingLettersLevelViewModel.swift in Sources */,
@@ -1077,6 +1098,7 @@
 				4D526BCC282A629300B8FEA3 /* DecodableAchievementItem.swift in Sources */,
 				4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */,
 				4D51D5712882D37600E2ACDA /* TypeAliases.swift in Sources */,
+				4D80D3F528C3571B00F09F2B /* SettingsView.swift in Sources */,
 				4D0FF533282FAC5E0083E06B /* AchievementService.swift in Sources */,
 				4D526BC82827D1AE00B8FEA3 /* ProgressBar.swift in Sources */,
 				4D85A69627E7425E008FA08D /* WritingLettersLevelView.swift in Sources */,
@@ -1084,6 +1106,7 @@
 				4DFB6716284C9F0B00811BBC /* String+BasicOperations.swift in Sources */,
 				4DF72C88284A9F69000E6627 /* View+ViewDidLoadModifier.swift in Sources */,
 				4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */,
+				4D80D3F328C3570E00F09F2B /* SettingsViewModel.swift in Sources */,
 				4D87C9FF28267750002EFB8D /* PlayerUIView.swift in Sources */,
 				4DDC5F642827024500BDC385 /* AchievementItemView.swift in Sources */,
 				4DA6372A2841668500A6F785 /* CoinsServicePreviewMock.swift in Sources */,
@@ -1102,6 +1125,7 @@
 				4D8F5210284B584E0092DCC3 /* WritingWordsView.swift in Sources */,
 				4D053EA327F7844800B3E198 /* DrawingCanvasViewModel.swift in Sources */,
 				4DA6372C2841691200A6F785 /* AchievementServicePreviewMock.swift in Sources */,
+				4DFA953628C3EA43004505A7 /* SettingsServicePreviewMock.swift in Sources */,
 				4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */,
 				4D053EA827F841A500B3E198 /* Levels.swift in Sources */,
 				4D75A7C1282BA88F0077DE75 /* Achievement+CoreDataProperties.swift in Sources */,
