@@ -126,6 +126,7 @@ private extension WritingLettersLevelView.ViewModel {
         shouldHighlightCanvasButton.send(false)
         shouldHighlightOutlineButton.send(false)
 
+        // If we want negative points
         guard wasAnswerCorrect else {
 //            var newScore = currentScore
 //

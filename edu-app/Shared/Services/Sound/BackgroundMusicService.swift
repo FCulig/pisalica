@@ -48,7 +48,7 @@ private extension BackgroundMusicService {
         if let path = Bundle.main.path(forResource: sound, ofType: type), !settingsService.isMusicMuted {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-                audioPlayer.play()
+//                audioPlayer.play()
             } catch {
                 print("ERROR while playing background music")
             }

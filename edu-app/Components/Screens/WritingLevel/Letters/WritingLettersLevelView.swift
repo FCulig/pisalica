@@ -164,6 +164,8 @@ struct WritingLettersLevelView: View {
         .padding(.trailing, isTablet ? 15 : 0)
     }
 
+    // MARK: - Video dialog -
+
     var videoTutorialDialog: some View {
         ZStack {
             if showVideoTutorialDialog {
@@ -202,6 +204,8 @@ struct WritingLettersLevelView: View {
             }
         }
     }
+
+    // MARK: - Game over dialog -
 
     var gameOverDialog: some View {
         ZStack {

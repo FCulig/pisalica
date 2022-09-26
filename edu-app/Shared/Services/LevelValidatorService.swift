@@ -387,10 +387,10 @@ private extension LevelValidatorService {
     }
 
     func areCloseYAxis(firstPoint: CGPoint, secondPoint: CGPoint) -> Bool {
-        return abs(firstPoint.y - secondPoint.y) < 10
+        return abs(firstPoint.y - secondPoint.y) < 15
     }
 
     func areCloseXAxis(firstPoint: CGPoint, secondPoint: CGPoint) -> Bool {
-        return abs(firstPoint.x - secondPoint.x) < 10
+        return abs(firstPoint.x - secondPoint.x) < 15
     }
 }

@@ -152,10 +152,6 @@ struct WritingWordsView: View {
                 }
 
                 Spacer()
-
-                Button(action: { viewModel.drawingCanvasViewModel.clearInk() },
-                       image: AppImage.trashCanButton.image)
-                    .frame(height: 70, alignment: .top)
             }
         }
         .padding(.vertical, isTablet ? 30 : 15)
