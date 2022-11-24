@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>288195865523-13vvunk2roi0eng9686cqd4p93tbeom8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.288195865523-13vvunk2roi0eng9686cqd4p93tbeom8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAhek5_ikf6oWyBmKAbSKDC2ZjWF4pc7ZU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>288195865523</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.filip.culig.edu-app</string>
+	<key>PROJECT_ID</key>
+	<string>pisanka-5ae9d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pisanka-5ae9d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:288195865523:ios:53a168042c64d4b526f9c6</string>
+</dict>
+</plist>

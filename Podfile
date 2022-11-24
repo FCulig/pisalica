@@ -7,6 +7,7 @@ target 'edu-app' do
 
   # Pods for edu-app
 
+  pod 'FirebaseAnalytics'
   pod 'GoogleMLKit/DigitalInkRecognition', '2.6.0'
   pod 'lottie-ios'
 
