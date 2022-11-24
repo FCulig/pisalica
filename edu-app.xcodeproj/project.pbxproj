@@ -61,6 +61,8 @@
 		4D75A7C0282BA88F0077DE75 /* Achievement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7BE282BA88F0077DE75 /* Achievement+CoreDataClass.swift */; };
 		4D75A7C1282BA88F0077DE75 /* Achievement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7BF282BA88F0077DE75 /* Achievement+CoreDataProperties.swift */; };
 		4D75A7C9282C42F10077DE75 /* WritingLettersLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7C8282C42F10077DE75 /* WritingLettersLevelViewModel.swift */; };
+		4D8074FF290FDC8B00FAFCF4 /* UIComponents.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D8074FE290FDC8B00FAFCF4 /* UIComponents.xcassets */; };
+		4D807502290FDE3A00FAFCF4 /* Panel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D807501290FDE3A00FAFCF4 /* Panel.swift */; };
 		4D80D3F328C3570E00F09F2B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80D3F228C3570E00F09F2B /* SettingsViewModel.swift */; };
 		4D80D3F528C3571B00F09F2B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80D3F428C3571B00F09F2B /* SettingsView.swift */; };
 		4D84C55128454FD100D5BC57 /* LevelProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */; };
@@ -76,6 +78,8 @@
 		4D8F5219284B76FC0092DCC3 /* Level+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F5217284B76FC0092DCC3 /* Level+CoreDataClass.swift */; };
 		4D8F521A284B76FC0092DCC3 /* Level+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F5218284B76FC0092DCC3 /* Level+CoreDataProperties.swift */; };
 		4D929C802834E32600504405 /* ShopService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D929C7F2834E32600504405 /* ShopService.swift */; };
+		4D9410E028E21ED1009819CD /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9410DF28E21ED1009819CD /* Dialog.swift */; };
+		4DA1A638292F525D00C93831 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DA1A637292F525D00C93831 /* GoogleService-Info.plist */; };
 		4DA22D9227D35E6F00634AA8 /* Menus.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22D9127D35E6F00634AA8 /* Menus.xcassets */; };
 		4DA22D9527D368F300634AA8 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9427D368F300634AA8 /* AppImage.swift */; };
 		4DA22D9827D36F4E00634AA8 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22D9727D36F4E00634AA8 /* AppFont.swift */; };
@@ -188,6 +192,8 @@
 		4D75A7BE282BA88F0077DE75 /* Achievement+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Achievement+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4D75A7BF282BA88F0077DE75 /* Achievement+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Achievement+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D75A7C8282C42F10077DE75 /* WritingLettersLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLettersLevelViewModel.swift; sourceTree = "<group>"; };
+		4D8074FE290FDC8B00FAFCF4 /* UIComponents.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = UIComponents.xcassets; sourceTree = "<group>"; };
+		4D807501290FDE3A00FAFCF4 /* Panel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panel.swift; sourceTree = "<group>"; };
 		4D80D3F228C3570E00F09F2B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		4D80D3F428C3571B00F09F2B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressBarView.swift; sourceTree = "<group>"; };
@@ -203,6 +209,8 @@
 		4D8F5217284B76FC0092DCC3 /* Level+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4D8F5218284B76FC0092DCC3 /* Level+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Level+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D929C7F2834E32600504405 /* ShopService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopService.swift; sourceTree = "<group>"; };
+		4D9410DF28E21ED1009819CD /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		4DA1A637292F525D00C93831 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DA22D9127D35E6F00634AA8 /* Menus.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menus.xcassets; sourceTree = "<group>"; };
 		4DA22D9427D368F300634AA8 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
 		4DA22D9727D36F4E00634AA8 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
@@ -359,6 +367,8 @@
 		4D51D56A2882D13E00E2ACDA /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				4D807500290FDE3400FAFCF4 /* Panel */,
+				4D9410DC28E21E90009819CD /* Dialog */,
 				4D51D56B2882D14700E2ACDA /* Button */,
 			);
 			path = UIComponents;
@@ -414,6 +424,7 @@
 		4D68A64527BBA3B400997CFF /* edu-app */ = {
 			isa = PBXGroup;
 			children = (
+				4DA1A637292F525D00C93831 /* GoogleService-Info.plist */,
 				4DA22D9B27D371AB00634AA8 /* Info.plist */,
 				4DA22D8F27D35A4900634AA8 /* Resources */,
 				4D68A67627BBCCB100997CFF /* Shared */,
@@ -576,6 +587,14 @@
 			path = Decodables;
 			sourceTree = "<group>";
 		};
+		4D807500290FDE3400FAFCF4 /* Panel */ = {
+			isa = PBXGroup;
+			children = (
+				4D807501290FDE3A00FAFCF4 /* Panel.swift */,
+			);
+			path = Panel;
+			sourceTree = "<group>";
+		};
 		4D80D3EF28C3565700F09F2B /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,6 +686,14 @@
 			path = Letters;
 			sourceTree = "<group>";
 		};
+		4D9410DC28E21E90009819CD /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				4D9410DF28E21ED1009819CD /* Dialog.swift */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
 		4DA22D8F27D35A4900634AA8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -700,6 +727,7 @@
 				4D75995B282316600093849C /* VideoTutorials.xcassets */,
 				4DDC5F65282702A000BDC385 /* Achievements.xcassets */,
 				4D8F5215284B76370092DCC3 /* Words.xcassets */,
+				4D8074FE290FDC8B00FAFCF4 /* UIComponents.xcassets */,
 			);
 			path = Visuals;
 			sourceTree = "<group>";
@@ -868,6 +896,7 @@
 				4D4E05DE280D6B5200569C16 /* Levels.json in Resources */,
 				4DC2D714280AD9FF003CFDD7 /* Levels.xcassets in Resources */,
 				4D51D5652881E98000E2ACDA /* button-tap.mp3 in Resources */,
+				4D8074FF290FDC8B00FAFCF4 /* UIComponents.xcassets in Resources */,
 				4D68A64E27BBA3B500997CFF /* Preview Assets.xcassets in Resources */,
 				4D8F5216284B76370092DCC3 /* Words.xcassets in Resources */,
 				4D6EC867281DC32D00C70061 /* Shop.xcassets in Resources */,
@@ -881,6 +910,7 @@
 				4DA22D9227D35E6F00634AA8 /* Menus.xcassets in Resources */,
 				4D572A5B2884886B002AEA9E /* track-3.mp3 in Resources */,
 				4D572A5F28848892002AEA9E /* track-5.mp3 in Resources */,
+				4DA1A638292F525D00C93831 /* GoogleService-Info.plist in Resources */,
 				4D492226284E61E000BA7B1B /* I.mp4 in Resources */,
 				4D572A5928848857002AEA9E /* track-2.mp3 in Resources */,
 				4D6EC869281DC5B900C70061 /* ShopItems.json in Resources */,
@@ -968,7 +998,8 @@
 		};
 		4D053EA027F5D41A00B3E198 /* Run Swift Format */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -980,7 +1011,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = "/usr/bin/env ruby";
 			shellScript = "#!/usr/bin/env ruby\ngit_status_at_dir = `git status #{ENV[\"SRCROOT\"]} --porcelain | /bin/cat`\nswiftformat_v = \"0.47.10\"\nif git_status_at_dir.empty?\n  puts \"Skipping formatting as there are no changes\"\n  exit 0\nend\nswiftformat = \"/usr/local/bin/swiftformat\"\nif File.exist? swiftformat\n  if not `#{swiftformat} --version`.chop == swiftformat_v\n    raise \"Wrong SwiftFormat version! Required version is #{swiftformat_v}.\" \n  end\n  \n  puts `/usr/local/bin/swiftformat $SRCROOT`\nelse\n  puts \"SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1 unless ENV[\"CI\"]\n  \nend\n";
 		};
@@ -1100,6 +1131,7 @@
 				4D51D5712882D37600E2ACDA /* TypeAliases.swift in Sources */,
 				4D80D3F528C3571B00F09F2B /* SettingsView.swift in Sources */,
 				4D0FF533282FAC5E0083E06B /* AchievementService.swift in Sources */,
+				4D807502290FDE3A00FAFCF4 /* Panel.swift in Sources */,
 				4D526BC82827D1AE00B8FEA3 /* ProgressBar.swift in Sources */,
 				4D85A69627E7425E008FA08D /* WritingLettersLevelView.swift in Sources */,
 				4DDFBCB7284933C10079A4E6 /* RoundedButton.swift in Sources */,
@@ -1124,6 +1156,7 @@
 				4D053EAC27F844AB00B3E198 /* LevelValidatorService.swift in Sources */,
 				4D8F5210284B584E0092DCC3 /* WritingWordsView.swift in Sources */,
 				4D053EA327F7844800B3E198 /* DrawingCanvasViewModel.swift in Sources */,
+				4D9410E028E21ED1009819CD /* Dialog.swift in Sources */,
 				4DA6372C2841691200A6F785 /* AchievementServicePreviewMock.swift in Sources */,
 				4DFA953628C3EA43004505A7 /* SettingsServicePreviewMock.swift in Sources */,
 				4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */,

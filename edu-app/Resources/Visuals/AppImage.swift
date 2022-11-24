@@ -13,6 +13,7 @@ enum AppImage {
     case panelBackgroundImage
     case houseBackgroundImage
     case houseBackgroundTabletImage
+    case dialogBackground
     case drawingPanelBackgroundImage
     case drawingPanelTutorialBackgroundImage
     case videoPanelBackgroundImage
@@ -65,6 +66,8 @@ enum AppImage {
             return Image("house-background-phone").resizable()
         case .houseBackgroundTabletImage:
             return Image("house-background-tablet").resizable()
+        case .dialogBackground:
+            return Image("dialog-background").resizable()
         case .drawingPanelBackgroundImage:
             return Image("drawing-panel-background").resizable()
         case .drawingPanelTutorialBackgroundImage:

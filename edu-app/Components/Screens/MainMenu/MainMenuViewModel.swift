@@ -18,7 +18,7 @@ extension MainMenuView {
         let shopService: ShopServiceful
         let settingsService: SettingsServiceful
 
-        @Published var isWordsLocked: Bool = true
+        @Published var isWordsLocked: Bool = false
 
         // MARK: - Initializer -
 
@@ -70,14 +70,14 @@ extension MainMenuView.ViewModel {
     }
 
     func configureWordsLevel() {
-        let preloadedDataKey = "didInitializeWords"
-        let userDefaults = UserDefaults.standard
-
-        if userDefaults.bool(forKey: preloadedDataKey) != true {
-            userDefaults.set(true, forKey: "isWordsLevelLocked")
-            userDefaults.set(true, forKey: preloadedDataKey)
-        } else if userDefaults.bool(forKey: preloadedDataKey) == true {
-            isWordsLocked = userDefaults.bool(forKey: "isWordsLevelLocked")
-        }
+//        let preloadedDataKey = "didInitializeWords"
+//        let userDefaults = UserDefaults.standard
+//
+//        if userDefaults.bool(forKey: preloadedDataKey) != true {
+//            userDefaults.set(true, forKey: "isWordsLevelLocked")
+//            userDefaults.set(true, forKey: preloadedDataKey)
+//        } else if userDefaults.bool(forKey: preloadedDataKey) == true {
+//            isWordsLocked = userDefaults.bool(forKey: "isWordsLevelLocked")
+//        }
     }
 }
