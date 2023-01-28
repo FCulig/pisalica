@@ -29,7 +29,7 @@ final class BackgroundMusicService: NSObject, AVAudioPlayerDelegate, BackgroundM
 extension BackgroundMusicService {
     func start() {
         guard !audioPlayer.isPlaying else { return }
-        play(sound: "track-1")
+//        play(sound: "track-1")
     }
 
     func pause() {

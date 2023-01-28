@@ -13,26 +13,34 @@ import SwiftUI
 struct Button: View {
     // MARK: - Private properties -
 
-//    private let soundService = SoundService()
-    private let action: Action
-    private let image: Image
+    private let action: Action?
+
+    // MARK: - Public properties -
+
+    @State var image: Image
+    @State var isDisabled: Bool
 
     // MARK: - Initializer -
 
-    init(action: @escaping Action, image: Image) {
+    init(action: Action? = nil,
+         image: Image,
+         isDisabled: Bool = false)
+    {
         self.action = action
         self.image = image
+        self.isDisabled = isDisabled
     }
 
     // MARK: - Body -
 
     var body: some View {
         SwiftUI.Button {
-            action()
+            action?()
             SoundService.shared.playButtonTap()
         } label: {
             image.scaledToFit()
         }
+        .disabled(isDisabled)
     }
 }
 

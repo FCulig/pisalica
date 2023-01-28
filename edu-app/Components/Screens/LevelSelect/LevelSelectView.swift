@@ -84,7 +84,9 @@ struct LevelSelectView: View {
                 ], spacing: isTablet ? 55 : 15) {
                     ForEach(viewModel.displayedLevels, id: \.self) { level in
                         if level.isLocked {
-                            LevelButton(level)
+                            Button(image: Image(level.lockedImage ?? "").resizable(),
+                                   isDisabled: true)
+                                .frame(height: isTablet ? 115 : 75, alignment: .center)
                         } else {
                             NavigationLink {
                                 NavigationLazyView(WritingLettersLevelView(level: level,
@@ -92,7 +94,8 @@ struct LevelSelectView: View {
                                                                            achievementService: viewModel.achievementService,
                                                                            shopService: viewModel.shopService))
                             } label: {
-                                LevelButton(level)
+                            Button(image: Image(level.unlockedImage ?? "").resizable())
+                                .frame(height: isTablet ? 115 : 75, alignment: .center)
                             }
                         }
                     }
