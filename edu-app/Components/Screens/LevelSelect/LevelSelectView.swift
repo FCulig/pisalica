@@ -84,8 +84,9 @@ struct LevelSelectView: View {
                 ], spacing: isTablet ? 55 : 15) {
                     ForEach(viewModel.displayedLevels, id: \.self) { level in
                         if level.isLocked {
-                            Button(image: Image(level.lockedImage ?? "").resizable(),
-                                   isDisabled: true)
+                            Image(level.lockedImage ?? "")
+                                .resizable()
+                                .scaledToFit()
                                 .frame(height: isTablet ? 115 : 75, alignment: .center)
                         } else {
                             NavigationLink {
@@ -94,8 +95,10 @@ struct LevelSelectView: View {
                                                                            achievementService: viewModel.achievementService,
                                                                            shopService: viewModel.shopService))
                             } label: {
-                            Button(image: Image(level.unlockedImage ?? "").resizable())
-                                .frame(height: isTablet ? 115 : 75, alignment: .center)
+                                Image(level.unlockedImage ?? "")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: isTablet ? 115 : 75, alignment: .center)
                             }
                         }
                     }
