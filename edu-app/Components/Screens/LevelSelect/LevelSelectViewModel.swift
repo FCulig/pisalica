@@ -69,7 +69,7 @@ extension LevelSelectView.ViewModel {
         paginatedLevels = []
         let itemsPerPage = 12
         var tmp = 0
-        totalPages = Int(ceil(Double(levels.count) / Double(itemsPerPage)))
+        totalPages = Int(ceil(Double(levels.filter{$0.isWord == false}.count) / Double(itemsPerPage)))
 
         for _ in 0 ..< totalPages {
             var currentPage: [Level] = []
