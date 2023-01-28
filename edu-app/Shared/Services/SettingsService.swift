@@ -12,6 +12,7 @@ import Foundation
 protocol SettingsServiceful {
     var isMusicMuted: Bool { get set }
     var isSoundEffectMuted: Bool { get set }
+    var isDebugMode: Bool { get set }
 }
 
 // MARK: - SettingsService -
@@ -27,6 +28,11 @@ final class SettingsService: SettingsServiceful {
     var isSoundEffectMuted: Bool {
         get { UserDefaults.standard.bool(forKey: "isSoundEffectMuted") }
         set { UserDefaults.standard.set(newValue, forKey: "isSoundEffectMuted") }
+    }
+    
+    var isDebugMode: Bool {
+        get { UserDefaults.standard.bool(forKey: "isDebugMode") }
+        set { UserDefaults.standard.set(newValue, forKey: "isDebugMode") }
     }
 
     // MARK: - Initializer

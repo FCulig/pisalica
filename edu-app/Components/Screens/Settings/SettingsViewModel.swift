@@ -15,6 +15,7 @@ extension SettingsView {
 
         @Published var isMusicMuted: Bool
         @Published var isSoundEffectMuted: Bool
+        @Published var isDebugMode: Bool
 
         // MARK: - Private properties -
 
@@ -27,6 +28,7 @@ extension SettingsView {
 
             isMusicMuted = settingsService.isMusicMuted
             isSoundEffectMuted = settingsService.isSoundEffectMuted
+            isDebugMode = settingsService.isDebugMode
         }
     }
 }
@@ -44,5 +46,10 @@ extension SettingsView.ViewModel {
         settingsService.isMusicMuted = isMuted
         if isMuted { BackgroundMusicService.shared.stop() }
         else { BackgroundMusicService.shared.start() }
+    }
+    
+    func updateDebugModeSetting(isDebugMode: Bool) {
+        self.isDebugMode = isDebugMode
+        settingsService.isDebugMode = isDebugMode
     }
 }

@@ -10,4 +10,5 @@
 final class SettingsServicePreviewMock: SettingsServiceful {
     var isMusicMuted: Bool = false
     var isSoundEffectMuted: Bool = false
+    var isDebugMode: Bool = false
 }
