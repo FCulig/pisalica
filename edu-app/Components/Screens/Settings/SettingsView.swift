@@ -98,8 +98,7 @@ struct SettingsView: View {
                 }
             }
             
-            // TODO: Dodati if debug
-            
+            #if DEBUG
             HStack {
                 Text("Debug mode")
                     .foregroundColor(.white)
@@ -125,6 +124,7 @@ struct SettingsView: View {
                         .padding(.leading, isTablet ? 15 : 0)
                 }
             }
+            #endif
 
             Spacer()
         }
