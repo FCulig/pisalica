@@ -31,64 +31,18 @@ struct MainMenuView: View {
 
     var body: some View {
         NavigationView {
-            if isTablet {
-                foregroundContent
-                    .background(
-                        AppImage.houseBackgroundTabletImage.image
-                            .scaledToFill()
-                            .ignoresSafeArea()
-                            .offset(x: 80, y: 0)
-                    )
-                    .onAppear {
-                        viewModel.configureWordsLevel()
-                    }
-                    .navigationBarHidden(true)
-            } else {
-                foregroundContent
-                    .background(
-                        AppImage.houseBackgroundImage.image
-                            .scaledToFill()
-                            .ignoresSafeArea()
-                    )
-                    .onAppear {
-                        viewModel.configureWordsLevel()
-                    }
-                    .navigationBarHidden(true)
+            Grid(shouldBlurBackground: false,
+                 centerContent: AnyView(playButtons),
+                 topLeftContent: AnyView(settingsButton),
+                 topRightContent: AnyView(shopAndAchievementsButtons),
+                 onAppear: {
+                viewModel.onAppear()
             }
+            )
+            .overlay(settingsDialog)
         }
         .statusBar(hidden: true)
         .navigationViewStyle(StackNavigationViewStyle())
-    }
-
-    var foregroundContent: some View {
-        ZStack {
-            HStack {
-                Spacer()
-                VStack {
-                    playButtons
-                }
-                Spacer()
-            }
-            HStack {
-                VStack {
-                    settingsButton
-                    Spacer()
-                }
-                Spacer()
-                VStack {
-                    shopAndAchievementsButtons
-                    Spacer()
-                }
-            }
-        }
-        .overlay(settingsDialog)
-        .onAppear { BackgroundMusicService.shared.start() }
-    }
-
-    var appLogo: some View {
-        AppImage.appLogo.image
-            .scaledToFit()
-            .frame(width: 150)
     }
 
     var playButtons: some View {

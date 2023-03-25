@@ -40,6 +40,10 @@ extension MainMenuView {
 // MARK: - Public methods -
 
 extension MainMenuView.ViewModel {
+    func onAppear() {
+        BackgroundMusicService.shared.start()
+    }
+    
     func configureLevelData() {
         configureCoinsBalance()
         configureShopData()
@@ -70,14 +74,14 @@ extension MainMenuView.ViewModel {
     }
 
     func configureWordsLevel() {
-//        let preloadedDataKey = "didInitializeWords"
-//        let userDefaults = UserDefaults.standard
-//
-//        if userDefaults.bool(forKey: preloadedDataKey) != true {
-//            userDefaults.set(true, forKey: "isWordsLevelLocked")
-//            userDefaults.set(true, forKey: preloadedDataKey)
-//        } else if userDefaults.bool(forKey: preloadedDataKey) == true {
-//            isWordsLocked = userDefaults.bool(forKey: "isWordsLevelLocked")
-//        }
+        let preloadedDataKey = "didInitializeWords"
+        let userDefaults = UserDefaults.standard
+
+        if userDefaults.bool(forKey: preloadedDataKey) != true {
+            userDefaults.set(true, forKey: "isWordsLevelLocked")
+            userDefaults.set(true, forKey: preloadedDataKey)
+        } else if userDefaults.bool(forKey: preloadedDataKey) == true {
+            isWordsLocked = userDefaults.bool(forKey: "isWordsLevelLocked")
+        }
     }
 }
