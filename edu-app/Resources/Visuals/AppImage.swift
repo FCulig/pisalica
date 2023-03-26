@@ -55,6 +55,7 @@ enum AppImage {
     case settingsButton
     case soundOn
     case soundOff
+    case closeButton
 
     var image: Image {
         switch self {
@@ -150,6 +151,8 @@ enum AppImage {
             return Image("sound-on-button").resizable()
         case .soundOff:
             return Image("sound-off-button").resizable()
+        case .closeButton:
+            return Image("close-button").resizable()
         }
     }
 }

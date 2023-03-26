@@ -30,9 +30,23 @@ struct SettingsView: View {
 
     var settingsDialog: some View {
         ZStack {
-            AppImage.panelBackgroundImage.image
-                .scaledToFit()
-                .padding(.vertical, isTablet ? 300 : 150)
+            ZStack {
+                AppImage.panelBackgroundImage.image
+                    .scaledToFit()
+                    .padding(.vertical, isTablet ? 300 : 150)
+
+                VStack {
+                    HStack {
+                        Spacer()
+                        Button(action: viewModel.onCloseTapped,
+                               image: AppImage.closeButton.image)
+                            .frame(width: 65)
+                            .padding(.vertical, isTablet ? 300 : 150)
+                            .padding(.horizontal, isTablet ? 100 : 0)
+                    }
+                    Spacer()
+                }
+            }
             settingsList
                 .padding(.top, isTablet ? 350 : 60)
                 .padding(.bottom, isTablet ? 363 : 60)
@@ -133,8 +147,8 @@ struct SettingsView: View {
 
 // MARK: - Previews -
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView(viewModel: .init(settingsService: SettingsServicePreviewMock()))
-    }
-}
+//struct SettingsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SettingsView(viewModel: .init(settingsService: SettingsServicePreviewMock()))
+//    }
+//}

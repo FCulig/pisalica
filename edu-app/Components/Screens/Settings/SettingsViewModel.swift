@@ -16,6 +16,7 @@ extension SettingsView {
         @Published var isMusicMuted: Bool
         @Published var isSoundEffectMuted: Bool
         @Published var isDebugMode: Bool
+        let onCloseTapped: Action
 
         // MARK: - Private properties -
 
@@ -23,7 +24,8 @@ extension SettingsView {
 
         // MARK: - Initializer -
 
-        public init(settingsService: SettingsServiceful) {
+        public init(onCloseTapped: @escaping Action, settingsService: SettingsServiceful) {
+            self.onCloseTapped = onCloseTapped
             self.settingsService = settingsService
 
             isMusicMuted = settingsService.isMusicMuted

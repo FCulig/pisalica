@@ -127,7 +127,8 @@ struct MainMenuView: View {
                     .onTapGesture {
                         isShowingSettings = false
                     }
-                SettingsView(viewModel: .init(settingsService: viewModel.settingsService))
+                SettingsView(viewModel: .init(onCloseTapped: {isShowingSettings = false},
+                                              settingsService: viewModel.settingsService))
             }
         }
     }

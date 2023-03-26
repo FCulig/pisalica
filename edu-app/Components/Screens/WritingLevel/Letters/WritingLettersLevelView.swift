@@ -179,6 +179,18 @@ struct WritingLettersLevelView: View {
                     .onTapGesture {
                         showVideoTutorialDialog = false
                     }
+                
+                VStack {
+                    HStack {
+                        Spacer()
+                        Button(action: {showVideoTutorialDialog = false},
+                               image: AppImage.closeButton.image)
+                            .frame(width: 65)
+                            .padding(.vertical, isTablet ? 350 : 240)
+                            .padding(.horizontal, isTablet ? 210 : 145)
+                    }
+                    Spacer()
+                }
 
                 if let player = player {
                     PlayerView(player: player)
