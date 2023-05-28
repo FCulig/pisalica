@@ -19,7 +19,7 @@ struct Panel<Content: View>: View {
             AppImage.dialogBackground.image
 
             contentBackground
-            
+
             content
         }
     }

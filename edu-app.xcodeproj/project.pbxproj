@@ -1024,7 +1024,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = "/usr/bin/env ruby";
-			shellScript = "#!/usr/bin/env ruby\ngit_status_at_dir = `git status #{ENV[\"SRCROOT\"]} --porcelain | /bin/cat`\nswiftformat_v = \"0.47.10\"\nif git_status_at_dir.empty?\n  puts \"Skipping formatting as there are no changes\"\n  exit 0\nend\nswiftformat = \"/usr/local/bin/swiftformat\"\nif File.exist? swiftformat\n  if not `#{swiftformat} --version`.chop == swiftformat_v\n    raise \"Wrong SwiftFormat version! Required version is #{swiftformat_v}.\" \n  end\n  \n  puts `/usr/local/bin/swiftformat $SRCROOT`\nelse\n  puts \"SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1 unless ENV[\"CI\"]\n  \nend\n";
+			shellScript = "#!/usr/bin/env ruby\ngit_status_at_dir = `git status #{ENV[\"SRCROOT\"]} --porcelain | /bin/cat`\nswiftformat_v = \"0.50.3\"\nif git_status_at_dir.empty?\n  puts \"Skipping formatting as there are no changes\"\n  exit 0\nend\nswiftformat = \"/usr/local/bin/swiftformat\"\nif File.exist? swiftformat\n  if not `#{swiftformat} --version`.chop == swiftformat_v\n    raise \"Wrong SwiftFormat version! Required version is #{swiftformat_v}.\" \n  end\n  \n  puts `/usr/local/bin/swiftformat $SRCROOT`\nelse\n  puts \"SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1 unless ENV[\"CI\"]\n  \nend\n";
 		};
 		60D7D26E7403822786028F38 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1338,7 +1338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"edu-app/Preview Content\"";
-				DEVELOPMENT_TEAM = 77DZBPAYNT;
+				DEVELOPMENT_TEAM = T7H3GU2L95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "edu-app/Info.plist";
@@ -1346,14 +1346,13 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.filip.culig.edu-app";
 				PRODUCT_NAME = Pisanka;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1371,7 +1370,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"edu-app/Preview Content\"";
-				DEVELOPMENT_TEAM = 77DZBPAYNT;
+				DEVELOPMENT_TEAM = T7H3GU2L95;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "edu-app/Info.plist";
@@ -1379,14 +1378,13 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.filip.culig.edu-app";
 				PRODUCT_NAME = Pisanka;
 				SWIFT_EMIT_LOC_STRINGS = YES;

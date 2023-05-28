@@ -43,7 +43,7 @@ extension MainMenuView.ViewModel {
     func onAppear() {
         BackgroundMusicService.shared.start()
     }
-    
+
     func configureLevelData() {
         configureCoinsBalance()
         configureShopData()

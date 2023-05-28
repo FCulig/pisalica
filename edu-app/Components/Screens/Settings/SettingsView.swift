@@ -57,9 +57,8 @@ struct SettingsView: View {
 
     var settingsList: some View {
         VStack {
-            
             // TODO: Poseban objekt za svaki setting
-            
+
             HStack {
                 Text("Pozadinska glazba")
                     .foregroundColor(.white)
@@ -111,33 +110,33 @@ struct SettingsView: View {
                         .padding(.leading, isTablet ? 15 : 0)
                 }
             }
-            
-            #if DEBUG
-            HStack {
-                Text("Debug mode")
-                    .foregroundColor(.white)
-                    .shadow(color: .black, radius: 0, x: 3, y: 2)
-                    .font(.system(size: isTablet ? 35 : 20).weight(.bold))
-                Spacer()
 
-                if viewModel.isDebugMode {
-                    Button(action: {
-                               viewModel.updateDebugModeSetting(isDebugMode: false)
-                           },
-                           image: AppImage.soundOff.image)
-                        .frame(width: 65)
-                        .padding(.top, 15)
-                        .padding(.leading, isTablet ? 15 : 0)
-                } else {
-                    Button(action: {
-                            viewModel.updateDebugModeSetting(isDebugMode: true)
-                           },
-                           image: AppImage.soundOn.image)
-                        .frame(width: 65)
-                        .padding(.top, 15)
-                        .padding(.leading, isTablet ? 15 : 0)
+            #if DEBUG
+                HStack {
+                    Text("Debug mode")
+                        .foregroundColor(.white)
+                        .shadow(color: .black, radius: 0, x: 3, y: 2)
+                        .font(.system(size: isTablet ? 35 : 20).weight(.bold))
+                    Spacer()
+
+                    if viewModel.isDebugMode {
+                        Button(action: {
+                                   viewModel.updateDebugModeSetting(isDebugMode: false)
+                               },
+                               image: AppImage.soundOff.image)
+                            .frame(width: 65)
+                            .padding(.top, 15)
+                            .padding(.leading, isTablet ? 15 : 0)
+                    } else {
+                        Button(action: {
+                                   viewModel.updateDebugModeSetting(isDebugMode: true)
+                               },
+                               image: AppImage.soundOn.image)
+                            .frame(width: 65)
+                            .padding(.top, 15)
+                            .padding(.leading, isTablet ? 15 : 0)
+                    }
                 }
-            }
             #endif
 
             Spacer()
@@ -147,8 +146,8 @@ struct SettingsView: View {
 
 // MARK: - Previews -
 
-//struct SettingsView_Previews: PreviewProvider {
+// struct SettingsView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        SettingsView(viewModel: .init(settingsService: SettingsServicePreviewMock()))
 //    }
-//}
+// }

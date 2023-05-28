@@ -179,11 +179,11 @@ struct WritingLettersLevelView: View {
                     .onTapGesture {
                         showVideoTutorialDialog = false
                     }
-                
+
                 VStack {
                     HStack {
                         Spacer()
-                        Button(action: {showVideoTutorialDialog = false},
+                        Button(action: { showVideoTutorialDialog = false },
                                image: AppImage.closeButton.image)
                             .frame(width: 65)
                             .padding(.vertical, isTablet ? 350 : 240)

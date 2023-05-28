@@ -36,10 +36,9 @@ struct MainMenuView: View {
                  topLeftContent: AnyView(settingsButton),
                  topRightContent: AnyView(shopAndAchievementsButtons),
                  onAppear: {
-                viewModel.onAppear()
-            }
-            )
-            .overlay(settingsDialog)
+                     viewModel.onAppear()
+                 })
+                 .overlay(settingsDialog)
         }
         .statusBar(hidden: true)
         .navigationViewStyle(StackNavigationViewStyle())
@@ -127,7 +126,7 @@ struct MainMenuView: View {
                     .onTapGesture {
                         isShowingSettings = false
                     }
-                SettingsView(viewModel: .init(onCloseTapped: {isShowingSettings = false},
+                SettingsView(viewModel: .init(onCloseTapped: { isShowingSettings = false },
                                               settingsService: viewModel.settingsService))
             }
         }

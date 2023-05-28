@@ -49,7 +49,7 @@ extension SettingsView.ViewModel {
         if isMuted { BackgroundMusicService.shared.stop() }
         else { BackgroundMusicService.shared.start() }
     }
-    
+
     func updateDebugModeSetting(isDebugMode: Bool) {
         self.isDebugMode = isDebugMode
         settingsService.isDebugMode = isDebugMode

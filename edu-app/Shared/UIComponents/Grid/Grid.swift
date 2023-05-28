@@ -8,29 +8,30 @@
 import SwiftUI
 
 // MARK: - Grid -
+
 struct Grid: View {
-    
     // MARK: - Private properties -
-    
+
     private let isTablet = UIDevice.current.localizedModel == "iPad"
     private let shouldBlurBackground: Bool
     private let onAppear: Action?
-    
+
     private let centerContent: AnyView?
     private let topLeftContent: AnyView?
     private let topRightContent: AnyView?
-    
+
     // MARK: - Public properties -
-    
+
     @Environment(\.dismiss) var dismiss
-    
+
     // MARK: - Initializer -
-    
+
     public init(shouldBlurBackground: Bool = true,
                 centerContent: AnyView? = nil,
                 topLeftContent: AnyView? = nil,
                 topRightContent: AnyView? = nil,
-                onAppear: Action? = nil) {
+                onAppear: Action? = nil)
+    {
         self.shouldBlurBackground = shouldBlurBackground
         self.centerContent = centerContent
         self.topLeftContent = topLeftContent
@@ -68,7 +69,7 @@ struct Grid: View {
                 .navigationBarHidden(true)
         }
     }
-        
+
     var foregroundContent: some View {
         ZStack {
             HStack {
@@ -80,7 +81,7 @@ struct Grid: View {
                 }
                 Spacer()
             }
-            
+
             VStack {
                 HStack {
                     if topLeftContent == nil {
@@ -88,19 +89,19 @@ struct Grid: View {
                     } else {
                         topLeftContent
                     }
-                    
+
                     Spacer()
-                
+
                     topRightContent
                 }
-                
+
                 Spacer()
             }
         }
     }
-    
+
     // MARK: - Back button -
-    
+
     var backButton: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -119,8 +120,8 @@ struct Grid: View {
     }
 }
 
-//struct Grid_Previews: PreviewProvider {
+// struct Grid_Previews: PreviewProvider {
 //    static var previews: some View {
 //        Grid()
 //    }
-//}
+// }
