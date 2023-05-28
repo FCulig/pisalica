@@ -16,6 +16,8 @@
 		4D053EAC27F844AB00B3E198 /* LevelValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */; };
 		4D0FF533282FAC5E0083E06B /* AchievementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FF532282FAC5E0083E06B /* AchievementService.swift */; };
 		4D2A41572846985B004ED339 /* LevelProgressBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2A41562846985B004ED339 /* LevelProgressBarViewModel.swift */; };
+		4D2DEA0D2A2338E30081D753 /* ParentalGateDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2DEA0C2A2338E30081D753 /* ParentalGateDialogView.swift */; };
+		4D2DEA0F2A233BB50081D753 /* ParentalGateDialogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2DEA0E2A233BB50081D753 /* ParentalGateDialogViewModel.swift */; };
 		4D48B3B8282E55AE0066EAC8 /* LevelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48B3B7282E55AE0066EAC8 /* LevelService.swift */; };
 		4D492219284E414600BA7B1B /* B.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4D492218284E414600BA7B1B /* B.mp4 */; };
 		4D492226284E61E000BA7B1B /* I.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4D492224284E61E000BA7B1B /* I.mp4 */; };
@@ -145,6 +147,8 @@
 		4D053EAB27F844AB00B3E198 /* LevelValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelValidatorService.swift; sourceTree = "<group>"; };
 		4D0FF532282FAC5E0083E06B /* AchievementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementService.swift; sourceTree = "<group>"; };
 		4D2A41562846985B004ED339 /* LevelProgressBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressBarViewModel.swift; sourceTree = "<group>"; };
+		4D2DEA0C2A2338E30081D753 /* ParentalGateDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentalGateDialogView.swift; sourceTree = "<group>"; };
+		4D2DEA0E2A233BB50081D753 /* ParentalGateDialogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentalGateDialogViewModel.swift; sourceTree = "<group>"; };
 		4D48B3B7282E55AE0066EAC8 /* LevelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelService.swift; sourceTree = "<group>"; };
 		4D492218284E414600BA7B1B /* B.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = B.mp4; sourceTree = "<group>"; };
 		4D492224284E61E000BA7B1B /* I.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = I.mp4; sourceTree = "<group>"; };
@@ -304,6 +308,15 @@
 				7AAE494FF08CF2ED8A82F24B /* Pods-edu-appTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		4D2DEA0B2A2338A50081D753 /* ParentalGate */ = {
+			isa = PBXGroup;
+			children = (
+				4D2DEA0C2A2338E30081D753 /* ParentalGateDialogView.swift */,
+				4D2DEA0E2A233BB50081D753 /* ParentalGateDialogViewModel.swift */,
+			);
+			path = ParentalGate;
 			sourceTree = "<group>";
 		};
 		4D302E7E2847EBAD008C913C /* Button */ = {
@@ -618,6 +631,7 @@
 		4D80D3F028C3566600F09F2B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				4D2DEA0B2A2338A50081D753 /* ParentalGate */,
 				4D80D3F128C356FC00F09F2B /* Settings */,
 				4DB939072826FDB900883CD5 /* Achievements */,
 				4D87C9FB28267187002EFB8D /* VideoPlayer */,
@@ -1119,6 +1133,7 @@
 				4DDC5F602826FE0200BDC385 /* AchievementsView.swift in Sources */,
 				4DB939022826A12D00883CD5 /* NavigationLazyView.swift in Sources */,
 				4D75A7C9282C42F10077DE75 /* WritingLettersLevelViewModel.swift in Sources */,
+				4D2DEA0F2A233BB50081D753 /* ParentalGateDialogViewModel.swift in Sources */,
 				4D68A68227BCF41800997CFF /* LevelSelectViewModel.swift in Sources */,
 				4D68A67B27BBCCE000997CFF /* MainMenuView.swift in Sources */,
 				4DE3A5C328186606005DF33E /* AppColor.swift in Sources */,
@@ -1174,6 +1189,7 @@
 				4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */,
 				4D053EA827F841A500B3E198 /* Levels.swift in Sources */,
 				4D75A7C1282BA88F0077DE75 /* Achievement+CoreDataProperties.swift in Sources */,
+				4D2DEA0D2A2338E30081D753 /* ParentalGateDialogView.swift in Sources */,
 				4D4E05D8280D640000569C16 /* Game.xcdatamodeld in Sources */,
 				4D51D5692881ED9E00E2ACDA /* SoundServicePreviewMock.swift in Sources */,
 				4D75A7C0282BA88F0077DE75 /* Achievement+CoreDataClass.swift in Sources */,
