@@ -8,17 +8,18 @@
 import SwiftUI
 
 // MARK: - ParentalGateDialogView -
-struct ParentalGateDialogView<Content: View> : View {
+
+struct ParentalGateDialogView<Content: View>: View {
     private let content: Content
     @ObservedObject private var viewModel: ViewModel
-    
+
     // MARK: - Initializer -
-    
+
     init(viewModel: ViewModel = .init(), @ViewBuilder content: () -> Content) {
         self.viewModel = viewModel
         self.content = content()
     }
-    
+
     // MARK: - Body -
 
     var body: some View {

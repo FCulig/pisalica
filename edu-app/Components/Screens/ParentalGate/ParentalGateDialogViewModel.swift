@@ -8,18 +8,19 @@
 import Combine
 
 // MARK: - ParentalGateDialogViewModel -
+
 extension ParentalGateDialogView {
     final class ViewModel: ObservableObject {
         // MARK: - Public properties -
-        
+
         @Published var isShowingDialog = true
         @Published var isShowingErrorDialog = false
         @Published var solution: Int? = nil
         @Published var firstNumber = 0
         @Published var secondNumber = 0
-        
+
         // MARK: - Initializer -
-        
+
         init() {
             generateRandomNumbers()
         }
@@ -37,10 +38,10 @@ extension ParentalGateDialogView.ViewModel {
             isShowingErrorDialog = true
             generateRandomNumbers()
         }
-        
+
         solution = nil
     }
-    
+
     func didTapOkErrorDialog() {
         isShowingDialog = true
         isShowingErrorDialog = false
@@ -51,7 +52,7 @@ extension ParentalGateDialogView.ViewModel {
 
 private extension ParentalGateDialogView.ViewModel {
     func generateRandomNumbers() {
-        firstNumber = Int.random(in: 1..<100)
-        secondNumber = Int.random(in: 1..<100)
+        firstNumber = Int.random(in: 1 ..< 100)
+        secondNumber = Int.random(in: 1 ..< 100)
     }
 }

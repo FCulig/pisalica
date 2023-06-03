@@ -24,7 +24,7 @@ final class AppCoordinator {
                                                        levelService: levelService,
                                                        shopService: shopService,
                                                        settingsService: settingsService)
-                
+
         return ParentalGateDialogView {
             MainMenuView(viewModel: mainMenuViewModel)
         }
