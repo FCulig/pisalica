@@ -19,15 +19,11 @@ struct MainMenuView: View {
     @State var isPlayLettersActive = false
     @State var isShopActive = false
     @State var isAchievementsActive = false
-    
-    @State var settingsDialog: Dialog
 
     // MARK: - Initializer -
 
     public init(viewModel: ViewModel) {
         self.viewModel = viewModel
-        
-        settingsDialog = Dialog(content: AnyView(SettingsView(viewModel: .init(settingsService: viewModel.settingsService))))
     }
 
     // MARK: - View components -
@@ -38,9 +34,7 @@ struct MainMenuView: View {
                  centerContent: AnyView(playButtons),
                  topLeftContent: AnyView(settingsButton),
                  topRightContent: AnyView(shopAndAchievementsButtons),
-                 onAppear: {
-                viewModel.onAppear()
-            }
+                 onAppear: { viewModel.onAppear() }
             )
             .overlay(settingsDialog)
         }
@@ -84,14 +78,6 @@ struct MainMenuView: View {
         }
     }
 
-    var settingsButton: some View {
-        Button(action: { settingsDialog.show() },
-               image: AppImage.settingsButton.image)
-            .frame(width: 65)
-            .padding(.top, 15)
-            .padding(.leading, isTablet ? 15 : 0)
-    }
-
     var shopAndAchievementsButtons: some View {
         HStack {
             NavigationLink(destination: ShopView(viewModel: .init(achievementService: viewModel.achievementService, shopService: viewModel.shopService)),
@@ -118,6 +104,25 @@ struct MainMenuView: View {
         }
         .padding(.top, 15)
         .padding(.trailing, isTablet ? 15 : 0)
+    }
+    
+    // MARK: - Settings -
+    
+    var settingsButton: some View {
+        Button(action: {
+//            settingsDialog.show()
+        },
+               image: AppImage.settingsButton.image)
+            .frame(width: 65)
+            .padding(.top, 15)
+            .padding(.leading, isTablet ? 15 : 0)
+    }
+    
+    var settingsDialog: some View {
+        Dialog {
+            SettingsView(viewModel: .init(onCloseTapped: {},
+                                          settingsService: viewModel.settingsService))
+        }
     }
 }
 
