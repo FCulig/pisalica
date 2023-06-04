@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - SettingsView.ViewModel -
 
-extension SettingsView {
+extension SettingsListView {
     final class ViewModel: ObservableObject {
         // MARK: - Public properties -
 
@@ -37,7 +37,7 @@ extension SettingsView {
 
 // MARK: - Public methods -
 
-extension SettingsView.ViewModel {
+extension SettingsListView.ViewModel {
     func updateSoundSetting(isMuted: Bool) {
         isSoundEffectMuted = isMuted
         settingsService.isSoundEffectMuted = isMuted

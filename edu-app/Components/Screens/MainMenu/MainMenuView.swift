@@ -120,7 +120,7 @@ struct MainMenuView: View {
     
     var settingsDialog: some View {
         Dialog {
-            SettingsView(viewModel: .init(onCloseTapped: {},
+            SettingsListView(viewModel: .init(onCloseTapped: {},
                                           settingsService: viewModel.settingsService))
         }
     }

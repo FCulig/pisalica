@@ -9,7 +9,7 @@ import SwiftUI
 
 // MARK: - SettingsView -
 
-struct SettingsView: View {
+struct SettingsListView: View {
     // MARK: - Private properties -
 
     private let isTablet = UIDevice.current.localizedModel == "iPad"
@@ -25,34 +25,7 @@ struct SettingsView: View {
     // MARK: - Body -
 
     var body: some View {
-        settingsDialog
-    }
-
-    var settingsDialog: some View {
-        ZStack {
-            ZStack {
-                AppImage.panelBackgroundImage.image
-                    .scaledToFit()
-                    .padding(.vertical, isTablet ? 300 : 150)
-
-                VStack {
-                    HStack {
-                        Spacer()
-                        Button(action: viewModel.onCloseTapped,
-                               image: AppImage.closeButton.image)
-                            .frame(width: 65)
-                            .padding(.vertical, isTablet ? 300 : 150)
-                            .padding(.horizontal, isTablet ? 100 : 0)
-                    }
-                    Spacer()
-                }
-            }
-            settingsList
-                .padding(.top, isTablet ? 350 : 60)
-                .padding(.bottom, isTablet ? 363 : 60)
-                .padding(.leading, isTablet ? 185 : 60)
-                .padding(.trailing, isTablet ? 180 : 60)
-        }
+        settingsList
     }
 
     var settingsList: some View {
@@ -141,6 +114,10 @@ struct SettingsView: View {
 
             Spacer()
         }
+        .padding(.top, isTablet ? 350 : 60)
+        .padding(.bottom, isTablet ? 363 : 60)
+        .padding(.leading, isTablet ? 185 : 60)
+        .padding(.trailing, isTablet ? 180 : 60)
     }
 }
 

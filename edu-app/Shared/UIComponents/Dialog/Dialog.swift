@@ -10,14 +10,14 @@ import SwiftUI
 // MARK: - Dialog -
 
 struct Dialog<Content: View>: View {
+    // MARK: - Private properties -
+    
+    private let isTablet = UIDevice.current.localizedModel == "iPad"
+    private let content: Content
     
     // MARK: - Public properties -
     
     @State var isShowing: Bool = true
-    
-    // MARK: - Private properties -
-    
-    private let content: Content
     
     // MARK: - Initializer -
     
@@ -26,7 +26,7 @@ struct Dialog<Content: View>: View {
     }
     
     // MARK: - Body -
-
+    
     var body: some View {
         ZStack {
             if isShowing {
@@ -37,12 +37,36 @@ struct Dialog<Content: View>: View {
         }
     }
     
-    var background: some View {
-        Rectangle()
-            .ignoresSafeArea()
-            .scaledToFill()
-            .foregroundColor(.black.opacity(0.85))
-            .onTapGesture { hide() }
+    private var background: some View {
+        ZStack {
+            Rectangle()
+                .ignoresSafeArea()
+                .scaledToFill()
+                .foregroundColor(.black.opacity(0.85))
+                .onTapGesture { hide() }
+            
+            dialogBackground
+        }
+    }
+    
+    private var dialogBackground: some View {
+        ZStack {
+            AppImage.panelBackgroundImage.image
+                .scaledToFit()
+                .padding(.vertical, isTablet ? 300 : 150)
+
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(action: { hide() },
+                           image: AppImage.closeButton.image)
+                        .frame(width: 65)
+                        .padding(.vertical, isTablet ? 300 : 150)
+                        .padding(.horizontal, isTablet ? 100 : 0)
+                }
+                Spacer()
+            }
+        }
     }
 }
 
