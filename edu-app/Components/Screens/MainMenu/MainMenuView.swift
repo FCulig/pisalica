@@ -19,12 +19,15 @@ struct MainMenuView: View {
     @State var isPlayLettersActive = false
     @State var isShopActive = false
     @State var isAchievementsActive = false
-    @State var isShowingSettings: Bool = false
+    
+    @State var settingsDialog: Dialog
 
     // MARK: - Initializer -
 
     public init(viewModel: ViewModel) {
         self.viewModel = viewModel
+        
+        settingsDialog = Dialog(content: AnyView(SettingsView(viewModel: .init(settingsService: viewModel.settingsService))))
     }
 
     // MARK: - View components -
@@ -36,9 +39,10 @@ struct MainMenuView: View {
                  topLeftContent: AnyView(settingsButton),
                  topRightContent: AnyView(shopAndAchievementsButtons),
                  onAppear: {
-                     viewModel.onAppear()
-                 })
-                 .overlay(settingsDialog)
+                viewModel.onAppear()
+            }
+            )
+            .overlay(settingsDialog)
         }
         .statusBar(hidden: true)
         .navigationViewStyle(StackNavigationViewStyle())
@@ -81,7 +85,7 @@ struct MainMenuView: View {
     }
 
     var settingsButton: some View {
-        Button(action: { isShowingSettings = true },
+        Button(action: { settingsDialog.show() },
                image: AppImage.settingsButton.image)
             .frame(width: 65)
             .padding(.top, 15)
@@ -114,22 +118,6 @@ struct MainMenuView: View {
         }
         .padding(.top, 15)
         .padding(.trailing, isTablet ? 15 : 0)
-    }
-
-    var settingsDialog: some View {
-        ZStack {
-            if isShowingSettings {
-                Rectangle()
-                    .ignoresSafeArea()
-                    .scaledToFill()
-                    .foregroundColor(.black.opacity(0.85))
-                    .onTapGesture {
-                        isShowingSettings = false
-                    }
-                SettingsView(viewModel: .init(onCloseTapped: { isShowingSettings = false },
-                                              settingsService: viewModel.settingsService))
-            }
-        }
     }
 }
 
