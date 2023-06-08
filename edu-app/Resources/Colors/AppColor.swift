@@ -8,12 +8,15 @@
 import SwiftUI
 
 enum AppColor {
-    case brown
+    case brownBorder
+    case brownBackground
 
     var color: Color {
         switch self {
-        case .brown:
-            return Color("brown")
+        case .brownBorder:
+            return Color("brown-border")
+        case .brownBackground:
+            return Color("brown-background")
         }
     }
 }

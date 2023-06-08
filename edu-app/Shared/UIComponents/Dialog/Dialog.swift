@@ -30,29 +30,22 @@ struct Dialog<Content: View>: View {
     var body: some View {
         ZStack {
             if isShowing {
-                background
+                Rectangle()
+                    .ignoresSafeArea()
+                    .scaledToFill()
+                    .foregroundColor(.black.opacity(0.85))
+                    .onTapGesture { hide() }
                 
-                content
+                dialog
             }
         }
     }
     
-    private var background: some View {
+    private var dialog: some View {
         ZStack {
-            Rectangle()
-                .ignoresSafeArea()
-                .scaledToFill()
-                .foregroundColor(.black.opacity(0.85))
-                .onTapGesture { hide() }
-            
-            dialogBackground
-        }
-    }
-    
-    private var dialogBackground: some View {
-        ZStack {
-            AppImage.panelBackgroundImage.image
+            AppImage.dialogBackground.image
                 .scaledToFit()
+                .overlay(dialogContent)
                 .padding(.vertical, isTablet ? 300 : 150)
 
             VStack {
@@ -62,11 +55,22 @@ struct Dialog<Content: View>: View {
                            image: AppImage.closeButton.image)
                         .frame(width: 65)
                         .padding(.vertical, isTablet ? 300 : 150)
-                        .padding(.horizontal, isTablet ? 100 : 0)
+                        .padding(.horizontal, isTablet ? 150 : 0)
                 }
                 Spacer()
             }
         }
+    }
+    
+    private var dialogContent: some View {
+//        ZStack {
+            Rectangle()
+                .foregroundColor(AppColor.brownBackground.color)
+                .border(AppColor.brownBorder.color, width: 5)
+                .padding(65)
+            
+//            content
+//        }
     }
 }
 

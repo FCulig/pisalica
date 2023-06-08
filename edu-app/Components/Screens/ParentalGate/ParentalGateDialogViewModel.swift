@@ -13,7 +13,7 @@ extension ParentalGateDialogView {
     final class ViewModel: ObservableObject {
         // MARK: - Public properties -
 
-        @Published var isShowingDialog = true
+        @Published var isShowingDialog = false
         @Published var isShowingErrorDialog = false
         @Published var solution: Int? = nil
         @Published var firstNumber = 0
