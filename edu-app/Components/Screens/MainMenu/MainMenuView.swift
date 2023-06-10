@@ -12,13 +12,12 @@ import SwiftUI
 struct MainMenuView: View {
     private let isTablet = UIDevice.current.localizedModel == "iPad"
 
-    @Environment(\.isPresented) var isPresented
-
     @ObservedObject var viewModel: ViewModel
     @State var isPlayWordsActive = false
     @State var isPlayLettersActive = false
     @State var isShopActive = false
     @State var isAchievementsActive = false
+    @State var isSettingsDialogVisible = false
 
     // MARK: - Initializer -
 
@@ -109,9 +108,7 @@ struct MainMenuView: View {
     // MARK: - Settings -
     
     var settingsButton: some View {
-        Button(action: {
-//            settingsDialog.show()
-        },
+        Button(action: { isSettingsDialogVisible = true },
                image: AppImage.settingsButton.image)
             .frame(width: 65)
             .padding(.top, 15)
@@ -119,9 +116,12 @@ struct MainMenuView: View {
     }
     
     var settingsDialog: some View {
-        Dialog {
-            SettingsListView(viewModel: .init(onCloseTapped: {},
-                                          settingsService: viewModel.settingsService))
+        ZStack {
+            if isSettingsDialogVisible {
+                Dialog(onDismissDialog: {isSettingsDialogVisible = false}) {
+                    SettingsListView(viewModel: .init(settingsService: viewModel.settingsService))
+                }
+            }
         }
     }
 }
