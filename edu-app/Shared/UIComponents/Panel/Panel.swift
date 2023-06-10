@@ -17,8 +17,8 @@ struct Panel<Content: View>: View {
     
     // MARK: - Initializer -
     
-    init(shouldShowCloseButton: Bool,
-         onCloseAction: @escaping (()->Void),
+    init(shouldShowCloseButton: Bool = false,
+         onCloseAction: @escaping (()->Void) = {},
          @ViewBuilder content: () -> Content) {
         self.shouldShowCloseButton = shouldShowCloseButton
         self.onCloseAction = onCloseAction
@@ -49,12 +49,13 @@ struct Panel<Content: View>: View {
             
             Rectangle()
                 .foregroundColor(AppColor.brownBackground.color)
-                .border(AppColor.brownBorder.color, width: 5)
                 .overlay{
                     content
                         .padding(.horizontal, isTablet ? 20 : 5)
                 }
+                .border(AppColor.brownBorder.color, width: 5)
                 .padding([.horizontal, .bottom], isTablet ? 65 : 30)
+                .padding(.top, shouldShowCloseButton ? 0 : 65)
         }
     }
 }

@@ -49,98 +49,79 @@ struct ShopView: View {
     }
 
     var foregroundContent: some View {
-        ZStack {
+        VStack {
             HStack {
+                backButton
+                
                 Spacer()
-                VStack {
-                    Spacer()
-                    shopItemsPanel
-                    Spacer()
-                }
-                Spacer()
+                
+                coinsBalance
             }
-            coinsBalance
-            backButton
+            
+            Spacer()
+            
+            shopItemsPanel
+            
+            Spacer()
         }
     }
 
     var backButton: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Button(action: {
-                           dismiss()
-                       },
-                       image: AppImage.previousButton.image)
-                    .frame(height: 70, alignment: .top)
-                    .padding(.top, 15)
-                    .padding(.leading, isTablet ? 15 : 0)
-
-                Spacer()
-            }
-            Spacer()
-        }
+        Button(action: {
+                   dismiss()
+               },
+               image: AppImage.previousButton.image)
+            .frame(height: 70, alignment: .top)
+            .padding(.top, 15)
+            .padding(.leading, isTablet ? 15 : 0)
     }
 
     var coinsBalance: some View {
-        HStack {
-            Spacer()
-            VStack {
-                ZStack {
-                    AppImage.coinsBalanceBackground.image
-                        .scaledToFit()
-                        .frame(height: 65)
-                    Text("\(viewModel.shopService.balance)")
-                        .foregroundColor(.white)
-                        .padding(.leading, 45)
-                        .padding(.bottom, 5)
-                        .font(.system(size: 25).weight(.bold))
-                }
-                .padding(.top, 15)
-                .padding(.trailing, isTablet ? 15 : 0)
-                Spacer()
-            }
+        ZStack {
+            AppImage.coinsBalanceBackground.image
+                .scaledToFit()
+                .frame(height: 65)
+            Text("\(viewModel.shopService.balance)")
+                .foregroundColor(.white)
+                .padding(.leading, 45)
+                .padding(.bottom, 5)
+                .font(.system(size: 25).weight(.bold))
         }
+        .padding(.top, 15)
+        .padding(.trailing, isTablet ? 15 : 0)
     }
 
     var shopItemsPanel: some View {
-        ZStack {
-            ZStack {
-                AppImage.panelBackgroundImage.image
-
-                ScrollView(showsIndicators: false) {
-                    LazyVGrid(columns: [
-                        GridItem(.flexible()),
-                        GridItem(.flexible()),
-                        GridItem(.flexible()),
-                    ], spacing: 25) {
-                        ForEach(viewModel.shopItems, id: \.self) { item in
-                            Group {
-                                if item.isSelected {
-                                    Image(item.selectedImage ?? "")
-                                        .resizable()
-                                } else if item.isBought {
-                                    Image(item.boughtImage ?? "")
-                                        .resizable()
-                                } else {
-                                    Image(item.unboughtImage ?? "")
-                                        .resizable()
-                                }
+        Panel {
+            ScrollView(showsIndicators: false) {
+                LazyVGrid(columns: [
+                    GridItem(.flexible()),
+                    GridItem(.flexible()),
+                    GridItem(.flexible()),
+                ], spacing: 25) {
+                    ForEach(viewModel.shopItems, id: \.self) { item in
+                        Group {
+                            if item.isSelected {
+                                Image(item.selectedImage ?? "")
+                                    .resizable()
+                            } else if item.isBought {
+                                Image(item.boughtImage ?? "")
+                                    .resizable()
+                            } else {
+                                Image(item.unboughtImage ?? "")
+                                    .resizable()
                             }
-                            .scaledToFit()
-                            .frame(width: isTablet ? 180 : 120)
-                            .onTapGesture {
-                                viewModel.didTapItem(item)
-                            }
+                        }
+                        .scaledToFit()
+                        .frame(width: isTablet ? 180 : 120)
+                        .onTapGesture {
+                            viewModel.didTapItem(item)
                         }
                     }
                 }
-                .padding(.vertical, isTablet ? 75 : 50)
-                .padding(.horizontal, 25)
             }
         }
-        .padding(.top, isTablet ? 120 : 55)
-        .padding(.bottom, 10)
-        .padding(.horizontal, 130)
+        .padding()
         .onLoad { viewModel.getShopItems() }
     }
 }
