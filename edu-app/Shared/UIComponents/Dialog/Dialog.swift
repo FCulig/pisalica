@@ -16,10 +16,6 @@ struct Dialog<Content: View>: View {
     private let onDismissDialog: (()->Void)
     private let content: Content
     
-    // MARK: - Public properties -
-    
-//    @State var isShowing: Bool = false
-    
     // MARK: - Initializer -
     
     public init(onDismissDialog: @escaping (()->Void), @ViewBuilder content: () -> Content) {
@@ -31,52 +27,18 @@ struct Dialog<Content: View>: View {
     
     var body: some View {
         ZStack {
-//            if isShowing {
-                Rectangle()
-                    .ignoresSafeArea()
-                    .foregroundColor(.black.opacity(0.85))
-                    .onTapGesture { onDismissDialog() }
-                
-                AppImage.dialogBackground.image
-                    .scaledToFit()
-                    .overlay(dialogContent)
-                    .padding(.vertical, isTablet ? 100 : 0)
-//            }
-        }
-    }
-    
-    private var dialogContent: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Spacer()
-
-                Button(action: { onDismissDialog() },
-                       image: AppImage.closeButton.image)
-                    .frame(width: 65)
-            }
-            
             Rectangle()
-                .foregroundColor(AppColor.brownBackground.color)
-                .border(AppColor.brownBorder.color, width: 5)
-                .overlay{
-                    content
-                        .padding(.horizontal, isTablet ? 20 : 5)
-                }
-                .padding([.horizontal, .bottom], isTablet ? 65 : 30)
+                .ignoresSafeArea()
+                .foregroundColor(.black.opacity(0.85))
+                .onTapGesture { onDismissDialog() }
+            
+            Panel(shouldShowCloseButton: true,
+                  onCloseAction: { onDismissDialog() }) {
+                content
+            }
+                  .padding(.vertical, isTablet ? 100 : 0)
         }
     }
-}
-
-// MARK: - Public functions -
-
-extension Dialog {
-//    func show() {
-//        isShowing = true
-//    }
-//    
-//    func hide() {
-//        isShowing = false
-//    }
 }
 
 // MARK: - Previews -
