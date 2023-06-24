@@ -48,55 +48,43 @@ struct AchievementsView: View {
     }
 
     var foregroundContent: some View {
-        ZStack {
+        VStack {
             HStack {
-                Spacer()
-                VStack {
-                    Spacer()
-                    achievementsPanel
-                    Spacer()
-                }
+                backButton
                 Spacer()
             }
-            backButton
-        }
-    }
-
-    var backButton: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Button(action: {
-                           dismiss()
-                       },
-                       image: AppImage.previousButton.image)
-                    .frame(height: 70, alignment: .top)
-                    .padding(.top, 15)
-                    .padding(.leading, isTablet ? 15 : 0)
-
-                Spacer()
-            }
+            
+            Spacer()
+            
+            achievementsPanel
+            
             Spacer()
         }
     }
 
-    var achievementsPanel: some View {
-        ZStack {
-            AppImage.panelBackgroundImage.image
+    var backButton: some View {
+        Button(action: {
+                   dismiss()
+               },
+               image: AppImage.previousButton.image)
+            .frame(height: 70, alignment: .top)
+            .padding(.top, 15)
+            .padding(.leading, isTablet ? 15 : 0)
+    }
 
-            ScrollView(showsIndicators: false) {
-                ForEach(viewModel.achievements, id: \.self) { achievement in
-                    AchievementItemView(achievement: achievement)
+    var achievementsPanel: some View {
+        Panel {
+            ScrollView {
+                // For some reason ScrollView is acting like a ZStack
+                // and stacking elements on top of each other. So to prevent that,
+                // wrap it in VStack.
+                VStack {
+                    ForEach(viewModel.achievements, id: \.self) { achievement in
+                        AchievementItemView(achievement: achievement)
+                    }
                 }
             }
-            .padding(.vertical, isTablet ? 70 : 40)
-            .padding(.bottom, isTablet ? 10 : 0)
-            .padding(.horizontal, isTablet ? 85 : 50)
-            .padding(.leading, isTablet ? 5 : 0)
         }
-        .padding(.top, isTablet ? 120 : 55)
-        .padding(.bottom, isTablet ? 10 : 0)
-        .padding(.leading, 130)
-        .padding(.trailing, 90)
         .onAppear { viewModel.getAchievements() }
     }
 }
