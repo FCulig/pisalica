@@ -55,63 +55,62 @@ struct LevelSelectView: View {
     }
 
     var foregroundContent: some View {
-        ZStack {
+        VStack {
             HStack {
+                backButton
+                
                 Spacer()
-                VStack {
-                    Spacer()
-                    levelSelectPanel
-                    Spacer()
-                }
-                Spacer()
+                
+                coinsBalance
             }
-            coinsBalance
-            backButton
+            
+            Spacer()
+            
+            levelSelectPanel
+            
+            Spacer()
         }
         .onAppear { BackgroundMusicService.shared.start() }
     }
 
     var levelSelectPanel: some View {
-        ZStack {
-            ZStack {
-                AppImage.panelBackgroundImage.image
-
-                LazyVGrid(columns: [
-                    GridItem(.flexible()),
-                    GridItem(.flexible()),
-                    GridItem(.flexible()),
-                    GridItem(.flexible()),
-                ], spacing: isTablet ? 55 : 15) {
-                    ForEach(viewModel.displayedLevels, id: \.self) { level in
-                        if level.isLocked {
-                            Image(level.lockedImage ?? "")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: isTablet ? 115 : 75, alignment: .center)
-                        } else {
-                            NavigationLink {
-                                NavigationLazyView(WritingLettersLevelView(level: level,
-                                                                           levelService: viewModel.levelService,
-                                                                           achievementService: viewModel.achievementService,
-                                                                           shopService: viewModel.shopService))
-                            } label: {
-                                Image(level.unlockedImage ?? "")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: isTablet ? 115 : 75, alignment: .center)
-                            }
-                        }
-                    }
-                }
-                .padding(.horizontal, 25)
-            }
-            .padding(.top, isTablet ? 120 : 55)
-            .padding(.bottom, 10)
-            .padding(.horizontal, isTablet ? 130 : 130)
-
-            pageControlButtons
-                .padding(.vertical, 10)
-                .padding(.top, isTablet ? 50 : 0)
+        Panel {
+            Text("aaa")
+//            LazyVGrid(columns: [
+//                GridItem(.flexible()),
+//                GridItem(.flexible()),
+//                GridItem(.flexible()),
+//                GridItem(.flexible()),
+//            ], spacing: isTablet ? 55 : 15) {
+//                ForEach(viewModel.displayedLevels, id: \.self) { level in
+//                    if level.isLocked {
+//                        Image(level.lockedImage ?? "")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(height: isTablet ? 115 : 75, alignment: .center)
+//                    } else {
+//                        NavigationLink {
+//                            NavigationLazyView(WritingLettersLevelView(level: level,
+//                                                                       levelService: viewModel.levelService,
+//                                                                       achievementService: viewModel.achievementService,
+//                                                                       shopService: viewModel.shopService))
+//                        } label: {
+//                            Image(level.unlockedImage ?? "")
+//                                .resizable()
+//                                .scaledToFit()
+//                                .frame(height: isTablet ? 115 : 75, alignment: .center)
+//                        }
+//                    }
+//                }
+//            }
+//            .padding(.horizontal, 25)
+//            .padding(.top, isTablet ? 120 : 55)
+//            .padding(.bottom, 10)
+//            .padding(.horizontal, isTablet ? 130 : 130)
+//
+//            pageControlButtons
+//                .padding(.vertical, 10)
+//                .padding(.top, isTablet ? 50 : 0)
         }
         .onLoad { viewModel.getPaginatedLevels() }
     }
