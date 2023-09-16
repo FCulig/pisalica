@@ -1,4 +1,6 @@
 #!/bin/sh
+echo "Decrypt secrets"
+
 set -eo pipefail
 
 gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/match_AppStore_comtiagosantocalculatorIOS.mobileprovision.mobileprovision ./.github/secrets/match_AppStore_comtiagosantocalculatorIOS.mobileprovision.gpg
