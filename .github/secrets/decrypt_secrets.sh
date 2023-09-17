@@ -1,14 +1,12 @@
 #!/bin/sh
-echo "Decrypt secrets"
-
 set -eo pipefail
 
-gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/match_AppStore_comtiagosantocalculatorIOS.mobileprovision.mobileprovision ./.github/secrets/match_AppStore_comtiagosantocalculatorIOS.mobileprovision.gpg
+gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/Pisanka_App_Store_Provisioning_profile.mobileprovision ./.github/secrets/Pisanka_App_Store_Provisioning_profile.mobileprovision.gpg
 gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/Certificates.p12 ./.github/secrets/Certificates.p12.gpg
 
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 
-cp ./.github/secrets/match_AppStore_comtiagosantocalculatorIOS.mobileprovision.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/match_AppStore_comtiagosantocalculatorIOS.mobileprovision.mobileprovision
+cp ./.github/secrets/Pisanka_App_Store_Provisioning_profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/Pisanka_App_Store_Provisioning_profile.mobileprovision
 
 
 security create-keychain -p "" build.keychain
