@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eo pipefail
 
-gpg --quiet --pinentry loopback --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/Pisanka_App_Store_Provisioning_profile.mobileprovision ./.github/secrets/Pisanka_App_Store_Provisioning_profile.mobileprovision.gpg
+gpg --quiet --pinentry loopback --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/Pisanka_App_Store_Provisioning_profile.mobileprovision ./.github/secrets/Pisanka_provisioning_profile.mobileprovision.gpg
 gpg --quiet --pinentry loopback --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/Certificates.p12 ./.github/secrets/ios_distribution.cer.gpg
 
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
