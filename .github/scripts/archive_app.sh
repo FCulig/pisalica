@@ -4,7 +4,7 @@ set -eo pipefail
 
 cd ../../
 
-echo ls -al
+echo "$PWD"
 
 xcodebuild -workspace edu-app.xcworkspace \
            -scheme edu-app\
