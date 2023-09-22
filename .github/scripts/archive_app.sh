@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-cd ../../
+#cd ../../
 
 echo "$PWD"
 
