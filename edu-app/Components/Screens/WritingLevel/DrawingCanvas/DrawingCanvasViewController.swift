@@ -24,7 +24,7 @@ class DrawingCanvasViewController: UIViewController {
     private lazy var background = UIView()
     private lazy var drawnImage = UIImageView()
 
-    private lazy var animationView = AnimationView(name: "confetti")
+    private lazy var animationView = LottieAnimationView(name: "confetti")
 
     // MARK: - Private properties -
 
