@@ -807,7 +807,6 @@
 				4D68A63F27BBA3B400997CFF /* Sources */,
 				4D68A64027BBA3B400997CFF /* Frameworks */,
 				4D68A64127BBA3B400997CFF /* Resources */,
-				4D053EA027F5D41A00B3E198 /* Run Swift Format */,
 				391DDAFB0E5BB4622266567D /* [CP] Embed Pods Frameworks */,
 				848A860B3442271898D366F6 /* [CP] Copy Pods Resources */,
 			);
@@ -1042,25 +1041,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-edu-app/Pods-edu-app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		4D053EA027F5D41A00B3E198 /* Run Swift Format */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Swift Format";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = "/usr/bin/env ruby";
-			shellScript = "#!/usr/bin/env ruby\ngit_status_at_dir = `git status #{ENV[\"SRCROOT\"]} --porcelain | /bin/cat`\nswiftformat_v = \"0.50.3\"\nif git_status_at_dir.empty?\n  puts \"Skipping formatting as there are no changes\"\n  exit 0\nend\nswiftformat = \"/usr/local/bin/swiftformat\"\nif File.exist? swiftformat\n  if not `#{swiftformat} --version`.chop == swiftformat_v\n    raise \"Wrong SwiftFormat version! Required version is #{swiftformat_v}.\" \n  end\n  \n  puts `/usr/local/bin/swiftformat $SRCROOT`\nelse\n  puts \"SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n  exit 1 unless ENV[\"CI\"]\n  \nend\n";
 		};
 		73210164DFF90492579D16B2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
