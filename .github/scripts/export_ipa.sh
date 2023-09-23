@@ -1,7 +1,7 @@
 set -eo pipefail
 
 xcodebuild -archivePath $PWD/build/edu-app.xcarchive \
-           -exportOptionsPlist edu-app/edu-app/exportOptions.plist \
+           -exportOptionsPlist edu-app/ExportOptions.plist \
            -exportPath $PWD/build \
            -allowProvisioningUpdates \
            -exportArchive | xcpretty
