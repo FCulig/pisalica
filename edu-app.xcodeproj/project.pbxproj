@@ -118,6 +118,7 @@
 		4DFA953628C3EA43004505A7 /* SettingsServicePreviewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA953528C3EA43004505A7 /* SettingsServicePreviewMock.swift */; };
 		4DFB6716284C9F0B00811BBC /* String+BasicOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB6715284C9F0B00811BBC /* String+BasicOperations.swift */; };
 		7E8466261C6AB888B9D61ED4 /* Pods_edu_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8918D01BD11B5B376ADB85 /* Pods_edu_appTests.framework */; };
+		D0BE0C992ABEF89E00D18F17 /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +257,7 @@
 		BE8918D01BD11B5B376ADB85 /* Pods_edu_appTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_edu_appTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5CF7338CCC8CF75FAE4FB6B /* Pods-edu-app-edu-appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-app-edu-appUITests.debug.xcconfig"; path = "Target Support Files/Pods-edu-app-edu-appUITests/Pods-edu-app-edu-appUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7D17087029A46291A3A24A1 /* Pods-edu-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-app.release.xcconfig"; path = "Target Support Files/Pods-edu-app/Pods-edu-app.release.xcconfig"; sourceTree = "<group>"; };
+		D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
 		D28FF69CEC3B9125D72FE01C /* Pods_edu_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_edu_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -438,6 +440,7 @@
 				4D68A64627BBA3B400997CFF /* edu_appApp.swift */,
 				4D68A64C27BBA3B500997CFF /* Preview Content */,
 				4D68A67027BBBBD200997CFF /* AppCoordinator.swift */,
+				D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */,
 			);
 			path = "edu-app";
 			sourceTree = "<group>";
@@ -930,6 +933,7 @@
 				4DE3A5C1281865FD005DF33E /* Color.xcassets in Resources */,
 				4DBD9BBE2802BF8A006455BD /* RobotoCondensed-Bold.ttf in Resources */,
 				4DF4A334284F5717007A3369 /* N.mp4 in Resources */,
+				D0BE0C992ABEF89E00D18F17 /* ExportOptions.plist in Resources */,
 				4D572A5D28848883002AEA9E /* track-4.mp3 in Resources */,
 				4DA22D9227D35E6F00634AA8 /* Menus.xcassets in Resources */,
 				4D572A5B2884886B002AEA9E /* track-3.mp3 in Resources */,
