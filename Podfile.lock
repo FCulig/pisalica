@@ -3,11 +3,11 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleMLKit/DigitalInkRecognition (2.6.0):
+  - GoogleMLKit/DigitalInkRecognition (4.0.0):
     - GoogleMLKit/MLKitCore
-    - MLKitDigitalInkRecognition (~> 1.5.0)
-  - GoogleMLKit/MLKitCore (2.6.0):
-    - MLKitCommon (~> 5.0.0)
+    - MLKitDigitalInkRecognition (~> 3.0.0)
+  - GoogleMLKit/MLKitCore (4.0.0):
+    - MLKitCommon (~> 9.0.0)
   - GoogleToolboxForMac/DebugUtils (2.3.2):
     - GoogleToolboxForMac/Defines (= 2.3.2)
   - GoogleToolboxForMac/Defines (2.3.2)
@@ -28,34 +28,32 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilitiesComponents (1.1.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (1.7.2)
+  - GTMSessionFetcher/Core (2.3.0)
   - lottie-ios (4.3.1)
-  - MLKitCommon (5.0.0):
+  - MLKitCommon (9.0.0):
     - GoogleDataTransport (~> 9.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - GoogleUtilities/UserDefaults (~> 7.0)
     - GoogleUtilitiesComponents (~> 1.0)
-    - GTMSessionFetcher/Core (~> 1.1)
-    - Protobuf (~> 3.12)
-  - MLKitDigitalInkRecognition (1.5.0):
-    - MLKitCommon (~> 5.0)
-    - MLKitMDD (~> 3.0)
+    - GTMSessionFetcher/Core (< 3.0, >= 1.1)
+  - MLKitDigitalInkRecognition (3.0.0):
+    - MLKitCommon (~> 9.0)
+    - MLKitMDD (~> 5.0)
     - SSZipArchive (~> 2.1)
-  - MLKitMDD (3.0.0):
-    - MLKitCommon (~> 5.0)
+  - MLKitMDD (5.0.0):
+    - MLKitCommon (~> 9.0)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.3.1)
-  - Protobuf (3.24.3)
   - SSZipArchive (2.4.3)
 
 DEPENDENCIES:
-  - GoogleMLKit/DigitalInkRecognition (= 2.6.0)
+  - GoogleMLKit/DigitalInkRecognition
   - lottie-ios
 
 SPEC REPOS:
@@ -72,25 +70,23 @@ SPEC REPOS:
     - MLKitMDD
     - nanopb
     - PromisesObjC
-    - Protobuf
     - SSZipArchive
 
 SPEC CHECKSUMS:
   GoogleDataTransport: 54dee9d48d14580407f8f5fbf2f496e92437a2f2
-  GoogleMLKit: 755661c46990a85e42278015f26400286d98ad95
+  GoogleMLKit: 2bd0dc6253c4d4f227aad460f69215a504b2980e
   GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
   GoogleUtilities: 13e2c67ede716b8741c7989e26893d151b2b2084
   GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
-  GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
+  GTMSessionFetcher: 3a63d75eecd6aa32c2fc79f578064e1214dfdec2
   lottie-ios: 6279047f1cc31b395e11f1fc24f3dab68cbf0df2
-  MLKitCommon: 3bc17c6f7d25ce3660f030350b46ae7ec9ebca6e
-  MLKitDigitalInkRecognition: 82fb615f39abb4142aa1ea9a85964f0241218cd6
-  MLKitMDD: 80fea6f6ee9d3e1d7e7796d166fa19d04fe45401
+  MLKitCommon: c1b791c3e667091918d91bda4bba69a91011e390
+  MLKitDigitalInkRecognition: fa1c9b25de5bc95dc564652d69c51806cf6e139c
+  MLKitMDD: 7d1354990908ae5eb820fceb5381860c12be6d60
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
-  Protobuf: 970f7ee93a3a08e3cf64859b8efd95ee32b4f87f
   SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
 
-PODFILE CHECKSUM: 48bb1f6fd0ad75008f3b91b40b7edb11c69ffd32
+PODFILE CHECKSUM: 172dedeaad859c6dc204be4692f2bd23a436176a
 
 COCOAPODS: 1.12.1

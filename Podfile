@@ -7,7 +7,7 @@ target 'edu-app' do
 
   # Pods for edu-app
 
-  pod 'GoogleMLKit/DigitalInkRecognition', '2.6.0'
+  pod 'GoogleMLKit/DigitalInkRecognition'
   pod 'lottie-ios'
 
   target 'edu-appTests' do
