@@ -19,6 +19,8 @@ jobs:
         run: brew install gnupg
       - name: Check GPG version
         run: gpg --version
+      - name: Install pods
+        run: pod install
       - name: Set permissions for decrypt script
         run: chmod +x ./.github/secrets/decrypt_secrets.sh
       - name: Setup provisioning profile
