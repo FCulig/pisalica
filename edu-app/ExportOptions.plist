@@ -2,24 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>destination</key>
-	<string>upload</string>
-	<key>method</key>
-	<string>app-store</string>
-	<key>provisioningProfiles</key>
-	<dict>
-		<key>com.filip.culig.edu-app</key>
-		<string>Filip Culig</string>
-	</dict>
-	<key>signingCertificate</key>
-	<string>iPhone Distribution</string>
-	<key>signingStyle</key>
-	<string>manual</string>
-	<key>stripSwiftSymbols</key>
-	<true/>
-	<key>teamID</key>
-	<string>T7H3GU2L95</string>
-	<key>uploadSymbols</key>
-	<true/>
+    <key>method</key>
+    <string>app-store</string>
+    <key>teamID</key>
+    <string>T7H3GU2L95</string>
+    <key>teamName</key>
+    <string>Filip Culig</string>
 </dict>
 </plist>
