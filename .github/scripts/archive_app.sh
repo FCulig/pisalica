@@ -2,9 +2,6 @@
 
 set -eo pipefail
 
-#cd ../../
-# -configuration AppStoreDistribution \
-
 xcodebuild -workspace edu-app.xcworkspace \
            -scheme edu-app\
            -sdk iphoneos \

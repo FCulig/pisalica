@@ -1,5 +1,3 @@
-# Source: https://engineering.talkdesk.com/test-and-deploy-an-ios-app-with-github-actions-44de9a7dcef6
-
 name: Publish app to testflight
 
 # TODO: There is a release event which can be used
@@ -32,8 +30,6 @@ jobs:
       - name: Set permissions for archive script
         run: chmod +x ./.github/scripts/archive_app.sh
       - name: Archiving project
-      #  env:
-      #    PR_NUMBER: $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
         run: ./.github/scripts/archive_app.sh
       - name: Set permissions for export script
         run: chmod +x ./.github/scripts/export_ipa.sh
