@@ -55,62 +55,57 @@ struct LevelSelectView: View {
     }
 
     var foregroundContent: some View {
-        VStack {
-            HStack {
-                backButton
+        ZStack {
+            VStack {
+                HStack {
+                    backButton
+                    
+                    Spacer()
+                    
+                    coinsBalance
+                }
                 
                 Spacer()
                 
-                coinsBalance
+                levelSelectPanel
+                
+                Spacer()
             }
             
-            Spacer()
-            
-            levelSelectPanel
-            
-            Spacer()
+            pageControlButtons
         }
         .onAppear { BackgroundMusicService.shared.start() }
     }
 
     var levelSelectPanel: some View {
         Panel {
-            Text("aaa")
-//            LazyVGrid(columns: [
-//                GridItem(.flexible()),
-//                GridItem(.flexible()),
-//                GridItem(.flexible()),
-//                GridItem(.flexible()),
-//            ], spacing: isTablet ? 55 : 15) {
-//                ForEach(viewModel.displayedLevels, id: \.self) { level in
-//                    if level.isLocked {
-//                        Image(level.lockedImage ?? "")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(height: isTablet ? 115 : 75, alignment: .center)
-//                    } else {
-//                        NavigationLink {
-//                            NavigationLazyView(WritingLettersLevelView(level: level,
-//                                                                       levelService: viewModel.levelService,
-//                                                                       achievementService: viewModel.achievementService,
-//                                                                       shopService: viewModel.shopService))
-//                        } label: {
-//                            Image(level.unlockedImage ?? "")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(height: isTablet ? 115 : 75, alignment: .center)
-//                        }
-//                    }
-//                }
-//            }
-//            .padding(.horizontal, 25)
-//            .padding(.top, isTablet ? 120 : 55)
-//            .padding(.bottom, 10)
-//            .padding(.horizontal, isTablet ? 130 : 130)
-//
-//            pageControlButtons
-//                .padding(.vertical, 10)
-//                .padding(.top, isTablet ? 50 : 0)
+                LazyVGrid(columns: [
+                    GridItem(.flexible()),
+                    GridItem(.flexible()),
+                    GridItem(.flexible()),
+                    GridItem(.flexible()),
+                ], spacing: isTablet ? 55 : 15) {
+                    ForEach(viewModel.displayedLevels, id: \.self) { level in
+                        if level.isLocked {
+                            Image(level.lockedImage ?? "")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: isTablet ? 115 : 75, alignment: .center)
+                        } else {
+                            NavigationLink {
+                                NavigationLazyView(WritingLettersLevelView(level: level,
+                                                                           levelService: viewModel.levelService,
+                                                                           achievementService: viewModel.achievementService,
+                                                                           shopService: viewModel.shopService))
+                            } label: {
+                                Image(level.unlockedImage ?? "")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: isTablet ? 115 : 75, alignment: .center)
+                            }
+                        }
+                    }
+                }
         }
         .onLoad { viewModel.getPaginatedLevels() }
     }
@@ -118,17 +113,18 @@ struct LevelSelectView: View {
     var pageControlButtons: some View {
         VStack {
             Spacer()
+            
             HStack {
                 if viewModel.showPreviousPageButton {
                     Button(action: { viewModel.previousPage() },
                            image: AppImage.previousButton.image)
-                        .padding(.leading, isTablet ? 100 : 105)
+//                        .padding(.leading, isTablet ? 100 : 105)
                 }
                 Spacer()
                 if viewModel.showNextPageButton {
                     Button(action: { viewModel.nextPage() },
                            image: AppImage.nextButton.image)
-                        .padding(.trailing, isTablet ? 95 : 100)
+//                        .padding(.trailing, isTablet ? 95 : 100)
                 }
             }
             .frame(height: isTablet ? 100 : 70, alignment: .center)
@@ -136,43 +132,28 @@ struct LevelSelectView: View {
     }
 
     var backButton: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Button(action: { dismiss() },
-                       image: AppImage.previousButton.image)
-                    .frame(height: 70, alignment: .top)
-                    .padding(.top, 15)
-                    .padding(.leading, isTablet ? 15 : 0)
-
-                Spacer()
-            }
-            Spacer()
-        }
-        .padding(.vertical, isTablet ? 30 : 15)
+        Button(action: { dismiss() },
+               image: AppImage.previousButton.image)
+            .frame(height: 70, alignment: .top)
+            .padding(.top, 15)
+            .padding(.leading, isTablet ? 15 : 0)
     }
 
     // TODO: Make this open shop
 
     var coinsBalance: some View {
-        HStack {
-            Spacer()
-            VStack {
-                ZStack {
-                    AppImage.coinsBalanceBackground.image
-                        .scaledToFit()
-                        .frame(height: 65)
-                    Text("\(viewModel.shopService.balance)")
-                        .foregroundColor(.white)
-                        .padding(.leading, 45)
-                        .padding(.bottom, 5)
-                        .font(.system(size: 25).weight(.bold))
-                }
-                .padding(.top, 15)
-                .padding(.trailing, isTablet ? 15 : 0)
-                Spacer()
-            }
+        ZStack {
+            AppImage.coinsBalanceBackground.image
+                .scaledToFit()
+                .frame(height: 65)
+            Text("\(viewModel.shopService.balance)")
+                .foregroundColor(.white)
+                .padding(.leading, 45)
+                .padding(.bottom, 5)
+                .font(.system(size: 25).weight(.bold))
         }
-        .padding(.vertical, isTablet ? 30 : 15)
+        .padding(.top, 15)
+        .padding(.trailing, isTablet ? 15 : 0)
     }
 }
 
