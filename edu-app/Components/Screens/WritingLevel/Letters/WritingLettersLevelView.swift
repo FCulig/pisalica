@@ -69,9 +69,43 @@ struct WritingLettersLevelView: View {
     }
 
     var foregroundContent: some View {
-        ZStack {
-            drawingCanvasContainer
-            buttons
+        VStack {
+            HStack {
+                Button(action: { dismiss() },
+                       image: AppImage.previousButton.image)
+                    .frame(height: 70, alignment: .top)
+                
+                Spacer()
+                
+                LevelProgressBarView(viewModel: .init(progressGoal: 9,
+                                                      showGuidesLevel: viewModel.configureGuidesLevel,
+                                                      showOutlineLevel: viewModel.configureOutlinesLevel,
+                                                      showBlankLevel: viewModel.configureBlankLevel,
+                                                      isShowOutlineLevelButtonEnabled: viewModel.isOutlinesLevelEnabled,
+                                                      isShowBlankLevelButtonEnabled: viewModel.isBlankLevelEnabled,
+                                                      shouldHighlightOutlineButton: viewModel.shouldHighlightOutlineButton,
+                                                      shouldHighlightCanvasButton: viewModel.shouldHighlightCanvasButton,
+                                                      progress: viewModel.progress,
+                                                      level: viewModel.level,
+                                                      isTablet: isTablet))
+                    .frame(height: 125)
+                
+                Spacer()
+                
+                Button(action: { showVideoTutorialDialog = true },
+                       image: AppImage.hintButton.image)
+                    .frame(height: 70, alignment: .top)
+            }
+            
+            HStack {
+                Spacer()
+                
+                drawingCanvasContainer
+                
+                Spacer()
+                
+                buttons
+            }
         }
         .overlay(videoTutorialDialog)
         .overlay(gameOverDialog)
@@ -82,82 +116,42 @@ struct WritingLettersLevelView: View {
     }
 
     var drawingCanvasContainer: some View {
-        VStack {
-            LevelProgressBarView(viewModel: .init(progressGoal: 9,
-                                                  showGuidesLevel: viewModel.configureGuidesLevel,
-                                                  showOutlineLevel: viewModel.configureOutlinesLevel,
-                                                  showBlankLevel: viewModel.configureBlankLevel,
-                                                  isShowOutlineLevelButtonEnabled: viewModel.isOutlinesLevelEnabled,
-                                                  isShowBlankLevelButtonEnabled: viewModel.isBlankLevelEnabled,
-                                                  shouldHighlightOutlineButton: viewModel.shouldHighlightOutlineButton,
-                                                  shouldHighlightCanvasButton: viewModel.shouldHighlightCanvasButton,
-                                                  progress: viewModel.progress,
-                                                  level: viewModel.level,
-                                                  isTablet: isTablet))
-                .frame(height: 125)
-                .padding(.top, isTablet ? -70 : -85)
+        Panel {
             ZStack {
-                viewModel.levelState.backgroundImage
-                if viewModel.level.isDiacritical {
-                    viewModel.levelState.foregroundImage
-                        .scaledToFit()
-                        .padding(.top, 25)
-                        .padding(.all, viewModel.canvasImagePadding)
-                } else {
-                    viewModel.levelState.foregroundImage
-                        .scaledToFit()
-                        .padding(.all, viewModel.canvasImagePadding)
-                }
+                viewModel.levelState.foregroundImage
+                    .scaledToFit()
+                    .padding(.all, viewModel.canvasImagePadding)
+                
                 DrawingCanvasView(viewModel: viewModel.drawingCanvasViewModel)
-                    .padding(.leading, isTablet ? 69 : 44)
-                    .padding(.trailing, isTablet ? 65 : 40)
-                    .padding(.top, isTablet ? 55 : 27)
-                    .padding(.bottom, isTablet ? 69 : 34)
             }
-            .padding(.top, isTablet ? 0 : -20)
         }
-        .padding(.top, 70)
-        .padding(.bottom, 10)
-        .padding(.horizontal, 130)
     }
 
     var buttons: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Button(action: { dismiss() },
-                       image: AppImage.previousButton.image)
-                    .frame(height: 70, alignment: .top)
-                Spacer()
-            }
+        VStack(alignment: .trailing) {
             Spacer()
-            VStack(alignment: .trailing) {
-                Button(action: { showVideoTutorialDialog = true },
-                       image: AppImage.hintButton.image)
-                    .frame(height: 70, alignment: .top)
-                Spacer()
-
-                if isTablet {
-                    VStack {
-                        AppImage.zoomInButton.image
-                            .scaledToFit()
-                            .frame(height: 70, alignment: .top)
-                            .onTapGesture {
-                                viewModel.setCanvasImagePadding(50)
-                            }
-                        AppImage.zoomOutButton.image
-                            .scaledToFit()
-                            .frame(height: 70, alignment: .top)
-                            .onTapGesture {
-                                viewModel.setCanvasImagePadding(220)
-                            }
-                    }
+            
+            if isTablet {
+                VStack {
+                    AppImage.zoomInButton.image
+                        .scaledToFit()
+                        .frame(height: 70, alignment: .top)
+                        .onTapGesture {
+                            viewModel.setCanvasImagePadding(0)
+                        }
+                    AppImage.zoomOutButton.image
+                        .scaledToFit()
+                        .frame(height: 70, alignment: .top)
+                        .onTapGesture {
+                            viewModel.setCanvasImagePadding(190)
+                        }
                 }
-
-                Spacer()
-                Button(action: { viewModel.drawingCanvasViewModel.clearInk() },
-                       image: AppImage.trashCanButton.image)
-                    .frame(height: 70, alignment: .top)
             }
+
+            Spacer()
+            Button(action: { viewModel.drawingCanvasViewModel.clearInk() },
+                   image: AppImage.trashCanButton.image)
+                .frame(height: 70, alignment: .top)
         }
         .padding(.vertical, isTablet ? 30 : 15)
         .padding(.leading, isTablet ? 15 : 0)
