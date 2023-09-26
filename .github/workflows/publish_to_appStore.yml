@@ -1,4 +1,4 @@
-name: Publish app to testflight
+name: Publish app to App Store
 
 # TODO: There is a release event which can be used
 on:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploying to Testflight
+    name: Deploying to App Store
     runs-on: self-hosted
     steps:
       - name: Checkout repository
@@ -32,14 +32,14 @@ jobs:
       - name: Archiving project
         run: ./.github/scripts/archive_app.sh
       - name: Set permissions for export script
-        run: chmod +x ./.github/scripts/export_ipa.sh
+        run: chmod +x ./.github/scripts/export_ipa_appStore.sh
       - name: Exporting .ipa
-        run: ./.github/scripts/export_ipa.sh
+        run: ./.github/scripts/export_ipa_appStore.sh
       - name: Set permissions for publishing script
-        run: chmod +x ./.github/scripts/publish_testflight.sh
+        run: chmod +x ./.github/scripts/upload_app.sh
       - name: Publishing app
         if: success()
         env:
           APPLEID_USERNAME: ${{ secrets.APPLEID_USERNAME }}
           APPLEID_PASSWORD: ${{ secrets.APPLEID_PASSWORD }}
-        run: ./.github/scripts/publish_testflight.sh
+        run: ./.github/scripts/upload_app.sh
