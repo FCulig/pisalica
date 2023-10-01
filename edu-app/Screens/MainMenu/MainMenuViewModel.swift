@@ -18,7 +18,7 @@ extension MainMenuView {
         let shopService: ShopServiceful
         let settingsService: SettingsServiceful
 
-        @Published var isWordsLocked: Bool = false
+        @Published var isWordsLocked: Bool = true
 
         // MARK: - Initializer -
 

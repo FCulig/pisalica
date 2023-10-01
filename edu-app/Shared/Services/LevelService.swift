@@ -46,7 +46,7 @@ extension LevelService {
               currentLevelIndex < levels.count - 1 else { return }
         do {
             // Unlock words containing new letter
-//            let words = levels.filter{$0.isWord == true }
+            let words = levels.filter{ $0.isWord == true }
             let unlockedLetters = levels.filter { $0.isWord == false }
                 .filter { $0.isLocked == false }
 
@@ -145,7 +145,7 @@ extension LevelService {
                     levelCoreData.outlineImage = level.outlineImage
                     levelCoreData.wordImage = ""
                     levelCoreData.isWord = false
-                    levelCoreData.isLocked = false
+                    levelCoreData.isLocked = levelCoreData.name == "I" ? false : true
 
                     try! context.save()
                 }
@@ -164,7 +164,7 @@ extension LevelService {
                     levelCoreData.outlineImage = level.outlineImage
                     levelCoreData.wordImage = level.wordImage
                     levelCoreData.isWord = true
-                    levelCoreData.isLocked = false
+                    levelCoreData.isLocked = true
 
                     try! context.save()
                 }
