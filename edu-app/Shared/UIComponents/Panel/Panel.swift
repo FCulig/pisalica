@@ -51,7 +51,6 @@ struct Panel<Content: View>: View {
                 .foregroundColor(AppColor.brownBackground.color)
                 .overlay{
                     content
-                        .padding(.horizontal, isTablet ? 20 : 5)
                 }
                 .border(AppColor.brownBorder.color, width: 5)
                 .padding([.horizontal, .bottom], isTablet ? 65 : 30)

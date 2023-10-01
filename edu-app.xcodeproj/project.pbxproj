@@ -311,14 +311,6 @@
 			path = ParentalGate;
 			sourceTree = "<group>";
 		};
-		4D302E7E2847EBAD008C913C /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				4DDFBCB6284933C10079A4E6 /* RoundedButton.swift */,
-			);
-			path = Button;
-			sourceTree = "<group>";
-		};
 		4D4E05DA280D645600569C16 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +366,7 @@
 		4D51D56A2882D13E00E2ACDA /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				4D526BC62827D19D00B8FEA3 /* ProgressBar */,
 				4D72F9A629879CF300661E38 /* Grid */,
 				4D807500290FDE3400FAFCF4 /* Panel */,
 				4D9410DC28E21E90009819CD /* Dialog */,
@@ -385,6 +378,7 @@
 		4D51D56B2882D14700E2ACDA /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				4DDFBCB6284933C10079A4E6 /* RoundedButton.swift */,
 				4D51D56E2882D1E100E2ACDA /* Button.swift */,
 			);
 			path = Button;
@@ -432,11 +426,11 @@
 		4D68A64527BBA3B400997CFF /* edu-app */ = {
 			isa = PBXGroup;
 			children = (
+				4D80D3F028C3566600F09F2B /* Screens */,
 				4DA1A637292F525D00C93831 /* GoogleService-Info.plist */,
 				4DA22D9B27D371AB00634AA8 /* Info.plist */,
 				4DA22D8F27D35A4900634AA8 /* Resources */,
 				4D68A67627BBCCB100997CFF /* Shared */,
-				4D68A67427BBCC9C00997CFF /* Components */,
 				4D68A64627BBA3B400997CFF /* edu_appApp.swift */,
 				4D68A64C27BBA3B500997CFF /* Preview Content */,
 				4D68A67027BBBBD200997CFF /* AppCoordinator.swift */,
@@ -468,15 +462,6 @@
 				4D68A66327BBA3B600997CFF /* edu_appUITestsLaunchTests.swift */,
 			);
 			path = "edu-appUITests";
-			sourceTree = "<group>";
-		};
-		4D68A67427BBCC9C00997CFF /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				4D80D3F028C3566600F09F2B /* Screens */,
-				4D80D3EF28C3565700F09F2B /* UIComponents */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		4D68A67527BBCCA500997CFF /* MainMenu */ = {
@@ -610,15 +595,6 @@
 				4D807501290FDE3A00FAFCF4 /* Panel.swift */,
 			);
 			path = Panel;
-			sourceTree = "<group>";
-		};
-		4D80D3EF28C3565700F09F2B /* UIComponents */ = {
-			isa = PBXGroup;
-			children = (
-				4D526BC62827D19D00B8FEA3 /* ProgressBar */,
-				4D302E7E2847EBAD008C913C /* Button */,
-			);
-			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		4D80D3F028C3566600F09F2B /* Screens */ = {

@@ -29,7 +29,7 @@ final class BackgroundMusicService: NSObject, AVAudioPlayerDelegate, BackgroundM
 extension BackgroundMusicService {
     func start() {
         guard !audioPlayer.isPlaying else { return }
-//        play(sound: "track-1")
+        play(sound: "track-1")
     }
 
     func pause() {
@@ -48,7 +48,7 @@ private extension BackgroundMusicService {
         if let path = Bundle.main.path(forResource: sound, ofType: type), !settingsService.isMusicMuted {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-//                audioPlayer.play()
+                audioPlayer.play()
             } catch {
                 print("ERROR while playing background music")
             }

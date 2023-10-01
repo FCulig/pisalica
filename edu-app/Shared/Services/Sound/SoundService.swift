@@ -37,7 +37,7 @@ private extension SoundService {
         if let path = Bundle.main.path(forResource: sound, ofType: type), !settingsService.isSoundEffectMuted {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-//                audioPlayer.play()
+                audioPlayer.play()
             } catch {
                 print("ERROR while playing button tap sound")
             }
