@@ -13,10 +13,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Install gpg
         run: brew install gnupg
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2.2' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Install gems
+        run: bundle install
       - name: Build and upload binary
         run: bundle exec fastlane ios_release
         env:
