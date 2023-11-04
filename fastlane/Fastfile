@@ -15,24 +15,22 @@
 
 default_platform(:ios)
 
-platform :ios do
-  desc "Push a new release build to the App Store"
-  lane :release do
-    increment_build_number(xcodeproj: "edu-app.xcodeproj")
-    build_app(workspace: "edu-app.xcworkspace", scheme: "edu-app")
+desc "Push a new release build to the App Store"
+lane :ios_release do
+  increment_build_number(xcodeproj: "edu-app.xcodeproj")
+  build_app(workspace: "edu-app.xcworkspace", scheme: "edu-app")
 
-    app_store_connect_api_key(
-      key_id: ENV["APP_STORE_KEY_ID"],
-      issuer_id: ENV["APP_STORE_KEY_ISSUER_ID"],
-      key_content: ENV["APP_STORE_KEY"],
-      duration: 1200, # optional (maximum 1200)
-      in_house: false # optional but may be required if using match/sigh
-    )
+  app_store_connect_api_key(
+    key_id: ENV["APP_STORE_KEY_ID"],
+    issuer_id: ENV["APP_STORE_KEY_ISSUER_ID"],
+    key_content: ENV["APP_STORE_KEY"],
+    duration: 1200, # optional (maximum 1200)
+    in_house: false # optional but may be required if using match/sigh
+  )
 
-    upload_to_app_store(
-      skip_metadata: true,
-      skip_screenshots: true,
-      precheck_include_in_app_purchases: false
-    )
-  end
+  upload_to_app_store(
+    skip_metadata: true,
+    skip_screenshots: true,
+    precheck_include_in_app_purchases: false
+  )
 end
