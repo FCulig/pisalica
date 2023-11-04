@@ -1,0 +1,23 @@
+name: Publish app to App Store
+
+# TODO: There is a release event which can be used
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploying to App Store
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install gpg
+        run: brew install gnupg
+      - name: Check GPG version
+        run: gpg --version
+      - name: Build and upload binary
+        run: bundle exec fastlane ios_release
+        env:
+          APP_STORE_KEY_ID: ${{ secrets.APP_STORE_KEY_ID }}
+          APP_STORE_KEY_ISSUER_ID: ${{ secrets.APP_STORE_KEY_ISSUER_ID }}
+          APP_STORE_KEY: ${{ secrets.APP_STORE_KEY }}
