@@ -15,6 +15,8 @@ jobs:
         run: brew install gnupg
       - name: Install gems
         run: bundle install
+      - name: Install pods
+        run: pod install
       - name: Build and upload binary
         run: bundle exec fastlane ios_release
         env:
