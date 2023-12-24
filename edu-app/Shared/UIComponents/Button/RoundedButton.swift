@@ -8,11 +8,9 @@
 import SwiftUI
 
 // MARK: - RoundedButton -
-
 struct RoundedButton: View {
     // MARK: - Private properties -
 
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
     private let buttonImage: Image?
 
     // MARK: - Public properties -

@@ -10,8 +10,6 @@ import SwiftUI
 // MARK: - LevelSelectView -
 
 struct LevelSelectView: View {
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
-
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: ViewModel
     @FetchRequest(sortDescriptors: []) var levels: FetchedResults<Level>
@@ -28,64 +26,56 @@ struct LevelSelectView: View {
         _viewModel = StateObject(wrappedValue: wrappedViewModel)
     }
 
-    // MARK: - View components -
+    // MARK: - Body -
 
     var body: some View {
-        if isTablet {
-            foregroundContent
-                .background(
-                    AppImage.houseBackgroundTabletImage.image
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                        .offset(x: 80, y: 0)
-                        .blur(radius: 3)
-                )
-                .navigationBarHidden(true)
-        } else {
-            foregroundContent
-                .background(
-                    AppImage.houseBackgroundImage.image
-                        .aspectRatio(contentMode: .fill)
-                        .ignoresSafeArea()
-                        .blur(radius: 3)
-                )
-                .navigationBarHidden(true)
-                .edgesIgnoringSafeArea(.bottom)
-        }
+        foregroundContent
+            .background(
+                background
+            )
+            .navigationBarHidden(true)
     }
+    
+    // MARK: - View components -
 
     var foregroundContent: some View {
-        ZStack {
-            VStack {
-                HStack {
-                    backButton
-                    
-                    Spacer()
-                    
-                    coinsBalance
-                }
-                
-                Spacer()
-                
-                levelSelectPanel
-                
+        HStack(alignment: .top, spacing: 0) {
+            VStack(spacing: 0) {
+                backButton
                 Spacer()
             }
             
-            pageControlButtons
+            Spacer()
+            
+            VStack(spacing: 0) {
+                Spacer()
+                levelSelectPanel
+                Spacer()
+            }
+            
+            Spacer()
+            
+            VStack(spacing: 0) {
+                coinsBalance
+                Spacer()
+            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        // Provjeri u kojoj je mobitel orijentaciji prije nego se postavae ovi
+        .ignoresSafeArea(edges: isTablet ? .all : [.top, .trailing, .bottom])
         .onAppear { BackgroundMusicService.shared.start() }
     }
 
     var levelSelectPanel: some View {
         Panel {
+            ScrollView {
                 LazyVGrid(columns: [
                     GridItem(.flexible()),
                     GridItem(.flexible()),
                     GridItem(.flexible()),
                     GridItem(.flexible()),
                 ], spacing: isTablet ? 55 : 15) {
-                    ForEach(viewModel.displayedLevels, id: \.self) { level in
+                    ForEach(viewModel.levels, id: \.self) { level in
                         if level.isLocked {
                             Image(level.lockedImage ?? "")
                                 .resizable()
@@ -106,29 +96,10 @@ struct LevelSelectView: View {
                         }
                     }
                 }
-        }
-        .onLoad { viewModel.getPaginatedLevels() }
-    }
-
-    var pageControlButtons: some View {
-        VStack {
-            Spacer()
-            
-            HStack {
-                if viewModel.showPreviousPageButton {
-                    Button(action: { viewModel.previousPage() },
-                           image: AppImage.previousButton.image)
-//                        .padding(.leading, isTablet ? 100 : 105)
-                }
-                Spacer()
-                if viewModel.showNextPageButton {
-                    Button(action: { viewModel.nextPage() },
-                           image: AppImage.nextButton.image)
-//                        .padding(.trailing, isTablet ? 95 : 100)
-                }
+                .padding(.top, 20)
             }
-            .frame(height: isTablet ? 100 : 70, alignment: .center)
         }
+        .onLoad { viewModel.getLevels() }
     }
 
     var backButton: some View {
@@ -136,7 +107,7 @@ struct LevelSelectView: View {
                image: AppImage.previousButton.image)
             .frame(height: 70, alignment: .top)
             .padding(.top, 15)
-            .padding(.leading, isTablet ? 15 : 0)
+            .padding(.leading, isTablet ? 15 : 5)
     }
 
     // TODO: Make this open shop

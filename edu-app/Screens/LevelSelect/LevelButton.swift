@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct LevelButton: View {
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
-
     let level: Level
 
     var body: some View {

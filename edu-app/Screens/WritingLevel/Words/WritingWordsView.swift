@@ -14,7 +14,6 @@ struct WritingWordsView: View {
 
     @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel: ViewModel
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
 
     // MARK: - Initializer -
 

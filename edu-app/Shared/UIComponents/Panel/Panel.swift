@@ -10,7 +10,6 @@ import SwiftUI
 // MARK: - Panel -
 
 struct Panel<Content: View>: View {
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
     private let shouldShowCloseButton: Bool
     private let onCloseAction: (()->Void)
     @ViewBuilder private var content: Content
@@ -53,8 +52,9 @@ struct Panel<Content: View>: View {
                     content
                 }
                 .border(AppColor.brownBorder.color, width: 5)
-                .padding([.horizontal, .bottom], isTablet ? 65 : 30)
-                .padding(.top, shouldShowCloseButton ? 0 : 65)
+                .padding(.horizontal, isTablet ? 80 : 40)
+                .padding(.bottom, isTablet ? 80 : 45)
+                .padding(.top, shouldShowCloseButton ? 0 : (isTablet ? 65 : 45))
         }
     }
 }

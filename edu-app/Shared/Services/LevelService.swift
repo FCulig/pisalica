@@ -14,6 +14,8 @@ protocol LevelServiceful {
 
     func unlockLevelAfter(_ level: Level)
     func getLevels() -> [Level]
+    func getLetterLevels() -> [Level]
+    func getWordLevels() -> [Level]
     func getLevelForName(_ name: String) -> Level?
     func getRandomWordLevel() -> Level
     func getLineColorCode() -> String
@@ -89,6 +91,28 @@ extension LevelService {
         return levels
     }
 
+    func getLetterLevels() -> [Level] {
+        let fetchRequest: NSFetchRequest<Level> = Level.fetchRequest()
+        var levels: [Level] = []
+
+        do {
+            levels = try context.fetch(fetchRequest)
+        } catch { print(error) }
+
+        return levels.filter { $0.isWord == false }
+    }
+    
+    func getWordLevels() -> [Level] {
+        let fetchRequest: NSFetchRequest<Level> = Level.fetchRequest()
+        var levels: [Level] = []
+
+        do {
+            levels = try context.fetch(fetchRequest)
+        } catch { print(error) }
+
+        return levels.filter { $0.isWord == true }
+    }
+
     func getLevelForName(_ name: String) -> Level? {
         let levels = getLevels()
 
@@ -96,9 +120,8 @@ extension LevelService {
     }
 
     func getRandomWordLevel() -> Level {
-        let levels = getLevels()
-        let unlockedLevels = levels.filter { $0.isWord == true }
-            .filter { $0.isLocked == false }
+        let levels = getWordLevels()
+        let unlockedLevels = levels.filter { $0.isLocked == false }
 
         return unlockedLevels[Int.random(in: 0 ..< unlockedLevels.count)]
     }

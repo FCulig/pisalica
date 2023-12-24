@@ -19,7 +19,6 @@ struct LevelProgressBarView: View {
 
     // MARK: - Private properties -
 
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
     @StateObject private var viewModel: ViewModel
     @State private var didReadSize = false
 

@@ -15,7 +15,6 @@ struct WritingLettersLevelView: View {
     // MARK: - Private properties -
 
     private var player: AVPlayer?
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
 
     @Environment(\.dismiss) private var dismiss
     @StateObject private var viewModel: ViewModel
@@ -35,7 +34,7 @@ struct WritingLettersLevelView: View {
                                          levelService: levelService,
                                          achievementService: achievementService,
                                          shopService: shopService,
-                                         isTablet: isTablet)
+                                         isTablet: UIDevice.current.localizedModel == "iPad")
         _viewModel = StateObject(wrappedValue: wrappedViewModel)
 
         guard let videoUrl = Bundle.main.path(forResource: level.name, ofType: "mp4") else { return }

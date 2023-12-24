@@ -10,8 +10,6 @@ import SwiftUI
 // MARK: - AchievementItemView -
 
 struct AchievementItemView: View {
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
-
     @State var achievement: Achievement
 
     // MARK: - View components -

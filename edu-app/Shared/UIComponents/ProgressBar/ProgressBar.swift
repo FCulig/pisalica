@@ -10,10 +10,6 @@ import SwiftUI
 // MARK: - ProgressBar -
 
 struct ProgressBar: View {
-    // MARK: - Private properties -
-
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
-
     // MARK: - Public properties -
 
     @State var progressBarFrame: CGSize = .zero

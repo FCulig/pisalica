@@ -12,7 +12,6 @@ import SwiftUI
 struct Dialog<Content: View>: View {
     // MARK: - Private properties -
     
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
     private let onDismissDialog: (()->Void)
     private let content: Content
     

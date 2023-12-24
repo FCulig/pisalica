@@ -10,8 +10,6 @@ import SwiftUI
 // MARK: - MainMenuView -
 
 struct MainMenuView: View {
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
-
     @ObservedObject var viewModel: ViewModel
     @State var isPlayWordsActive = false
     @State var isPlayLettersActive = false

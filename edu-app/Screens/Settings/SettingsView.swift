@@ -12,8 +12,6 @@ import SwiftUI
 struct SettingsListView: View {
     // MARK: - Private properties -
 
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
-
     @ObservedObject var viewModel: ViewModel
 
     // MARK: - Initializer -

@@ -11,8 +11,6 @@ import UIKit
 // MARK: - ShopView -
 
 struct ShopView: View {
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
-
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: ViewModel
 

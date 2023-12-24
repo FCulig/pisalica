@@ -12,7 +12,6 @@ import SwiftUI
 struct Grid: View {
     // MARK: - Private properties -
 
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
     private let shouldBlurBackground: Bool
     private let onAppear: Action?
 

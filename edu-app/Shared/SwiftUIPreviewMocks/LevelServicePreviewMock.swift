@@ -25,6 +25,14 @@ final class LevelServicePreviewMock: LevelServiceful {
     func getLevels() -> [Level] {
         return []
     }
+    
+    func getLetterLevels() -> [Level] {
+        return []
+    }
+    
+    func getWordLevels() -> [Level] {
+        return []
+    }
 
     func getRandomWordLevel() -> Level {
         return Level()

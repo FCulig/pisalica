@@ -10,8 +10,6 @@ import SwiftUI
 // MARK: - AchievementsView -
 
 struct AchievementsView: View {
-    private let isTablet = UIDevice.current.localizedModel == "iPad"
-
     @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel: ViewModel
 
