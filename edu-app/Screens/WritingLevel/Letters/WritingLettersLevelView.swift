@@ -41,76 +41,73 @@ struct WritingLettersLevelView: View {
         player = AVPlayer(url: URL(fileURLWithPath: videoUrl))
     }
 
-    // MARK: - View components -
-
+    // MARK: - Body -
+    
     var body: some View {
-        if isTablet {
-            foregroundContent
-                .background(
-                    AppImage.houseBackgroundTabletImage.image
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                        .offset(x: 80, y: 0)
-                        .blur(radius: 3)
-                )
-                .navigationBarHidden(true)
-        } else {
-            foregroundContent
-                .background(
-                    AppImage.houseBackgroundImage.image
-                        .aspectRatio(contentMode: .fill)
-                        .ignoresSafeArea()
-                        .blur(radius: 3)
-                )
-                .navigationBarHidden(true)
-                .edgesIgnoringSafeArea(.bottom)
-        }
+        foregroundContent
+            .background(
+                background
+            )
+            .navigationBarHidden(true)
     }
 
+    // MARK: - Foreground -
+    
     var foregroundContent: some View {
-        VStack {
-            HStack {
-                Button(action: { dismiss() },
-                       image: AppImage.previousButton.image)
-                    .frame(height: 70, alignment: .top)
-                
-                Spacer()
-                
-                LevelProgressBarView(viewModel: .init(progressGoal: 9,
-                                                      showGuidesLevel: viewModel.configureGuidesLevel,
-                                                      showOutlineLevel: viewModel.configureOutlinesLevel,
-                                                      showBlankLevel: viewModel.configureBlankLevel,
-                                                      isShowOutlineLevelButtonEnabled: viewModel.isOutlinesLevelEnabled,
-                                                      isShowBlankLevelButtonEnabled: viewModel.isBlankLevelEnabled,
-                                                      shouldHighlightOutlineButton: viewModel.shouldHighlightOutlineButton,
-                                                      shouldHighlightCanvasButton: viewModel.shouldHighlightCanvasButton,
-                                                      progress: viewModel.progress,
-                                                      level: viewModel.level,
-                                                      isTablet: isTablet))
-                    .frame(height: 125)
-                
-                Spacer()
-                
-                Button(action: { showVideoTutorialDialog = true },
-                       image: AppImage.hintButton.image)
-                    .frame(height: 70, alignment: .top)
-            }
-            
-            HStack {
-                Spacer()
-                
-                drawingCanvasContainer
-                
-                Spacer()
-                
-                buttons
-            }
+        VStack(spacing: 0) {
+            topRow
+            letterWritingRow
         }
         .overlay(videoTutorialDialog)
         .overlay(gameOverDialog)
         .onAppear {
             BackgroundMusicService.shared.pause()
             viewModel.drawingCanvasViewModel.configureLineColor()
+        }
+    }
+    
+    // MARK: - Top part of the view -
+    
+    var topRow: some View {
+        HStack(spacing: 0) {
+            Button(action: { dismiss() },
+                   image: AppImage.previousButton.image)
+                .frame(height: 70, alignment: .top)
+            
+            Spacer()
+            
+            LevelProgressBarView(viewModel: .init(progressGoal: 9,
+                                                  showGuidesLevel: viewModel.configureGuidesLevel,
+                                                  showOutlineLevel: viewModel.configureOutlinesLevel,
+                                                  showBlankLevel: viewModel.configureBlankLevel,
+                                                  isShowOutlineLevelButtonEnabled: viewModel.isOutlinesLevelEnabled,
+                                                  isShowBlankLevelButtonEnabled: viewModel.isBlankLevelEnabled,
+                                                  shouldHighlightOutlineButton: viewModel.shouldHighlightOutlineButton,
+                                                  shouldHighlightCanvasButton: viewModel.shouldHighlightCanvasButton,
+                                                  progress: viewModel.progress,
+                                                  level: viewModel.level,
+                                                  isTablet: isTablet))
+                .frame(height: 125)
+            
+            Spacer()
+            
+            Button(action: { showVideoTutorialDialog = true },
+                   image: AppImage.hintButton.image)
+                .frame(height: 70, alignment: .top)
+        }
+    }
+    
+    // MARK: - Letter writing row -
+    
+    var letterWritingRow: some View {
+        HStack(spacing: 0) {
+            Spacer()
+            
+            drawingCanvasContainer
+            
+            Spacer()
+            
+            buttons
         }
     }
 
