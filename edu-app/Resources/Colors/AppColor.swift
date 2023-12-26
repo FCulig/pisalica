@@ -10,6 +10,7 @@ import SwiftUI
 enum AppColor {
     case brownBorder
     case brownBackground
+    case green
 
     var color: Color {
         switch self {
@@ -17,6 +18,8 @@ enum AppColor {
             return Color("brown-border")
         case .brownBackground:
             return Color("brown-background")
+        case .green:
+            return Color("green")
         }
     }
 }

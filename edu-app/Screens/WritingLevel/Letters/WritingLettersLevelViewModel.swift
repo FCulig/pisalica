@@ -23,17 +23,37 @@ extension WritingLettersLevelView {
         private var totalAttempts: Int = 0
         private var currentScore: Float = 0
         private var cancellabels: Set<AnyCancellable> = []
+        private let isOutlinesLevelEnabledSubject: CurrentValueSubject<Bool, Never> = .init(false)
+        private let isBlankLevelEnabledSubject: CurrentValueSubject<Bool, Never> = .init(false)
+        private let shouldHighlightOutlineButtonSubject: CurrentValueSubject<Bool, Never> = .init(false)
+        private let shouldHighlightCanvasButtonSubject: CurrentValueSubject<Bool, Never> = .init(false)
+        private let progressSubject: CurrentValueSubject<Float, Never> = .init(0)
 
         // MARK: - Public properties -
 
         let level: Level
         let drawingCanvasViewModel: DrawingCanvasViewModel
-        let progress: CurrentValueSubject<Float, Never> = .init(0)
-        let isOutlinesLevelEnabled: CurrentValueSubject<Bool, Never> = .init(false)
-        let isBlankLevelEnabled: CurrentValueSubject<Bool, Never> = .init(false)
-        let shouldHighlightOutlineButton: CurrentValueSubject<Bool, Never> = .init(false)
-        let shouldHighlightCanvasButton: CurrentValueSubject<Bool, Never> = .init(false)
-
+        
+        var progress: AnyPublisher<Float, Never> {
+            progressSubject.eraseToAnyPublisher()
+        }
+        
+        var isOutlinesLevelEnabled: AnyPublisher<Bool, Never> {
+            isOutlinesLevelEnabledSubject.eraseToAnyPublisher()
+        }
+        
+        var isBlankLevelEnabled: AnyPublisher<Bool, Never> {
+            isBlankLevelEnabledSubject.eraseToAnyPublisher()
+        }
+        
+        var shouldHighlightOutlineButton: AnyPublisher<Bool, Never> {
+            shouldHighlightOutlineButtonSubject.eraseToAnyPublisher()
+        }
+        
+        var shouldHighlightCanvasButton: AnyPublisher<Bool, Never> {
+            shouldHighlightCanvasButtonSubject.eraseToAnyPublisher()
+        }
+        
         @Published var levelState: LevelState = .none
         @Published var isGameOver: Bool = false
         @Published var endGameRecap: [String: Int] = [:]
@@ -123,8 +143,8 @@ private extension WritingLettersLevelView.ViewModel {
     }
 
     func updateTotalScore(wasAnswerCorrect: Bool) {
-        shouldHighlightCanvasButton.send(false)
-        shouldHighlightOutlineButton.send(false)
+        shouldHighlightCanvasButtonSubject.send(false)
+        shouldHighlightOutlineButtonSubject.send(false)
 
         // If we want negative points
         guard wasAnswerCorrect else {
@@ -163,26 +183,26 @@ private extension WritingLettersLevelView.ViewModel {
             newScore += 1
 
             if newScore >= 3 {
-                isOutlinesLevelEnabled.send(true)
+                isOutlinesLevelEnabledSubject.send(true)
             }
         } else if currentScore >= 3, currentScore < 6 {
             if case .none = levelState { return }
             if case .guides = levelState {
-                shouldHighlightOutlineButton.send(true)
+                shouldHighlightOutlineButtonSubject.send(true)
                 return
             }
 
             newScore += 1
             if currentScore + 1 >= 6 {
-                isBlankLevelEnabled.send(true)
+                isBlankLevelEnabledSubject.send(true)
             }
         } else if currentScore >= 6, currentScore < 9 {
             if case .guides = levelState {
-                shouldHighlightCanvasButton.send(true)
+                shouldHighlightCanvasButtonSubject.send(true)
                 return
             }
             if case .outline = levelState {
-                shouldHighlightCanvasButton.send(true)
+                shouldHighlightCanvasButtonSubject.send(true)
                 return
             }
 
@@ -194,7 +214,7 @@ private extension WritingLettersLevelView.ViewModel {
             }
         }
 
-        progress.send(newScore)
+        progressSubject.send(newScore)
         currentScore = newScore
     }
 

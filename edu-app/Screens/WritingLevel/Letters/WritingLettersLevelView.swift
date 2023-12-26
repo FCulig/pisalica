@@ -76,18 +76,8 @@ struct WritingLettersLevelView: View {
             
             Spacer()
             
-            LevelProgressBarView(viewModel: .init(progressGoal: 9,
-                                                  showGuidesLevel: viewModel.configureGuidesLevel,
-                                                  showOutlineLevel: viewModel.configureOutlinesLevel,
-                                                  showBlankLevel: viewModel.configureBlankLevel,
-                                                  isShowOutlineLevelButtonEnabled: viewModel.isOutlinesLevelEnabled,
-                                                  isShowBlankLevelButtonEnabled: viewModel.isBlankLevelEnabled,
-                                                  shouldHighlightOutlineButton: viewModel.shouldHighlightOutlineButton,
-                                                  shouldHighlightCanvasButton: viewModel.shouldHighlightCanvasButton,
-                                                  progress: viewModel.progress,
-                                                  level: viewModel.level,
-                                                  isTablet: isTablet))
-                .frame(height: 125)
+            LevelProgressBarView(viewModel: .init())
+                .frame(height: 70)
             
             Spacer()
             
@@ -319,20 +309,22 @@ struct WritingLettersLevelView: View {
 
 // MARK: - Previews -
 
-struct WritingLettersLevelView_Previews: PreviewProvider {
-    static var previews: some View {
-        WritingLettersLevelView(level: Level(),
-                                levelService: LevelServicePreviewMock(),
-                                achievementService: AchievementServicePreviewMock(),
-                                shopService: ShopServicePreviewMock())
-            .previewInterfaceOrientation(.landscapeLeft)
-            .previewDevice("iPhone 13 Pro Max")
+// Not working, constantly crashing
 
-        WritingLettersLevelView(level: Level(),
-                                levelService: LevelServicePreviewMock(),
-                                achievementService: AchievementServicePreviewMock(),
-                                shopService: ShopServicePreviewMock())
-            .previewDevice("iPad Air (5th generation)")
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}
+//struct WritingLettersLevelView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WritingLettersLevelView(level: Level(),
+//                                levelService: LevelServicePreviewMock(),
+//                                achievementService: AchievementServicePreviewMock(),
+//                                shopService: ShopServicePreviewMock())
+//            .previewInterfaceOrientation(.landscapeLeft)
+//            .previewDevice("iPhone 13 Pro Max")
+//
+//        WritingLettersLevelView(level: Level(),
+//                                levelService: LevelServicePreviewMock(),
+//                                achievementService: AchievementServicePreviewMock(),
+//                                shopService: ShopServicePreviewMock())
+//            .previewDevice("iPad Air (5th generation)")
+//            .previewInterfaceOrientation(.landscapeLeft)
+//    }
+//}

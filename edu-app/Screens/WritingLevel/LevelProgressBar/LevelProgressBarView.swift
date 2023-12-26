@@ -11,99 +11,66 @@ import SwiftUI
 // MARK: - LevelProgressBar -
 
 struct LevelProgressBarView: View {
-    // MARK: - Constants -
-
-    var leadingPadding: CGFloat {
-        isTablet ? 23 : 13
-    }
-
     // MARK: - Private properties -
 
-    @StateObject private var viewModel: ViewModel
-    @State private var didReadSize = false
+    @ObservedObject private var viewModel: ViewModel
 
     // MARK: - Initializer -
 
     public init(viewModel: ViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+        self.viewModel = viewModel
     }
 
     // MARK: - View components -
 
     var body: some View {
-        ZStack {
-            AppImage.levelProgressBar.image
-                .overlay(progressIndicator)
-                .scaledToFit()
-
-            levelCheckpoints
-        }
-    }
-
-    var progressIndicator: some View {
-        ZStack {
-            if viewModel.currentProgress > 0 {
-                Rectangle()
-                    .cornerRadius(50)
-                    .foregroundColor(.init(red: 0.20, green: 0.7, blue: 0.10))
-                    .padding(.vertical, isTablet ? 34 : 21)
-                    .padding(.leading, leadingPadding)
-                    .padding(.bottom, isTablet ? 2 : 0.5)
-                    .padding(.trailing, viewModel.trailingPadding < (isTablet ? 850 : 480) ?
-                        viewModel.trailingPadding : (isTablet ? 840 : 470))
-            }
-        }
-    }
-
-    var levelCheckpoints: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 0) {
-            createProgressBarCheckpoint(onTap: viewModel.showGuidesLevel,
-                                        buttonImage: Image(viewModel.level.guideImage ?? ""),
-                                        isLocked: false)
-            Spacer()
-                .frame(width: isTablet ? 230 : 120)
-
-            createProgressBarCheckpoint(onTap: viewModel.showOutlineLevel,
-                                        buttonImage: Image(viewModel.level.outlineImage ?? ""),
-                                        isLocked: !viewModel.isShowOutlineLevelButtonEnabled,
-                                        shouldHighlight: $viewModel.shouldHighlightOutlineButton)
-            Spacer()
-                .frame(width: isTablet ? 220 : 110)
-
-            createProgressBarCheckpoint(onTap: viewModel.showBlankLevel,
-                                        isLocked: !viewModel.isShowBlankLevelButtonEnabled,
-                                        shouldHighlight: $viewModel.shouldHighlightCanvasButton)
-
-            Spacer()
-        }
+        outline
     }
 }
 
-// MARK: - View related methods -
+// MARK: - Progress bar components -
 
 private extension LevelProgressBarView {
-    func createProgressBarCheckpoint(onTap: @escaping () -> Void,
-                                     buttonImage: Image? = nil,
-                                     isLocked: Bool,
-                                     shouldHighlight: Binding<Bool>? = nil) -> some View
-    {
-        return ZStack {
-            if isLocked {
-                RoundedButton(buttonImage: buttonImage, isLocked: true)
-                    .frame(width: isTablet ? 75 : 55)
-            } else if let shouldHighlight = shouldHighlight {
-                RoundedButton(buttonImage: buttonImage, isLocked: false)
-                    .frame(width: isTablet ? 75 : 55)
-                    .blink(on: shouldHighlight, repeatCount: 4, duration: 0.5)
-            } else {
-                RoundedButton(buttonImage: buttonImage, isLocked: false)
-                    .frame(width: isTablet ? 75 : 55)
-            }
+    var outline: some View {
+        GeometryReader { reader in
+            Capsule()
+                .strokeBorder(AppColor.brownBorder.color, style: StrokeStyle(lineWidth: 15))
+                .overlay(progressIndicator)
+                .overlay(checkpoints)
+                .onAppear {
+                    viewModel.progressBarWidth = reader.frame(in: .global).width
+                }
         }
-        .onTapGesture {
-            if !isLocked {
-                onTap()
-            }
+    }
+    
+    var progressIndicator: some View {
+        Capsule()
+            .fill(AppColor.green.color)
+            .padding(5)
+    }
+}
+
+// MARK: - Progress checkpoints -
+
+private extension LevelProgressBarView {
+    var checkpoints: some View {
+        // TODO: Replace rectangles with images
+        HStack(spacing: 0) {
+            Rectangle()
+                .fill(AppColor.brownBorder.color)
+                .frame(width: 1)
+                .padding(.trailing, viewModel.checkpointSpacing)
+            
+            Rectangle()
+                .fill(AppColor.brownBorder.color)
+                .frame(width: 1)
+                .padding(.trailing, viewModel.checkpointSpacing)
+            
+            Rectangle()
+                .fill(AppColor.brownBorder.color)
+                .frame(width: 1)
+            
+            Spacer()
         }
     }
 }
@@ -112,31 +79,11 @@ private extension LevelProgressBarView {
 
 struct LevelProgressBarView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelProgressBarView(viewModel: .init(progressGoal: 10,
-                                              showGuidesLevel: {},
-                                              showOutlineLevel: {},
-                                              showBlankLevel: {},
-                                              isShowOutlineLevelButtonEnabled: .init(false),
-                                              isShowBlankLevelButtonEnabled: .init(false),
-                                              shouldHighlightOutlineButton: .init(false),
-                                              shouldHighlightCanvasButton: .init(false),
-                                              progress: .init(10),
-                                              level: .init(),
-                                              isTablet: false))
+        LevelProgressBarView(viewModel: .init())
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPhone 13 Pro Max")
 
-        LevelProgressBarView(viewModel: .init(progressGoal: 10,
-                                              showGuidesLevel: {},
-                                              showOutlineLevel: {},
-                                              showBlankLevel: {},
-                                              isShowOutlineLevelButtonEnabled: .init(false),
-                                              isShowBlankLevelButtonEnabled: .init(false),
-                                              shouldHighlightOutlineButton: .init(false),
-                                              shouldHighlightCanvasButton: .init(false),
-                                              progress: .init(10),
-                                              level: .init(),
-                                              isTablet: true))
+        LevelProgressBarView(viewModel: .init())
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPad Air (5th generation)")
     }

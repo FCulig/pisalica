@@ -120,6 +120,7 @@
 		C1593F895C44BEBF5ECC85A7 /* Pods_edu_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534F22E1F95AD981237F2910 /* Pods_edu_appTests.framework */; };
 		D02F82B02B0A2C6B003A2958 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F82AF2B0A2C6B003A2958 /* Background.swift */; };
 		D02F82B22B0A2CA1003A2958 /* View+isTablet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F82B12B0A2CA1003A2958 /* View+isTablet.swift */; };
+		D0979DED2B39A2C000D75A4E /* Publisher+AssignWeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0979DEC2B39A2C000D75A4E /* Publisher+AssignWeak.swift */; };
 		D0BE0C992ABEF89E00D18F17 /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */; };
 /* End PBXBuildFile section */
 
@@ -261,6 +262,7 @@
 		BF0DA19EC556E1A197DD3E56 /* Pods-edu-app-edu-appUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-app-edu-appUITests.release.xcconfig"; path = "Target Support Files/Pods-edu-app-edu-appUITests/Pods-edu-app-edu-appUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D02F82AF2B0A2C6B003A2958 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		D02F82B12B0A2CA1003A2958 /* View+isTablet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+isTablet.swift"; sourceTree = "<group>"; };
+		D0979DEC2B39A2C000D75A4E /* Publisher+AssignWeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+AssignWeak.swift"; sourceTree = "<group>"; };
 		D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
 		F2E965F959F3BF00F26064DD /* Pods-edu-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-app.debug.xcconfig"; path = "Target Support Files/Pods-edu-app/Pods-edu-app.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -533,6 +535,7 @@
 				4DFB6715284C9F0B00811BBC /* String+BasicOperations.swift */,
 				4D51D5702882D37600E2ACDA /* TypeAliases.swift */,
 				D02F82B12B0A2CA1003A2958 /* View+isTablet.swift */,
+				D0979DEC2B39A2C000D75A4E /* Publisher+AssignWeak.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1116,6 +1119,7 @@
 				4DC73FC92835127C004FD1A0 /* ShopItem+CoreDataClass.swift in Sources */,
 				D02F82B02B0A2C6B003A2958 /* Background.swift in Sources */,
 				4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */,
+				D0979DED2B39A2C000D75A4E /* Publisher+AssignWeak.swift in Sources */,
 				4D4E05DC280D663E00569C16 /* DataController.swift in Sources */,
 				4D929C802834E32600504405 /* ShopService.swift in Sources */,
 				4D8F5212284B585A0092DCC3 /* WritingWordsViewModel.swift in Sources */,
