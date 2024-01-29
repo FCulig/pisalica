@@ -11,7 +11,7 @@ on:
 
 jobs:
   say-hello:
-    name: Deploying to App Store
+    name: Helloing someone
     runs-on: self-hosted
     steps:
       - name: Helloing someone
