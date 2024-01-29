@@ -76,7 +76,7 @@ struct WritingLettersLevelView: View {
             
             Spacer()
             
-            LevelProgressBarView(viewModel: .init())
+            LevelProgressBarView(viewModel: .init(goal: 10, currentProgress: Just(5).eraseToAnyPublisher()))
                 .frame(height: 70)
             
             Spacer()

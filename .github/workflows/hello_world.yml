@@ -1,0 +1,18 @@
+name: Hello
+
+on:
+  workflow_dispatch:
+    inputs:
+        name:
+          description: 'Hello this person'
+          default: 'World'
+          required: true
+          type: string
+
+jobs:
+  say-hello:
+    name: Deploying to App Store
+    runs-on: self-hosted
+    steps:
+      - name: Helloing someone
+        run: echo "Hello ${{ inputs.name }}!"

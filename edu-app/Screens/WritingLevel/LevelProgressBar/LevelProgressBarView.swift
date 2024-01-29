@@ -39,6 +39,7 @@ private extension LevelProgressBarView {
                 .overlay(checkpoints)
                 .onAppear {
                     viewModel.progressBarWidth = reader.frame(in: .global).width
+                    viewModel.updateView()
                 }
         }
     }
@@ -46,6 +47,7 @@ private extension LevelProgressBarView {
     var progressIndicator: some View {
         Capsule()
             .fill(AppColor.green.color)
+            .frame(width: viewModel.progressIndicatorWidth)
             .padding(5)
     }
 }
@@ -79,12 +81,12 @@ private extension LevelProgressBarView {
 
 struct LevelProgressBarView_Previews: PreviewProvider {
     static var previews: some View {
-        LevelProgressBarView(viewModel: .init())
+        LevelProgressBarView(viewModel: .init(goal: 10, currentProgress: Just(4).eraseToAnyPublisher()))
             .previewInterfaceOrientation(.landscapeLeft)
             .previewDevice("iPhone 13 Pro Max")
 
-        LevelProgressBarView(viewModel: .init())
-            .previewInterfaceOrientation(.landscapeLeft)
-            .previewDevice("iPad Air (5th generation)")
+//        LevelProgressBarView(viewModel: .init())
+//            .previewInterfaceOrientation(.landscapeLeft)
+//            .previewDevice("iPad Air (5th generation)")
     }
 }

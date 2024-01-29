@@ -16,12 +16,14 @@ struct RoundedButton: View {
     // MARK: - Public properties -
 
     @State var isLocked: Bool
+    @State var shouldShowGrass: Bool
 
     // MARK: - Initializer -
 
-    public init(buttonImage: Image? = nil, isLocked: Bool) {
+    public init(buttonImage: Image? = nil, isLocked: Bool = false, shouldShowGrass: Bool = false) {
         self.buttonImage = buttonImage
         self.isLocked = isLocked
+        self.shouldShowGrass = shouldShowGrass
     }
 
     // MARK: - View components -
@@ -73,7 +75,7 @@ struct RoundedButton: View {
 
 struct RoundedButton_Previews: PreviewProvider {
     static var previews: some View {
-        RoundedButton(buttonImage: Image("A-guide"), isLocked: false)
+        RoundedButton(buttonImage: Image("A-guide"))
             .frame(width: 55)
 
         RoundedButton(buttonImage: Image("A-guide"), isLocked: true)

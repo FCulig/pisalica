@@ -13,9 +13,17 @@ import SwiftUI
 extension LevelProgressBarView {
     final class ViewModel: ObservableObject {
         // MARK: - Private properties -
-//
-//        private let isTablet: Bool
-//        private var cancellables: Set<AnyCancellable> = []
+
+        private let goal: Float
+        private let currentProgressSubject: AnyPublisher<Float, Never>
+        
+        private var currentProgress: Float = 0 {
+            didSet {
+                updateView()
+            }
+        }
+        
+        private var cancellables: Set<AnyCancellable> = []
 //        private var isShowOutlineLevelButtonEnabledSubject: AnyPublisher<Bool, Never>
 //        private var isShowBlankLevelButtonEnabledSubject: AnyPublisher<Bool, Never>
 //        private var shouldHighlightOutlineButtonSubject: AnyPublisher<Bool, Never>
@@ -32,11 +40,12 @@ extension LevelProgressBarView {
         
         var progressBarWidth: CGFloat = 0 {
             didSet {
-                didUpdateProgressBarWidth()
+                updateView()
             }
         }
         
         @Published var checkpointSpacing: CGFloat = 0
+        @Published var progressIndicatorWidth: CGFloat = 0
         
         
 
@@ -50,21 +59,14 @@ extension LevelProgressBarView {
 
         // MARK: - Initializer -
 
-        public init()
-        {
-//            self.progressGoal = progressGoal
-//            self.showGuidesLevel = showGuidesLevel
-//            self.showOutlineLevel = showOutlineLevel
-//            self.showBlankLevel = showBlankLevel
-//            isShowOutlineLevelButtonEnabledSubject = isShowOutlineLevelButtonEnabled
-//            isShowBlankLevelButtonEnabledSubject = isShowBlankLevelButtonEnabled
-//            shouldHighlightOutlineButtonSubject = shouldHighlightOutlineButton
-//            shouldHighlightCanvasButtonSubject = shouldHighlightCanvasButton
-//            self.progress = progress
-//            self.level = level
-//            self.isTablet = isTablet
-//
-//            subscribeSubjectChanges()
+        public init(goal: Float, currentProgress: AnyPublisher<Float, Never>) {
+            self.goal = goal
+            self.currentProgressSubject = currentProgress
+        }
+        
+        func updateView() {
+            didUpdateProgressBarWidth()
+            updateProgressIndicatorWidth()
         }
     }
 }
@@ -73,6 +75,10 @@ extension LevelProgressBarView {
 
 private extension LevelProgressBarView.ViewModel {
     func subscribeSubjectChanges() {
+        currentProgressSubject
+            .assignWeak(to: \.currentProgress, on: self)
+            .store(in: &cancellables)
+        
 //        progress
 //            .assignWeak(to: \.currentProgress, on: self)
 //            .store(in: &cancellables)
@@ -100,5 +106,13 @@ private extension LevelProgressBarView.ViewModel {
 private extension LevelProgressBarView.ViewModel {
     func didUpdateProgressBarWidth() {
         checkpointSpacing = progressBarWidth / 3 // - widthOfImages * 3
+    }
+    
+    func updateProgressIndicatorWidth() {
+        let progressPercentage = currentProgress / goal
+        progressIndicatorWidth = CGFloat(progressPercentage) * progressBarWidth
+        
+        print(progressPercentage)
+        print(progressIndicatorWidth)
     }
 }

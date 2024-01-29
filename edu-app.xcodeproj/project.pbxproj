@@ -382,6 +382,7 @@
 		4D51D56A2882D13E00E2ACDA /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				D05C4B2E2B3AE49700DED31A /* Image */,
 				D02F82AE2B0A2C5C003A2958 /* Background */,
 				4D526BC62827D19D00B8FEA3 /* ProgressBar */,
 				4D72F9A629879CF300661E38 /* Grid */,
@@ -790,6 +791,13 @@
 				D02F82AF2B0A2C6B003A2958 /* Background.swift */,
 			);
 			path = Background;
+			sourceTree = "<group>";
+		};
+		D05C4B2E2B3AE49700DED31A /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
