@@ -12,7 +12,7 @@ on:
 jobs:
   say-hello:
     name: Helloing someone
-    runs-on: self-hosted
+    runs-on: macos-latest
     steps:
       - name: Helloing someone
         run: echo "Hello ${{ inputs.name }}!"
