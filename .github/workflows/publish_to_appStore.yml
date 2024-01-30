@@ -1,4 +1,4 @@
-name: Publish app to App Store
+name: Publish app to App Store nativley
 
 # TODO: There is a release event which can be used
 on:
@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     name: Deploying to App Store
-    runs-on: self-hosted
+    runs-on: macos-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -42,4 +42,5 @@ jobs:
         env:
           APPLEID_USERNAME: ${{ secrets.APPLEID_USERNAME }}
           APPLEID_PASSWORD: ${{ secrets.APPLEID_PASSWORD }}
-        run: ./.github/scripts/upload_app.sh
+        #run: ./.github/scripts/upload_app.sh
+        run: echo "Should upload to store"

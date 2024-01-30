@@ -1,4 +1,4 @@
-name: Publish app to App Store
+name: Publish app to App Store using fastlane
 
 # TODO: There is a release event which can be used
 on:
