@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     name: Deploying to App Store
-    runs-on: macos-latest-xlarge
+    runs-on: macos-14
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
