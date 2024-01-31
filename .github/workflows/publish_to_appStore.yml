@@ -21,8 +21,8 @@ jobs:
         run: bundle install
       - name: Install gpg
         run: brew install gnupg
-      - name: Update bundler
-        run: bundle update
+      #- name: Update bundler
+      #  run: bundle update
       - name: Check GPG version
         run: gpg --version
       - name: Install pods # Debugging
