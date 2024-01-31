@@ -1392,6 +1392,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.filip.culig.edu-app";
 				PRODUCT_NAME = Pisanka;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
