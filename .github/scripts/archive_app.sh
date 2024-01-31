@@ -2,6 +2,8 @@
 
 set -eo pipefail
 
+xcodebuild clean
+
 xcodebuild -workspace edu-app.xcworkspace \
            -scheme edu-app\
            -sdk iphoneos \
