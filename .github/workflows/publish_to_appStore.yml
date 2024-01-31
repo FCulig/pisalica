@@ -9,24 +9,10 @@ on:
 jobs:
   deploy:
     name: Deploying to App Store
-    runs-on: macos-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Set up Ruby ${{ matrix.ruby-version }}
-        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
-        with:
-          ruby-version: '3.1'
-      - name: Install dependencies
-        run: bundle install
-      - name: Install gpg
-        run: brew install gnupg
-      #- name: Update bundler
-      #  run: bundle update
-      #- name: Check GPG version
-      #  run: gpg --version
-      #- name: Install pods # Debugging
-      #  run: bundle exec pod install
       - name: Set permissions for decrypt script
         run: chmod +x ./.github/secrets/decrypt_secrets.sh
       - name: Setup provisioning profile
