@@ -11,6 +11,9 @@ jobs:
     name: Deploying to App Store
     runs-on: macos-14
     steps:
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Install gpg
