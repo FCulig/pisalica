@@ -9,7 +9,7 @@ mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 cp ./.github/secrets/Pisanka_App_Store_Provisioning_profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/Pisanka_App_Store_Provisioning_profile.mobileprovision
 
 
-security create-keychain -p "" build.keychain
+#security create-keychain -p "" build.keychain
 security import ./.github/secrets/Certificates.p12 -t agg -k ~/Library/Keychains/build.keychain -P "" -A
 
 security list-keychains -s ~/Library/Keychains/build.keychain
