@@ -21,8 +21,8 @@ jobs:
         run: pod deintegrate
       - name: Install pods # Debugging
         run: pod install
-      - name: Set permissions for decrypt script
-        run: chmod +x ./.github/secrets/decrypt_secrets.sh
+      #- name: Set permissions for decrypt script
+      #  run: chmod +x ./.github/secrets/decrypt_secrets.sh
       - name: Setup provisioning profile
         env:
           IOS_KEYS: ${{ secrets.IOS_KEYS }}
