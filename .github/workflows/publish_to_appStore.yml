@@ -1,10 +1,15 @@
-name: Publish app to App Store nativley
+name: Publish app nativley
 
 # TODO: There is a release event which can be used
 on:
   workflow_dispatch:
-
-# TODO: Try doing it with https://github.com/marketplace/actions/ios-build-action
+    inputs:
+      deployDestination:
+        type: choice
+        description: Where do you want to upload the app
+        options:
+        - appStore
+        - testFlight
 
 jobs:
   deploy:
@@ -26,9 +31,9 @@ jobs:
       - name: Archiving project
         run: ./.github/scripts/archive_app.sh
       - name: Set permissions for export script
-        run: chmod +x ./.github/scripts/export_ipa_appStore.sh
+        run: chmod +x ./.github/scripts/export_ipa_${{ inputs.deployDestination }}.sh
       - name: Exporting .ipa
-        run: ./.github/scripts/export_ipa_appStore.sh
+        run: ./.github/scripts/export_ipa_${{ inputs.deployDestination }}.sh
       - name: Set permissions for publishing script
         run: chmod +x ./.github/scripts/upload_app.sh
       - name: Publishing app
