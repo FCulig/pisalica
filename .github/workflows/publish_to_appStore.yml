@@ -1,6 +1,5 @@
 name: Publish app nativley
 
-# TODO: There is a release event which can be used
 on:
   workflow_dispatch:
     inputs:

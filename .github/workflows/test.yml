@@ -1,0 +1,13 @@
+name: Run tests
+
+on:
+  pull_request:
+    types: [ labeled ]
+
+jobs:
+  test:
+    if: ${{ github.event.label.name == 'test' }}
+    runs-on: macos-latest
+    steps:
+        - name: Helloing someone
+          run: echo "Hello"
