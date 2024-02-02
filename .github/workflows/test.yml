@@ -2,7 +2,7 @@ name: Run tests
 
 on:
   pull_request:
-    types: [ labeled, synchronize  ]
+    types: labeled
 
 jobs:
   test:
