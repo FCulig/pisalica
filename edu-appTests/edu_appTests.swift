@@ -5,7 +5,6 @@
 //  Created by Filip Culig on 15.02.2022..
 //
 
-@testable import edu_app
 import XCTest
 
 class edu_appTests: XCTestCase {
