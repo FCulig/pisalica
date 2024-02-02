@@ -10,4 +10,4 @@ jobs:
     runs-on: macos-latest
     steps:
         - name: Helloing someone
-          run: echo "Hello"
+          run: echo "Hellooooo"
