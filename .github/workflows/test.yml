@@ -11,3 +11,8 @@ jobs:
     steps:
         - name: Helloing someone
           run: echo "Hellooooo"
+        - name: Comment PR
+          uses: thollander/actions-comment-pull-request@v2
+          with:
+            message: |
+              Hello world ! :wave:
