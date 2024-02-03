@@ -11,16 +11,16 @@ jobs:
     steps:
         - name: Checkout repository
           uses: actions/checkout@v3
-        - name: Set permission for executing test scrip
+        - name: Set permission for executing test script
           run: chmod +x ./.github/scripts/test.sh
         - name: Run tests
           run: ./.github/scripts/test.sh
-        - name: Get screenshot of tests
-          uses: saadmk11/comment-webpage-screenshot@main
-          with:
-            upload_to: imgur
-            capture_changed_html_files: yes
-            capture_html_file_paths: "./build/reports/tests.html"
+        #- name: Get screenshot of tests
+        #  uses: saadmk11/comment-webpage-screenshot@main
+        #  with:
+        #    upload_to: imgur
+        #    capture_changed_html_files: yes
+        #    capture_html_file_paths: "./build/reports/tests.html"
         #- name: Comment PR
         #  uses: thollander/actions-comment-pull-request@v2
         #  with:

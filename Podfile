@@ -14,9 +14,4 @@ target 'edu-app' do
     inherit! :search_paths
     # Pods for testing
   end
-
-  target 'edu-appUITests' do
-    # Pods for testing
-  end
-
 end
