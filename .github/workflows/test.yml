@@ -18,7 +18,13 @@ jobs:
         - name: Run tests
           id: run_tests
           run: ./.github/scripts/test.sh
-        - name: Comment PR
-          uses: thollander/actions-comment-pull-request@v2
+        - name: Publish Test Results
+          uses: EnricoMi/publish-unit-test-result-action@v2
+          if: always()
           with:
-            message: ${{join(steps.run_tests.outputs.*, '\n')}}
+              files: |
+                build/reports/junit.xml
+        #- name: Comment PR
+        #  uses: thollander/actions-comment-pull-request@v2
+        #  with:
+        #    message: ${{join(steps.run_tests.outputs.*, '\n')}}
