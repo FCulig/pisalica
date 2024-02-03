@@ -16,12 +16,9 @@ jobs:
         - name: Set permission for executing test script
           run: chmod +x ./.github/scripts/test.sh
         - name: Run tests
+          id: run_tests
           run: ./.github/scripts/test.sh
-        - uses: kishikawakatsumi/xcresulttool@v1
+        - name: Comment PR
+          uses: thollander/actions-comment-pull-request@v2
           with:
-            path: edu-appTests.xcresult
-          if: success() || failure()
-        #- name: Comment PR
-        #  uses: thollander/actions-comment-pull-request@v2
-        #  with:
-        #    message: "Hello !!!"
+            message: ${{join(steps.run_tests.outputs.*, '\n')}}
