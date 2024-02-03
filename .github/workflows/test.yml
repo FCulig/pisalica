@@ -19,11 +19,11 @@ jobs:
           id: run_tests
           run: ./.github/scripts/test.sh
         - name: Publish Test Results
-          uses: EnricoMi/publish-unit-test-result-action@v2
+          uses: EnricoMi/publish-unit-test-result-action/composite@v2
           if: always()
           with:
-              files: |
-                build/reports/junit.xml
+            files: |
+              build/reports/junit.xml
         #- name: Comment PR
         #  uses: thollander/actions-comment-pull-request@v2
         #  with:
