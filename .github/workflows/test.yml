@@ -11,6 +11,8 @@ jobs:
     steps:
         - name: Checkout repository
           uses: actions/checkout@v3
+        - name: Install pods
+          run: pod install
         - name: Set permission for executing test script
           run: chmod +x ./.github/scripts/test.sh
         - name: Run tests
