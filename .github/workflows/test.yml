@@ -17,12 +17,10 @@ jobs:
           run: chmod +x ./.github/scripts/test.sh
         - name: Run tests
           run: ./.github/scripts/test.sh
-        - name: Get screenshot of tests
-          uses: saadmk11/comment-webpage-screenshot@main
+        - uses: kishikawakatsumi/xcresulttool@v1
           with:
-            upload_to: imgur
-            capture_changed_html_files: yes
-            capture_html_file_paths: "./build/reports/tests.html"
+            path: edu-appTests.xcresult
+          if: success() || failure()
         #- name: Comment PR
         #  uses: thollander/actions-comment-pull-request@v2
         #  with:
