@@ -12,9 +12,9 @@ jobs:
         - name: Checkout repository
           uses: actions/checkout@v3
         - name: Set permission for executing test scrip
-          run: chmod +x ./.github/secrets/test.sh
+          run: chmod +x ./.github/scripts/test.sh
         - name: Run tests
-          run: ./.github/secrets/test.sh
+          run: ./.github/scripts/test.sh
         - name: Get screenshot of tests
           uses: saadmk11/comment-webpage-screenshot@main
           with:
