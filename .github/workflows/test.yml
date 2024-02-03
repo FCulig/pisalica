@@ -9,7 +9,19 @@ jobs:
     if: ${{ github.event.label.name == 'test' }}
     runs-on: macos-latest
     steps:
-        - name: Comment PR
-          uses: thollander/actions-comment-pull-request@v2
+        - name: Checkout repository
+          uses: actions/checkout@v3
+        - name: Set permission for executing test scrip
+          run: chmod +x ./.github/secrets/test.sh
+        - name: Run tests
+          run: ./.github/secrets/test.sh
+        - name: Get screenshot of tests
+          uses: saadmk11/comment-webpage-screenshot@main
           with:
-            message: "Hello !!!"
+            upload_to: imgur
+            capture_changed_html_files: yes
+            capture_html_file_paths: "./build/reports/tests.html"
+        #- name: Comment PR
+        #  uses: thollander/actions-comment-pull-request@v2
+        #  with:
+        #    message: "Hello !!!"
