@@ -5,7 +5,7 @@
 //  Created by Filip Culig on 15.02.2022..
 //
 
-gsimport XCTest
+import XCTest
 
 class edu_appTests: XCTestCase {
     override func setUpWithError() throws {
