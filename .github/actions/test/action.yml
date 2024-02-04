@@ -4,6 +4,7 @@ on: workflow_call
 
 runs:
   using: "Composite"
+  shell: bash
   steps:
       - name: Install pods
         run: pod install
