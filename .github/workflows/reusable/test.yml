@@ -1,13 +1,10 @@
 name: Run tests
 
-on: pull_request
-  #pull_request:
-    #types: labeled
+on: workflow_call
 
 jobs:
   test:
     name: Run tests for the app
-    #if: ${{ github.event.label.name == 'test' }}
     runs-on: self-hosted
     steps:
         - name: Checkout repository
@@ -19,9 +16,3 @@ jobs:
         - name: Run tests
           id: run_tests
           run: ./.github/scripts/test.sh
-        - name: Publish Test Results
-          uses: EnricoMi/publish-unit-test-result-action/composite@v2
-          if: success() || failure()
-          with:
-            files: |
-              build/reports/junit.xml

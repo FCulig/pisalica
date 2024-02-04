@@ -1,0 +1,10 @@
+name: Run tests nightly
+
+on: workflow_call
+
+jobs:
+  test:
+    name: Run nightly tests for the app
+    runs-on: self-hosted
+    steps:
+        - uses: ./.github/workflows/reusable/test.yml
