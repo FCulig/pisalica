@@ -9,4 +9,4 @@ jobs:
     steps:
         - name: Checkout repository
           uses: actions/checkout@v3
-        - uses: ./.github/workflows/reusable/test.yml
+        - uses: ./.github/workflows/test.yml
