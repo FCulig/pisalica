@@ -2,14 +2,12 @@ name: Run tests
 
 on: workflow_call
 
-jobs:
-  test:
-    using: "Composite"
-    steps:
-        - name: Install pods
-          run: pod install
-        - name: Set permission for executing test script
-          run: chmod +x ./.github/scripts/test.sh
-        - name: Run tests
-          id: run_tests
-          run: ./.github/scripts/test.sh
+runs:
+  using: "Composite"
+  steps:
+      - name: Install pods
+        run: pod install
+      - name: Set permission for executing test script
+        run: chmod +x ./.github/scripts/test.sh
+      - name: Run tests
+        run: ./.github/scripts/test.sh
