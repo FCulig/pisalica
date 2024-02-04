@@ -9,5 +9,5 @@ jobs:
     steps:
         - name: Checkout repository
           uses: actions/checkout@v3
-        - name: Run reusable test workflow
+        - name: Run tests
           uses: ./.github/actions/test
