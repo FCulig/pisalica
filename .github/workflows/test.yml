@@ -6,6 +6,7 @@ on:
 
 jobs:
   test:
+    name: Run tests for the app
     if: ${{ github.event.label.name == 'test' }}
     runs-on: self-hosted
     steps:
