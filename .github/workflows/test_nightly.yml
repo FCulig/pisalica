@@ -7,4 +7,6 @@ jobs:
     name: Run nightly tests for the app
     runs-on: self-hosted
     steps:
+        - name: Checkout repository
+          uses: actions/checkout@v3
         - uses: ./.github/workflows/reusable/test.yml
