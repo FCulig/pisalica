@@ -1,6 +1,6 @@
 name: Run tests nightly
 
-on: workflow_call
+on: workflow_dispatch
 
 jobs:
   test:
