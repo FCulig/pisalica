@@ -4,8 +4,7 @@ on: workflow_call
 
 jobs:
   test:
-    name: Run tests for the app
-    runs-on: self-hosted
+    using: "Composite"
     steps:
         - name: Install pods
           run: pod install
