@@ -42,6 +42,7 @@ jobs:
             label: 'Test coverage'
             status: '53.4%'
             color: 'blue,555,daf'
+            path: ./.gihtub/badges/tests.svg
         
         - name: Commit badge
           continue-on-error: true
