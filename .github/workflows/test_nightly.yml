@@ -6,9 +6,8 @@ jobs:
   test:
     runs-on: self-hosted
     name: Run nightly tests for the app
-    #uses: ./.github/workflows/test.yml
-    #steps:
-    #    - name: Checkout repository
-    #      uses: actions/checkout@v3
-        #- name: Run reusable test workflow
-        #  uses: ./.github/workflows/test.yml
+    steps:
+        - name: Checkout repository
+          uses: actions/checkout@v3
+        - name: Run reusable test workflow
+          uses: ./.github/actions/test
