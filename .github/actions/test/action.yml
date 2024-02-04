@@ -4,11 +4,13 @@ on: workflow_call
 
 runs:
   using: "Composite"
-  shell: bash
   steps:
       - name: Install pods
+        shell: bash
         run: pod install
       - name: Set permission for executing test script
+        shell: bash
         run: chmod +x ./.github/scripts/test.sh
       - name: Run tests
+        shell: bash
         run: ./.github/scripts/test.sh
