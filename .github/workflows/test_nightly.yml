@@ -58,4 +58,4 @@ jobs:
           if: ${{ success() }}
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            branch: badges
+            branch: main
