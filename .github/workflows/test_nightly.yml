@@ -9,39 +9,39 @@ jobs:
     steps:
         - name: Checkout repository
           uses: actions/checkout@v3
-        #- name: Run tests
-        #  uses: ./.github/actions/test
-        #- name: Publish Test Results
-        #  uses: EnricoMi/publish-unit-test-result-action/composite@v2
-        #  id: test-results
-        #  if: always()
-        #  with:
-        #    files: |
-        #      build/reports/junit.xml
+        - name: Run tests
+          uses: ./.github/actions/test
+        - name: Publish Test Results
+          uses: EnricoMi/publish-unit-test-result-action/composite@v2
+          id: test-results
+          if: always()
+          with:
+            files: |
+              build/reports/junit.xml
         
-        #- name: Set badge color
-        #  run: |
-        #    case ${{ fromJSON( steps.test-results.outputs.json ).conclusion }} in
-        #      success)
-        #        echo "BADGE_COLOR=31c653" >> $GITHUB_ENV
-        #       ;;
-        #     failure)
-        #        echo "BADGE_COLOR=800000" >> $GITHUB_ENV
-        #       ;;
-        #      neutral)
-        #        echo "BADGE_COLOR=696969" >> $GITHUB_ENV
-        #        ;;
-        #    esac
+        - name: Set badge color
+          run: |
+            case ${{ fromJSON( steps.test-results.outputs.json ).conclusion }} in
+              success)
+                echo "BADGE_COLOR=31c653" >> $GITHUB_ENV
+               ;;
+             failure)
+                echo "BADGE_COLOR=800000" >> $GITHUB_ENV
+               ;;
+              neutral)
+                echo "BADGE_COLOR=696969" >> $GITHUB_ENV
+                ;;
+            esac
             
         - name: Create badge
           uses: emibcn/badge-action@d6f51ff11b5c3382b3b88689ae2d6db22d9737d1
           with:
-            #label: Tests
-            #status: '${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.tests }} tests, ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs }} runs: ${{ fromJSON( steps.test-results.outputs.json ).conclusion }}'
-            #color: ${{ env.BADGE_COLOR }}
-            label: 'Test coverage'
-            status: '53.4%'
-            color: 'blue,555,daf'
+            label: Tests
+            status: '${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.tests }} tests, ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs }} runs: ${{ fromJSON( steps.test-results.outputs.json ).conclusion }}'
+            color: ${{ env.BADGE_COLOR }}
+            #label: 'Test coverage'
+            #status: '53.4%'
+            #color: 'blue,555,daf'
             path: ./.github/badges/tests.svg
         
         - name: Commit badge
