@@ -51,6 +51,7 @@ jobs:
           run: |
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
+            git checkout badges
             git add .
             git commit -m "Add/Update badge"
         - name: Push badge commit
@@ -58,4 +59,4 @@ jobs:
           if: ${{ success() }}
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            branch: main
+            branch: badges
