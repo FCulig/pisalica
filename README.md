@@ -1,2 +1,1 @@
-Read me
-![Alt text](./.github/badges/tests.svg)
+![Tests](./.github/badges/tests.svg)

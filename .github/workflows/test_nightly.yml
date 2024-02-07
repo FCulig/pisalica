@@ -9,8 +9,10 @@ jobs:
     steps:
         - name: Checkout repository
           uses: actions/checkout@v3
+        
         - name: Run tests
           uses: ./.github/actions/test
+
         - name: Publish Test Results
           uses: EnricoMi/publish-unit-test-result-action/composite@v2
           id: test-results
@@ -39,15 +41,10 @@ jobs:
             label: Tests
             status: '${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.tests }} tests | ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs_succ }} succeeded | ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs_skip }} skipped | ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs_fail }} failed'
             color: ${{ env.BADGE_COLOR }}
-            #label: 'Test coverage'
-            #status: '53.4%'
-            #color: 'blue,555,daf'
             path: ./.github/badges/tests.svg
         
         - name: Commit badge
           continue-on-error: true
-          env:
-            BADGE: ${{ steps.coverage.outputs.path }}
           run: |
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
