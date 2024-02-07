@@ -37,7 +37,7 @@ jobs:
           uses: emibcn/badge-action@d6f51ff11b5c3382b3b88689ae2d6db22d9737d1
           with:
             label: Tests
-            status: '${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.tests }} tests, ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs }} runs: ${{ fromJSON( steps.test-results.outputs.json ).conclusion }}'
+            status: '${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.tests }} tests | ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs_succ }} succeeded | ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs_skip }} skipped | ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs_fail }} failed'
             color: ${{ env.BADGE_COLOR }}
             #label: 'Test coverage'
             #status: '53.4%'
@@ -51,7 +51,7 @@ jobs:
           run: |
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
-            git add .
+            git add ./.github/badges
             git commit -m "Add/Update badge"
         - name: Push badge commit
           uses: ad-m/github-push-action@master
