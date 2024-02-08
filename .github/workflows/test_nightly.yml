@@ -19,11 +19,11 @@ jobs:
           run: echo "NEW_COMMIT_COUNT=$(git log --oneline --since '24 hours ago' | wc -l)" >> $GITHUB_ENV
 
         - name: Run tests
-          if: ${{ env.NEW_COMMIT_COUNT == 0 }}
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
           uses: ./.github/actions/test
 
         - name: Publish Test Results
-          if: ${{ env.NEW_COMMIT_COUNT == 0 }}
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
           uses: EnricoMi/publish-unit-test-result-action/composite@v2
           id: test-results
           with:
@@ -31,7 +31,7 @@ jobs:
               build/reports/junit.xml
         
         - name: Set badge color
-          if: ${{ env.NEW_COMMIT_COUNT == 0 }}
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
           run: |
             case ${{ fromJSON( steps.test-results.outputs.json ).conclusion }} in
               success)
@@ -46,7 +46,7 @@ jobs:
             esac
             
         - name: Create badge
-          if: ${{ env.NEW_COMMIT_COUNT == 0 }}
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
           uses: emibcn/badge-action@d6f51ff11b5c3382b3b88689ae2d6db22d9737d1
           with:
             label: Tests
@@ -55,7 +55,7 @@ jobs:
             path: ./.github/badges/tests.svg
         
         - name: Commit badge
-          if: ${{ env.NEW_COMMIT_COUNT == 0 }}
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
           continue-on-error: true
           run: |
             git config --local user.email "action@github.com"
@@ -64,7 +64,7 @@ jobs:
             git commit -m "Add/Update badge"
         
         - name: Push badge commit
-          if: ${{ env.NEW_COMMIT_COUNT == 0 }}
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
           uses: ad-m/github-push-action@master
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
