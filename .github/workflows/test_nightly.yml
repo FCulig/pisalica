@@ -1,6 +1,9 @@
 name: Run tests nightly
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   test:
@@ -16,7 +19,7 @@ jobs:
           run: echo "NEW_COMMIT_COUNT=$(git log --oneline --since '24 hours ago' | wc -l)" >> $GITHUB_ENV
         
         - name: Check if should run tests
-          if: ${{ env.NEW_COMMIT_COUNT == 13 }}
+          if: ${{ env.NEW_COMMIT_COUNT == 0 }}
           run: exit 1
 
         - name: Run tests
