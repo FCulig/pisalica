@@ -40,4 +40,6 @@ lane :test do
   run_tests(workspace: "edu-app.xcworkspace",
             devices: ["iPhone 15"],
             run_rosetta_simulator: true)
+
+  trainer(output_directory: ".")
 end
