@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="1" failures="0">
+    <testsuite name="edu-appTests" tests="1" failures="0" skipped="0" time="0.028741955757141113">
+        <properties>
+          <property name="Configuration" value="Test Scheme Action"/>
+        </properties>
+        <testcase classname="edu_appTests" name="testExample()" time="0.028741955757141113">
+        </testcase>
+    </testsuite>
+</testsuites>

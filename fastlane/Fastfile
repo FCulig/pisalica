@@ -39,7 +39,10 @@ desc "Run tests"
 lane :test do
   run_tests(workspace: "edu-app.xcworkspace",
             devices: ["iPhone 15"],
-            run_rosetta_simulator: true)
+            run_rosetta_simulator: true,
+            output_types: "junit",
+            fail_build: false,
+            result_bundle: true)
 
-  trainer(output_directory: ".")
+  trainer(path: "./fastlane/test_output", output_directory: "./fastlane")
 end

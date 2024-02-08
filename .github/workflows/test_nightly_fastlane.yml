@@ -28,7 +28,7 @@ jobs:
           id: test-results
           with:
             files: |
-              build/reports/junit.xml
+              fastlane/edu-app.xml
         
         - name: Set badge color
           if: ${{ env.NEW_COMMIT_COUNT > 0 }}
