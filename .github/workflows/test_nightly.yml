@@ -16,8 +16,8 @@ jobs:
           run: echo "NEW_COMMIT_COUNT=$(git log --oneline --since '24 hours ago' | wc -l)" >> $GITHUB_ENV
         
         - name: Check if should run tests
-          if: ${{ env.NEW_COMMIT_COUNT == 12 }}
-          run: exit 0
+          if: ${{ env.NEW_COMMIT_COUNT == 13 }}
+          run: exit 1
 
         - name: Run tests
           uses: ./.github/actions/test
