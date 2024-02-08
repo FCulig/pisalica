@@ -9,8 +9,14 @@ jobs:
     steps:
         - name: Checkout repository
           uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+
+        - name: Get number of new commits
+          run: echo "NEW_COMMIT_COUNT=$(git log --oneline --since '24 hours ago' | wc -l)" >> $GITHUB_ENV
         
         - name: Run tests
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
           uses: ./.github/actions/test
 
         - name: Publish Test Results
