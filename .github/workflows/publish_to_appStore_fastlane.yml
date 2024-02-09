@@ -3,6 +3,9 @@ name: Publish app to App Store using fastlane
 # TODO: There is a release event which can be used
 on:
   workflow_dispatch:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+'
 
 jobs:
   deploy:
@@ -17,9 +20,9 @@ jobs:
         run: bundle install
       - name: Install pods
         run: pod install
-      - name: Build and upload binary
-        run: bundle exec fastlane ios_release
-        env:
-          APP_STORE_KEY_ID: ${{ secrets.APP_STORE_KEY_ID }}
-          APP_STORE_KEY_ISSUER_ID: ${{ secrets.APP_STORE_KEY_ISSUER_ID }}
-          APP_STORE_KEY: ${{ secrets.APP_STORE_KEY }}
+      #- name: Build and upload binary
+      #  run: bundle exec fastlane ios_release
+      #  env:
+      #    APP_STORE_KEY_ID: ${{ secrets.APP_STORE_KEY_ID }}
+      #    APP_STORE_KEY_ISSUER_ID: ${{ secrets.APP_STORE_KEY_ISSUER_ID }}
+      #    APP_STORE_KEY: ${{ secrets.APP_STORE_KEY }}
