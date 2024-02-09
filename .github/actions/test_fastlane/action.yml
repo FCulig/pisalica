@@ -1,0 +1,13 @@
+name: Run tests using fastlane
+
+on: workflow_call
+
+runs:
+  using: "Composite"
+  steps:
+      - name: Install pods
+        shell: bash
+        run: pod install
+      - name: Run tests
+        shell: bash
+        run: bundle exec fastlane test

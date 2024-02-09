@@ -34,3 +34,15 @@ lane :ios_release do
     precheck_include_in_app_purchases: false
   )
 end
+
+desc "Run tests"
+lane :test do
+  run_tests(workspace: "edu-app.xcworkspace",
+            devices: ["iPhone 15"],
+            run_rosetta_simulator: true,
+            output_types: "junit",
+            fail_build: false,
+            result_bundle: true)
+
+  trainer(path: "./fastlane/test_output", output_directory: "./fastlane")
+end

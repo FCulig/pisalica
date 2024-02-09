@@ -1,0 +1,71 @@
+name: Run nightly test using fastlane
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  test:
+    runs-on: self-hosted
+    name: Run nightly tests for the app
+    steps:
+        - name: Checkout repository
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+
+        - name: Get number of new commits
+          run: echo "NEW_COMMIT_COUNT=$(git log --oneline --since '24 hours ago' | wc -l)" >> $GITHUB_ENV
+
+        - name: Run tests
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
+          uses: ./.github/actions/test_fastlane
+
+        - name: Publish Test Results
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
+          uses: EnricoMi/publish-unit-test-result-action/composite@v2
+          id: test-results
+          with:
+            files: |
+              fastlane/edu-app.xml
+        
+        - name: Set badge color
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
+          run: |
+            case ${{ fromJSON( steps.test-results.outputs.json ).conclusion }} in
+              success)
+                echo "BADGE_COLOR=31c653" >> $GITHUB_ENV
+               ;;
+             failure)
+                echo "BADGE_COLOR=800000" >> $GITHUB_ENV
+               ;;
+              neutral)
+                echo "BADGE_COLOR=696969" >> $GITHUB_ENV
+                ;;
+            esac
+            
+        - name: Create badge
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
+          uses: emibcn/badge-action@d6f51ff11b5c3382b3b88689ae2d6db22d9737d1
+          with:
+            label: Tests
+            status: '${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.tests }} tests | ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs_succ }} succeeded | ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs_skip }} skipped | ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs_fail }} failed'
+            color: ${{ env.BADGE_COLOR }}
+            path: ./.github/badges/tests.svg
+        
+        - name: Commit badge
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
+          continue-on-error: true
+          run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add ./.github/badges
+            git commit -m "Add/Update badge"
+        
+        - name: Push badge commit
+          if: ${{ env.NEW_COMMIT_COUNT > 0 }}
+          uses: ad-m/github-push-action@master
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: main
