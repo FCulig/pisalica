@@ -29,6 +29,7 @@ PODS:
   - GoogleUtilitiesComponents (1.1.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (2.3.0)
+  - lottie-ios (4.4.0)
   - MLKitCommon (9.0.0):
     - GoogleDataTransport (~> 9.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
@@ -53,6 +54,7 @@ PODS:
 
 DEPENDENCIES:
   - GoogleMLKit/DigitalInkRecognition
+  - lottie-ios
 
 SPEC REPOS:
   trunk:
@@ -62,6 +64,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GoogleUtilitiesComponents
     - GTMSessionFetcher
+    - lottie-ios
     - MLKitCommon
     - MLKitDigitalInkRecognition
     - MLKitMDD
@@ -76,6 +79,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
   GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
   GTMSessionFetcher: 3a63d75eecd6aa32c2fc79f578064e1214dfdec2
+  lottie-ios: ef1be1f90d54255f08e09d767950e43714661178
   MLKitCommon: c1b791c3e667091918d91bda4bba69a91011e390
   MLKitDigitalInkRecognition: fa1c9b25de5bc95dc564652d69c51806cf6e139c
   MLKitMDD: 7d1354990908ae5eb820fceb5381860c12be6d60
@@ -83,6 +87,6 @@ SPEC CHECKSUMS:
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
 
-PODFILE CHECKSUM: 4bf56a0639f1dc32cf7b8532d4a1e1af4a680340
+PODFILE CHECKSUM: 0342d23bf8e0f5d67994f2b4287c51ad68191427
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.14.3

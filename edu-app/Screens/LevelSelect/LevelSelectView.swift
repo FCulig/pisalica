@@ -30,38 +30,16 @@ struct LevelSelectView: View {
 
     var body: some View {
         foregroundContent
-            .background(
-                background
-            )
+            .background(background)
             .navigationBarHidden(true)
     }
     
     // MARK: - View components -
 
     var foregroundContent: some View {
-        HStack(alignment: .top, spacing: 0) {
-            VStack(spacing: 0) {
-                backButton
-                Spacer()
-            }
-            
-            Spacer()
-            
-            VStack(spacing: 0) {
-                Spacer()
-                levelSelectPanel
-                Spacer()
-            }
-            
-            Spacer()
-            
-            VStack(spacing: 0) {
-                coinsBalance
-                Spacer()
-            }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        // Provjeri u kojoj je mobitel orijentaciji prije nego se postavae ovi
+        Screen(shouldShowBackButton: true,
+               centerContent: AnyView(levelSelectPanel),
+               topRightContent: AnyView(coinsBalance))
         .ignoresSafeArea(edges: isTablet ? .all : [.top, .trailing, .bottom])
         .onAppear { BackgroundMusicService.shared.start() }
     }
@@ -99,32 +77,30 @@ struct LevelSelectView: View {
                 .padding(.top, 20)
             }
         }
+        .padding(.vertical, isTablet ? 100 : 0)
+        .padding(.trailing, isTablet ? 0 : 55)
         .onLoad { viewModel.getLevels() }
-    }
-
-    var backButton: some View {
-        Button(action: { dismiss() },
-               image: AppImage.previousButton.image)
-            .frame(height: 70, alignment: .top)
-            .padding(.top, 15)
-            .padding(.leading, isTablet ? 15 : 5)
     }
 
     // TODO: Make this open shop
 
     var coinsBalance: some View {
-        ZStack {
-            AppImage.coinsBalanceBackground.image
-                .scaledToFit()
-                .frame(height: 65)
-            Text("\(viewModel.shopService.balance)")
-                .foregroundColor(.white)
-                .padding(.leading, 45)
-                .padding(.bottom, 5)
-                .font(.system(size: 25).weight(.bold))
+        VStack(spacing: 0) {
+            ZStack {
+                AppImage.coinsBalanceBackground.image
+                    .scaledToFit()
+                    .frame(height: 65)
+                Text("\(viewModel.shopService.balance)")
+                    .foregroundColor(.white)
+                    .padding(.leading, 45)
+                    .padding(.bottom, 5)
+                    .font(.system(size: 25).weight(.bold))
+            }
+            .padding(.top, 15)
+            .padding(.trailing, isTablet ? 15 : 0)
+            
+            Spacer()
         }
-        .padding(.top, 15)
-        .padding(.trailing, isTablet ? 15 : 0)
     }
 }
 

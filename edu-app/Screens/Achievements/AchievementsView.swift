@@ -23,31 +23,35 @@ struct AchievementsView: View {
     // MARK: - View components -
 
     var body: some View {
-        if isTablet {
-            foregroundContent
-                .background(
-                    AppImage.houseBackgroundTabletImage.image
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                        .offset(x: 80, y: 0)
-                        .blur(radius: 3)
-                )
-                .navigationBarHidden(true)
-        } else {
-            foregroundContent
-                .background(
-                    AppImage.houseBackgroundImage.image
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                        .blur(radius: 3)
-                )
-                .navigationBarHidden(true)
-        }
+        foregroundContent
+            .background(background)
+            .navigationBarHidden(true)
+        
+//        if isTablet {
+//            foregroundContent
+//                .background(
+//                    AppImage.houseBackgroundTabletImage.image
+//                        .scaledToFill()
+//                        .ignoresSafeArea()
+//                        .offset(x: 80, y: 0)
+//                        .blur(radius: 3)
+//                )
+//                .navigationBarHidden(true)
+//        } else {
+//            foregroundContent
+//                .background(
+//                    AppImage.houseBackgroundImage.image
+//                        .scaledToFill()
+//                        .ignoresSafeArea()
+//                        .blur(radius: 3)
+//                )
+//                .navigationBarHidden(true)
+//        }
     }
 
     var foregroundContent: some View {
-        VStack {
-            HStack {
+        HStack(alignment: .top, spacing: 0) {
+            VStack(spacing: 0) {
                 backButton
                 Spacer()
             }
@@ -82,6 +86,7 @@ struct AchievementsView: View {
                     }
                 }
             }
+            .padding(10)
         }
         .onAppear { viewModel.getAchievements() }
     }

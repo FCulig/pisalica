@@ -56,7 +56,7 @@
 		4D6EC867281DC32D00C70061 /* Shop.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D6EC866281DC32D00C70061 /* Shop.xcassets */; };
 		4D6EC869281DC5B900C70061 /* ShopItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D6EC868281DC5B900C70061 /* ShopItems.json */; };
 		4D6EC86B281DCBE800C70061 /* DecodableShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EC86A281DCBE800C70061 /* DecodableShopItem.swift */; };
-		4D72F9A829879D1D00661E38 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D72F9A729879D1D00661E38 /* Grid.swift */; };
+		4D72F9A829879D1D00661E38 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D72F9A729879D1D00661E38 /* Screen.swift */; };
 		4D75995C282316600093849C /* VideoTutorials.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D75995B282316600093849C /* VideoTutorials.xcassets */; };
 		4D75995F282317FB0093849C /* A.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4D75995E282317FB0093849C /* A.mp4 */; };
 		4D75A7C0282BA88F0077DE75 /* Achievement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D75A7BE282BA88F0077DE75 /* Achievement+CoreDataClass.swift */; };
@@ -182,7 +182,7 @@
 		4D6EC866281DC32D00C70061 /* Shop.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shop.xcassets; sourceTree = "<group>"; };
 		4D6EC868281DC5B900C70061 /* ShopItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ShopItems.json; sourceTree = "<group>"; };
 		4D6EC86A281DCBE800C70061 /* DecodableShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableShopItem.swift; sourceTree = "<group>"; };
-		4D72F9A729879D1D00661E38 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		4D72F9A729879D1D00661E38 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		4D75995B282316600093849C /* VideoTutorials.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoTutorials.xcassets; sourceTree = "<group>"; };
 		4D75995E282317FB0093849C /* A.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = A.mp4; sourceTree = "<group>"; };
 		4D75A7BE282BA88F0077DE75 /* Achievement+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Achievement+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -348,7 +348,7 @@
 				D05C4B2E2B3AE49700DED31A /* Image */,
 				D02F82AE2B0A2C5C003A2958 /* Background */,
 				4D526BC62827D19D00B8FEA3 /* ProgressBar */,
-				4D72F9A629879CF300661E38 /* Grid */,
+				4D72F9A629879CF300661E38 /* Screen */,
 				4D807500290FDE3400FAFCF4 /* Panel */,
 				4D9410DC28E21E90009819CD /* Dialog */,
 				4D51D56B2882D14700E2ACDA /* Button */,
@@ -513,12 +513,12 @@
 			path = Shop;
 			sourceTree = "<group>";
 		};
-		4D72F9A629879CF300661E38 /* Grid */ = {
+		4D72F9A629879CF300661E38 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				4D72F9A729879D1D00661E38 /* Grid.swift */,
+				4D72F9A729879D1D00661E38 /* Screen.swift */,
 			);
-			path = Grid;
+			path = Screen;
 			sourceTree = "<group>";
 		};
 		4D75995D282317E40093849C /* VideoTutorials */ = {
@@ -1044,7 +1044,7 @@
 				4D9410E028E21ED1009819CD /* Dialog.swift in Sources */,
 				4DA6372C2841691200A6F785 /* AchievementServicePreviewMock.swift in Sources */,
 				4DFA953628C3EA43004505A7 /* SettingsServicePreviewMock.swift in Sources */,
-				4D72F9A829879D1D00661E38 /* Grid.swift in Sources */,
+				4D72F9A829879D1D00661E38 /* Screen.swift in Sources */,
 				4DC2D718280AE24D003CFDD7 /* LevelButton.swift in Sources */,
 				4D053EA827F841A500B3E198 /* Levels.swift in Sources */,
 				4D75A7C1282BA88F0077DE75 /* Achievement+CoreDataProperties.swift in Sources */,
@@ -1207,13 +1207,14 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.filip.culig.edu-app";
 				PRODUCT_NAME = Pisanka;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1242,14 +1243,14 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.filip.culig.edu-app";
 				PRODUCT_NAME = Pisanka;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

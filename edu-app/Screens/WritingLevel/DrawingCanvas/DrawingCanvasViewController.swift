@@ -6,7 +6,7 @@
 //
 
 import Combine
-//import Lottie
+import Lottie
 import MLKit
 import UIKit
 
@@ -24,7 +24,7 @@ class DrawingCanvasViewController: UIViewController {
     private lazy var background = UIView()
     private lazy var drawnImage = UIImageView()
 
-//    private lazy var animationView = LottieAnimationView(name: "confetti")
+    private lazy var animationView = LottieAnimationView(name: "confetti")
 
     // MARK: - Private properties -
 
@@ -88,7 +88,7 @@ private extension DrawingCanvasViewController {
 
         viewModel.onWordCorrect
             .sink { [weak self] in
-//                self?.animationView.play()
+                self?.animationView.play()
                 self?.removeAllDrawnImages()
             }
             .store(in: &cancellabels)
@@ -102,8 +102,8 @@ private extension DrawingCanvasViewController {
         view.addSubview(background)
         background.translatesAutoresizingMaskIntoConstraints = false
 
-//        view.addSubview(animationView)
-//        animationView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(animationView)
+        animationView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             background.topAnchor.constraint(equalTo: view.topAnchor),
@@ -111,10 +111,10 @@ private extension DrawingCanvasViewController {
             background.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             background.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
-//            animationView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-//            animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
-//            animationView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-//            animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            animationView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+            animationView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
         ])
 
         addDrawnImageSubview(drawnImage)

@@ -27,7 +27,7 @@ struct MainMenuView: View {
 
     var body: some View {
         NavigationView {
-            Grid(shouldBlurBackground: false,
+            Screen(shouldBlurBackground: false,
                  centerContent: AnyView(playButtons),
                  topLeftContent: AnyView(settingsButton),
                  topRightContent: AnyView(shopAndAchievementsButtons),

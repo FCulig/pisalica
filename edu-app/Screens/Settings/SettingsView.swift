@@ -112,10 +112,7 @@ struct SettingsListView: View {
 
             Spacer()
         }
-//        .padding(.top, isTablet ? 350 : 60)
-//        .padding(.bottom, isTablet ? 363 : 60)
-//        .padding(.leading, isTablet ? 185 : 60)
-//        .padding(.trailing, isTablet ? 180 : 60)
+        .padding(.horizontal, 15)
     }
 }
 
