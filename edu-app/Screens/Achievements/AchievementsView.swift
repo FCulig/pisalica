@@ -23,55 +23,8 @@ struct AchievementsView: View {
     // MARK: - View components -
 
     var body: some View {
-        foregroundContent
-            .background(background)
-            .navigationBarHidden(true)
-        
-//        if isTablet {
-//            foregroundContent
-//                .background(
-//                    AppImage.houseBackgroundTabletImage.image
-//                        .scaledToFill()
-//                        .ignoresSafeArea()
-//                        .offset(x: 80, y: 0)
-//                        .blur(radius: 3)
-//                )
-//                .navigationBarHidden(true)
-//        } else {
-//            foregroundContent
-//                .background(
-//                    AppImage.houseBackgroundImage.image
-//                        .scaledToFill()
-//                        .ignoresSafeArea()
-//                        .blur(radius: 3)
-//                )
-//                .navigationBarHidden(true)
-//        }
-    }
-
-    var foregroundContent: some View {
-        HStack(alignment: .top, spacing: 0) {
-            VStack(spacing: 0) {
-                backButton
-                Spacer()
-            }
-            
-            Spacer()
-            
-            achievementsPanel
-            
-            Spacer()
-        }
-    }
-
-    var backButton: some View {
-        Button(action: {
-                   dismiss()
-               },
-               image: AppImage.previousButton.image)
-            .frame(height: 70, alignment: .top)
-            .padding(.top, 15)
-            .padding(.leading, isTablet ? 15 : 0)
+        Screen(shouldShowBackButton: true,
+               centerContent: AnyView(achievementsPanel))
     }
 
     var achievementsPanel: some View {
@@ -88,6 +41,7 @@ struct AchievementsView: View {
             }
             .padding(10)
         }
+        .padding(.vertical, isTablet ? 100 : 0)
         .onAppear { viewModel.getAchievements() }
     }
 }
