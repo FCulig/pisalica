@@ -17,6 +17,6 @@ class edu_appTests: XCTestCase {
     }
 
     func testExample() throws {
-//        XCTFail()
+        XCTFail()
     }
 }
