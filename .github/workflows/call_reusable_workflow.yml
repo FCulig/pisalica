@@ -1,0 +1,8 @@
+name: Call reusable workflow
+
+on: workflow_dispatch
+
+jobs:
+  call-reusable-workflow:
+    name: Calling reusable workflow
+    uses: FCulig/pisalica/.github/workflows/reusable_workflow.yml@main

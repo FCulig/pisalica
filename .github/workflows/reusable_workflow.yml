@@ -1,0 +1,11 @@
+name: Hello
+
+on: workflow_call
+
+jobs:
+  say-hello:
+    name: Helloing someone
+    runs-on: macos-latest
+    steps:
+      - name: Helloing someone
+        run: echo "Hello from reusable workflow"
