@@ -1,4 +1,4 @@
-name: Run tests nightly
+name: Run nightly tests
 
 on:
   workflow_dispatch:
@@ -20,7 +20,7 @@ jobs:
 
         - name: Run tests
           if: ${{ env.NEW_COMMIT_COUNT > 0 }}
-          uses: ./.github/actions/test
+          uses: ./.github/actions/test_fastlane
 
         - name: Publish Test Results
           if: ${{ env.NEW_COMMIT_COUNT > 0 }}
@@ -28,7 +28,7 @@ jobs:
           id: test-results
           with:
             files: |
-              build/reports/junit.xml
+              fastlane/edu-app.xml
         
         - name: Set badge color
           if: ${{ env.NEW_COMMIT_COUNT > 0 }}

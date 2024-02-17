@@ -1,9 +1,9 @@
-name: Run nightly test using fastlane
+name: Run tests nightly
 
 on:
   workflow_dispatch:
-  #schedule:
-  #  - cron: '0 0 * * *'
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   test:
@@ -18,13 +18,9 @@ jobs:
         - name: Get number of new commits
           run: echo "NEW_COMMIT_COUNT=$(git log --oneline --since '24 hours ago' | wc -l)" >> $GITHUB_ENV
 
-        - name: Run exit 1 if there is not enought new commits
-          if: ${{ env.NEW_COMMIT_COUNT < 200 }}
-          run: exit 1
-
         - name: Run tests
           if: ${{ env.NEW_COMMIT_COUNT > 0 }}
-          uses: ./.github/actions/test_fastlane
+          uses: ./.github/actions/test
 
         - name: Publish Test Results
           if: ${{ env.NEW_COMMIT_COUNT > 0 }}
@@ -32,7 +28,7 @@ jobs:
           id: test-results
           with:
             files: |
-              fastlane/edu-app.xml
+              build/reports/junit.xml
         
         - name: Set badge color
           if: ${{ env.NEW_COMMIT_COUNT > 0 }}

@@ -1,6 +1,7 @@
-name: Run tests for Pull Request using fastlane
+name: Run tests for Pull Request
 
-on: pull_request
+#on: pull_request
+on: workflow_dispatch
 
 jobs:
   test:
@@ -9,10 +10,10 @@ jobs:
         - name: Checkout repository
           uses: actions/checkout@v3
         - name: Run tests
-          uses: ./.github/actions/test_fastlane
+          uses: ./.github/actions/test
         - name: Publish Test Results
           uses: EnricoMi/publish-unit-test-result-action/composite@v2
           if: success() || failure()
           with:
             files: |
-              fastlane/edu-app.xml
+              build/reports/junit.xml
