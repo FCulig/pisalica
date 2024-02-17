@@ -8,7 +8,7 @@ target 'edu-app' do
   # Pods for edu-app
 
   pod 'GoogleMLKit/DigitalInkRecognition'
-  pod 'lottie-ios'
+  pod 'lottie-ios', :git => 'https://github.com/airbnb/lottie-ios.git'
 
   target 'edu-appTests' do
     inherit! :search_paths
