@@ -2,8 +2,8 @@ name: Run nightly test using fastlane
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *'
+  #schedule:
+  #  - cron: '0 0 * * *'
 
 jobs:
   test:
@@ -17,6 +17,10 @@ jobs:
 
         - name: Get number of new commits
           run: echo "NEW_COMMIT_COUNT=$(git log --oneline --since '24 hours ago' | wc -l)" >> $GITHUB_ENV
+
+        - name: Run exit 0 if there is not enought new commits
+          if: ${{ env.NEW_COMMIT_COUNT > 200 }}
+          run: exit 0
 
         - name: Run tests
           if: ${{ env.NEW_COMMIT_COUNT > 0 }}
