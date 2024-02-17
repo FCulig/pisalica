@@ -19,7 +19,7 @@ jobs:
           run: echo "NEW_COMMIT_COUNT=$(git log --oneline --since '24 hours ago' | wc -l)" >> $GITHUB_ENV
 
         - name: Run exit 0 if there is not enought new commits
-          if: ${{ env.NEW_COMMIT_COUNT > 200 }}
+          if: ${{ env.NEW_COMMIT_COUNT < 200 }}
           run: exit 0
 
         - name: Run tests
