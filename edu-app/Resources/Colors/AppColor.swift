@@ -15,11 +15,22 @@ enum AppColor {
     var color: Color {
         switch self {
         case .brownBorder:
-            return Color("brown-border")
+            Color("brown-border")
         case .brownBackground:
-            return Color("brown-background")
+            Color("brown-background")
         case .green:
-            return Color("green")
+            Color("green")
+        }
+    }
+    
+    var uiColor: UIColor {
+        switch self {
+        case .brownBorder:
+            UIColor(named: "brown-border")!
+        case .brownBackground:
+            UIColor(named: "brown-background")!
+        case .green:
+            UIColor(named: "green")!
         }
     }
 }

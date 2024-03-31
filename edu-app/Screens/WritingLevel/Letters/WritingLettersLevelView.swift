@@ -17,7 +17,7 @@ struct WritingLettersLevelView: View {
     private var player: AVPlayer?
 
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel: ViewModel
+    @StateObject private var viewModel: WritingLettersLevelViewModel
     @State private var showVideoTutorialDialog: Bool = false
 
     // MARK: - Initializer -
@@ -29,7 +29,7 @@ struct WritingLettersLevelView: View {
     {
         let drawingCanvasViewModel = DrawingCanvasViewModel(level: level, levelService: levelService)
 
-        let wrappedViewModel = ViewModel(level: level,
+        let wrappedViewModel = WritingLettersLevelViewModel(level: level,
                                          drawingCanvasViewModel: drawingCanvasViewModel,
                                          levelService: levelService,
                                          achievementService: achievementService,
@@ -45,9 +45,7 @@ struct WritingLettersLevelView: View {
     
     var body: some View {
         foregroundContent
-            .background(
-                background
-            )
+            .background(background)
             .navigationBarHidden(true)
     }
 
@@ -58,6 +56,9 @@ struct WritingLettersLevelView: View {
             topRow
             letterWritingRow
         }
+        .ignoresSafeArea(edges: .all)
+        .padding(.vertical, 15)
+        .padding(.horizontal, isTablet ? 15 : 5)
         .overlay(videoTutorialDialog)
         .overlay(gameOverDialog)
         .onAppear {
@@ -76,7 +77,7 @@ struct WritingLettersLevelView: View {
             
             Spacer()
             
-            LevelProgressBarView(viewModel: .init(goal: 10, currentProgress: Just(5).eraseToAnyPublisher()))
+            LevelProgressBarView(viewModel: viewModel.progressBarViewModel)
                 .frame(height: 70)
             
             Spacer()

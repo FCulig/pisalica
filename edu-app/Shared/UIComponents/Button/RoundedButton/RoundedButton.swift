@@ -10,20 +10,13 @@ import SwiftUI
 // MARK: - RoundedButton -
 struct RoundedButton: View {
     // MARK: - Private properties -
-
-    private let buttonImage: Image?
-
-    // MARK: - Public properties -
-
-    @State var isLocked: Bool
-    @State var shouldShowGrass: Bool
+    
+    @ObservedObject private var model: RoundedButtonViewModel
 
     // MARK: - Initializer -
 
-    public init(buttonImage: Image? = nil, isLocked: Bool = false, shouldShowGrass: Bool = false) {
-        self.buttonImage = buttonImage
-        self.isLocked = isLocked
-        self.shouldShowGrass = shouldShowGrass
+    public init(model: RoundedButtonViewModel) {
+        self.model = model
     }
 
     // MARK: - View components -
@@ -33,8 +26,8 @@ struct RoundedButton: View {
             AppImage.emptyButton.image
                 .scaledToFit()
 
-            if let buttonImage = buttonImage {
-                buttonImage
+            if let buttonImage = model.image {
+                Image(buttonImage)
                     .resizable()
                     .scaledToFit()
                     .padding(.bottom, isTablet ? 13 : 7)
@@ -47,13 +40,16 @@ struct RoundedButton: View {
                     .padding(.all, 7)
             }
 
-            if isLocked {
+            if model.isLocked {
                 lockedOverlay
             }
         }
+        .onTapGesture { model.onTapGesture() }
+        .allowsHitTesting(!model.isLocked)
+        .overlay(animationOverlay)
     }
 
-    var lockedOverlay: some View {
+    private var lockedOverlay: some View {
         ZStack {
             // Brown overlay
             AppImage.emptyButtonLockedOverlay.image
@@ -69,16 +65,25 @@ struct RoundedButton: View {
                 .padding(.leading, 30)
         }
     }
+    
+    @ViewBuilder private var animationOverlay: some View {
+        if let animationViewModel = model.animationViewModel {
+            LottieView(viewModel: animationViewModel)
+                .padding(.leading, 25)
+                .padding(.top, 5)
+                .allowsHitTesting(false)
+           }
+    }
 }
 
 // MARK: - Previews -
 
-struct RoundedButton_Previews: PreviewProvider {
-    static var previews: some View {
-        RoundedButton(buttonImage: Image("A-guide"))
-            .frame(width: 55)
-
-        RoundedButton(buttonImage: Image("A-guide"), isLocked: true)
-            .frame(width: 55)
-    }
-}
+//struct RoundedButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RoundedButton(buttonImage: Image("A-guide"))
+//            .frame(width: 55)
+//
+//        RoundedButton(buttonImage: Image("A-guide"), isLocked: .constant(true))
+//            .frame(width: 55)
+//    }
+//}

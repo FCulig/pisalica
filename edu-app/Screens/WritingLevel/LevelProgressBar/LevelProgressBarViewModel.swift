@@ -8,111 +8,108 @@
 import Combine
 import SwiftUI
 
-// MARK: - LevelProgressBarView.ViewModel -
+// MARK: - LevelProgressBarViewModel -
 
-extension LevelProgressBarView {
-    final class ViewModel: ObservableObject {
-        // MARK: - Private properties -
+final class LevelProgressBarViewModel : ObservableObject {
+    // MARK: - Private properties -
 
-        private let goal: Float
-        private let currentProgressSubject: AnyPublisher<Float, Never>
-        
-        private var currentProgress: Float = 0 {
-            didSet {
-                updateView()
-            }
-        }
-        
-        private var cancellables: Set<AnyCancellable> = []
-//        private var isShowOutlineLevelButtonEnabledSubject: AnyPublisher<Bool, Never>
-//        private var isShowBlankLevelButtonEnabledSubject: AnyPublisher<Bool, Never>
-//        private var shouldHighlightOutlineButtonSubject: AnyPublisher<Bool, Never>
-//        private var shouldHighlightCanvasButtonSubject: AnyPublisher<Bool, Never>
-//        private var progress: AnyPublisher<Float, Never>
+    private let goal: Float
+    private let level: Level
+    private let currentProgressSubject: AnyPublisher<Float, Never>
+    private let currentProgressPercentageSubject: PassthroughSubject<Float, Never> = .init()
+    private let guidesButtonTappedSubject: PassthroughSubject<Void, Never> = .init()
+    private let outlineButtonEnabledPublisher: AnyPublisher<Bool, Never>
+    private let outlineButtonTappedSubject: PassthroughSubject<Void, Never> = .init()
+    private let outlineButtonAnimationPublisher: AnyPublisher<Void, Never>
+    private let canvasButtonEnabledPublisher: AnyPublisher<Bool, Never>
+    private let canvasButtonTappedSubject: PassthroughSubject<Void, Never> = .init()
+    private let canvasButtonAnimationPublisher: AnyPublisher<Void, Never>
+    private var cancellables: Set<AnyCancellable> = []
 
-        // MARK: - Public properties -
-        
-//        let level: Level
-//
-//        var showGuidesLevel: () -> Void
-//        var showOutlineLevel: () -> Void
-//        var showBlankLevel: () -> Void
-        
-        var progressBarWidth: CGFloat = 0 {
-            didSet {
-                updateView()
-            }
-        }
-        
-        @Published var checkpointSpacing: CGFloat = 0
-        @Published var progressIndicatorWidth: CGFloat = 0
-        
-        
+    // MARK: - Public properties -
+    
+    lazy var guidesButtonModel: RoundedButtonViewModel = .init(image: level.guideImage,
+                                                               onTap: { [weak self] in self?.guidesButtonTappedSubject.send() })
+    
+    lazy var outlineButtonModel: RoundedButtonViewModel = .init(image: level.outlineImage, 
+                                                                animationViewModel: .init(animationFileName: "tap", triggerPublisher: outlineButtonAnimationPublisher),
+                                                                onTap: { [weak self] in self?.outlineButtonTappedSubject.send() })
+    
+    lazy var canvasButtonModel: RoundedButtonViewModel = .init(animationViewModel: .init(animationFileName: "tap", triggerPublisher: canvasButtonAnimationPublisher),
+                                                               onTap: { [weak self] in self?.canvasButtonTappedSubject.send() })
+    
+    var guidesButtonTapped: AnyPublisher<Void, Never> {
+        guidesButtonTappedSubject.eraseToAnyPublisher()
+    }
+    
+    var outlineButtonTapped: AnyPublisher<Void, Never> {
+        outlineButtonTappedSubject.eraseToAnyPublisher()
+    }
+    
+    var canvasButtonTapped: AnyPublisher<Void, Never> {
+        canvasButtonTappedSubject.eraseToAnyPublisher()
+    }
+    
+    var currentProgressPercentage: AnyPublisher<Float, Never> {
+        currentProgressPercentageSubject.eraseToAnyPublisher()
+    }
+    
+    // MARK: - Initializer -
 
-//        @Published var progressGoal: Float = 0
-//        @Published var currentProgress: Float = 0
-//        @Published var trailingPadding: CGFloat = 0
-//        @Published var isShowOutlineLevelButtonEnabled: Bool = false
-//        @Published var isShowBlankLevelButtonEnabled: Bool = false
-//        @Published var shouldHighlightOutlineButton: Bool = false
-//        @Published var shouldHighlightCanvasButton: Bool = false
-
-        // MARK: - Initializer -
-
-        public init(goal: Float, currentProgress: AnyPublisher<Float, Never>) {
-            self.goal = goal
-            self.currentProgressSubject = currentProgress
-        }
+    public init(goal: Float, 
+                level: Level,
+                currentProgress: AnyPublisher<Float, Never>,
+                outlineButtonAnimationPublisher: AnyPublisher<Void, Never>,
+                outlineButtonEnabledPublisher: AnyPublisher<Bool, Never>,
+                canvasButtonAnimationPublisher: AnyPublisher<Void, Never>,
+                canvasButtonEnabledPublisher: AnyPublisher<Bool, Never>) {
+        self.goal = goal
+        self.level = level
+        self.currentProgressSubject = currentProgress
+        self.outlineButtonAnimationPublisher = outlineButtonAnimationPublisher
+        self.outlineButtonEnabledPublisher = outlineButtonEnabledPublisher
+        self.canvasButtonAnimationPublisher = canvasButtonAnimationPublisher
+        self.canvasButtonEnabledPublisher = canvasButtonEnabledPublisher
         
-        func updateView() {
-            didUpdateProgressBarWidth()
-            updateProgressIndicatorWidth()
-        }
+        subscribeSubjectChanges()
     }
 }
 
 // MARK: - Initial setup -
 
-private extension LevelProgressBarView.ViewModel {
+private extension LevelProgressBarViewModel {
     func subscribeSubjectChanges() {
         currentProgressSubject
-            .assignWeak(to: \.currentProgress, on: self)
+            .sink { [weak self] in
+                guard let self else { return }
+                self.currentProgressPercentageSubject.send($0/self.goal)
+            }
             .store(in: &cancellables)
         
-//        progress
-//            .assignWeak(to: \.currentProgress, on: self)
-//            .store(in: &cancellables)
-//
-//        isShowOutlineLevelButtonEnabledSubject
-//            .assignWeak(to: \.isShowOutlineLevelButtonEnabled, on: self)
-//            .store(in: &cancellables)
-//
-//        isShowBlankLevelButtonEnabledSubject
-//            .assignWeak(to: \.isShowBlankLevelButtonEnabled, on: self)
-//            .store(in: &cancellables)
-//
-//        shouldHighlightOutlineButtonSubject
-//            .assignWeak(to: \.shouldHighlightOutlineButton, on: self)
-//            .store(in: &cancellables)
-//
-//        shouldHighlightCanvasButtonSubject
-//            .assignWeak(to: \.shouldHighlightCanvasButton, on: self)
-//            .store(in: &cancellables)
+        outlineButtonEnabledPublisher
+            .map { !$0 }
+            .assignWeak(to: \.outlineButtonModel.isLocked, on: self)
+            .store(in: &cancellables)
+        
+        canvasButtonEnabledPublisher
+            .map { !$0 }
+            .assignWeak(to: \.canvasButtonModel.isLocked, on: self)
+            .store(in: &cancellables)
     }
 }
 
-// MARK: - Private methods -
+// MARK: - Public properties -
 
-private extension LevelProgressBarView.ViewModel {
-    func didUpdateProgressBarWidth() {
-        checkpointSpacing = progressBarWidth / 3 // - widthOfImages * 3
+extension LevelProgressBarViewModel {
+    func tapGuidesButton() {
+        guidesButtonTappedSubject.send()
     }
     
-    func updateProgressIndicatorWidth() {
-        let progressPercentage = currentProgress / goal
-        progressIndicatorWidth = CGFloat(progressPercentage) * progressBarWidth
-        
-        print(progressPercentage)
-        print(progressIndicatorWidth)
+    func tapOutlineButton() {
+        outlineButtonTappedSubject.send()
+    }
+    
+    func tapCanvasButton() {
+        canvasButtonTappedSubject.send()
     }
 }

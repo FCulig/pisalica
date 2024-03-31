@@ -9,97 +9,71 @@ import Combine
 import CoreData
 import SwiftUI
 
-// MARK: - WritingLettersLevelView.ViewModel -
+// MARK: - WritingLettersLevelViewModel -
 
-extension WritingLettersLevelView {
-    final class ViewModel: ObservableObject {
-        // MARK: - Private properties -
+final class WritingLettersLevelViewModel: ObservableObject {
+    // MARK: - Private properties -
 
-        private let achievementService: AchievementServiceful
-        private let shopService: ShopServiceful
-        private let levelService: LevelServiceful
-        private let isTablet: Bool
-        private var correctAnswers: Int = 0
-        private var totalAttempts: Int = 0
-        private var currentScore: Float = 0
-        private var cancellabels: Set<AnyCancellable> = []
-        private let isOutlinesLevelEnabledSubject: CurrentValueSubject<Bool, Never> = .init(false)
-        private let isBlankLevelEnabledSubject: CurrentValueSubject<Bool, Never> = .init(false)
-        private let shouldHighlightOutlineButtonSubject: CurrentValueSubject<Bool, Never> = .init(false)
-        private let shouldHighlightCanvasButtonSubject: CurrentValueSubject<Bool, Never> = .init(false)
-        private let progressSubject: CurrentValueSubject<Float, Never> = .init(0)
+    private let achievementService: AchievementServiceful
+    private let shopService: ShopServiceful
+    private let levelService: LevelServiceful
+    private let isTablet: Bool
+    private var correctAnswers: Int = 0
+    private var totalAttempts: Int = 0
+    private var currentScore: Float = 0
+    private var cancellabels: Set<AnyCancellable> = []
+    private let isOutlinesLevelEnabledSubject: CurrentValueSubject<Bool, Never> = .init(false)
+    private let isBlankLevelEnabledSubject: CurrentValueSubject<Bool, Never> = .init(false)
+    private let highlightOutlineButtonSubject: PassthroughSubject<Void, Never> = .init()
+    private let highlightCanvasButtonSubject: PassthroughSubject<Void, Never> = .init()
+    private let progressSubject: CurrentValueSubject<Float, Never> = .init(0)
 
-        // MARK: - Public properties -
+    // MARK: - Public properties -
 
-        let level: Level
-        let drawingCanvasViewModel: DrawingCanvasViewModel
-        
-        var progress: AnyPublisher<Float, Never> {
-            progressSubject.eraseToAnyPublisher()
-        }
-        
-        var isOutlinesLevelEnabled: AnyPublisher<Bool, Never> {
-            isOutlinesLevelEnabledSubject.eraseToAnyPublisher()
-        }
-        
-        var isBlankLevelEnabled: AnyPublisher<Bool, Never> {
-            isBlankLevelEnabledSubject.eraseToAnyPublisher()
-        }
-        
-        var shouldHighlightOutlineButton: AnyPublisher<Bool, Never> {
-            shouldHighlightOutlineButtonSubject.eraseToAnyPublisher()
-        }
-        
-        var shouldHighlightCanvasButton: AnyPublisher<Bool, Never> {
-            shouldHighlightCanvasButtonSubject.eraseToAnyPublisher()
-        }
-        
-        @Published var levelState: LevelState = .none
-        @Published var isGameOver: Bool = false
-        @Published var endGameRecap: [String: Int] = [:]
-        @Published var totalCoinsReward = 0
-        @Published var endGameStars: Image = AppImage.oneStar.image
-        @Published var canvasImagePadding: CGFloat = 0
+    let level: Level
+    let drawingCanvasViewModel: DrawingCanvasViewModel
+    let progressBarViewModel: LevelProgressBarViewModel
+    
+    @Published var levelState: LevelState = .none
+    @Published var isGameOver: Bool = false
+    @Published var endGameRecap: [String: Int] = [:]
+    @Published var totalCoinsReward = 0
+    @Published var endGameStars: Image = AppImage.oneStar.image
+    @Published var canvasImagePadding: CGFloat = 0
 
-        // MARK: - Initializer -
+    // MARK: - Initializer -
 
-        public init(level: Level,
-                    drawingCanvasViewModel: DrawingCanvasViewModel,
-                    levelService: LevelServiceful,
-                    achievementService: AchievementServiceful,
-                    shopService: ShopServiceful,
-                    isTablet: Bool)
-        {
-            self.level = level
-            self.drawingCanvasViewModel = drawingCanvasViewModel
-            self.levelService = levelService
-            self.achievementService = achievementService
-            self.shopService = shopService
-            self.isTablet = isTablet
+    public init(level: Level,
+                drawingCanvasViewModel: DrawingCanvasViewModel,
+                levelService: LevelServiceful,
+                achievementService: AchievementServiceful,
+                shopService: ShopServiceful,
+                isTablet: Bool)
+    {
+        self.level = level
+        self.drawingCanvasViewModel = drawingCanvasViewModel
+        self.levelService = levelService
+        self.achievementService = achievementService
+        self.shopService = shopService
+        self.isTablet = isTablet
 
-            levelState = .guides(image: level.guideImage ?? "")
+        levelState = .guides(image: level.guideImage ?? "")
+        progressBarViewModel = LevelProgressBarViewModel(goal: 9,
+                                                         level: level,
+                                                         currentProgress: progressSubject.eraseToAnyPublisher(),
+                                                         outlineButtonAnimationPublisher: highlightOutlineButtonSubject.eraseToAnyPublisher(),
+                                                         outlineButtonEnabledPublisher: isOutlinesLevelEnabledSubject.eraseToAnyPublisher(),
+                                                         canvasButtonAnimationPublisher: highlightCanvasButtonSubject.eraseToAnyPublisher(),
+                                                         canvasButtonEnabledPublisher: isBlankLevelEnabledSubject.eraseToAnyPublisher())
 
-            subscribeToPublishers()
-            getCanvasImagePadding()
-        }
+        subscribeToPublishers()
+        getCanvasImagePadding()
     }
 }
 
 // MARK: - Public methods -
 
-extension WritingLettersLevelView.ViewModel {
-    func configureGuidesLevel() {
-        levelState = .guides(image: level.guideImage ?? "")
-    }
-
-    func configureOutlinesLevel() {
-        levelState = .outline(image: level.outlineImage ?? "")
-    }
-
-    func configureBlankLevel() {
-        levelState = .none
-    }
-
+extension WritingLettersLevelViewModel {
     func setCanvasImagePadding(_ padding: CGFloat) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(padding, forKey: "canvasImagePadding")
@@ -109,10 +83,22 @@ extension WritingLettersLevelView.ViewModel {
 
 // MARK: - Private methods -
 
-private extension WritingLettersLevelView.ViewModel {
+private extension WritingLettersLevelViewModel {
     func subscribeToPublishers() {
         drawingCanvasViewModel.isAnswerCorrect
             .sink { [weak self] in self?.updateLevelStatistics(wasAnswerCorrect: $0) }
+            .store(in: &cancellabels)
+        
+        progressBarViewModel.guidesButtonTapped
+            .sink { [weak self] in self?.levelState = .guides(image: self?.level.guideImage ?? "") }
+            .store(in: &cancellabels)
+        
+        progressBarViewModel.outlineButtonTapped
+            .sink { [weak self] in self?.levelState = .outline(image: self?.level.outlineImage ?? "") }
+            .store(in: &cancellabels)
+        
+        progressBarViewModel.canvasButtonTapped
+            .sink { [weak self] in self?.levelState = .none }
             .store(in: &cancellabels)
     }
 
@@ -143,9 +129,6 @@ private extension WritingLettersLevelView.ViewModel {
     }
 
     func updateTotalScore(wasAnswerCorrect: Bool) {
-        shouldHighlightCanvasButtonSubject.send(false)
-        shouldHighlightOutlineButtonSubject.send(false)
-
         // If we want negative points
         guard wasAnswerCorrect else {
 //            var newScore = currentScore
@@ -188,7 +171,7 @@ private extension WritingLettersLevelView.ViewModel {
         } else if currentScore >= 3, currentScore < 6 {
             if case .none = levelState { return }
             if case .guides = levelState {
-                shouldHighlightOutlineButtonSubject.send(true)
+                highlightOutlineButtonSubject.send()
                 return
             }
 
@@ -198,11 +181,11 @@ private extension WritingLettersLevelView.ViewModel {
             }
         } else if currentScore >= 6, currentScore < 9 {
             if case .guides = levelState {
-                shouldHighlightCanvasButtonSubject.send(true)
+                highlightCanvasButtonSubject.send()
                 return
             }
             if case .outline = levelState {
-                shouldHighlightCanvasButtonSubject.send(true)
+                highlightCanvasButtonSubject.send()
                 return
             }
 
@@ -249,7 +232,7 @@ private extension WritingLettersLevelView.ViewModel {
 
 // MARK: - LevelState -
 
-extension WritingLettersLevelView.ViewModel {
+extension WritingLettersLevelViewModel {
     enum LevelState {
         case none
         case outline(image: String)
