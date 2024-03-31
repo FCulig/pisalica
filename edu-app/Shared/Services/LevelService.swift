@@ -37,6 +37,7 @@ final class LevelService: LevelServiceful {
 
     public init(context: NSManagedObjectContext) {
         self.context = context
+        levels = getLevels()
     }
 }
 
