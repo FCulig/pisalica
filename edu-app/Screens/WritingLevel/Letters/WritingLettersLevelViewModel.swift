@@ -48,8 +48,7 @@ final class WritingLettersLevelViewModel: ObservableObject {
                 levelService: LevelServiceful,
                 achievementService: AchievementServiceful,
                 shopService: ShopServiceful,
-                isTablet: Bool)
-    {
+                isTablet: Bool) {
         self.level = level
         self.drawingCanvasViewModel = drawingCanvasViewModel
         self.levelService = levelService

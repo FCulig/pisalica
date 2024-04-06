@@ -11,19 +11,13 @@ import SwiftUI
 
 struct LevelSelectView: View {
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel: ViewModel
+    @ObservedObject var viewModel: LevelSelectViewModel
     @FetchRequest(sortDescriptors: []) var levels: FetchedResults<Level>
 
     // MARK: - Initializer -
 
-    public init(achievementService: AchievementServiceful,
-                levelService: LevelServiceful,
-                shopService: ShopServiceful)
-    {
-        let wrappedViewModel = ViewModel(achievementService: achievementService,
-                                         levelService: levelService,
-                                         shopService: shopService)
-        _viewModel = StateObject(wrappedValue: wrappedViewModel)
+    public init(viewModel: LevelSelectViewModel) {
+        self.viewModel = viewModel
     }
 
     // MARK: - Body -
@@ -61,10 +55,7 @@ struct LevelSelectView: View {
                                 .frame(height: isTablet ? 115 : 75, alignment: .center)
                         } else {
                             NavigationLink {
-                                NavigationLazyView(WritingLettersLevelView(level: level,
-                                                                           levelService: viewModel.levelService,
-                                                                           achievementService: viewModel.achievementService,
-                                                                           shopService: viewModel.shopService))
+                                WritingLettersLevelView(viewModel: viewModel.writingLettersViewModel(for: level, isTablet: isTablet))
                             } label: {
                                 Image(level.unlockedImage ?? "")
                                     .resizable()
@@ -90,7 +81,7 @@ struct LevelSelectView: View {
                 AppImage.coinsBalanceBackground.image
                     .scaledToFit()
                     .frame(height: 65)
-                Text("\(viewModel.shopService.balance)")
+                Text("\(viewModel.balance)")
                     .foregroundColor(.white)
                     .padding(.leading, 45)
                     .padding(.bottom, 5)
@@ -104,18 +95,18 @@ struct LevelSelectView: View {
     }
 }
 
-struct LevelSelectView_Previews: PreviewProvider {
-    static var previews: some View {
-        LevelSelectView(achievementService: AchievementServicePreviewMock(),
-                        levelService: LevelServicePreviewMock(),
-                        shopService: ShopServicePreviewMock())
-            .previewInterfaceOrientation(.landscapeLeft)
-            .previewDevice("iPhone 13 Pro Max")
-
-        LevelSelectView(achievementService: AchievementServicePreviewMock(),
-                        levelService: LevelServicePreviewMock(),
-                        shopService: ShopServicePreviewMock())
-            .previewDevice("iPad Air (5th generation)")
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}
+//struct LevelSelectView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LevelSelectView(achievementService: AchievementServicePreviewMock(),
+//                        levelService: LevelServicePreviewMock(),
+//                        shopService: ShopServicePreviewMock())
+//            .previewInterfaceOrientation(.landscapeLeft)
+//            .previewDevice("iPhone 13 Pro Max")
+//
+//        LevelSelectView(achievementService: AchievementServicePreviewMock(),
+//                        levelService: LevelServicePreviewMock(),
+//                        shopService: ShopServicePreviewMock())
+//            .previewDevice("iPad Air (5th generation)")
+//            .previewInterfaceOrientation(.landscapeLeft)
+//    }
+//}

@@ -9,37 +9,53 @@ import CoreData
 
 // MARK: - MainMenuViewModel -
 
-extension MainMenuView {
-    final class ViewModel: ObservableObject {
-        // MARK: - Public properties -
+final class MainMenuViewModel: ObservableObject {
+    // MARK: - Private properties -
 
-        let achievementService: AchievementServiceful
-        let levelService: LevelServiceful
-        let shopService: ShopServiceful
-        let settingsService: SettingsServiceful
+    private let levelService: LevelServiceful
+    private let shopService: ShopServiceful
+    
+    // MARK: - Public properties -
 
-        @Published var isWordsLocked: Bool = true
+    let achievementService: AchievementServiceful
+    let settingsService: SettingsServiceful
+    let writingWordsViewModel: WritingWordsViewModel
+    let levelSelectViewModel: LevelSelectViewModel
+    let shopViewModel: ShopViewModel
+    @Published var isWordsLocked: Bool = true
 
-        // MARK: - Initializer -
+    // MARK: - Initializer -
 
-        public init(achievementService: AchievementServiceful,
-                    levelService: LevelServiceful,
-                    shopService: ShopServiceful,
-                    settingsService: SettingsServiceful)
-        {
-            self.achievementService = achievementService
-            self.levelService = levelService
-            self.shopService = shopService
-            self.settingsService = settingsService
+    public init(achievementService: AchievementServiceful,
+                levelService: LevelServiceful,
+                shopService: ShopServiceful,
+                settingsService: SettingsServiceful,
+                strokeManager: StrokeManager) {
+        self.achievementService = achievementService
+        self.levelService = levelService
+        self.shopService = shopService
+        self.settingsService = settingsService
+        
+        self.writingWordsViewModel = WritingWordsViewModel(levelService: levelService,
+                                                           shopService: shopService,
+                                                           achievementService: achievementService,
+                                                           strokeManager: strokeManager)
+        
+        self.levelSelectViewModel = LevelSelectViewModel(achievementService: achievementService,
+                                                         levelService: levelService,
+                                                         shopService: shopService,
+                                                         strokeManager: strokeManager)
 
-            configureWordsLevel()
-        }
+        self.shopViewModel = ShopViewModel(achievementService: achievementService,
+                                           shopService: shopService)
+        
+        configureWordsLevel()
     }
 }
 
 // MARK: - Public methods -
 
-extension MainMenuView.ViewModel {
+extension MainMenuViewModel {
     func onAppear() {
         BackgroundMusicService.shared.start()
     }

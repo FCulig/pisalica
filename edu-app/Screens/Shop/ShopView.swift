@@ -12,11 +12,11 @@ import UIKit
 
 struct ShopView: View {
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var viewModel: ViewModel
+    @ObservedObject private var viewModel: ShopViewModel
 
     // MARK: - Initializer -
 
-    public init(viewModel: ViewModel) {
+    init(viewModel: ShopViewModel) {
         self.viewModel = viewModel
     }
 

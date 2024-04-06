@@ -19,11 +19,13 @@ final class AppCoordinator {
         let levelService = LevelService(context: context)
         let shopService = ShopService(context: context, achievementService: achievementService)
         let settingsService = SettingsService()
+        let strokeManager = StrokeManager()
 
-        let mainMenuViewModel = MainMenuView.ViewModel(achievementService: achievementService,
-                                                       levelService: levelService,
-                                                       shopService: shopService,
-                                                       settingsService: settingsService)
+        let mainMenuViewModel = MainMenuViewModel(achievementService: achievementService,
+                                                  levelService: levelService,
+                                                  shopService: shopService,
+                                                  settingsService: settingsService,
+                                                  strokeManager: strokeManager)
 
         return ParentalGateDialogView {
             MainMenuView(viewModel: mainMenuViewModel)

@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: - MainMenuView -
 
 struct MainMenuView: View {
-    @ObservedObject var viewModel: ViewModel
+    @ObservedObject var viewModel: MainMenuViewModel
     @State var isPlayWordsActive = false
     @State var isPlayLettersActive = false
     @State var isShopActive = false
@@ -19,7 +19,7 @@ struct MainMenuView: View {
 
     // MARK: - Initializer -
 
-    public init(viewModel: ViewModel) {
+    public init(viewModel: MainMenuViewModel) {
         self.viewModel = viewModel
     }
 
@@ -42,9 +42,7 @@ struct MainMenuView: View {
     var playButtons: some View {
         HStack {
             // Letters
-            NavigationLink(destination: NavigationLazyView(LevelSelectView(achievementService: viewModel.achievementService,
-                                                                           levelService: viewModel.levelService,
-                                                                           shopService: viewModel.shopService)),
+            NavigationLink(destination: NavigationLazyView(LevelSelectView(viewModel: viewModel.levelSelectViewModel)),
             isActive: $isPlayLettersActive) {
                 Button(action: {
                            viewModel.configureLevelData()
@@ -61,9 +59,7 @@ struct MainMenuView: View {
                     .scaledToFit()
                     .frame(height: 100)
             } else {
-                NavigationLink(destination: NavigationLazyView(WritingWordsView(levelService: viewModel.levelService,
-                                                                                shopService: viewModel.shopService,
-                                                                                achievementService: viewModel.achievementService)),
+                NavigationLink(destination: NavigationLazyView(WritingWordsView(viewModel: viewModel.writingWordsViewModel)),
                 isActive: $isPlayWordsActive) {
                     Button(action: {
                         viewModel.configureLevelData()
@@ -77,7 +73,7 @@ struct MainMenuView: View {
 
     var shopAndAchievementsButtons: some View {
         HStack {
-            NavigationLink(destination: ShopView(viewModel: .init(achievementService: viewModel.achievementService, shopService: viewModel.shopService)),
+            NavigationLink(destination: ShopView(viewModel: viewModel.shopViewModel),
                            isActive: $isShopActive) {
                 Button(action: {
                            viewModel.configureShopData()
@@ -126,20 +122,20 @@ struct MainMenuView: View {
 
 // MARK: - Preview -
 
-struct MainMenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
-                                      levelService: LevelServicePreviewMock(),
-                                      shopService: ShopServicePreviewMock(),
-                                      settingsService: SettingsServicePreviewMock()))
-            .previewInterfaceOrientation(.landscapeLeft)
-            .previewDevice("iPhone 13 Pro Max")
-
-        MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
-                                      levelService: LevelServicePreviewMock(),
-                                      shopService: ShopServicePreviewMock(),
-                                      settingsService: SettingsServicePreviewMock()))
-            .previewInterfaceOrientation(.landscapeLeft)
-            .previewDevice("iPad Air (5th generation)")
-    }
-}
+//struct MainMenuView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
+//                                      levelService: LevelServicePreviewMock(),
+//                                      shopService: ShopServicePreviewMock(),
+//                                      settingsService: SettingsServicePreviewMock()))
+//            .previewInterfaceOrientation(.landscapeLeft)
+//            .previewDevice("iPhone 13 Pro Max")
+//
+//        MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
+//                                      levelService: LevelServicePreviewMock(),
+//                                      shopService: ShopServicePreviewMock(),
+//                                      settingsService: SettingsServicePreviewMock()))
+//            .previewInterfaceOrientation(.landscapeLeft)
+//            .previewDevice("iPad Air (5th generation)")
+//    }
+//}

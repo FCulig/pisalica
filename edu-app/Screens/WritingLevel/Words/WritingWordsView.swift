@@ -13,18 +13,12 @@ struct WritingWordsView: View {
     // MARK: - Private properties -
 
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel: ViewModel
+    @ObservedObject private var viewModel: WritingWordsViewModel
 
     // MARK: - Initializer -
 
-    public init(levelService: LevelServiceful,
-                shopService: ShopServiceful,
-                achievementService: AchievementServiceful)
-    {
-        let wrappedViewModel = ViewModel(levelService: levelService,
-                                         shopService: shopService,
-                                         achievementService: achievementService)
-        _viewModel = StateObject(wrappedValue: wrappedViewModel)
+    public init(viewModel: WritingWordsViewModel) {
+        self.viewModel = viewModel
     }
 
     // MARK: - View components -
@@ -174,10 +168,10 @@ struct WritingWordsView: View {
 
 // MARK: - Previews -
 
-struct WritingWordsView_Previews: PreviewProvider {
-    static var previews: some View {
-        WritingWordsView(levelService: LevelServicePreviewMock(),
-                         shopService: ShopServicePreviewMock(),
-                         achievementService: AchievementServicePreviewMock())
-    }
-}
+//struct WritingWordsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WritingWordsView(levelService: LevelServicePreviewMock(),
+//                         shopService: ShopServicePreviewMock(),
+//                         achievementService: AchievementServicePreviewMock())
+//    }
+//}

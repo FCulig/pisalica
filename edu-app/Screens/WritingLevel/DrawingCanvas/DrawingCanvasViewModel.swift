@@ -11,7 +11,6 @@ import Foundation
 import UIKit
 
 // MARK: - DrawingCanvasViewModel -
-
 final class DrawingCanvasViewModel {
     // MARK: - Public properties -
 
@@ -51,7 +50,7 @@ final class DrawingCanvasViewModel {
     private let levelService: LevelServiceful
     private let levelValidator: LevelValidatorService = .init()
     private var points: [CGPoint] = []
-    private lazy var strokeManager = StrokeManager(delegate: self)
+    private var strokeManager: StrokeManager
 
     private var clearCanvasSubject: PassthroughSubject<Void, Never> = .init()
     private var clearLastWordSubject: PassthroughSubject<Void, Never> = .init()
@@ -65,11 +64,13 @@ final class DrawingCanvasViewModel {
 
     public init(level: Level,
                 levelService: LevelServiceful,
-                onWordCorrectWithHints: PassthroughSubject<Void, Never>? = nil)
-    {
+                strokeManager: StrokeManager,
+                onWordCorrectWithHints: PassthroughSubject<Void, Never>? = nil) {
         self.levelService = levelService
         self.level = level
         self.onWordCorrectWithHints = onWordCorrectWithHints
+        self.strokeManager = strokeManager
+        self.strokeManager.delegate = self
 
         subscribeActions()
     }
@@ -177,7 +178,6 @@ extension DrawingCanvasViewModel {
                 self.recognizedLetterIndexes = []
                 self.clearInk()
                 self.onWordCorrectSubject.send()
-                print("TU")
             }
             .store(in: &cancellabels)
     }

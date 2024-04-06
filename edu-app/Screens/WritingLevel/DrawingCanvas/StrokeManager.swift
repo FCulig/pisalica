@@ -32,6 +32,9 @@ class StrokeManager {
      * results.
      */
     var recognizedInks: [RecognizedInk]
+    
+    /** The view that handles UI stuff. */
+    var delegate: StrokeManagerDelegate?
 
     /**
      * Conversion factor between `TimeInterval` and milliseconds, which is the unit used by the
@@ -46,9 +49,6 @@ class StrokeManager {
     /** The recognizer that will translate the ink into text. */
     private var recognizer: DigitalInkRecognizer!
 
-    /** The view that handles UI stuff. */
-    private let delegate: StrokeManagerDelegate
-
     /** Properties to track and manage the selected language and recognition model. */
     private var model: DigitalInkRecognitionModel?
     private var modelManager: ModelManager
@@ -57,8 +57,7 @@ class StrokeManager {
      * Initialization of internal variables as well as creating the model manager and setting up
      * observers of the recognition model downloading status.
      */
-    init(delegate: StrokeManagerDelegate) {
-        self.delegate = delegate
+    init() {
         modelManager = ModelManager.modelManager()
         recognizedInks = []
 

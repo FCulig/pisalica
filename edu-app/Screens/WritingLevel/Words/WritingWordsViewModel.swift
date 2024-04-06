@@ -8,50 +8,51 @@
 import Combine
 import SwiftUI
 
-// MARK: - WritingWordsView.ViewModel -
+// MARK: - WritingWordsViewModel -
+final class WritingWordsViewModel: ObservableObject {
+    // MARK: - Private properties -
 
-extension WritingWordsView {
-    final class ViewModel: ObservableObject {
-        // MARK: - Private properties -
+    private let levelService: LevelServiceful
+    private let achievementService: AchievementServiceful
+    private var isInitialLoad = true
+    private var cancellabels: Set<AnyCancellable> = []
+    private var onWordCorrectWithHintsSubject: PassthroughSubject<Void, Never> = .init()
 
-        private let levelService: LevelServiceful
-        private let achievementService: AchievementServiceful
-        private var isInitialLoad = true
-        private var cancellabels: Set<AnyCancellable> = []
-        private var onWordCorrectWithHintsSubject: PassthroughSubject<Void, Never> = .init()
+    // MARK: - Public properties -
 
-        // MARK: - Public properties -
+    @Published var shopService: ShopServiceful
+    @Published var drawingCanvasViewModel: DrawingCanvasViewModel
+    @Published var level: Level
+    @Published var visibleHints: [Int: Bool] = [:]
+    @Published var wordName: String = ""
+    @Published var canBuyHint: Bool = true
+    @Published var shouldHighlightCoinsBalance: Bool = false
 
-        @Published var shopService: ShopServiceful
-        @Published var drawingCanvasViewModel: DrawingCanvasViewModel
-        @Published var level: Level
-        @Published var visibleHints: [Int: Bool] = [:]
-        @Published var wordName: String = ""
-        @Published var canBuyHint: Bool = true
-        @Published var shouldHighlightCoinsBalance: Bool = false
+    // MARK: - Initializer -
 
-        // MARK: - Initializer -
+    public init(levelService: LevelServiceful,
+                shopService: ShopServiceful,
+                achievementService: AchievementServiceful,
+                strokeManager: StrokeManager) {
+        self.levelService = levelService
+        self.shopService = shopService
+        self.achievementService = achievementService
 
-        public init(levelService: LevelServiceful, shopService: ShopServiceful, achievementService: AchievementServiceful) {
-            self.levelService = levelService
-            self.shopService = shopService
-            self.achievementService = achievementService
+        level = Level()
+        drawingCanvasViewModel = DrawingCanvasViewModel(level: Level(),
+                                                        levelService: levelService,
+                                                        strokeManager: strokeManager,
+                                                        onWordCorrectWithHints: onWordCorrectWithHintsSubject)
 
-            level = Level()
-            drawingCanvasViewModel = DrawingCanvasViewModel(level: Level(),
-                                                            levelService: levelService,
-                                                            onWordCorrectWithHints: onWordCorrectWithHintsSubject)
-
-            newLevel()
-            subscribeToActions()
-            isInitialLoad = false
-        }
+//        newLevel()
+        subscribeToActions()
+        isInitialLoad = false
     }
 }
 
 // MARK: - Public methods -
 
-extension WritingWordsView.ViewModel {
+extension WritingWordsViewModel {
     func newLevel() {
         level = levelService.getRandomWordLevel()
         drawingCanvasViewModel.level = level
@@ -133,7 +134,7 @@ extension WritingWordsView.ViewModel {
 
 // MARK: - Private methods -
 
-private extension WritingWordsView.ViewModel {
+private extension WritingWordsViewModel {
     func subscribeToActions() {
         drawingCanvasViewModel.onWordCorrect
             .sink { [weak self] in self?.newLevel() }

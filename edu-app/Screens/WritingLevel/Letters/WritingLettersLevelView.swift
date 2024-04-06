@@ -17,27 +17,15 @@ struct WritingLettersLevelView: View {
     private var player: AVPlayer?
 
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel: WritingLettersLevelViewModel
+    @ObservedObject private var viewModel: WritingLettersLevelViewModel
     @State private var showVideoTutorialDialog: Bool = false
 
     // MARK: - Initializer -
 
-    public init(level: Level,
-                levelService: LevelServiceful,
-                achievementService: AchievementServiceful,
-                shopService: ShopServiceful)
-    {
-        let drawingCanvasViewModel = DrawingCanvasViewModel(level: level, levelService: levelService)
+    init(viewModel: WritingLettersLevelViewModel){
+        self.viewModel = viewModel
 
-        let wrappedViewModel = WritingLettersLevelViewModel(level: level,
-                                         drawingCanvasViewModel: drawingCanvasViewModel,
-                                         levelService: levelService,
-                                         achievementService: achievementService,
-                                         shopService: shopService,
-                                         isTablet: UIDevice.current.localizedModel == "iPad")
-        _viewModel = StateObject(wrappedValue: wrappedViewModel)
-
-        guard let videoUrl = Bundle.main.path(forResource: level.name, ofType: "mp4") else { return }
+        guard let videoUrl = Bundle.main.path(forResource: viewModel.level.name, ofType: "mp4") else { return }
         player = AVPlayer(url: URL(fileURLWithPath: videoUrl))
     }
 

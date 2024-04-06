@@ -9,25 +9,22 @@ import CoreData
 import SwiftUI
 
 // MARK: - ShopViewViewModel -
+final class ShopViewModel: ObservableObject {
+    private let achievementService: AchievementServiceful
+    @Published var shopService: ShopServiceful
+    @Published var shopItems: [ShopItem] = []
 
-extension ShopView {
-    final class ViewModel: ObservableObject {
-        private let achievementService: AchievementServiceful
-        @Published var shopService: ShopServiceful
-        @Published var shopItems: [ShopItem] = []
+    // MARK: - Initializer -
 
-        // MARK: - Initializer -
-
-        public init(achievementService: AchievementServiceful, shopService: ShopServiceful) {
-            self.achievementService = achievementService
-            self.shopService = shopService
-        }
+    public init(achievementService: AchievementServiceful, shopService: ShopServiceful) {
+        self.achievementService = achievementService
+        self.shopService = shopService
     }
 }
 
 // MARK: - Public methods -
 
-extension ShopView.ViewModel {
+extension ShopViewModel {
     func getShopItems() {
         shopItems = shopService.getShopItems()
     }
