@@ -23,16 +23,18 @@ struct LottieView: UIViewRepresentable {
         animationView.translatesAutoresizingMaskIntoConstraints = false
         animationView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
         animationView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        animationView.loopMode = .repeat(2)
-        animationView.isHidden = true
+        animationView.loopMode = viewModel.loopMode
         
-        viewModel.playAnimation = {
-            animationView.isHidden = false
-            animationView.play() { completed in
-                guard completed else { return }
-                animationView.isHidden = true
-            }
-        }
+        animationView.play()
+//        animationView.isHidden = true
+        
+//        viewModel.playAnimation = {
+//            animationView.isHidden = false
+//            animationView.play() { completed in
+//                guard completed else { return }
+//                animationView.isHidden = true
+//            }
+//        }
         
         return view
     }

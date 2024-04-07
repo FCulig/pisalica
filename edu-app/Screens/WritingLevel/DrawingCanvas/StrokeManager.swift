@@ -5,6 +5,7 @@
 //  Created by Filip Culig on 31.03.2022..
 //
 
+import Combine
 import Foundation
 import MLKit
 import UIKit
@@ -35,6 +36,10 @@ class StrokeManager {
     
     /** The view that handles UI stuff. */
     var delegate: StrokeManagerDelegate?
+    
+    var isDownloadingModel: AnyPublisher<Bool, Never> {
+        isDownloadingModelSubject.eraseToAnyPublisher()
+    }
 
     /**
      * Conversion factor between `TimeInterval` and milliseconds, which is the unit used by the
@@ -52,6 +57,7 @@ class StrokeManager {
     /** Properties to track and manage the selected language and recognition model. */
     private var model: DigitalInkRecognitionModel?
     private var modelManager: ModelManager
+    private let isDownloadingModelSubject: PassthroughSubject<Bool, Never> = .init()
 
     /**
      * Initialization of internal variables as well as creating the model manager and setting up
@@ -62,7 +68,6 @@ class StrokeManager {
         recognizedInks = []
 
         selectLanguage(languageTag: "hr")
-        downloadModel()
 
         // Add observers for download notifications, and reflect the status back to the user.
         NotificationCenter.default.addObserver(
@@ -74,6 +79,7 @@ class StrokeManager {
                 if notification.userInfo![ModelDownloadUserInfoKey.remoteModel.rawValue]
                     as? DigitalInkRecognitionModel == self.model
                 {
+                    self.isDownloadingModelSubject.send(false)
                     print("Model download succeeded")
                 }
             }
@@ -87,6 +93,7 @@ class StrokeManager {
                 if notification.userInfo![ModelDownloadUserInfoKey.remoteModel.rawValue]
                     as? DigitalInkRecognitionModel == self.model
                 {
+                    self.isDownloadingModelSubject.send(false)
                     print("Model download failed")
                 }
             }
@@ -124,6 +131,7 @@ class StrokeManager {
         }
 
         print("Starting model download")
+        isDownloadingModelSubject.send(true)
 
         // The Progress object returned by `downloadModel` currently only takes on the values 0% or 100%
         // so is not very useful. Instead we'll rely on the outcome listeners in the initializer to

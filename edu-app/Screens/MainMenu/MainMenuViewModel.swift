@@ -5,6 +5,7 @@
 //  Created by Filip Culig on 15.02.2022..
 //
 
+import Combine
 import CoreData
 
 // MARK: - MainMenuViewModel -
@@ -14,6 +15,8 @@ final class MainMenuViewModel: ObservableObject {
 
     private let levelService: LevelServiceful
     private let shopService: ShopServiceful
+    private let strokeManager: StrokeManager
+    private var cancellables: Set<AnyCancellable> = []
     
     // MARK: - Public properties -
 
@@ -23,6 +26,7 @@ final class MainMenuViewModel: ObservableObject {
     let levelSelectViewModel: LevelSelectViewModel
     let shopViewModel: ShopViewModel
     @Published var isWordsLocked: Bool = true
+    @Published var isDownloadingModel: Bool = false
 
     // MARK: - Initializer -
 
@@ -35,6 +39,7 @@ final class MainMenuViewModel: ObservableObject {
         self.levelService = levelService
         self.shopService = shopService
         self.settingsService = settingsService
+        self.strokeManager = strokeManager
         
         self.writingWordsViewModel = WritingWordsViewModel(levelService: levelService,
                                                            shopService: shopService,
@@ -50,6 +55,7 @@ final class MainMenuViewModel: ObservableObject {
                                            shopService: shopService)
         
         configureWordsLevel()
+        setupSubscriptions()
     }
 }
 
@@ -58,6 +64,7 @@ final class MainMenuViewModel: ObservableObject {
 extension MainMenuViewModel {
     func onAppear() {
         BackgroundMusicService.shared.start()
+        strokeManager.downloadModel()
     }
 
     func configureLevelData() {
@@ -99,5 +106,15 @@ extension MainMenuViewModel {
         } else if userDefaults.bool(forKey: preloadedDataKey) == true {
             isWordsLocked = userDefaults.bool(forKey: "isWordsLevelLocked")
         }
+    }
+}
+
+// MARK: - Private methods
+
+private extension MainMenuViewModel {
+    func setupSubscriptions() {
+        strokeManager.isDownloadingModel
+            .assignWeak(to: \.isDownloadingModel, on: self)
+            .store(in: &cancellables)
     }
 }

@@ -124,6 +124,7 @@
 		D0979DED2B39A2C000D75A4E /* Publisher+AssignWeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0979DEC2B39A2C000D75A4E /* Publisher+AssignWeak.swift */; };
 		D0B206952BB9785300B1F266 /* RoundedButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B206942BB9785300B1F266 /* RoundedButtonViewModel.swift */; };
 		D0BE0C992ABEF89E00D18F17 /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */; };
+		D0D688302BC2828B0000A261 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = D0D6882F2BC2828B0000A261 /* loading.json */; };
 		DFC62737E2D77EE1C7612A0B /* Pods_edu_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13488BBB9AD0096AC0A7168B /* Pods_edu_appTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -260,6 +261,7 @@
 		D0979DEC2B39A2C000D75A4E /* Publisher+AssignWeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+AssignWeak.swift"; sourceTree = "<group>"; };
 		D0B206942BB9785300B1F266 /* RoundedButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonViewModel.swift; sourceTree = "<group>"; };
 		D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
+		D0D6882F2BC2828B0000A261 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		E98BCF87320FCA88B0C9A0DE /* Pods-edu-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-appTests.debug.xcconfig"; path = "Target Support Files/Pods-edu-appTests/Pods-edu-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7DAED9AADF3A5D4B0EB07A2 /* Pods-edu-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-appTests.release.xcconfig"; path = "Target Support Files/Pods-edu-appTests/Pods-edu-appTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -749,6 +751,7 @@
 		4DFB6717284CC48600811BBC /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				D0D6882F2BC2828B0000A261 /* loading.json */,
 				D087B8342B795775008C683B /* tap.json */,
 				4DDF4ECC284CCDBB0040B0D4 /* confetti.json */,
 			);
@@ -898,6 +901,7 @@
 				D087B8352B795776008C683B /* tap.json in Resources */,
 				4D51D5652881E98000E2ACDA /* button-tap.mp3 in Resources */,
 				4D8074FF290FDC8B00FAFCF4 /* UIComponents.xcassets in Resources */,
+				D0D688302BC2828B0000A261 /* loading.json in Resources */,
 				4D68A64E27BBA3B500997CFF /* Preview Assets.xcassets in Resources */,
 				4D8F5216284B76370092DCC3 /* Words.xcassets in Resources */,
 				4D6EC867281DC32D00C70061 /* Shop.xcassets in Resources */,

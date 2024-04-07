@@ -14,7 +14,6 @@ struct Screen: View {
 
     private let shouldBlurBackground: Bool
     private let shouldShowBackButton: Bool
-    private let onAppear: Action?
 
     private let centerContent: AnyView?
     private let topLeftContent: AnyView?
@@ -30,15 +29,13 @@ struct Screen: View {
                 shouldShowBackButton: Bool = false,
                 centerContent: AnyView? = nil,
                 topLeftContent: AnyView? = nil,
-                topRightContent: AnyView? = nil,
-                onAppear: Action? = nil)
+                topRightContent: AnyView? = nil)
     {
         self.shouldBlurBackground = shouldBlurBackground
         self.shouldShowBackButton = shouldShowBackButton
         self.centerContent = centerContent
         self.topLeftContent = topLeftContent
         self.topRightContent = topRightContent
-        self.onAppear = onAppear
     }
 
     // MARK: - Body -

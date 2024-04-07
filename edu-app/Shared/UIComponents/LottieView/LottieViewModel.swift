@@ -6,30 +6,39 @@
 //
 
 import Combine
+import Lottie
 
 // MARK: - LottieViewModel -
 final class LottieViewModel {
     // MARK: - Public properties -
     
     let animationFileName: String
+    let loopMode: LottieLoopMode
     var playAnimation: Action?
     
     // MARK: - Private properties -
     
-    private let triggerPublisher: AnyPublisher<Void, Never>
+    private let triggerPublisher: AnyPublisher<Void, Never>?
     private var cancellables: Set<AnyCancellable> = []
     
     // MARK: - Initializer -
     
-    init(animationFileName: String, triggerPublisher: AnyPublisher<Void, Never>) {
+    init(animationFileName: String,
+         loopMode: LottieLoopMode = .loop,
+         triggerPublisher: AnyPublisher<Void, Never>? = nil) {
         self.animationFileName = animationFileName
+        self.loopMode = loopMode
         self.triggerPublisher = triggerPublisher
         
-        subscribePublishers()
+        if triggerPublisher != nil {
+            subscribePublishers()
+        } else {
+            playAnimation?()
+        }
     }
     
     func subscribePublishers() {
-        triggerPublisher
+        triggerPublisher?
             .sink { [weak self] in self?.playAnimation?() }
             .store(in: &cancellables)
     }
