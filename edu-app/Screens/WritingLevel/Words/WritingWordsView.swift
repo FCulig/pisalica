@@ -24,27 +24,10 @@ struct WritingWordsView: View {
     // MARK: - View components -
 
     var body: some View {
-        if isTablet {
-            foregroundContent
-                .background(
-                    AppImage.houseBackgroundTabletImage.image
-                        .scaledToFill()
-                        .ignoresSafeArea()
-                        .offset(x: 80, y: 0)
-                        .blur(radius: 3)
-                )
-                .navigationBarHidden(true)
-        } else {
-            foregroundContent
-                .background(
-                    AppImage.houseBackgroundImage.image
-                        .aspectRatio(contentMode: .fill)
-                        .ignoresSafeArea()
-                        .blur(radius: 3)
-                )
-                .navigationBarHidden(true)
-                .edgesIgnoringSafeArea(.bottom)
-        }
+        foregroundContent
+            .background(background)
+            .navigationBarHidden(true)
+            .statusBar(hidden: true)
     }
 
     var foregroundContent: some View {
@@ -119,14 +102,8 @@ struct WritingWordsView: View {
             }
             Spacer()
             VStack(alignment: .trailing) {
-                if isTablet {
-                    coinsBalance
-                        .padding(.trailing, -10)
-                        .blink(on: $viewModel.shouldHighlightCoinsBalance, repeatCount: 4, duration: 0.5)
-                } else {
-                    coinsBalance
-                        .padding(.trailing, -10)
-                }
+                coinsBalance
+                    .padding(.trailing, -10)
 
                 // TODO: Make it better
 

@@ -67,7 +67,6 @@
 		4D80D3F328C3570E00F09F2B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80D3F228C3570E00F09F2B /* SettingsViewModel.swift */; };
 		4D80D3F528C3571B00F09F2B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D80D3F428C3571B00F09F2B /* SettingsView.swift */; };
 		4D84C55128454FD100D5BC57 /* LevelProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */; };
-		4D84C5532845DAE700D5BC57 /* View+BlinkModigier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84C5522845DAE700D5BC57 /* View+BlinkModigier.swift */; };
 		4D85A69627E7425E008FA08D /* WritingLettersLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69527E7425E008FA08D /* WritingLettersLevelView.swift */; };
 		4D85A69B27E74575008FA08D /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */; };
 		4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87C9FC282676D9002EFB8D /* PlayerView.swift */; };
@@ -201,7 +200,6 @@
 		4D80D3F228C3570E00F09F2B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		4D80D3F428C3571B00F09F2B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4D84C55028454FD100D5BC57 /* LevelProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressBarView.swift; sourceTree = "<group>"; };
-		4D84C5522845DAE700D5BC57 /* View+BlinkModigier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+BlinkModigier.swift"; sourceTree = "<group>"; };
 		4D85A69527E7425E008FA08D /* WritingLettersLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingLettersLevelView.swift; sourceTree = "<group>"; };
 		4D85A69A27E74575008FA08D /* DrawingCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
 		4D87C9FC282676D9002EFB8D /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
@@ -499,7 +497,6 @@
 			children = (
 				4DB939012826A12D00883CD5 /* NavigationLazyView.swift */,
 				4DB939052826B69E00883CD5 /* UIColor+Hex.swift */,
-				4D84C5522845DAE700D5BC57 /* View+BlinkModigier.swift */,
 				4DF72C87284A9F69000E6627 /* View+ViewDidLoadModifier.swift */,
 				4DFB6715284C9F0B00811BBC /* String+BasicOperations.swift */,
 				4D51D5702882D37600E2ACDA /* TypeAliases.swift */,
@@ -1029,7 +1026,6 @@
 				4D68A67B27BBCCE000997CFF /* MainMenuView.swift in Sources */,
 				D087B8332B7955C1008C683B /* LevelState.swift in Sources */,
 				4DE3A5C328186606005DF33E /* AppColor.swift in Sources */,
-				4D84C5532845DAE700D5BC57 /* View+BlinkModigier.swift in Sources */,
 				4DC73FC92835127C004FD1A0 /* ShopItem+CoreDataClass.swift in Sources */,
 				D02F82B02B0A2C6B003A2958 /* Background.swift in Sources */,
 				4D68A67127BBBBD200997CFF /* AppCoordinator.swift in Sources */,

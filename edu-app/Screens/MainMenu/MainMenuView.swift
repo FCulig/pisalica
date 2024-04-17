@@ -59,6 +59,7 @@ struct MainMenuView: View {
                 Button(action: {
                     viewModel.configureLevelData()
                     isPlayWordsActive = true
+                    viewModel.writingWordsViewModel.newLevel()
                 },
                        image: AppImage.wordsButton.image)
                 .frame(height: 100)

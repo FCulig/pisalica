@@ -43,7 +43,6 @@ final class WritingWordsViewModel: ObservableObject {
                                                         levelService: levelService,
                                                         strokeManager: strokeManager,
                                                         onWordCorrectWithHints: onWordCorrectWithHintsSubject)
-        newLevel()
         
         subscribeToActions()
         isInitialLoad = false
