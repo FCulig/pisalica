@@ -27,17 +27,13 @@ struct MainMenuView: View {
     // MARK: - View components -
     
     var body: some View {
-        NavigationView {
-            Screen(shouldBlurBackground: false,
-                   centerContent: AnyView(playButtons),
-                   topLeftContent: AnyView(settingsButton),
-                   topRightContent: AnyView(shopAndAchievementsButtons))
-            .onAppear{ viewModel.onAppear() }
-            .overlay(settingsDialog)
-            .overlay(modelDownloading)
-        }
-        .statusBar(hidden: true)
-        .navigationViewStyle(StackNavigationViewStyle())
+        Screen(shouldBlurBackground: false,
+               centerContent: AnyView(playButtons),
+               topLeftContent: AnyView(settingsButton),
+               topRightContent: AnyView(shopAndAchievementsButtons))
+        .onAppear{ viewModel.onAppear() }
+        .overlay(settingsDialog)
+        .overlay(modelDownloading)
     }
     
     var playButtons: some View {
@@ -60,13 +56,14 @@ struct MainMenuView: View {
                     .scaledToFit()
                     .frame(height: 100)
             } else {
-                NavigationLink(destination: NavigationLazyView(WritingWordsView(viewModel: viewModel.writingWordsViewModel)),
-                               isActive: $isPlayWordsActive) {
-                    Button(action: {
-                        viewModel.configureLevelData()
-                        isPlayWordsActive = true
-                    }, image: AppImage.wordsButton.image)
-                    .frame(height: 100)
+                Button(action: {
+                    viewModel.configureLevelData()
+                    isPlayWordsActive = true
+                },
+                       image: AppImage.wordsButton.image)
+                .frame(height: 100)
+                .navigationDestination(isPresented: $isPlayWordsActive) {
+                    WritingWordsView(viewModel: viewModel.writingWordsViewModel)
                 }
             }
         }

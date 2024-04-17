@@ -28,7 +28,9 @@ final class AppCoordinator {
                                                   strokeManager: strokeManager)
 
         return ParentalGateDialogView {
-            MainMenuView(viewModel: mainMenuViewModel)
+            NavigationStack {
+                MainMenuView(viewModel: mainMenuViewModel)
+            }
         }
     }
 }

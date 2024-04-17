@@ -73,6 +73,7 @@ extension MainMenuViewModel {
         configureAchievementData()
 
         levelService.configureLevelData()
+        writingWordsViewModel.newLevel()
     }
 
     func configureShopData() {

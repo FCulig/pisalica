@@ -44,6 +44,7 @@ struct Screen: View {
         foregroundContent
             .background(background)
             .navigationBarHidden(true)
+            .statusBarHidden(true)
     }
 
     // MARK: - Back button -
@@ -51,9 +52,7 @@ struct Screen: View {
     private var backButton: some View {
         HStack {
             VStack(alignment: .leading) {
-                Button(action: {
-                           dismiss()
-                       },
+                Button(action: { dismiss() },
                        image: AppImage.previousButton.image)
                     .frame(height: 70, alignment: .top)
                     .padding(.top, 15)
