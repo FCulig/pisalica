@@ -119,6 +119,7 @@
 		D087B8332B7955C1008C683B /* LevelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D087B8322B7955C1008C683B /* LevelState.swift */; };
 		D087B8352B795776008C683B /* tap.json in Resources */ = {isa = PBXBuildFile; fileRef = D087B8342B795775008C683B /* tap.json */; };
 		D087B8382B7957E7008C683B /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D087B8372B7957E7008C683B /* LottieView.swift */; };
+		D089B3172C351B500022CC80 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D089B3162C351B500022CC80 /* AppRouter.swift */; };
 		D0979DED2B39A2C000D75A4E /* Publisher+AssignWeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0979DEC2B39A2C000D75A4E /* Publisher+AssignWeak.swift */; };
 		D0B206952BB9785300B1F266 /* RoundedButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B206942BB9785300B1F266 /* RoundedButtonViewModel.swift */; };
 		D0BE0C992ABEF89E00D18F17 /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */; };
@@ -254,6 +255,7 @@
 		D087B8322B7955C1008C683B /* LevelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelState.swift; sourceTree = "<group>"; };
 		D087B8342B795775008C683B /* tap.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tap.json; path = ../../../../../Downloads/tap.json; sourceTree = "<group>"; };
 		D087B8372B7957E7008C683B /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		D089B3162C351B500022CC80 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		D0979DEC2B39A2C000D75A4E /* Publisher+AssignWeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+AssignWeak.swift"; sourceTree = "<group>"; };
 		D0B206942BB9785300B1F266 /* RoundedButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonViewModel.swift; sourceTree = "<group>"; };
 		D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 				4D68A64627BBA3B400997CFF /* edu_appApp.swift */,
 				4D68A64C27BBA3B500997CFF /* Preview Content */,
 				D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */,
+				D089B3162C351B500022CC80 /* AppRouter.swift */,
 			);
 			path = "edu-app";
 			sourceTree = "<group>";
@@ -1049,6 +1052,7 @@
 				D083E5032B8A88A7003275A8 /* LevelProgressBarUIView.swift in Sources */,
 				4D85A69627E7425E008FA08D /* WritingLettersLevelView.swift in Sources */,
 				4DDFBCB7284933C10079A4E6 /* RoundedButton.swift in Sources */,
+				D089B3172C351B500022CC80 /* AppRouter.swift in Sources */,
 				4DFB6716284C9F0B00811BBC /* String+BasicOperations.swift in Sources */,
 				4DF72C88284A9F69000E6627 /* View+ViewDidLoadModifier.swift in Sources */,
 				4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */,

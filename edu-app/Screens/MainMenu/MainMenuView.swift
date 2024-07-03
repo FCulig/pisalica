@@ -12,10 +12,9 @@ import SwiftUI
 
 struct MainMenuView: View {
     @ObservedObject var viewModel: MainMenuViewModel
+    @EnvironmentObject var router: AppRouter
     @State var isPlayWordsActive = false
     @State var isPlayLettersActive = false
-    @State var isShopActive = false
-    @State var isAchievementsActive = false
     @State var isSettingsDialogVisible = false
     
     // MARK: - Initializer -
@@ -42,9 +41,9 @@ struct MainMenuView: View {
             NavigationLink(destination: NavigationLazyView(LevelSelectView(viewModel: viewModel.levelSelectViewModel)),
                            isActive: $isPlayLettersActive) {
                 Button(action: {
-                    viewModel.configureLevelData()
-                    isPlayLettersActive = true
-                },
+                            viewModel.configureLevelData()
+                            isPlayLettersActive = true
+                        },
                        image: AppImage.lettersButton.image)
                 .frame(height: 100)
                 .padding(.trailing, isTablet ? 40 : 25)
@@ -72,27 +71,22 @@ struct MainMenuView: View {
     
     var shopAndAchievementsButtons: some View {
         HStack {
-            NavigationLink(destination: ShopView(viewModel: viewModel.shopViewModel),
-                           isActive: $isShopActive) {
-                Button(action: {
-                            viewModel.configureShopData()
-                            isShopActive = true
-                        },
-                       image: AppImage.shopButton.image)
-                .frame(width: 65)
-            }
+            Button(action: {
+                        viewModel.configureShopData()
+                        router.navigateTo(.shop)
+                    },
+                   image: AppImage.shopButton.image)
+            .frame(width: 65)
             
             Spacer()
                 .frame(width: 25)
             
-            NavigationLink(destination: AchievementsView(achievementService: viewModel.achievementService), isActive: $isAchievementsActive) {
-                Button(action: {
-                            viewModel.configureAchievementData()
-                            isAchievementsActive = true
-                        },
-                       image: AppImage.achievementsButton.image)
-                .frame(width: 65)
-            }
+            Button(action: {
+                        viewModel.configureAchievementData()
+                        router.navigateTo(.achievements)
+                    },
+                   image: AppImage.achievementsButton.image)
+            .frame(width: 65)
         }
         .padding(.top, 15)
         .padding(.trailing, isTablet ? 15 : 0)
