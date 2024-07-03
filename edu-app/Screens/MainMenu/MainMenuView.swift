@@ -57,10 +57,10 @@ struct MainMenuView: View {
                     .frame(height: 100)
             } else {
                 Button(action: {
-                    viewModel.configureLevelData()
-                    isPlayWordsActive = true
-                    viewModel.writingWordsViewModel.newLevel()
-                },
+                            viewModel.configureLevelData()
+                            isPlayWordsActive = true
+                            viewModel.writingWordsViewModel.newLevel()
+                        },
                        image: AppImage.wordsButton.image)
                 .frame(height: 100)
                 .navigationDestination(isPresented: $isPlayWordsActive) {
@@ -75,9 +75,9 @@ struct MainMenuView: View {
             NavigationLink(destination: ShopView(viewModel: viewModel.shopViewModel),
                            isActive: $isShopActive) {
                 Button(action: {
-                    viewModel.configureShopData()
-                    isShopActive = true
-                },
+                            viewModel.configureShopData()
+                            isShopActive = true
+                        },
                        image: AppImage.shopButton.image)
                 .frame(width: 65)
             }
@@ -87,9 +87,9 @@ struct MainMenuView: View {
             
             NavigationLink(destination: AchievementsView(achievementService: viewModel.achievementService), isActive: $isAchievementsActive) {
                 Button(action: {
-                    viewModel.configureAchievementData()
-                    isAchievementsActive = true
-                },
+                            viewModel.configureAchievementData()
+                            isAchievementsActive = true
+                        },
                        image: AppImage.achievementsButton.image)
                 .frame(width: 65)
             }
@@ -149,23 +149,3 @@ private extension MainMenuView {
         }
     }
 }
-
-// MARK: - Preview -
-
-//struct MainMenuView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
-//                                      levelService: LevelServicePreviewMock(),
-//                                      shopService: ShopServicePreviewMock(),
-//                                      settingsService: SettingsServicePreviewMock()))
-//            .previewInterfaceOrientation(.landscapeLeft)
-//            .previewDevice("iPhone 13 Pro Max")
-//
-//        MainMenuView(viewModel: .init(achievementService: AchievementServicePreviewMock(),
-//                                      levelService: LevelServicePreviewMock(),
-//                                      shopService: ShopServicePreviewMock(),
-//                                      settingsService: SettingsServicePreviewMock()))
-//            .previewInterfaceOrientation(.landscapeLeft)
-//            .previewDevice("iPad Air (5th generation)")
-//    }
-//}

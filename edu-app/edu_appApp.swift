@@ -10,12 +10,27 @@ import SwiftUI
 @main
 struct edu_appApp: App {
     @StateObject private var dataController = DataController()
-    var coordinator = AppCoordinator()
-
+    
     var body: some Scene {
-        WindowGroup {
-            coordinator.start(context: dataController.container.viewContext)
-                .environment(\.managedObjectContext, dataController.container.viewContext)
+        let context = dataController.container.viewContext
+        let achievementService = AchievementService(context: context)
+        let levelService = LevelService(context: context)
+        let shopService = ShopService(context: context, achievementService: achievementService)
+        let settingsService = SettingsService()
+        let strokeManager = StrokeManager()
+        let mainMenuViewModel = MainMenuViewModel(achievementService: achievementService,
+                                                  levelService: levelService,
+                                                  shopService: shopService,
+                                                  settingsService: settingsService,
+                                                  strokeManager: strokeManager)
+        
+        return WindowGroup {
+            ParentalGateDialogView {
+                NavigationStack {
+                    MainMenuView(viewModel: mainMenuViewModel)
+                }
+            }
+            .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
