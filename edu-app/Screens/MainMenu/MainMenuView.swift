@@ -13,8 +13,6 @@ import SwiftUI
 struct MainMenuView: View {
     @ObservedObject var viewModel: MainMenuViewModel
     @EnvironmentObject var router: AppRouter
-    @State var isPlayWordsActive = false
-    @State var isPlayLettersActive = false
     @State var isSettingsDialogVisible = false
     
     // MARK: - Initializer -
@@ -38,16 +36,13 @@ struct MainMenuView: View {
     var playButtons: some View {
         HStack {
             // Letters
-            NavigationLink(destination: NavigationLazyView(LevelSelectView(viewModel: viewModel.levelSelectViewModel)),
-                           isActive: $isPlayLettersActive) {
-                Button(action: {
-                            viewModel.configureLevelData()
-                            isPlayLettersActive = true
-                        },
-                       image: AppImage.lettersButton.image)
-                .frame(height: 100)
-                .padding(.trailing, isTablet ? 40 : 25)
-            }
+            Button(action: {
+                        viewModel.configureLevelData()
+                        router.navigateTo(.writingWordsLevel)
+                    },
+                   image: AppImage.lettersButton.image)
+            .frame(height: 100)
+            .padding(.trailing, isTablet ? 40 : 25)
             
             // Words
             if viewModel.isWordsLocked {
@@ -57,14 +52,11 @@ struct MainMenuView: View {
             } else {
                 Button(action: {
                             viewModel.configureLevelData()
-                            isPlayWordsActive = true
                             viewModel.writingWordsViewModel.newLevel()
+                            router.navigateTo(.writingLettersLevelSelect)
                         },
                        image: AppImage.wordsButton.image)
                 .frame(height: 100)
-                .navigationDestination(isPresented: $isPlayWordsActive) {
-                    WritingWordsView(viewModel: viewModel.writingWordsViewModel)
-                }
             }
         }
     }
