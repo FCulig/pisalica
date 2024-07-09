@@ -1,14 +1,14 @@
 //
-//  AppRouter.swift
+//  MainMenuRouter.swift
 //  edu-app
 //
-//  Created by Filip Čulig on 03.07.2024..
+//  Created by Filip Čulig on 08.07.2024..
 //
 
 import SwiftUI
 
-// MARK: - AppRoute
-enum AppRoute {
+// MARK: - MainMenuRoute -
+enum MainMenuRoute: Route {
     case achievements
     case mainMenu
     case shop
@@ -16,14 +16,13 @@ enum AppRoute {
     case writingWordsLevel
 }
 
-// MARK: - AppRouter
-class AppRouter: ObservableObject {
-    // MARK: - File private properties
+// MARK: - MainMenuRouter -
+final class MainMenuRouter: Router {
+    // MARK: - File private properties -
     
-    @Published fileprivate var route: AppRoute = .mainMenu
-    @Published fileprivate var path: NavigationPath = NavigationPath()
+    @Published fileprivate var route: MainMenuRoute = .mainMenu
     
-    // MARK: - Private properties
+    // MARK: - Private properties -
     
     private let strokeManager = StrokeManager()
     private let context = DataController().container.viewContext
@@ -31,19 +30,9 @@ class AppRouter: ObservableObject {
     private lazy var achievementService = AchievementService(context: context)
     private lazy var shopService = ShopService(context: context, achievementService: achievementService)
     
-    // MARK: - Navigation controls
+    // MARK: - View for -
     
-    func navigateTo(_ appRoute: AppRoute) {
-        path.append(appRoute)
-    }
-    
-    func navigateBack() {
-        path.removeLast()
-    }
-    
-    // MARK: - View for
-    
-    @ViewBuilder fileprivate func view(for route: AppRoute) -> some View {
+    @ViewBuilder fileprivate func view(for route: MainMenuRoute) -> some View {
         switch route {
         case .mainMenu:
             mainMenu
@@ -57,10 +46,12 @@ class AppRouter: ObservableObject {
             writingWordsLevel
         }
     }
+}
+
+// MARK: - Views -
     
-    // MARK: - Views
-    
-    @ViewBuilder fileprivate var mainMenu: MainMenuView {
+private extension MainMenuRouter {
+    var mainMenu: MainMenuView {
         let settingsService = SettingsService()
         let mainMenuViewModel = MainMenuViewModel(achievementService: achievementService,
                                                   levelService: levelService,
@@ -68,47 +59,50 @@ class AppRouter: ObservableObject {
                                                   settingsService: settingsService,
                                                   strokeManager: strokeManager)
         
-        MainMenuView(viewModel: mainMenuViewModel)
+        let routeEventPublisher = mainMenuViewModel.event.compactMap { $0 as? MainMenuRoute }.eraseToAnyPublisher()
+        subscribeToNavigationEvents(from: routeEventPublisher)
+        
+        return MainMenuView(viewModel: mainMenuViewModel)
     }
     
-    @ViewBuilder fileprivate var shop: ShopView {
+    var shop: ShopView {
         let shopViewModel = ShopViewModel(achievementService: achievementService,
                                           shopService: shopService)
         
-        ShopView(viewModel: shopViewModel)
+        return ShopView(viewModel: shopViewModel)
     }
     
-    @ViewBuilder fileprivate var achievements: AchievementsView {
+    var achievements: AchievementsView {
         AchievementsView(achievementService: achievementService)
     }
     
-    @ViewBuilder fileprivate var writingLettersLevelSelect: LevelSelectView {
+    var writingLettersLevelSelect: LevelSelectView {
         let viewModel = LevelSelectViewModel(achievementService: achievementService,
                                              levelService: levelService,
                                              shopService: shopService,
                                              strokeManager: strokeManager)
         
-        LevelSelectView(viewModel: viewModel)
+        return LevelSelectView(viewModel: viewModel)
     }
     
-    @ViewBuilder fileprivate var writingWordsLevel: WritingWordsView {
+    var writingWordsLevel: WritingWordsView {
         let viewModel = WritingWordsViewModel(levelService: levelService,
                                               shopService: shopService,
                                               achievementService: achievementService,
                                               strokeManager: strokeManager)
         
-        WritingWordsView(viewModel: viewModel)
+        return WritingWordsView(viewModel: viewModel)
     }
 }
 
-// MARK: - AppRouterView
-struct AppRouterView: View {
-    @StateObject var router: AppRouter = AppRouter()
+// MARK: - MainMenuRouterView -
+struct MainMenuRouterView: View {
+    @StateObject var router = MainMenuRouter()
         
     var body: some View {
         NavigationStack(path: $router.path) {
             router.view(for: .mainMenu)
-                .navigationDestination(for: AppRoute.self) { route in
+                .navigationDestination(for: MainMenuRoute.self) { route in
                     router.view(for: route)
                 }
         }

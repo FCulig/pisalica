@@ -9,13 +9,13 @@ import Combine
 import CoreData
 
 // MARK: - MainMenuViewModel -
-
-final class MainMenuViewModel: ObservableObject {
+final class MainMenuViewModel: ObservableObject, Routable {
     // MARK: - Private properties -
 
     private let levelService: LevelServiceful
     private let shopService: ShopServiceful
     private let strokeManager: StrokeManager
+    private let eventSubject: PassthroughSubject<MainMenuRoute, Never> = .init()
     private var cancellables: Set<AnyCancellable> = []
     
     // MARK: - Public properties -
@@ -27,6 +27,12 @@ final class MainMenuViewModel: ObservableObject {
     let shopViewModel: ShopViewModel
     @Published var isWordsLocked: Bool = true
     @Published var isDownloadingModel: Bool = false
+    
+    var event: AnyPublisher<any Route, Never> {
+        eventSubject
+            .compactMap { $0 as Route }
+            .eraseToAnyPublisher()
+    }
 
     // MARK: - Initializer -
 
@@ -66,7 +72,38 @@ extension MainMenuViewModel {
         BackgroundMusicService.shared.start()
         strokeManager.downloadModel()
     }
+    
+    func openLetterLevelSelect() {
+        configureLevelData()
+        eventSubject.send(.writingLettersLevelSelect)
+    }
+    
+    func playWritingWords() {
+        configureLevelData()
+        writingWordsViewModel.newLevel()
+        eventSubject.send(.writingWordsLevel)
+    }
+    
+    func openShop() {
+        configureShopData()
+        eventSubject.send(.shop)
+    }
+    
+    func openAchievements() {
+        configureAchievementData()
+        eventSubject.send(.achievements)
+    }
+}
 
+// MARK: - Private methods
+
+private extension MainMenuViewModel {
+    func setupSubscriptions() {
+        strokeManager.isDownloadingModel
+            .assignWeak(to: \.isDownloadingModel, on: self)
+            .store(in: &cancellables)
+    }
+    
     func configureLevelData() {
         configureCoinsBalance()
         configureShopData()
@@ -106,15 +143,5 @@ extension MainMenuViewModel {
         } else if userDefaults.bool(forKey: preloadedDataKey) == true {
             isWordsLocked = userDefaults.bool(forKey: "isWordsLevelLocked")
         }
-    }
-}
-
-// MARK: - Private methods
-
-private extension MainMenuViewModel {
-    func setupSubscriptions() {
-        strokeManager.isDownloadingModel
-            .assignWeak(to: \.isDownloadingModel, on: self)
-            .store(in: &cancellables)
     }
 }

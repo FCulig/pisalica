@@ -12,7 +12,7 @@ struct edu_appApp: App {
     var body: some Scene {
         return WindowGroup {
             ParentalGateDialogView {
-                AppRouterView()
+                MainMenuRouterView()
             }
         }
     }

@@ -12,7 +12,7 @@ import SwiftUI
 
 struct MainMenuView: View {
     @ObservedObject var viewModel: MainMenuViewModel
-    @EnvironmentObject var router: AppRouter
+    @EnvironmentObject var router: MainMenuRouter
     @State var isSettingsDialogVisible = false
     
     // MARK: - Initializer -
@@ -36,10 +36,7 @@ struct MainMenuView: View {
     var playButtons: some View {
         HStack {
             // Letters
-            Button(action: {
-                        viewModel.configureLevelData()
-                        router.navigateTo(.writingWordsLevel)
-                    },
+            Button(action: viewModel.openLetterLevelSelect,
                    image: AppImage.lettersButton.image)
             .frame(height: 100)
             .padding(.trailing, isTablet ? 40 : 25)
@@ -50,11 +47,7 @@ struct MainMenuView: View {
                     .scaledToFit()
                     .frame(height: 100)
             } else {
-                Button(action: {
-                            viewModel.configureLevelData()
-                            viewModel.writingWordsViewModel.newLevel()
-                            router.navigateTo(.writingLettersLevelSelect)
-                        },
+                Button(action: viewModel.playWritingWords,
                        image: AppImage.wordsButton.image)
                 .frame(height: 100)
             }
@@ -63,20 +56,14 @@ struct MainMenuView: View {
     
     var shopAndAchievementsButtons: some View {
         HStack {
-            Button(action: {
-                        viewModel.configureShopData()
-                        router.navigateTo(.shop)
-                    },
+            Button(action: viewModel.openShop,
                    image: AppImage.shopButton.image)
             .frame(width: 65)
             
             Spacer()
                 .frame(width: 25)
             
-            Button(action: {
-                        viewModel.configureAchievementData()
-                        router.navigateTo(.achievements)
-                    },
+            Button(action: viewModel.openAchievements,
                    image: AppImage.achievementsButton.image)
             .frame(width: 65)
         }

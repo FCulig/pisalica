@@ -118,12 +118,14 @@
 		D083E5052B8A964B003275A8 /* RoundedUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D083E5042B8A964B003275A8 /* RoundedUIButton.swift */; };
 		D087B8332B7955C1008C683B /* LevelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D087B8322B7955C1008C683B /* LevelState.swift */; };
 		D087B8382B7957E7008C683B /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D087B8372B7957E7008C683B /* LottieView.swift */; };
-		D089B3172C351B500022CC80 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D089B3162C351B500022CC80 /* AppRouter.swift */; };
+		D089B3172C351B500022CC80 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D089B3162C351B500022CC80 /* Router.swift */; };
 		D0979DED2B39A2C000D75A4E /* Publisher+AssignWeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0979DEC2B39A2C000D75A4E /* Publisher+AssignWeak.swift */; };
 		D0B206952BB9785300B1F266 /* RoundedButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B206942BB9785300B1F266 /* RoundedButtonViewModel.swift */; };
 		D0BE0C992ABEF89E00D18F17 /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */; };
 		D0D688302BC2828B0000A261 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = D0D6882F2BC2828B0000A261 /* loading.json */; };
 		D0FFD6A02C37BDAA0051FE38 /* tap.json in Resources */ = {isa = PBXBuildFile; fileRef = D0FFD69F2C37BDAA0051FE38 /* tap.json */; };
+		D0FFD6A32C3C08380051FE38 /* MainMenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FFD6A22C3C08380051FE38 /* MainMenuRouter.swift */; };
+		D0FFD6A52C3D04EF0051FE38 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FFD6A42C3D04EF0051FE38 /* Routable.swift */; };
 		DFC62737E2D77EE1C7612A0B /* Pods_edu_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13488BBB9AD0096AC0A7168B /* Pods_edu_appTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -254,12 +256,14 @@
 		D083E5042B8A964B003275A8 /* RoundedUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIButton.swift; sourceTree = "<group>"; };
 		D087B8322B7955C1008C683B /* LevelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelState.swift; sourceTree = "<group>"; };
 		D087B8372B7957E7008C683B /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		D089B3162C351B500022CC80 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		D089B3162C351B500022CC80 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		D0979DEC2B39A2C000D75A4E /* Publisher+AssignWeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+AssignWeak.swift"; sourceTree = "<group>"; };
 		D0B206942BB9785300B1F266 /* RoundedButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonViewModel.swift; sourceTree = "<group>"; };
 		D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
 		D0D6882F2BC2828B0000A261 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		D0FFD69F2C37BDAA0051FE38 /* tap.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tap.json; sourceTree = "<group>"; };
+		D0FFD6A22C3C08380051FE38 /* MainMenuRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuRouter.swift; sourceTree = "<group>"; };
+		D0FFD6A42C3D04EF0051FE38 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
 		E98BCF87320FCA88B0C9A0DE /* Pods-edu-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-appTests.debug.xcconfig"; path = "Target Support Files/Pods-edu-appTests/Pods-edu-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7DAED9AADF3A5D4B0EB07A2 /* Pods-edu-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-edu-appTests.release.xcconfig"; path = "Target Support Files/Pods-edu-appTests/Pods-edu-appTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -359,6 +363,7 @@
 		4D51D56A2882D13E00E2ACDA /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				D0FFD6A12C3C08060051FE38 /* Router */,
 				D087B8362B7957DC008C683B /* LottieView */,
 				D02F82AE2B0A2C5C003A2958 /* Background */,
 				4D526BC62827D19D00B8FEA3 /* ProgressBar */,
@@ -427,7 +432,6 @@
 				4D68A64627BBA3B400997CFF /* edu_appApp.swift */,
 				4D68A64C27BBA3B500997CFF /* Preview Content */,
 				D0BE0C982ABEF89E00D18F17 /* ExportOptions.plist */,
-				D089B3162C351B500022CC80 /* AppRouter.swift */,
 			);
 			path = "edu-app";
 			sourceTree = "<group>";
@@ -453,6 +457,7 @@
 			children = (
 				4D68A67A27BBCCE000997CFF /* MainMenuView.swift */,
 				4D68A67C27BBCCEF00997CFF /* MainMenuViewModel.swift */,
+				D0FFD6A22C3C08380051FE38 /* MainMenuRouter.swift */,
 			);
 			path = MainMenu;
 			sourceTree = "<group>";
@@ -790,6 +795,15 @@
 			path = RoundedButton;
 			sourceTree = "<group>";
 		};
+		D0FFD6A12C3C08060051FE38 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D089B3162C351B500022CC80 /* Router.swift */,
+				D0FFD6A42C3D04EF0051FE38 /* Routable.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1050,9 +1064,10 @@
 				4D807502290FDE3A00FAFCF4 /* Panel.swift in Sources */,
 				4D526BC82827D1AE00B8FEA3 /* ProgressBar.swift in Sources */,
 				D083E5032B8A88A7003275A8 /* LevelProgressBarUIView.swift in Sources */,
+				D0FFD6A32C3C08380051FE38 /* MainMenuRouter.swift in Sources */,
 				4D85A69627E7425E008FA08D /* WritingLettersLevelView.swift in Sources */,
 				4DDFBCB7284933C10079A4E6 /* RoundedButton.swift in Sources */,
-				D089B3172C351B500022CC80 /* AppRouter.swift in Sources */,
+				D089B3172C351B500022CC80 /* Router.swift in Sources */,
 				4DFB6716284C9F0B00811BBC /* String+BasicOperations.swift in Sources */,
 				4DF72C88284A9F69000E6627 /* View+ViewDidLoadModifier.swift in Sources */,
 				4D87C9FD282676D9002EFB8D /* PlayerView.swift in Sources */,
@@ -1078,6 +1093,7 @@
 				4D9410E028E21ED1009819CD /* Dialog.swift in Sources */,
 				D083E5012B892E65003275A8 /* LottieViewModel.swift in Sources */,
 				4DA6372C2841691200A6F785 /* AchievementServicePreviewMock.swift in Sources */,
+				D0FFD6A52C3D04EF0051FE38 /* Routable.swift in Sources */,
 				4DFA953628C3EA43004505A7 /* SettingsServicePreviewMock.swift in Sources */,
 				D083E5052B8A964B003275A8 /* RoundedUIButton.swift in Sources */,
 				4D72F9A829879D1D00661E38 /* Screen.swift in Sources */,
